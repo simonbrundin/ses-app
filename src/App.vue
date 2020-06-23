@@ -1,27 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
+    <Login />
+    <Menu />
     <Notifications />
     <NextGame />
     <button>Boka match</button>
     <StandingsTable />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-import { Notifications } from "./components/Notifications.vue";
+import Notifications from "./components/Notifications.vue";
 import NextGame from "./components/NextGame.vue";
 import StandingsTable from "./components/StandingsTable.vue";
+import Menu from "./components/Menu.vue";
+import Login from "./components/Login.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
     Notifications,
     NextGame,
-    StandingsTable
+    StandingsTable,
+    Menu,
+    Login
   }
 };
 </script>
@@ -32,7 +34,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #fff;
+  margin: 20px;
 }
 </style>
