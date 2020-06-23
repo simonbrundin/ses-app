@@ -4,8 +4,9 @@
     <Menu />
     <Notifications />
     <NextGame />
-    <button>Boka match</button>
     <StandingsTable />
+
+    <Book />
   </div>
 </template>
 
@@ -15,6 +16,7 @@ import NextGame from "./components/NextGame.vue";
 import StandingsTable from "./components/StandingsTable.vue";
 import Menu from "./components/Menu.vue";
 import Login from "./components/Login.vue";
+import Book from "./components/Book.vue";
 
 export default {
   name: "App",
@@ -23,7 +25,8 @@ export default {
     NextGame,
     StandingsTable,
     Menu,
-    Login
+    Login,
+    Book
   }
 };
 </script>
