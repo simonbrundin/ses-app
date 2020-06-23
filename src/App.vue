@@ -1,19 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <Notifications />
+    <NextGame />
+    <button>Boka match</button>
+    <StandingsTable />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
+import { Notifications } from "./components/Notifications.vue";
+import NextGame from "./components/NextGame.vue";
+import StandingsTable from "./components/StandingsTable.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    HelloWorld,
+    Notifications,
+    NextGame,
+    StandingsTable
   }
-}
+};
 </script>
 
 <style>
