@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>3 dagar till nästa match</div>
 </template>
 
 <script>
