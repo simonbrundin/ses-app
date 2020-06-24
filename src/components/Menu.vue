@@ -1,8 +1,6 @@
 <template>
   <div id="menu">
-    <img class="ikon" src="../assets/menyikon.png" alt />
     <div>SES</div>
-    <img class="ikon" src="../assets/menyikon.png" alt />
   </div>
 </template>
 
