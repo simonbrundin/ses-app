@@ -1,6 +1,8 @@
 <template>
   <div id="menu">
+    <div></div>
     <div>SES</div>
+    <div></div>
   </div>
 </template>
 
