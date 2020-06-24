@@ -23,6 +23,11 @@
       <button>Ja</button>
       <button>Nej</button>
     </div>
+    <!-- Bekräfta lediga luckor -->
+    <div class="notification accept-game" v-if="acceptedNextMatch">
+      <p>Vi behöver att du bekräftar vilka tider du kan spela kommande vecka</p>
+      <button>Visa kalender</button>
+    </div>
     <div
       class="dev-notification-buttons"
       v-if=" leftToPay>0 || 
@@ -32,6 +37,7 @@
       <button @click="leftToPay--">-</button>
       <button @click="addedNextMatchToCalendar = !addedNextMatchToCalendar">Kalender</button>
       <button @click="acceptedNextMatch= !acceptedNextMatch">Acceptera</button>
+      <button @click="acceptedNextMatch= !acceptedNextMatch">bekräfta</button>
       <button @click="noNotifications = false">x</button>
     </div>
     <h2 v-else @click="noNotifications = true">Bra jobbat!</h2>
@@ -47,7 +53,8 @@ export default {
       addedNextMatchToCalendar: true,
       acceptedNextMatch: true,
       proposedNextGameDate: "Torsdag 12/8 16.00",
-      noNotifications: false
+      noNotifications: false,
+      daysConfirmed: 1
     };
   }
 };
