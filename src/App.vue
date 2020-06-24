@@ -6,7 +6,7 @@
     <NextGame />
     <StandingsTable />
     <AvailabilityCalendar />
-    <ScheduleSelector
+    <!-- <ScheduleSelector
       :minTime="minTime"
       :maxTime="maxTime"
       :numDays="numDays"
@@ -15,7 +15,7 @@
       :auto-complete="autoComplete"
       :show-date="showDate"
       @onChange="handleDateChange"
-    />
+    />-->
     <Book />
   </div>
 </template>
@@ -28,7 +28,7 @@ import Menu from "./components/Menu.vue";
 import Login from "./components/Login.vue";
 import Book from "./components/Book.vue";
 import AvailabilityCalendar from "./components/AvailabilityCalendar.vue";
-import ScheduleSelector from "../node_modules/vue-schedule-selector/src/components/ScheduleSelector.vue";
+// import ScheduleSelector from "../node_modules/vue-schedule-selector/src/components/ScheduleSelector.vue";
 
 export default {
   name: "App",
@@ -39,8 +39,8 @@ export default {
     Menu,
     Login,
     Book,
-    AvailabilityCalendar,
-    ScheduleSelector
+    AvailabilityCalendar
+    // ScheduleSelector
   },
   data() {
     return {
