@@ -24,7 +24,7 @@
       <button>Nej</button>
     </div>
     <!-- Bekräfta lediga luckor -->
-    <div class="notification accept-game" v-if="acceptedNextMatch">
+    <div class="notification accept-game" v-if="!acceptedNextMatch">
       <p>Vi behöver att du bekräftar vilka tider du kan spela kommande vecka</p>
       <button>Visa kalender</button>
     </div>
