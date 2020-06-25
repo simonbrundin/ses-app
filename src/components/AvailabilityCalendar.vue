@@ -184,6 +184,6 @@ export default {
   margin: 0 2px 4px;
 }
 .markerad {
-  background: blue;
+  background: green;
 }
 </style>
