@@ -1,25 +1,29 @@
 <template>
-  <div id="availability-calendar">
-    <div class="dagar">
-      <div class="tider">
-        <div class="tid-rubrik dag"></div>
-        <div v-for="(tid, index) in spelbaraTimmar" :key="index" :class="tid" class="tid">{{tid}}</div>
-      </div>
-      <div v-for="(dag, index) in rullandeDagar" :key="index" :class="dag" class="dag">
-        {{dag}}
-        <div
-          v-for="(tid, index) in spelbaraTimmar"
-          :key="index"
-          :class="dag + tid && { markerad: 
+  <div>
+    <button v-show="kalenderVisas" @click="kalenderVisas = false">Bekräfta tider</button>
+    <button v-show="!kalenderVisas" @click="kalenderVisas = true">Visa kalender</button>
+    <div id="availability-calendar" v-show="kalenderVisas">
+      <div class="dagar">
+        <div class="tider">
+          <div class="tid-rubrik dag"></div>
+          <div v-for="(tid, index) in spelbaraTimmar" :key="index" :class="tid" class="tid">{{tid}}</div>
+        </div>
+        <div v-for="(dag, index) in rullandeDagar" :key="index" :class="dag" class="dag">
+          {{dag}}
+          <div
+            v-for="(tid, index) in spelbaraTimmar"
+            :key="index"
+            :class="dag + tid && { markerad: 
           user.luckor.includes(dag + tid) }"
-          class="lucka"
-          @click="klickadLucka"
-        ></div>
+            class="lucka"
+            @click="klickadLucka"
+          ></div>
+        </div>
       </div>
-    </div>
-    <div class="dagar">
-      <div class="tid-rubrik dag"></div>
-      <div v-for="(dag, index) in rullandeDagar" :key="index" :class="dag" class="dag">{{dag}}</div>
+      <!-- <div class="dagar">
+        <div class="tid-rubrik dag"></div>
+        <div v-for="(dag, index) in rullandeDagar" :key="index" :class="dag" class="dag">{{dag}}</div>
+      </div>-->
     </div>
   </div>
 </template>
@@ -33,6 +37,7 @@ export default {
       slutTid: 24,
       halvTimmar: true,
       fastVecka: false,
+      kalenderVisas: false,
       user: {
         luckor: [
           "M1100",
@@ -101,6 +106,7 @@ export default {
       }
       return arrayMedTider;
     },
+
     rullandeDagar() {
       let idag = new Date();
       let idagVeckodagsnr = idag.getDay();
