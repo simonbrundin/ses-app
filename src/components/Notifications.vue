@@ -40,7 +40,7 @@
       <button @click="acceptedNextMatch= !acceptedNextMatch">bekräfta</button>
       <button @click="noNotifications = false">x</button>
     </div>
-    <h2 v-else @click="noNotifications = true">Bra jobbat!</h2>
+    <h2 v-else @click="noNotifications = true">Inga notiser</h2>
   </div>
 </template>
 
