@@ -33,11 +33,11 @@ export default {
   name: "AvailabilityCalendar",
   data: () => {
     return {
-      startTid: 6,
+      startTid: 7,
       slutTid: 24,
-      halvTimmar: true,
-      fastVecka: false,
-      kalenderVisas: false,
+      halvTimmar: false,
+      fastVecka: true,
+      kalenderVisas: true,
       user: {
         luckor: [
           "M1100",
@@ -185,5 +185,12 @@ export default {
 }
 .markerad {
   background: blue;
+}
+button {
+  padding: 10px 20px;
+  background: grey;
+  border-radius: 100px;
+  margin: 0 0 20px 0;
+  font-size: 1em;
 }
 </style>
