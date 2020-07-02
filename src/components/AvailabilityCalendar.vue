@@ -35,8 +35,8 @@ export default {
     return {
       startTid: 6,
       slutTid: 24,
-      halvTimmar: true,
-      fastVecka: false,
+      halvTimmar: false,
+      fastVecka: true,
       kalenderVisas: false,
       user: {
         luckor: [
@@ -109,11 +109,11 @@ export default {
 
     rullandeDagar() {
       let idag = new Date();
-      let idagVeckodagsnr = idag.getDay();
+      let idagVeckodagsnummer = idag.getDay();
       // let idagKalenderdagsnr = idag.getDate();
       // let idagMånadsnr = idag.getMonth();
       if (this.fastVecka) {
-        idagVeckodagsnr = 0;
+        idagVeckodagsnummer = 0;
       }
       let veckodagar = [
         "M",
@@ -131,10 +131,10 @@ export default {
         "L",
         "S"
       ];
-      for (let index = 0; index < 7 - idagVeckodagsnr; index++) {
+      for (let index = 0; index < 7 - idagVeckodagsnummer; index++) {
         veckodagar.pop();
       }
-      for (let index = 0; index < idagVeckodagsnr; index++) {
+      for (let index = 0; index < idagVeckodagsnummer; index++) {
         veckodagar.shift();
       }
 
