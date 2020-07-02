@@ -1,18 +1,33 @@
-Tabellkomponent
-Försöka scrapa datan från padelcup.se
-Udda och jämna veckor
-En samordnare bokar alla matcher
-Ev.funktion - Skapa facebookgrupp för varje match för att kunna surra skit
-Swish api - App2App API
-Notiser
+Appen
+- Inloggning
+- Databas
+- Tabellkomponent
+- Americanofunktion
+  - Ev. Försöka scrapa datan från padelcup.se
+- Kalendern
+  - Udda och jämna veckor
+- Swish api - App2App API
+- Vue Native
+  - Kunna skicka notiser via appen
 
--Registrera resultat
-Menyknapp
--Redigera kalender
+
+Framtida appfunktioner
+- Chat - Skapa facebookgrupp för varje match för att kunna surra skit
+
+
+
 Adminsida
-Admins uppgifter
--Boka matcherna
--Säkerställa betalningar
--Registrera resultat
-Inloggning i appen
-Ta betalt för bollar
+- Admins uppgifter
+  - Boka matcherna
+  - Säkerställa betalningar
+  - Registrera resultat
+
+
+
+Hemsidan
+- Fixa HTTPS på Loopia
+- 
+
+Övriga idéer
+- Ta betalt för bollar
+- En samordnare bokar alla matcher
