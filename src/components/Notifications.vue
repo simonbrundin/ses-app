@@ -64,7 +64,6 @@ export default {
 .notification {
   background: pink;
   padding: 10px;
-
   border: 2px solid black;
   margin: 0 0 20px;
 }
