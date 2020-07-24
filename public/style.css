@@ -1,4 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat");
 body {
-  background: white;
+  background: #080808;
+  color: #ffffff;
+  margin: 0px;
+  padding: 0 10px;
+  font-family: 'Montserrat';
+}
+
+div {
+  color: #080808;
+}
+
+h2 {
+  color: #080808;
   margin: 0;
 }
+
+h3 {
+  color: #080808;
+}
+
+.gold {
+  color: #bd996c;
+}
+
+.card {
+  background: #ffffff;
+  color: green;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+#menu {
+  background: #080808;
+}
+
+.menu-item-text {
+  color: #a3a3a3;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont;
+}
+/*# sourceMappingURL=style.css.map */

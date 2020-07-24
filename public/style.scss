@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+
+$gold: #bd996c;
+$black: #080808;
+$light: #ffffff;
+$grey: #a3a3a3;
+
+
+
+//  bfa767
+
+body {
+  background:$black;
+  color: $light;
+  margin: 0px;
+  padding: 0 10px;
+  font-family: 'Montserrat';
+//  font-family: -apple-system, system-ui, BlinkMacSystemFont;
+}
+
+div {
+  color: $black;
+}
+
+// Rubriker
+
+h1 {}
+
+h2 {
+  color: $black;
+  margin: 0;
+}
+
+h3 {
+  color: $black;
+}
+
+.gold {
+  color: $gold;
+}
+
+.card {
+  background: $light;
+  color: green;
+  border-radius: 16px;
+  padding: 20px;
+
+}
+
+
+#menu {
+  background: $black;
+}
+.menu-item-text {
+  color: $grey;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont;}
