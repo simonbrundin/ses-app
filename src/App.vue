@@ -3,8 +3,9 @@
     <!-- <Login /> -->
     <Menu />
     <Notifications />
-    <NextGame />
     <StandingsTable />
+    <NextGame />
+
     <!-- <AvailabilityCalendar /> -->
 
     <!-- <Book /> -->

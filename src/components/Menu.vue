@@ -46,7 +46,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 15px 25px 30px 25px;
+  padding: 15px 25px 15px 25px;
   margin: -50px 0 -10px 0;
   background: white;
   border-radius: 100%;

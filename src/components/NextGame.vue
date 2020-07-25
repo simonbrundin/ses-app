@@ -6,12 +6,12 @@
     <div class="datum">Torsdag 25/6 kl. 17.30</div>
     <div class="card">
       <div class="lag lag1">
-        <div class="spelare left">
+        <div class="spelar-ruta left">
           <img src="../assets/max.jpg" class="spelar-bild" alt />
           <span>Brundin</span>
         </div>
 
-        <div class="spelare right">
+        <div class="spelar-ruta right">
           <img src="../assets/max.jpg" class="spelar-bild" alt />
           <span>Blomberg</span>
         </div>
@@ -23,12 +23,12 @@
       </div>
 
       <div class="lag lag2">
-        <div class="spelare left">
+        <div class="spelar-ruta left">
           <img src="../assets/max.jpg" class="spelar-bild" alt />
           <span>Nordin</span>
         </div>
 
-        <div class="spelare right">
+        <div class="spelar-ruta right">
           <img src="../assets/max.jpg" class="spelar-bild" alt />
           <span>Edin</span>
         </div>
@@ -66,10 +66,10 @@ h3 {
   margin: 0px 5px;
 }
 
-.spelare {
+.spelar-ruta {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+
   font-size: 12px;
   font-weight: 700;
 }
