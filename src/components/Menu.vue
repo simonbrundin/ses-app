@@ -43,12 +43,13 @@ export default {
 }
 
 .home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 15px 25px 30px 25px;
   margin: -50px 0 -10px 0;
   background: white;
   border-radius: 100%;
-  width: 40px;
-  height: 40px;
 }
 
 .rund {
@@ -66,5 +67,6 @@ export default {
   letter-spacing: 0.05em;
   padding: 5px 0 0;
   // font-family: ;
+  text-align: center;
 }
 </style>
