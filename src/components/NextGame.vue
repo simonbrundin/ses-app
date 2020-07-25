@@ -4,32 +4,34 @@
       <div>3 dagar kvar</div>
     </h2>
     <div class="datum">Torsdag 25/6 kl. 17.30</div>
-    <div class="lag lag1">
-      <div class="spelare left">
-        <img src="../assets/max.jpg" class="spelar-bild" alt />
-        <h3>Brundin</h3>
+    <div class="card">
+      <div class="lag lag1">
+        <div class="spelare left">
+          <img src="../assets/max.jpg" class="spelar-bild" alt />
+          <span>Brundin</span>
+        </div>
+
+        <div class="spelare right">
+          <img src="../assets/max.jpg" class="spelar-bild" alt />
+          <span>Blomberg</span>
+        </div>
+      </div>
+      <div class="vs">
+        <span class="vs-linje"></span>
+        <span class="vs-text">vs</span>
+        <span class="vs-linje"></span>
       </div>
 
-      <div class="spelare right">
-        <img src="../assets/max.jpg" class="spelar-bild" alt />
-        <h3>Blomberg</h3>
-      </div>
-    </div>
-    <div class="vs">
-      <hr />
-      <span>vs</span>
-      <hr />
-    </div>
+      <div class="lag lag2">
+        <div class="spelare left">
+          <img src="../assets/max.jpg" class="spelar-bild" alt />
+          <span>Nordin</span>
+        </div>
 
-    <div class="lag lag2">
-      <div class="spelare left">
-        <img src="../assets/max.jpg" class="spelar-bild" alt />
-        <h3>Nordin</h3>
-      </div>
-
-      <div class="spelare right">
-        <img src="../assets/max.jpg" class="spelar-bild" alt />
-        <h3>Edin</h3>
+        <div class="spelare right">
+          <img src="../assets/max.jpg" class="spelar-bild" alt />
+          <span>Edin</span>
+        </div>
       </div>
     </div>
   </div>
@@ -56,9 +58,7 @@ export default {
   justify-content: center;
   background: white;
   border-radius: 16px;
-  box-shadow: 0px 3px 28px 0px #08080856;
-  -webkit-box-shadow: 0px 3px 28px 0px #0808085b;
-  -moz-box-shadow: 0px 3px 28px 0px #08080848;
+
   padding: 10px 20px;
 }
 
@@ -70,6 +70,8 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .left {
@@ -83,17 +85,25 @@ h3 {
 }
 
 .spelar-bild {
-  width: 100px;
+  width: 80px;
   border-radius: 100%;
+  margin: 0 0 5px 0;
 }
 
 .vs {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.vs span {
-  padding: 0 15px;
+.vs-linje {
+  height: 1px;
+  background: black;
+  width: 100%;
+}
+
+.vs-text {
+  padding: 0 10px;
 }
 
 hr {
