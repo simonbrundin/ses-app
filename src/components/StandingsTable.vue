@@ -10,10 +10,10 @@
         <span>P</span>
       </div>
       <div v-for="(spelare, index) in sortedByPoints" :key="index" class="rad">
-        <span class="plats">{{ index + 1 }} ({{ sortedByAvgPoints[index].avgPoints }})</span>
+        <span class="plats">{{ index + 1 }} ({{ sortedByAvgPoints[index].plats }})</span>
         <span class="spelare">{{ spelare.name }}</span>
         <span class="matcher">{{ spelare.matches }}</span>
-        <span class="avgpoints">{{ avgpoints(index) }}</span>
+        <span class="avgpoints">{{ sortedByAvgPoints[index].avgPoints }}</span>
         <span class="points">{{ spelare.points }}</span>
       </div>
     </div>
@@ -59,12 +59,13 @@ export default {
     },
     sortedByAvgPoints: function() {
       let array = this.table;
-      array.forEach(element => {
+      array.forEach((element, index) => {
         let points = element.points;
         let matches = element.matches;
         let medel = points / matches;
         let roundedAvgPoints = Math.round((medel + Number.EPSILON) * 10) / 10;
         element.avgPoints = roundedAvgPoints;
+        element.plats = index + 1;
       });
       array.sort((a, b) => parseFloat(b.avgPoints) - parseFloat(a.avgPoints));
       return array;
