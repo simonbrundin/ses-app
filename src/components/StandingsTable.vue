@@ -9,11 +9,11 @@
         <span>P/M</span>
         <span>P</span>
       </div>
-      <div v-for="(spelare, index) in sortedByPoints" :key="index" class="rad">
-        <span class="plats">{{ index + 1 }} ({{ sortedByAvgPoints[index].plats }})</span>
+      <div v-for="(spelare, index) in table" :key="index" class="rad">
+        <span class="plats">{{ index + 1 }}</span>
         <span class="spelare">{{ spelare.name }}</span>
         <span class="matcher">{{ spelare.matches }}</span>
-        <span class="avgpoints">{{ sortedByAvgPoints[index].avgPoints }}</span>
+        <span class="avgpoints">{{ avgPoints(spelare.points, spelare.matches) }}</span>
         <span class="points">{{ spelare.points }}</span>
       </div>
     </div>
@@ -27,59 +27,38 @@ export default {
     return {
       table: [
         {
+          id: 1,
           name: "Niklas Edin",
           matches: 5,
-          points: 22
+          points: 22,
         },
         {
+          id: 2,
           name: "Fredrik Nordin",
           matches: 3,
-          points: 12
+          points: 12,
         },
         {
+          id: 3,
           name: "Christian Blomberg",
           matches: 7,
-          points: 24
+          points: 24,
         },
         {
+          id: 4,
           name: "Paquito",
           matches: 6,
-          points: 10
-        }
-      ]
+          points: 10,
+        },
+      ],
     };
-  },
-  computed: {
-    sortedByPoints: function() {
-      let table = this.table;
-      let sortedTable = table.sort(
-        (a, b) => parseFloat(b.points) - parseFloat(a.points)
-      );
-      return sortedTable;
-    },
-    sortedByAvgPoints: function() {
-      let array = this.table;
-      array.forEach((element, index) => {
-        let points = element.points;
-        let matches = element.matches;
-        let medel = points / matches;
-        let roundedAvgPoints = Math.round((medel + Number.EPSILON) * 10) / 10;
-        element.avgPoints = roundedAvgPoints;
-        element.plats = index + 1;
-      });
-      array.sort((a, b) => parseFloat(b.avgPoints) - parseFloat(a.avgPoints));
-      return array;
-    }
   },
 
   methods: {
-    avgpoints: function(index) {
-      let avgpoints = this.table[index].points / this.table[index].matches;
-      let twoDecimals = Math.round((avgpoints + Number.EPSILON) * 10) / 10;
-      return twoDecimals;
-      // return avgpoints;
-    }
-  }
+    avgPoints: function (a, b) {
+      return Math.round((a / b + Number.EPSILON) * 10) / 10;
+    },
+  },
 };
 </script>
 
