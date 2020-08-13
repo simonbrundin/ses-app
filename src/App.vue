@@ -2,6 +2,7 @@
   <div id="app">
     <!-- <Login /> -->
     <Menu />
+    <PlayerRegistation />
     <Notifications />
     <StandingsTable />
     <NextGame />
@@ -14,6 +15,7 @@
 
 <script>
 import Notifications from "./components/Notifications.vue";
+import PlayerRegistation from "./components/PlayerRegistration.vue";
 import NextGame from "./components/NextGame.vue";
 import StandingsTable from "./components/StandingsTable.vue";
 import Menu from "./components/Menu.vue";
@@ -24,10 +26,11 @@ import Menu from "./components/Menu.vue";
 export default {
   name: "App",
   components: {
+    PlayerRegistation,
     Notifications,
     NextGame,
     StandingsTable,
-    Menu
+    Menu,
     // Login
     // Book
     // AvailabilityCalendar
@@ -36,7 +39,7 @@ export default {
     return {};
   },
 
-  methods: {}
+  methods: {},
 };
 </script>
 
