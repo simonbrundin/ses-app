@@ -2,7 +2,7 @@
   <div id="app">
     <!-- <Login /> -->
     <Menu />
-    <PlayerRegistation />
+    <MatchRegistration />
     <Notifications />
     <StandingsTable />
     <NextGame />
@@ -15,7 +15,7 @@
 
 <script>
 import Notifications from "./components/Notifications.vue";
-import PlayerRegistation from "./components/PlayerRegistration.vue";
+import MatchRegistration from "./components/MatchRegistration.vue";
 import NextGame from "./components/NextGame.vue";
 import StandingsTable from "./components/StandingsTable.vue";
 import Menu from "./components/Menu.vue";
@@ -26,7 +26,7 @@ import Menu from "./components/Menu.vue";
 export default {
   name: "App",
   components: {
-    PlayerRegistation,
+    MatchRegistration,
     Notifications,
     NextGame,
     StandingsTable,
