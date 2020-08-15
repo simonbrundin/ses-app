@@ -1,7 +1,7 @@
 <template>
   <div id="kalender">
-    <button v-show="kalenderVisas" @click="kalenderVisas = false">Bekräfta tider</button>
-    <button v-show="!kalenderVisas" @click="kalenderVisas = true">Visa kalender</button>
+    <button v-show="kalenderVisas" @click="saveSchedule">Spara ändringar</button>
+    <button v-show="!kalenderVisas" @click="kalenderVisas = true">Ändra schema</button>
 
     <!-- Udda veckor -->
     <div id="availability-calendar" v-show="kalenderVisas">
@@ -14,11 +14,12 @@
         <div v-for="(dag, index) in rullandeDagar" :key="index" :class="dag" class="dag">
           {{dag}}
           <div
+            class="lucka udda"
+            :id="dag + tid"
             v-for="(tid, index) in spelbaraTimmar"
             :key="index"
             :class="dag + tid && { markerad: 
           user.uddaLuckor.includes(dag + tid) }"
-            class="lucka"
             @click="klickadLucka"
           ></div>
         </div>
@@ -44,7 +45,8 @@
             :key="index"
             :class="dag + tid && { markerad: 
           user.jämnaLuckor.includes(dag + tid) }"
-            class="lucka"
+            class="lucka jämn"
+            :id="dag + tid"
             @click="klickadLucka"
           ></div>
         </div>
@@ -62,77 +64,15 @@ export default {
   name: "AvailabilityCalendar",
   data: () => {
     return {
+      server: "http://localhost:7777/",
       startTid: 7,
       slutTid: 24,
       halvTimmar: false,
       fastVecka: true,
       kalenderVisas: true,
       user: {
-        jämnaLuckor: [
-          "Ti1100",
-          "Ti1130",
-          "Ti1200",
-          "Ti1230",
-          "Ti1700",
-          "Ti1730",
-          "Ti1800",
-          "Ti1830",
-          "Ti1900",
-          "Ti1930",
-          "To1100",
-          "To1130",
-          "To1200",
-          "To1230",
-          "To1700",
-          "To1730",
-          "To1800",
-          "To1830",
-          "To1900",
-          "To1930",
-          "S0900",
-          "S0930",
-          "S1000",
-          "S1030",
-          "S1100",
-          "S1130",
-          "L0900",
-          "L0930",
-          "L1000",
-          "L1030",
-          "L1100",
-          "L1130",
-        ],
-        uddaLuckor: [
-          "M1100",
-          "M1130",
-          "M1200",
-          "M1230",
-          "M1700",
-          "M1730",
-          "M1800",
-          "M1830",
-          "M1900",
-          "M1930",
-          "To1230",
-          "To1700",
-          "To1730",
-          "To1800",
-          "To1830",
-          "To1900",
-          "To1930",
-          "S0900",
-          "S0930",
-          "S1000",
-          "S1030",
-          "S1100",
-          "S1130",
-          "L0900",
-          "L0930",
-          "L1000",
-          "L1030",
-          "L1100",
-          "L1130",
-        ],
+        uddaLuckor: [],
+        jämnaLuckor: [],
       },
     };
   },
@@ -192,9 +132,57 @@ export default {
     },
   },
   methods: {
-    klickadLucka: (lucka) => {
+    klickadLucka: function (lucka) {
       lucka.target.classList.toggle("markerad");
+      if (lucka.target.classList.contains("markerad")) {
+        if (lucka.target.classList.contains("udda")) {
+          this.user.uddaLuckor.push(lucka.target.id);
+        } else if (lucka.target.classList.contains("jämn")) {
+          this.user.jämnaLuckor.push(lucka.target.id);
+        }
+      } else {
+        if (lucka.target.classList.contains("udda")) {
+          this.user.uddaLuckor = this.user.uddaLuckor.filter(
+            (item) => item !== lucka.target.id
+          );
+        } else if (lucka.target.classList.contains("jämn")) {
+          this.user.jämnaLuckor = this.user.jämnaLuckor.filter(
+            (item) => item !== lucka.target.id
+          );
+        }
+      }
     },
+    saveSchedule: function () {
+      // Dölj kalendern
+      this.kalenderVisas = false;
+      // Skicka luckorna till servern
+
+      let body = JSON.stringify({
+        spelare: 7,
+        uddaLuckor: this.user.uddaLuckor,
+        jämnaLuckor: this.user.jämnaLuckor,
+      });
+
+      fetch(this.server + "sparaluckor", {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: body,
+      });
+    },
+  },
+  mounted() {
+    // Hämta udda luckor
+    fetch(this.server + "odd")
+      .then((response) => response.json())
+      .then((data) => {
+        this.user.uddaLuckor = data;
+      });
+    // Hämta jämna luckor
+    fetch(this.server + "even")
+      .then((response) => response.json())
+      .then((data) => {
+        this.user.jämnaLuckor = data;
+      });
   },
 };
 </script>
@@ -211,19 +199,23 @@ export default {
 
 .dagar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   font-size: 1em;
 }
 .tider {
   display: flex;
   flex-direction: column;
+  margin: -10px 5px 0 0;
+  text-align: right;
 }
 .dag {
   font-size: 1em;
+  color: white;
+  text-align: center;
 }
 .tid {
   height: 1em;
-  margin: 0 2px 4px;
+  margin: 0 0px 4px;
 }
 .tid-rubrik {
   height: 1.2em;
@@ -238,7 +230,7 @@ export default {
   margin: 0 2px 4px;
 }
 .markerad {
-  background: lightslategray;
+  background: #bd996c;
 }
 button {
   padding: 10px 20px;
