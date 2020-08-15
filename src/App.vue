@@ -7,7 +7,7 @@
     <StandingsTable />
     <NextGame />
 
-    <!-- <AvailabilityCalendar /> -->
+    <AvailabilityCalendar />
 
     <!-- <Book /> -->
   </div>
@@ -21,7 +21,7 @@ import StandingsTable from "./components/StandingsTable.vue";
 import Menu from "./components/Menu.vue";
 // import Login from "./components/Login.vue";
 // import Book from "./components/Book.vue";
-// import AvailabilityCalendar from "./components/AvailabilityCalendar.vue";
+import AvailabilityCalendar from "./components/AvailabilityCalendar.vue";
 
 export default {
   name: "App",
@@ -33,7 +33,7 @@ export default {
     Menu,
     // Login
     // Book
-    // AvailabilityCalendar
+    AvailabilityCalendar
   },
   data() {
     return {};
@@ -45,5 +45,10 @@ export default {
 
 <style>
 #app {
+
+}
+
+.light {
+  color:white;
 }
 </style>

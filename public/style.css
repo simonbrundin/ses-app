@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat");
 body {
   background: #080808;
-  color: #ffffff;
+  color: #080808;
   margin: 0px;
   padding: 0 10px;
   font-family: 'Montserrat';
@@ -11,6 +11,14 @@ div {
   color: #080808;
 }
 
+.light {
+  color: #ffffff;
+}
+
+.light div {
+  color: #ffffff;
+}
+
 h2 {
   color: #080808;
   margin: 0;
@@ -18,6 +26,10 @@ h2 {
 
 h3 {
   color: #080808;
+}
+
+.center {
+  text-align: center;
 }
 
 .gold {

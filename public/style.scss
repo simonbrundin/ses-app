@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat');
 
 $gold: #bd996c;
-$black: #080808;
+$dark: #080808;
 $light: #ffffff;
 $grey: #a3a3a3;
 
@@ -10,8 +10,8 @@ $grey: #a3a3a3;
 //  bfa767
 
 body {
-  background:$black;
-  color: $light;
+  background:$dark;
+  color: $dark;
   margin: 0px;
   padding: 0 10px;
   font-family: 'Montserrat';
@@ -19,7 +19,15 @@ body {
 }
 
 div {
-  color: $black;
+  color: $dark;
+}
+
+.light {
+  color: $light;
+}
+
+.light div{
+  color: $light;
 }
 
 // Rubriker
@@ -27,15 +35,17 @@ div {
 h1 {}
 
 h2 {
-  color: $black;
+  color: $dark;
   margin: 0;
 }
 
 h3 {
-  color: $black;
+  color: $dark;
 }
 
-
+.center {
+  text-align: center;
+}
 
 .gold {
   color: $gold;
@@ -53,7 +63,7 @@ h3 {
 
 
 #menu {
-  background: $black;
+  background: $dark;
 }
 .menu-item-text {
   color: $grey;

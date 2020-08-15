@@ -1,10 +1,13 @@
 <template>
-  <div>
+  <div id="kalender">
     <button v-show="kalenderVisas" @click="kalenderVisas = false">Bekräfta tider</button>
     <button v-show="!kalenderVisas" @click="kalenderVisas = true">Visa kalender</button>
+
+    <!-- Udda veckor -->
     <div id="availability-calendar" v-show="kalenderVisas">
+      <div class="light center">Udda veckor</div>
       <div class="dagar">
-        <div class="tider">
+        <div class="tider light">
           <div class="tid-rubrik dag"></div>
           <div v-for="(tid, index) in spelbaraTimmar" :key="index" :class="tid" class="tid">{{tid}}</div>
         </div>
@@ -14,7 +17,33 @@
             v-for="(tid, index) in spelbaraTimmar"
             :key="index"
             :class="dag + tid && { markerad: 
-          user.luckor.includes(dag + tid) }"
+          user.uddaLuckor.includes(dag + tid) }"
+            class="lucka"
+            @click="klickadLucka"
+          ></div>
+        </div>
+      </div>
+      <!-- <div class="dagar">
+        <div class="tid-rubrik dag"></div>
+        <div v-for="(dag, index) in rullandeDagar" :key="index" :class="dag" class="dag">{{dag}}</div>
+      </div>-->
+    </div>
+
+    <!-- Jämna veckor -->
+    <div id="availability-calendar" v-show="kalenderVisas">
+      <div class="light center">Jämna veckor</div>
+      <div class="dagar">
+        <div class="tider light">
+          <div class="tid-rubrik dag"></div>
+          <div v-for="(tid, index) in spelbaraTimmar" :key="index" :class="tid" class="tid">{{tid}}</div>
+        </div>
+        <div v-for="(dag, index) in rullandeDagar" :key="index" :class="dag" class="dag">
+          {{dag}}
+          <div
+            v-for="(tid, index) in spelbaraTimmar"
+            :key="index"
+            :class="dag + tid && { markerad: 
+          user.jämnaLuckor.includes(dag + tid) }"
             class="lucka"
             @click="klickadLucka"
           ></div>
@@ -39,17 +68,7 @@ export default {
       fastVecka: true,
       kalenderVisas: true,
       user: {
-        luckor: [
-          "M1100",
-          "M1130",
-          "M1200",
-          "M1230",
-          "M1700",
-          "M1730",
-          "M1800",
-          "M1830",
-          "M1900",
-          "M1930",
+        jämnaLuckor: [
           "Ti1100",
           "Ti1130",
           "Ti1200",
@@ -81,9 +100,40 @@ export default {
           "L1000",
           "L1030",
           "L1100",
-          "L1130"
-        ]
-      }
+          "L1130",
+        ],
+        uddaLuckor: [
+          "M1100",
+          "M1130",
+          "M1200",
+          "M1230",
+          "M1700",
+          "M1730",
+          "M1800",
+          "M1830",
+          "M1900",
+          "M1930",
+          "To1230",
+          "To1700",
+          "To1730",
+          "To1800",
+          "To1830",
+          "To1900",
+          "To1930",
+          "S0900",
+          "S0930",
+          "S1000",
+          "S1030",
+          "S1100",
+          "S1130",
+          "L0900",
+          "L0930",
+          "L1000",
+          "L1030",
+          "L1100",
+          "L1130",
+        ],
+      },
     };
   },
   computed: {
@@ -129,7 +179,7 @@ export default {
         "To",
         "F",
         "L",
-        "S"
+        "S",
       ];
       for (let index = 0; index < 7 - idagVeckodagsnummer; index++) {
         veckodagar.pop();
@@ -139,13 +189,13 @@ export default {
       }
 
       return veckodagar;
-    }
+    },
   },
   methods: {
-    klickadLucka: lucka => {
+    klickadLucka: (lucka) => {
       lucka.target.classList.toggle("markerad");
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -154,6 +204,10 @@ export default {
   display: grid;
   grid-template-columns: 2fr repeat(7, 1fr);
 } */
+
+#kalender {
+  margin: 0 0 100px 0;
+}
 
 .dagar {
   display: flex;
@@ -175,7 +229,7 @@ export default {
   height: 1.2em;
 }
 .lucka {
-  background: pink;
+  background: white;
   width: 10vw;
   height: 1em;
   margin: 4px 2px;
@@ -184,7 +238,7 @@ export default {
   margin: 0 2px 4px;
 }
 .markerad {
-  background: green;
+  background: lightslategray;
 }
 button {
   padding: 10px 20px;
