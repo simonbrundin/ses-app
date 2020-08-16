@@ -64,6 +64,7 @@ export default {
   name: "AvailabilityCalendar",
   data: () => {
     return {
+      spelare: 10,
       server: "http://localhost:7777/",
       startTid: 7,
       slutTid: 24,
@@ -158,7 +159,7 @@ export default {
       // Skicka luckorna till servern
 
       let body = JSON.stringify({
-        spelare: 7,
+        spelare: this.spelare,
         uddaLuckor: this.user.uddaLuckor,
         jämnaLuckor: this.user.jämnaLuckor,
       });
@@ -172,17 +173,34 @@ export default {
   },
   mounted() {
     // Hämta udda luckor
-    fetch(this.server + "odd")
+
+    let body = JSON.stringify({
+      spelare: this.spelare,
+    });
+
+    fetch(this.server + "luckor", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: body,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.u);
+        console.log(data.j);
+        this.user.uddaLuckor = data.u;
+        this.user.jämnaLuckor = data.j;
+      });
+    /* fetch(this.server + "odd")
       .then((response) => response.json())
       .then((data) => {
         this.user.uddaLuckor = data;
-      });
+      }); */
     // Hämta jämna luckor
-    fetch(this.server + "even")
+    /* fetch(this.server + "even")
       .then((response) => response.json())
       .then((data) => {
         this.user.jämnaLuckor = data;
-      });
+      }); */
   },
 };
 </script>
