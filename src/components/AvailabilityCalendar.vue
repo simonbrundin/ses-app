@@ -5,6 +5,9 @@
 
     <!-- Udda veckor -->
     <div id="availability-calendar" v-show="kalenderVisas">
+      <div class="light center">
+        <u>{{förnamn}}s schema</u>
+      </div>
       <div class="light center">Udda veckor</div>
       <div class="dagar">
         <div class="tider light">
@@ -64,7 +67,9 @@ export default {
   name: "AvailabilityCalendar",
   data: () => {
     return {
-      spelare: 10,
+      spelare: 7,
+      nextGameNr: 1,
+      förnamn: "",
       server: "http://localhost:7777/",
       startTid: 7,
       slutTid: 24,
@@ -172,11 +177,21 @@ export default {
     },
   },
   mounted() {
-    // Hämta luckor
-
     let body = JSON.stringify({
       spelare: this.spelare,
     });
+    // Hämta spelarinfo
+    fetch(this.server + "spelare", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: body,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        this.förnamn = data;
+      });
+
+    // Hämta luckor
 
     fetch(this.server + "luckor", {
       method: "post",
@@ -200,6 +215,8 @@ export default {
 
 #kalender {
   margin: 0 0 100px 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .dagar {
