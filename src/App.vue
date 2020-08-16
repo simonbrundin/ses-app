@@ -2,12 +2,11 @@
   <div id="app">
     <!-- <Login /> -->
     <Menu />
-    <MatchRegistration />
     <Notifications />
+    <AvailabilityCalendar />
+    <MatchRegistration />
     <StandingsTable />
     <NextGame />
-
-    <AvailabilityCalendar />
 
     <!-- <Book /> -->
   </div>
@@ -33,7 +32,7 @@ export default {
     Menu,
     // Login
     // Book
-    AvailabilityCalendar
+    AvailabilityCalendar,
   },
   data() {
     return {};
@@ -45,10 +44,9 @@ export default {
 
 <style>
 #app {
-
 }
 
 .light {
-  color:white;
+  color: white;
 }
 </style>
