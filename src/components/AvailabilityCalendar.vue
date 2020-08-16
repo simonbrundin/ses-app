@@ -172,7 +172,7 @@ export default {
     },
   },
   mounted() {
-    // Hämta udda luckor
+    // Hämta luckor
 
     let body = JSON.stringify({
       spelare: this.spelare,
@@ -185,22 +185,9 @@ export default {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.u);
-        console.log(data.j);
         this.user.uddaLuckor = data.u;
         this.user.jämnaLuckor = data.j;
       });
-    /* fetch(this.server + "odd")
-      .then((response) => response.json())
-      .then((data) => {
-        this.user.uddaLuckor = data;
-      }); */
-    // Hämta jämna luckor
-    /* fetch(this.server + "even")
-      .then((response) => response.json())
-      .then((data) => {
-        this.user.jämnaLuckor = data;
-      }); */
   },
 };
 </script>
