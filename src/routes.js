@@ -1,5 +1,5 @@
 import Home from './Home.vue';
-import StandingsTable from "./components/StandingsTable.vue";
+import Tabell from "./components/Tabell.vue";
 import Luckor from './components/Luckor.vue'
 
 export const routes = [
@@ -9,7 +9,7 @@ export const routes = [
   },
   {
     path: '/tabell',
-    component: StandingsTable
+    component: Tabell
   },
   {
     path: '/luckor',

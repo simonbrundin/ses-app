@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
 
 $gold: #bd996c;
 $dark: #080808;
@@ -14,7 +14,7 @@ body {
   color: $dark;
   margin: 0px;
   padding: 0 10px;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
 //  font-family: -apple-system, system-ui, BlinkMacSystemFont;
 }
 
@@ -35,8 +35,10 @@ div {
 h1 {}
 
 h2 {
-  color: $dark;
+  color: $light;
   margin: 0;
+  font-size: 24px;
+  font-weight: 700;
 }
 
 h3 {

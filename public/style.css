@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
 body {
   background: #080808;
   color: #080808;
   margin: 0px;
   padding: 0 10px;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
 }
 
 div {
@@ -20,8 +20,10 @@ div {
 }
 
 h2 {
-  color: #080808;
+  color: #ffffff;
   margin: 0;
+  font-size: 24px;
+  font-weight: 700;
 }
 
 h3 {
