@@ -1,19 +1,24 @@
 <template>
   <div id="kalender">
     <router-link to="/">
-      <button v-show="kalenderVisas" @click="saveSchedule" id="spara-knapp">Spara ändringar</button>
+      <div class="flex-center">
+        <button v-show="kalenderVisas" @click="saveSchedule" id="spara-knapp">Spara ändringar</button>
+      </div>
     </router-link>
     <button v-show="!kalenderVisas" @click="kalenderVisas = true">Ändra schema</button>
-    <div class="light center">
-      <u>{{förnamn}}s schema</u>
-    </div>
+
     <!-- Udda veckor -->
     <div id="udda" v-show="kalenderVisas">
-      <div class="light center">Udda veckor</div>
+      <h2 class="light center veckorubrik">Udda veckor</h2>
       <div class="dagar">
         <div class="tider light">
           <div class="tid-rubrik dag"></div>
-          <div v-for="(tid, index) in spelbaraTimmar" :key="index" :class="tid" class="tid">{{tid}}</div>
+          <div
+            v-for="(tid, index) in spelbaraTimmarUtanNollor"
+            :key="index"
+            :class="tid"
+            class="tid"
+          >{{tid}}</div>
         </div>
         <div v-for="(dag, index) in rullandeDagar" :key="index" :class="dag" class="dag">
           {{dag}}
@@ -23,7 +28,7 @@
             v-for="(tid, index) in spelbaraTimmar"
             :key="index"
             :class="dag + tid && { markerad: 
-          user.uddaLuckor.includes(dag + tid) }"
+          user.uddaLuckor.includes(dag + tid), varannan: index % 2 == 0 }"
             @click="klickadLucka"
           ></div>
         </div>
@@ -36,7 +41,7 @@
 
     <!-- Jämna veckor -->
     <div id="jämna" v-show="kalenderVisas">
-      <div class="light center">Jämna veckor</div>
+      <h2 class="light center veckorubrik">Jämna veckor</h2>
       <div class="dagar">
         <div class="tider light">
           <div class="tid-rubrik dag"></div>
@@ -48,17 +53,16 @@
             v-for="(tid, index) in spelbaraTimmar"
             :key="index"
             :class="dag + tid && { markerad: 
-          user.jämnaLuckor.includes(dag + tid) }"
+          user.jämnaLuckor.includes(dag + tid), varannan: index % 2 == 0 }"
             class="lucka jämn"
             :id="dag + tid"
             @click="klickadLucka"
           ></div>
         </div>
       </div>
-      <!-- <div class="dagar">
-        <div class="tid-rubrik dag"></div>
-        <div v-for="(dag, index) in rullandeDagar" :key="index" :class="dag" class="dag">{{dag}}</div>
-      </div>-->
+      <div class="light center schema-namn-rubrik">
+        <u>{{förnamn}}s schema</u>
+      </div>
     </div>
   </div>
 </template>
@@ -68,7 +72,7 @@ export default {
   name: "AvailabilityCalendar",
   data: () => {
     return {
-      spelare: 5,
+      spelare: 7,
       nextGameNr: 1,
       förnamn: "",
       server: "http://localhost:7777/",
@@ -103,7 +107,23 @@ export default {
       }
       return arrayMedTider;
     },
-
+    spelbaraTimmarUtanNollor() {
+      let arrayMedTider = this.spelbaraTimmar;
+      let arrayMedTiderUtanNollor = [];
+      arrayMedTider.forEach((element) => {
+        let timme = element.substring(0, 2);
+        let helHalv = element.slice(2, 4);
+        helHalv = helHalv.replace("00", ".00");
+        helHalv = helHalv.replace("30", ".30");
+        if (timme.startsWith("0")) {
+          let utanNollor = timme.substr(1);
+          timme = utanNollor;
+        }
+        let tid = timme + helHalv;
+        arrayMedTiderUtanNollor.push(tid);
+      });
+      return arrayMedTiderUtanNollor;
+    },
     rullandeDagar() {
       let idag = new Date();
       let idagVeckodagsnummer = idag.getDay();
@@ -234,7 +254,7 @@ export default {
   display: flex;
   flex-direction: column;
   margin: -10px 5px 0 0;
-  text-align: right;
+  text-align: left;
 }
 .dag {
   font-size: 1em;
@@ -244,6 +264,7 @@ export default {
 .tid {
   height: 1em;
   margin: 0 0px 4px;
+  text-align: right;
 }
 .tid-rubrik {
   height: 1.2em;
@@ -257,14 +278,39 @@ export default {
 .lucka:first-child {
   margin: 0 2px 4px;
 }
+.varannan {
+  background: lightgrey;
+}
 .markerad {
   background: #bd996c;
 }
 button {
   padding: 10px 20px;
-  background: grey;
+  background: #8eb5db;
   border-radius: 100px;
   margin: 0 0 20px 0;
   font-size: 1em;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  border: 0;
+}
+
+.schema-namn-rubrik {
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+#udda {
+  margin: 0 0 20px 0;
+}
+
+.veckorubrik {
+  margin: 0 0 20px 0;
 }
 </style>
