@@ -17,11 +17,16 @@
         <span class="points">{{ spelare.points }}</span>
       </div>
     </div>
+    <app-bottom-menu></app-bottom-menu>
   </div>
 </template>
 
 <script>
+import BottomMenu from "./BottomMenu.vue";
 export default {
+  components: {
+    "app-bottom-menu": BottomMenu,
+  },
   name: "StandingsTable",
   data() {
     return {
