@@ -1,12 +1,14 @@
 <template>
   <div id="app">
+    <router-view></router-view>
     <!-- <Login /> -->
-    <Menu />
-    <Notifications />
-    <AvailabilityCalendar />
+    <!-- <Menu /> -->
+    <notifications />
+
+    <!-- <AvailabilityCalendar />
     <MatchRegistration />
     <StandingsTable />
-    <NextGame />
+    <NextGame />-->
 
     <!-- <Book /> -->
   </div>
@@ -14,25 +16,25 @@
 
 <script>
 import Notifications from "./components/Notifications.vue";
-import MatchRegistration from "./components/MatchRegistration.vue";
+
+/* import MatchRegistration from "./components/MatchRegistration.vue";
 import NextGame from "./components/NextGame.vue";
 import StandingsTable from "./components/StandingsTable.vue";
-import Menu from "./components/Menu.vue";
 // import Login from "./components/Login.vue";
 // import Book from "./components/Book.vue";
-import AvailabilityCalendar from "./components/AvailabilityCalendar.vue";
+/* import AvailabilityCalendar from "./components/AvailabilityCalendar.vue"; */
 
 export default {
   name: "App",
   components: {
-    MatchRegistration,
-    Notifications,
-    NextGame,
-    StandingsTable,
-    Menu,
-    // Login
-    // Book
-    AvailabilityCalendar,
+    notifications: Notifications,
+
+    /* MatchRegistration, */
+    // NextGame,
+    // StandingsTable,
+    // // Login
+    // // Book
+    // AvailabilityCalendar,
   },
   data() {
     return {};

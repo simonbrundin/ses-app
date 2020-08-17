@@ -15,6 +15,7 @@
     "vue": "^2.6.11",
     "vue-awesome": "^4.1.0",
     "vue-icon": "^2.1.2",
+    "vue-router": "^3.4.3",
     "vue-schedule-selector": "^1.0.13"
   },
   "devDependencies": {

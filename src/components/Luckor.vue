@@ -1,13 +1,14 @@
 <template>
   <div id="kalender">
-    <button v-show="kalenderVisas" @click="saveSchedule">Spara ändringar</button>
+    <router-link to="/">
+      <button v-show="kalenderVisas" @click="saveSchedule" id="spara-knapp">Spara ändringar</button>
+    </router-link>
     <button v-show="!kalenderVisas" @click="kalenderVisas = true">Ändra schema</button>
-
+    <div class="light center">
+      <u>{{förnamn}}s schema</u>
+    </div>
     <!-- Udda veckor -->
-    <div id="availability-calendar" v-show="kalenderVisas">
-      <div class="light center">
-        <u>{{förnamn}}s schema</u>
-      </div>
+    <div id="udda" v-show="kalenderVisas">
       <div class="light center">Udda veckor</div>
       <div class="dagar">
         <div class="tider light">
@@ -34,7 +35,7 @@
     </div>
 
     <!-- Jämna veckor -->
-    <div id="availability-calendar" v-show="kalenderVisas">
+    <div id="jämna" v-show="kalenderVisas">
       <div class="light center">Jämna veckor</div>
       <div class="dagar">
         <div class="tider light">
@@ -67,7 +68,7 @@ export default {
   name: "AvailabilityCalendar",
   data: () => {
     return {
-      spelare: 7,
+      spelare: 5,
       nextGameNr: 1,
       förnamn: "",
       server: "http://localhost:7777/",
@@ -212,6 +213,11 @@ export default {
   display: grid;
   grid-template-columns: 2fr repeat(7, 1fr);
 } */
+
+#spara-knapp {
+  position: fixed;
+  bottom: 0;
+}
 
 #kalender {
   margin: 0 0 100px 0;

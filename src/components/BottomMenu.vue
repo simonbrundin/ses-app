@@ -4,20 +4,24 @@
       <img src="../assets/ikon-tennis-fylld.png" alt class="ikon" />
       <div class="menu-item-text gold">Boka tid</div>
     </div>
-    <div class="home">
-      <img src="../assets/iconmonstr-home-10-32 (1).png" alt class="ikon" />
-      <div class="menu-item-text gold">Start</div>
-    </div>
-    <div>
-      <img src="../assets/ikon-luckor.png" alt class="ikon" />
-      <div class="menu-item-text gold">Luckor</div>
-    </div>
+    <router-link to>
+      <div class="home">
+        <img src="../assets/iconmonstr-home-10-32 (1).png" alt class="ikon" />
+        <div class="menu-item-text gold">Start</div>
+      </div>
+    </router-link>
+    <router-link to="/luckor">
+      <div>
+        <img src="../assets/ikon-luckor.png" alt class="ikon" />
+        <div class="menu-item-text gold">Luckor</div>
+      </div>
+    </router-link>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Menu"
+  name: "Menu",
 };
 </script>
 
