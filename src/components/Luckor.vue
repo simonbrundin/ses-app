@@ -10,9 +10,29 @@
     <!-- Udda veckor -->
     <div id="udda" v-show="kalenderVisas">
       <h2 class="light center veckorubrik">Udda veckor</h2>
+
+      <!-- ---------------------------------------------------------------- -->
+      <div id="udda-grid">
+        <div class="tid-rubrik dag"></div>
+        <div v-for="(dag, index) in rullandeDagar" :key="index" :class="dag" class="dag">{{dag}}</div>
+        <div v-for="(tid, index) in spelbaraTimmar" class="tid" :key="index" :class="tid">
+          <div>{{spelbaraTimmarUtanNollor[index]}}</div>
+          <div
+            class="lucka udda"
+            :id="dag + tid"
+            v-for="(dag, index) in rullandeDagar"
+            :key="index"
+            :class="dag + tid && { markerad: 
+          user.uddaLuckor.includes(dag + tid), varannan: index % 2 == 0 }"
+            @click="klickadLucka"
+          ></div>
+        </div>
+        <div></div>
+      </div>
+      <!-- ---------------------------------------------------------------- -->
+
       <div class="dagar">
         <div class="tider light">
-          <div class="tid-rubrik dag"></div>
           <div
             v-for="(tid, index) in spelbaraTimmarUtanNollor"
             :key="index"
@@ -185,7 +205,7 @@ export default {
       // Skicka luckorna till servern
 
       let body = JSON.stringify({
-        spelare: this.spelare,
+        spelare: this.$store.state.spelarID,
         uddaLuckor: this.user.uddaLuckor,
         jämnaLuckor: this.user.jämnaLuckor,
       });
@@ -199,7 +219,7 @@ export default {
   },
   mounted() {
     let body = JSON.stringify({
-      spelare: this.spelare,
+      spelare: this.$store.state.spelarID,
     });
     // Hämta spelarinfo
     fetch(this.server + "spelare", {
@@ -245,25 +265,39 @@ export default {
   flex-direction: column;
 }
 
-.dagar {
-  display: flex;
-  justify-content: center;
-  font-size: 1em;
+#udda-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  margin-bottom: 500px;
 }
+
 .tider {
   display: flex;
   flex-direction: column;
-  margin: -10px 5px 0 0;
+  width: 12.5%;
+  margin: 0;
   text-align: left;
 }
-.dag {
+.dagar {
+  display: flex;
+  justify-content: stretch;
   font-size: 1em;
+}
+
+.tid:nth-child(2) {
+  color: #222429;
+  margin: -8px 0 0 0;
+}
+
+.dag {
+  width: 12.5%;
   color: white;
   text-align: center;
 }
 .tid {
-  height: 1em;
-  margin: 0 0px 4px;
+  font-size: 10px;
+  height: 6.5vw;
+  margin: 0 10px 0 0;
   text-align: right;
 }
 .tid-rubrik {
@@ -271,12 +305,11 @@ export default {
 }
 .lucka {
   background: white;
-  width: 10vw;
-  height: 1em;
-  margin: 4px 2px;
+  height: 6.5vw;
+  margin: 0 0 0 0;
 }
 .lucka:first-child {
-  margin: 0 2px 4px;
+  margin: 0;
 }
 .varannan {
   background: lightgrey;
@@ -299,6 +332,7 @@ button {
 
 button {
   border: 0;
+  background: #88f5bd;
 }
 
 .schema-namn-rubrik {
@@ -313,4 +347,13 @@ button {
 .veckorubrik {
   margin: 0 0 20px 0;
 }
+.parent {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 2fr repeat(11, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
 </style>
+
+
