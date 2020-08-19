@@ -5,6 +5,9 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
-    spelarID: 10
+    playerID: 10,
+    dept: 0,
+    nextGame: false,
+    showNotificationButtons: false,
   }
 });

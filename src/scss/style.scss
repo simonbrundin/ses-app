@@ -1,19 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
 
 $gold: #bd996c;
-$dark: #222429;
+$dark: black;
+$grey: #222429;
 $light: #ffffff;
-$grey: #a3a3a3;
+$second-color: green;
 
 
 
 //  bfa767
 
 body {
-  background:$dark;
+  background:$light;
   color: $dark;
   margin: 0px;
-  padding: 0 10px;
+  
   font-family: 'Montserrat', sans-serif;
 //  font-family: -apple-system, system-ui, BlinkMacSystemFont;
 }
@@ -35,7 +36,7 @@ div {
 h1 {}
 
 h2 {
-  color: $light;
+  color: $dark;
   margin: 0;
   font-size: 24px;
   font-weight: 700;
@@ -43,14 +44,6 @@ h2 {
 
 h3 {
   color: $dark;
-}
-
-.center {
-  text-align: center;
-}
-
-.gold {
-  color: $gold;
 }
 
 .card {
@@ -61,6 +54,16 @@ h3 {
    box-shadow: 0px 3px 28px 0px #08080856;
   -webkit-box-shadow: 0px 3px 28px 0px #0808085b;
   -moz-box-shadow: 0px 3px 28px 0px #08080848;
+}
+
+button {
+  padding: 10px 20px;
+  background: #8eb5db;
+  border-radius: 100px;
+  margin: 0 0 20px 0;
+  font-size: 1em;
+   border: 0;
+  background: #88f5bd;
 }
 
 

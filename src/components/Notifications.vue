@@ -1,13 +1,10 @@
 <template>
   <div id="notifications">
+    <!-- Bekräfta lediga luckor -->
+    <confirm-game class="notification"></confirm-game>
+
     <!-- Betalning saknas -->
-    <div class="notification payment" v-if=" leftToPay > 0">
-      <p>
-        Det saknas en betalning från dig på
-        <strong>{{ leftToPay }} kr</strong>
-      </p>
-      <button>Betala nu</button>
-    </div>
+    <payment class="notification"></payment>
     <!-- Lägg till i kalender -->
     <div class="notification calendar" v-if=" !addedNextMatchToCalendar ">
       <p>Säkerställ att du inte missar nästa match</p>
@@ -23,49 +20,48 @@
       <button>Ja</button>
       <button>Nej</button>
     </div>
-    <!-- Bekräfta lediga luckor -->
-    <div class="notification accept-game" v-if="!acceptedNextMatch">
-      <p>Vi behöver att du bekräftar vilka tider du kan spela kommande vecka</p>
-      <button>Visa kalender</button>
-    </div>
-    <div
-      class="dev-notification-buttons"
-      v-if=" leftToPay>0 || 
-      !acceptedNextMatch || !addedNextMatchToCalendar || noNotifications"
-    >
-      <button @click="leftToPay++">+</button>
-      <button @click="leftToPay--">-</button>
+    <div class="dev-notification-buttons" v-if="this.$store.state.showNotificationButtons">
       <button @click="addedNextMatchToCalendar = !addedNextMatchToCalendar">Kalender</button>
       <button @click="acceptedNextMatch= !acceptedNextMatch">Acceptera</button>
       <button @click="acceptedNextMatch= !acceptedNextMatch">bekräfta</button>
       <button @click="noNotifications = false">x</button>
     </div>
-    <h2 v-else @click="noNotifications = true">Inga notiser</h2>
+    <h2 v-else @click="noNotifications = true"></h2>
   </div>
 </template>
 
 <script>
+import Payment from "./notifications/Payment";
+import ConfirmGame from "./notifications/ConfirmGame";
 export default {
-  name: "Notifications",
+  components: {
+    payment: Payment,
+    "confirm-game": ConfirmGame,
+  },
   data() {
     return {
       leftToPay: 0,
       addedNextMatchToCalendar: true,
       acceptedNextMatch: true,
       proposedNextGameDate: "Torsdag 12/8 16.00",
-      noNotifications: false,
-      daysConfirmed: 1
+      noNotifications: true,
+      daysConfirmed: 1,
     };
-  }
+  },
 };
 </script>
 
-<style>
+<style lang="scss">
+#notifications {
+}
+
 .notification {
-  background: pink;
-  padding: 10px;
-  border: 2px solid black;
-  margin: 0 0 20px;
+  background: $light;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw -40px;
+  padding: 30px 36px;
 }
 .accept-game button {
   margin: 0 5px;
