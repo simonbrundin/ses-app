@@ -1,6 +1,6 @@
 <template>
   <div id="menu">
-    <router-link to="/tabell">
+    <router-link to="/table">
       <div>
         <img src="../assets/ikon-tabell.png" alt class="ikon" />
         <div class="menu-item-text gold">Tabell</div>
@@ -16,13 +16,13 @@
         <div class="menu-item-text gold">Start</div>
       </div>
     </router-link>
-    <router-link to="/luckor">
+    <router-link to="/slots">
       <div>
         <img src="../assets/ikon-luckor.png" alt class="ikon" />
         <div class="menu-item-text gold">Luckor</div>
       </div>
     </router-link>
-    <router-link to="/luckor">
+    <router-link to="/slots">
       <div>
         <img src="../assets/ikon-luckor.png" alt class="ikon" />
         <div class="menu-item-text gold">Luckor</div>
