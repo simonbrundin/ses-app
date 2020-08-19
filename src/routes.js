@@ -1,6 +1,6 @@
 import Home from './Home.vue';
-import Tabell from "./components/Tabell.vue";
-import Luckor from './components/Luckor.vue'
+import Tabell from "./components/Table.vue";
+import Luckor from './components/Slots.vue'
 
 export const routes = [
   {
@@ -8,11 +8,11 @@ export const routes = [
     component: Home
   },
   {
-    path: '/tabell',
+    path: '/table',
     component: Tabell
   },
   {
-    path: '/luckor',
+    path: '/slots',
     component: Luckor
   }
 ];
