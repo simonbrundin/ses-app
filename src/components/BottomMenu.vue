@@ -18,8 +18,8 @@
     </router-link>
     <router-link to="/slots">
       <div>
-        <img src="../assets/ikon-luckor.png" alt class="ikon" />
-        <div class="menu-item-text gold">Luckor</div>
+        <i id="ttt" class="im im-gift-card"></i>
+        <div class="menu-item-text gold">Kuponger</div>
       </div>
     </router-link>
     <router-link to="/slots">
@@ -84,5 +84,10 @@ export default {
   padding: 5px 0 0;
   // font-family: ;
   text-align: center;
+}
+
+#ttt {
+  color: $gold;
+  font-size: 36px/1;
 }
 </style>
