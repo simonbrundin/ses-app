@@ -7,7 +7,10 @@ export const store = new Vuex.Store({
   state: {
     playerID: 10,
     dept: 0,
-    nextGame: false,
-    showNotificationButtons: false,
+    notifications: {
+      ConfirmGame: false,
+      AddToCalendar: false,
+      showNotificationButtons: false,
+    }
   }
 });
