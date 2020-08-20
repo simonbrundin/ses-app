@@ -61,9 +61,12 @@ export default {
   top: 0;
   height: 100vh;
   width: 100vw -40px;
-  padding: 30px 36px;
+  padding: 36px 36px;
 }
-.accept-game button {
-  margin: 0 5px;
+
+.message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 </style>

@@ -12,9 +12,22 @@
       </svg>
       <img class="profile-image" src="../../assets/max.jpg" alt />
     </div>
-    <h2 class="greeting">Hej Emmii</h2>
-    <p>Vi behöver att du bekräftar vilka tider du kan spela kommande vecka</p>
-    <button>Visa kalender</button>
+    <div class="message">
+      <!-- <h2 class="greeting">Hej Simon,</h2> -->
+      <img class="match-image" src="../../assets/spelare-med-band.png" alt />
+      <p>
+        Vi har hittat en tid som passar alla spelare
+        <br />Fungerar tiden för dig?
+      </p>
+
+      <p class="date-text">Torsdag, 8 November</p>
+      <div class="match-time">
+        <div class="time-box hours">15</div>
+        <div class="time-box mins">30</div>
+      </div>
+      <button>Bekräfta matchtiden</button>
+      <p class="decline">Tyvärr, jag har fått förhinder</p>
+    </div>
   </div>
 </template>
 
@@ -35,15 +48,81 @@ svg {
 }
 
 .profile-image {
-  border-radius: 25px;
-  width: 50px;
-  height: 50px;
+  border-radius: 18px;
+  width: 45px;
+  height: 45px;
 }
 
 .greeting {
   margin: 20px 0 20px 0;
   font-size: 16px;
   text-align: center;
-  color: $grey;
+  font-weight: 500;
+  color: $gold;
 }
+
+.message {
+  color: $grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+p {
+  color: $grey;
+  text-align: center;
+  font-size: 13px;
+  z-index: 2;
+}
+
+.match-image {
+  width: 80%;
+  margin: auto;
+}
+
+.date-text {
+  font-size: 20px;
+  font-weight: 500;
+  color: $dark-grey;
+}
+.match-time {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 20px 0;
+}
+
+.time-box {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 24px;
+  margin: 0 3px;
+  width: 70px;
+  height: 70px;
+  background: $light;
+  z-index: auto;
+  color: $dark-grey;
+}
+.time-box:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+
+  border-radius: inherit;
+  @include shadow;
+  z-index: -1;
+  transition: box-shadow 0.5s;
+}
+
+.decline {
+  margin: 20px 0 0 0;
+}
+/* .accept-game button {
+  margin: 0 5px;
+} */
 </style>
