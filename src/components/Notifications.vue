@@ -3,13 +3,11 @@
     <!-- Bekräfta lediga luckor -->
     <confirm-game class="notification"></confirm-game>
 
+    <!-- Lägg till i kalender -->
+    <add-to-calendar class="notification"></add-to-calendar>
+
     <!-- Betalning saknas -->
     <payment class="notification"></payment>
-    <!-- Lägg till i kalender -->
-    <div class="notification calendar" v-if=" !addedNextMatchToCalendar ">
-      <p>Säkerställ att du inte missar nästa match</p>
-      <button>Lägg till i min kalender</button>
-    </div>
     <!-- Acceptera datum -->
     <div class="notification accept-game" v-if=" !acceptedNextMatch ">
       <p>
@@ -33,10 +31,12 @@
 <script>
 import Payment from "./notifications/Payment";
 import ConfirmGame from "./notifications/ConfirmGame";
+import AddToCalendar from "./notifications/AddToCalendar";
 export default {
   components: {
     payment: Payment,
     "confirm-game": ConfirmGame,
+    "add-to-calendar": AddToCalendar,
   },
   data() {
     return {
@@ -60,13 +60,44 @@ export default {
   position: fixed;
   top: 0;
   height: 100vh;
-  width: 100vw -40px;
-  padding: 36px 36px;
+  width: 80%;
+  padding: 10%;
+}
+
+.notification-image {
+  width: 80%;
+  margin: auto;
+}
+
+.notification-heading {
+  font-size: 20px;
+  font-weight: 500;
+  color: $dark-grey;
+}
+
+.greeting {
+  margin: 20px 0 20px 0;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 500;
+  color: $gold;
 }
 
 .message {
+  color: $grey;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.notification-description {
+  color: $grey;
+  text-align: center;
+  font-size: 13px;
+  z-index: 2;
+}
+
+.decline {
+  margin: 24px 0 0 0;
 }
 </style>
