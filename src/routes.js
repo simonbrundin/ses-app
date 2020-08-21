@@ -1,6 +1,8 @@
 import Home from './Home.vue';
 import Tabell from "./components/Table.vue";
-import Luckor from './components/Slots.vue'
+import Slots from './components/Slots.vue'
+import Coupons from './components/Coupons.vue'
+
 
 export const routes = [
   {
@@ -13,6 +15,10 @@ export const routes = [
   },
   {
     path: '/slots',
-    component: Luckor
+    component: Slots
+  },
+  {
+    path: '/coupons',
+    component: Coupons
   }
 ];

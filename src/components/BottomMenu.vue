@@ -1,30 +1,24 @@
 <template>
   <div id="menu">
     <router-link to="/table">
-      <div>
-        <img src="../assets/ikon-tabell.png" alt class="ikon" />
-        <div class="menu-item-text gold">Tabell</div>
-      </div>
+      <i class="bottom-menu-icons im im-data"></i>
+      <div class="menu-item-text gold">Tabell</div>
     </router-link>
-    <div>
-      <img src="../assets/ikon-tennis-fylld.png" alt class="ikon" />
+    <router-link to="/table">
+      <i class="bottom-menu-icons im im-date-o"></i>
       <div class="menu-item-text gold">Boka tid</div>
-    </div>
-    <router-link to="/">
-      <div class="home">
-        <img src="../assets/iconmonstr-home-10-32 (1).png" alt class="ikon" />
-        <div class="menu-item-text gold">Start</div>
-      </div>
+    </router-link>
+    <router-link to="/" class="home">
+      <i class="bottom-menu-icons im im-dashboard"></i>
+      <div class="menu-item-text gold">Start</div>
+    </router-link>
+    <router-link to="/coupons">
+      <i class="bottom-menu-icons im im-barcode"></i>
+      <div class="menu-item-text gold">Kuponger</div>
     </router-link>
     <router-link to="/slots">
       <div>
-        <i id="ttt" class="im im-gift-card"></i>
-        <div class="menu-item-text gold">Kuponger</div>
-      </div>
-    </router-link>
-    <router-link to="/slots">
-      <div>
-        <img src="../assets/ikon-luckor.png" alt class="ikon" />
+        <i class="bottom-menu-icons im im-calendar"></i>
         <div class="menu-item-text gold">Luckor</div>
       </div>
     </router-link>
@@ -42,7 +36,7 @@ export default {
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
-  margin: 0 -20px;
+  margin: 0;
   padding: 15px 20px;
   width: calc(100% - 40px);
   position: fixed;
@@ -52,6 +46,13 @@ export default {
   box-shadow: 0px 3px 78px 0px #08080856;
   -webkit-box-shadow: 0px 3px 78px 0px #0808085b;
   -moz-box-shadow: 0px 3px 78px 0px #08080848;
+}
+
+#menu a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
 }
 
 .ikon {
@@ -86,8 +87,8 @@ export default {
   text-align: center;
 }
 
-#ttt {
+.bottom-menu-icons.im {
   color: $gold;
-  font-size: 36px/1;
+  font-size: 36px;
 }
 </style>
