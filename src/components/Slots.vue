@@ -8,31 +8,12 @@
     <button v-show="!kalenderVisas" @click="kalenderVisas = true">Ändra schema</button>
 
     <!-- Udda veckor -->
+
     <div id="udda" v-show="kalenderVisas">
       <h2 class="veckorubrik">Udda veckor</h2>
-
-      <!-- ---------------------------------------------------------------- -->
-      <div id="udda-grid">
-        <div class="tid-rubrik dag"></div>
-        <div v-for="(dag, index) in rullandeDagar" :key="index" :class="dag" class="dag">{{dag}}</div>
-        <div v-for="(tid, index) in spelbaraTimmar" class="tid" :key="index" :class="tid">
-          <div>{{spelbaraTimmarUtanNollor[index]}}</div>
-          <div
-            class="lucka udda"
-            :id="dag + tid"
-            v-for="(dag, index) in rullandeDagar"
-            :key="index"
-            :class="dag + tid && { markerad: 
-          user.uddaLuckor.includes(dag + tid), varannan: index % 2 == 0 }"
-            @click="klickadLucka"
-          ></div>
-        </div>
-        <div></div>
-      </div>
-      <!-- ---------------------------------------------------------------- -->
-
       <div class="dagar">
         <div class="tider">
+          <div class="tid-rubrik dag"></div>
           <div
             v-for="(tid, index) in spelbaraTimmarUtanNollor"
             :key="index"
@@ -84,6 +65,25 @@
         <u>{{förnamn}}s schema</u>
       </div>
     </div>
+    <!-- ---------------------------------------------------------------- -->
+    <div id="udda-grid">
+      <div class="tid-rubrik dag"></div>
+      <div v-for="(dag, index) in rullandeDagar" :key="index" :class="dag" class="dag">{{dag}}</div>
+      <div v-for="(tid, index) in spelbaraTimmar" class="tid" :key="index" :class="tid">
+        <div>{{spelbaraTimmarUtanNollor[index]}}</div>
+        <div
+          class="lucka udda"
+          :id="dag + tid"
+          v-for="(dag, index) in rullandeDagar"
+          :key="index"
+          :class="dag + tid && { markerad: 
+          user.uddaLuckor.includes(dag + tid), varannan: index % 2 == 0 }"
+          @click="klickadLucka"
+        ></div>
+      </div>
+      <div></div>
+    </div>
+    <!-- ---------------------------------------------------------------- -->
   </div>
 </template>
 
@@ -287,7 +287,8 @@ export default {
 
 .tid:nth-child(2) {
   color: #222429;
-  margin: -8px 0 0 0;
+  margin: 12px 0 0 0;
+  display: none;
 }
 
 .dag {
@@ -301,8 +302,9 @@ export default {
   margin: 0 10px 0 0;
   text-align: right;
 }
+
 .tid-rubrik {
-  height: 1.2em;
+  height: 2.35em;
 }
 .lucka {
   background: white;
