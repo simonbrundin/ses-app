@@ -8,12 +8,15 @@ import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
 import { faStore } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import SvgIcon from "./components/Svg-icon";
+
 
 library.add(faHome);
 library.add(faCalendarAlt);
 library.add(faStore);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('svg-icon', SvgIcon)
 
 Vue.use(VueRouter);
 Vue.config.productionTip = false
