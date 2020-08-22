@@ -1,15 +1,10 @@
 <template>
-  <div id="kalender">
-    <router-link to="/">
-      <div class>
-        <button id="spara-knapp" v-show="kalenderVisas" @click="saveSchedule">Spara ändringar</button>
-      </div>
-    </router-link>
-    <button v-show="!kalenderVisas" @click="kalenderVisas = true">Ändra schema</button>
+  <div id="calendar">
+    <!-- Knappar som byter spelare -->
 
     <!-- Udda veckor -->
 
-    <div id="udda" v-show="kalenderVisas">
+    <!-- <div id="udda" v-show="calendarVisas">
       <h2 class="veckorubrik">Udda veckor</h2>
       <div class="dagar">
         <div class="tider">
@@ -28,20 +23,17 @@
             :id="dag + tid"
             v-for="(tid, index) in spelbaraTimmar"
             :key="index"
-            :class="dag + tid && { markerad: 
-          user.uddaLuckor.includes(dag + tid), varannan: index % 2 == 0 }"
+            :class="dag + tid && { marked: 
+          user.oddSlots.includes(dag + tid), varannan: index % 2 == 0 }"
             @click="klickadLucka"
           ></div>
         </div>
       </div>
-      <!-- <div class="dagar">
-        <div class="tid-rubrik dag"></div>
-        <div v-for="(dag, index) in rullandeDagar" :key="index" :class="dag" class="dag">{{dag}}</div>
-      </div>-->
-    </div>
+      
+    </div>-->
 
     <!-- Jämna veckor -->
-    <div id="jämna" v-show="kalenderVisas">
+    <!-- <div id="jämna" v-show="calendarVisas">
       <h2 class="veckorubrik">Jämna veckor</h2>
       <div class="dagar">
         <div class="tider">
@@ -53,8 +45,8 @@
           <div
             v-for="(tid, index) in spelbaraTimmar"
             :key="index"
-            :class="dag + tid && { markerad: 
-          user.jämnaLuckor.includes(dag + tid), varannan: index % 2 == 0 }"
+            :class="dag + tid && { marked: 
+          user.evenSlots.includes(dag + tid), varannan: index % 2 == 0 }"
             class="lucka jämn"
             :id="dag + tid"
             @click="klickadLucka"
@@ -64,26 +56,74 @@
       <div class="schema-namn-rubrik">
         <u>{{förnamn}}s schema</u>
       </div>
-    </div>
+    </div>-->
     <!-- ---------------------------------------------------------------- -->
-    <div id="udda-grid">
-      <div class="tid-rubrik dag"></div>
-      <div v-for="(dag, index) in rullandeDagar" :key="index" :class="dag" class="dag">{{dag}}</div>
-      <div v-for="(tid, index) in spelbaraTimmar" class="tid" :key="index" :class="tid">
-        <div>{{spelbaraTimmarUtanNollor[index]}}</div>
+
+    <!-- Udda veckor -->
+    <h2 class="week-title">Udda veckor</h2>
+    <div id="odd-grid">
+      <div class="column-times">
+        <div class="empty-day">
+          <br />
+        </div>
+        <div v-for="(tid, index) in spelbaraTimmarUtanNollor" :key="index" class="time">{{tid}}</div>
+      </div>
+
+      <div
+        class="column-day"
+        v-for="(dag, index) in rullandeDagar"
+        :key="index"
+        :class="'column-'+ dag"
+      >
+        <div>{{dag}}</div>
+
         <div
-          class="lucka udda"
-          :id="dag + tid"
-          v-for="(dag, index) in rullandeDagar"
+          v-for="(tid, index) in spelbaraTimmar"
           :key="index"
-          :class="dag + tid && { markerad: 
-          user.uddaLuckor.includes(dag + tid), varannan: index % 2 == 0 }"
+          class="slot udda"
+          :id="dag + tid"
+          :class="dag + tid && { marked: 
+          user.oddSlots.includes(dag + tid), varannan: index % 2 == 0 }"
           @click="klickadLucka"
         ></div>
       </div>
-      <div></div>
     </div>
     <!-- ---------------------------------------------------------------- -->
+    <!-- Jämna veckor -->
+    <h2 class="week-title">Jämna veckor</h2>
+    <div id="odd-grid">
+      <div class="column-times">
+        <div class="empty-day">
+          <br />
+        </div>
+        <div v-for="(tid, index) in spelbaraTimmarUtanNollor" :key="index" class="time">{{tid}}</div>
+      </div>
+
+      <div
+        class="column-day"
+        v-for="(dag, index) in rullandeDagar"
+        :key="index"
+        :class="'column-'+ dag"
+      >
+        <div>{{dag}}</div>
+
+        <div
+          v-for="(tid, index) in spelbaraTimmar"
+          :key="index"
+          class="slot udda"
+          :id="dag + tid"
+          :class="dag + tid && { marked: 
+          user.evenSlots.includes(dag + tid), varannan: index % 2 == 0 }"
+          @click="klickadLucka"
+        ></div>
+      </div>
+    </div>
+    <!-- ---------------------------------------------------------------- -->
+    <router-link to="/">
+      <div id="save-button">
+        <button v-show="calendarVisas" @click="saveSchedule">Spara ändringar</button>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -92,7 +132,7 @@ export default {
   name: "AvailabilityCalendar",
   data: () => {
     return {
-      spelare: 7,
+      spelare: 10,
       nextGameNr: 1,
       förnamn: "",
       server: "http://localhost:7777/",
@@ -100,10 +140,10 @@ export default {
       slutTid: 24,
       halvTimmar: false,
       fastVecka: true,
-      kalenderVisas: true,
+      calendarVisas: true,
       user: {
-        uddaLuckor: [],
-        jämnaLuckor: [],
+        oddSlots: [],
+        evenSlots: [],
       },
     };
   },
@@ -133,7 +173,7 @@ export default {
       arrayMedTider.forEach((element) => {
         let timme = element.substring(0, 2);
         let helHalv = element.slice(2, 4);
-        helHalv = helHalv.replace("00", ".00");
+        helHalv = helHalv.replace("00", "");
         helHalv = helHalv.replace("30", ".30");
         if (timme.startsWith("0")) {
           let utanNollor = timme.substr(1);
@@ -147,7 +187,7 @@ export default {
     rullandeDagar() {
       let idag = new Date();
       let idagVeckodagsnummer = idag.getDay();
-      // let idagKalenderdagsnr = idag.getDate();
+      // let idagcalendardagsnr = idag.getDate();
       // let idagMånadsnr = idag.getMonth();
       if (this.fastVecka) {
         idagVeckodagsnummer = 0;
@@ -180,34 +220,34 @@ export default {
   },
   methods: {
     klickadLucka: function (lucka) {
-      lucka.target.classList.toggle("markerad");
-      if (lucka.target.classList.contains("markerad")) {
+      lucka.target.classList.toggle("marked");
+      if (lucka.target.classList.contains("marked")) {
         if (lucka.target.classList.contains("udda")) {
-          this.user.uddaLuckor.push(lucka.target.id);
+          this.user.oddSlots.push(lucka.target.id);
         } else if (lucka.target.classList.contains("jämn")) {
-          this.user.jämnaLuckor.push(lucka.target.id);
+          this.user.evenSlots.push(lucka.target.id);
         }
       } else {
         if (lucka.target.classList.contains("udda")) {
-          this.user.uddaLuckor = this.user.uddaLuckor.filter(
+          this.user.oddSlots = this.user.oddSlots.filter(
             (item) => item !== lucka.target.id
           );
         } else if (lucka.target.classList.contains("jämn")) {
-          this.user.jämnaLuckor = this.user.jämnaLuckor.filter(
+          this.user.evenSlots = this.user.evenSlots.filter(
             (item) => item !== lucka.target.id
           );
         }
       }
     },
     saveSchedule: function () {
-      // Dölj kalendern
-      this.kalenderVisas = false;
+      // Dölj calendarn
+      this.calendarVisas = false;
       // Skicka luckorna till servern
 
       let body = JSON.stringify({
         spelare: this.$store.state.playerID,
-        uddaLuckor: this.user.uddaLuckor,
-        jämnaLuckor: this.user.jämnaLuckor,
+        oddSlots: this.user.oddSlots,
+        evenSlots: this.user.evenSlots,
       });
 
       fetch(this.server + "sparaluckor", {
@@ -241,106 +281,69 @@ export default {
     })
       .then((response) => response.json())
       .then((data) => {
-        this.user.uddaLuckor = data.u;
-        this.user.jämnaLuckor = data.j;
+        this.user.oddSlots = data.u;
+        this.user.evenSlots = data.j;
       });
   },
 };
 </script>
 
 <style lang="scss">
-/* #availability-calendar {
-  display: grid;
-  grid-template-columns: 2fr repeat(7, 1fr);
-} */
-
-#spara-knapp {
-  position: fixed;
-  bottom: 0;
-  margin: auto;
-  justify-self: center;
-}
-
-#kalender {
+#calendar {
   margin: 0 0 100px 0;
   display: flex;
   flex-direction: column;
   text-align: center;
 }
-
-#udda-grid {
+#odd-grid {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  margin-bottom: 500px;
 }
 
-.tider {
-  display: flex;
-  flex-direction: column;
-  width: 12.5%;
-  margin: 0;
-  text-align: left;
-}
-.dagar {
-  display: flex;
-  justify-content: stretch;
-  font-size: 1em;
-}
-
-.tid:nth-child(2) {
-  color: #222429;
-  margin: 12px 0 0 0;
-  display: none;
-}
-
-.dag {
-  width: 12.5%;
-  color: $dark;
-  text-align: center;
-}
-.tid {
-  font-size: 10px;
-  height: 6.5vw;
-  margin: 0 10px 0 0;
-  text-align: right;
-}
-
-.tid-rubrik {
-  height: 2.35em;
-}
-.lucka {
-  background: white;
-  height: 6.5vw;
-  margin: 0 0 0 0;
-}
-.lucka:first-child {
-  margin: 0;
-}
-.varannan {
-  background: lightgrey;
-}
-.markerad {
-  background: $gold;
-}
-
-.schema-namn-rubrik {
-  margin: 20px 0;
-  font-size: 20px;
-}
-
-#udda {
+.week-title {
   margin: 0 0 20px 0;
 }
 
-.veckorubrik {
-  margin: 0 0 20px 0;
+.time {
+  height: 24px;
+  border-bottom: 1px solid $light;
+  color: #a8a8a8;
+  position: relative;
+  top: -10px;
 }
-.parent {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: 2fr repeat(11, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+
+.time:nth-child(2) {
+  visibility: hidden;
+}
+
+.empty-day {
+  background: #f8fafd;
+  color: white;
+}
+
+.slot {
+  background: $light;
+  height: 24px;
+  border-top: 1px solid #f4f4f4;
+  border-right: 1px solid #f4f4f4;
+}
+
+.column-day div:first-child {
+  background: #f8fafd;
+  color: #a8a8a8;
+}
+
+.marked {
+  background: $blue;
+}
+
+#save-button {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 0 0 20px 0;
 }
 </style>
 
