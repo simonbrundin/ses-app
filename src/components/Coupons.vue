@@ -6,19 +6,17 @@
       v-for="(company,index) in this.$store.state.coupons.companies"
       :key="index"
     >
-      <div class="company-row" :class="('test', company.showCompanyCoupons)">
-        <img
-          :src="require('../assets/coupons/'+company.logo)"
-          alt
-          @click="company.showCompanyCoupons = !company.showCompanyCoupons"
-        />
+      <router-link to="/intersport">
+        <div class="company-row" @click="company.show = !company.show">
+          <img :src="require('../assets/coupons/'+company.logo)" alt />
 
-        <div class="company-text">
-          <div>{{company.name}}</div>
-          <div>{{company.couponsLeft}} kuponger kvar</div>
+          <div class="company-text">
+            <div>{{company.name}}</div>
+            <div>{{company.couponsLeft}} kuponger kvar</div>
+          </div>
+          <i class="im im-angle-right"></i>
         </div>
-        <i class="im im-angle-right"></i>
-      </div>
+      </router-link>
     </div>
 
     <app-bottom-menu v-if="this.$store.state.coupons.showBottomMenu"></app-bottom-menu>

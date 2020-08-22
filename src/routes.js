@@ -2,6 +2,8 @@ import Home from './Home.vue';
 import Tabell from "./components/Table.vue";
 import Slots from './components/Slots.vue'
 import Coupons from './components/Coupons.vue'
+import Coupon from './components/coupons/Coupon.vue'
+import Intersport from './components/coupons/InterSport.vue'
 
 
 export const routes = [
@@ -20,5 +22,13 @@ export const routes = [
   {
     path: '/coupons',
     component: Coupons
+  },
+  {
+    path: '/coupon',
+    component: Coupon
+  },
+  {
+    path: '/intersport',
+    component: Intersport
   }
 ];
