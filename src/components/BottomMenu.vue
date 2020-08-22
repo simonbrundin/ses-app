@@ -1,27 +1,27 @@
 <template>
   <div id="menu">
     <router-link to="/table">
-      <i class="bottom-menu-icons im im-data"></i>
+      <svg-icon icon="rank" :hasFill="true" class="icon-calendar"></svg-icon>
       <div class="menu-item-text gold" v-if="showIconTexts">Tabell</div>
     </router-link>
-    <router-link to="/coupon">
-      <i class="bottom-menu-icons im im-date-o"></i>
-
-      <div class="menu-item-text gold" v-if="showIconTexts">Boka tid</div>
+    <router-link to="/slots">
+      <svg-icon icon="calendar" :hasFill="true" class="icon-calendar"></svg-icon>
+      <div class="menu-item-text gold" v-if="showIconTexts">Luckor</div>
     </router-link>
+
     <router-link to="/">
-      <font-awesome-icon icon="home" :size="iconSize" :color="iconColor" />
+      <svg-icon icon="notification" :hasFill="true" class="icon-calendar"></svg-icon>
       <div class="menu-item-text gold" v-if="showIconTexts">Start</div>
     </router-link>
+
     <router-link to="/coupons">
-      <font-awesome-icon icon="store" :size="iconSize" :color="iconColor" />
+      <svg-icon icon="store2" :hasFill="true" class="icon-store"></svg-icon>
+
       <div class="menu-item-text gold" v-if="showIconTexts">Kuponger</div>
     </router-link>
-    <router-link to="/slots">
-      <div>
-        <font-awesome-icon icon="calendar-alt" :size="iconSize" :color="iconColor" />
-        <div class="menu-item-text gold" v-if="showIconTexts">Luckor</div>
-      </div>
+    <router-link to="/coupon">
+      <svg-icon icon="ios-tennisball" :hasFill="true" class="icon-calendar"></svg-icon>
+      <div class="menu-item-text gold" v-if="showIconTexts">Boka tid</div>
     </router-link>
   </div>
 </template>
@@ -35,6 +35,17 @@ export default {
 </script>
 
 <style lang="scss">
+.icon-store svg {
+  height: 26px;
+  width: 26px;
+  fill: $light;
+}
+
+.icon-calendar svg {
+  height: 24px;
+  width: 24px;
+  fill: $light;
+}
 #menu {
   background: $bottom-menu-bg-color;
   display: flex;
