@@ -13,7 +13,7 @@ export const store = new Vuex.Store({
       showNotificationButtons: false,
     },
     coupons: {
-      showBottomMenu: false,
+      showBottomMenu: true,
       companies: {
         intersport: {
           name: "Intersport",

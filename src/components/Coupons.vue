@@ -39,7 +39,6 @@ export default {
 
 <style lang="scss">
 #coupons {
-  padding: 28px;
 }
 
 .company-row {

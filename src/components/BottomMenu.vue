@@ -35,27 +35,16 @@ export default {
 </script>
 
 <style lang="scss">
-.icon-store svg {
-  height: 26px;
-  width: 26px;
-  fill: $light;
-}
-
-.icon-calendar svg {
-  height: 24px;
-  width: 24px;
-  fill: $light;
-}
 #menu {
   background: $bottom-menu-bg-color;
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
-  margin: 10px;
+  margin: 0 0 10px 0;
   padding: 15px 20px;
   width: calc(100% - 60px);
   position: fixed;
-  border-radius: 16px;
+  border-radius: 10px;
 
   bottom: 0;
   box-shadow: 0px 3px 78px 0px #08080856;
@@ -63,6 +52,21 @@ export default {
   -moz-box-shadow: 0px 3px 78px 0px #08080848;
 }
 
+// Ikoner
+
+.icon-store svg {
+  height: 26px;
+  width: 26px;
+  fill: $bottom-menu-icon-color;
+}
+
+.icon-calendar svg {
+  height: 24px;
+  width: 24px;
+  fill: $bottom-menu-icon-color;
+}
+
+// -------------------------------------------------------
 #menu a {
   display: flex;
   flex-direction: column;

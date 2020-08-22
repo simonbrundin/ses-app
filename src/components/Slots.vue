@@ -3,119 +3,81 @@
     <!-- Knappar som byter spelare -->
 
     <!-- Udda veckor -->
-
-    <!-- <div id="udda" v-show="calendarVisas">
-      <h2 class="veckorubrik">Udda veckor</h2>
-      <div class="dagar">
-        <div class="tider">
-          <div class="tid-rubrik dag"></div>
-          <div
-            v-for="(tid, index) in spelbaraTimmarUtanNollor"
-            :key="index"
-            :class="tid"
-            class="tid"
-          >{{tid}}</div>
+    <div class="card">
+      <h2 class="week-title">Udda veckor</h2>
+      <div class="calendar-grid">
+        <div class="column-times">
+          <div class="empty-day">
+            <br />
+          </div>
+          <div v-for="(tid, index) in spelbaraTimmarUtanNollor" :key="index" class="time">{{tid}}</div>
         </div>
-        <div v-for="(dag, index) in rullandeDagar" :key="index" :class="dag" class="dag">
-          {{dag}}
-          <div
-            class="lucka udda"
-            :id="dag + tid"
-            v-for="(tid, index) in spelbaraTimmar"
-            :key="index"
-            :class="dag + tid && { marked: 
-          user.oddSlots.includes(dag + tid), varannan: index % 2 == 0 }"
-            @click="klickadLucka"
-          ></div>
+        <div class="column-lines">
+          <div class="empty-day">
+            <br />
+          </div>
+          <div v-for="(tid, index) in spelbaraTimmarUtanNollor" :key="index" class="line">
+            <br />
+          </div>
         </div>
-      </div>
-      
-    </div>-->
-
-    <!-- Jämna veckor -->
-    <!-- <div id="jämna" v-show="calendarVisas">
-      <h2 class="veckorubrik">Jämna veckor</h2>
-      <div class="dagar">
-        <div class="tider">
-          <div class="tid-rubrik dag"></div>
-          <div v-for="(tid, index) in spelbaraTimmar" :key="index" :class="tid" class="tid">{{tid}}</div>
-        </div>
-        <div v-for="(dag, index) in rullandeDagar" :key="index" :class="dag" class="dag">
-          {{dag}}
-          <div
-            v-for="(tid, index) in spelbaraTimmar"
-            :key="index"
-            :class="dag + tid && { marked: 
-          user.evenSlots.includes(dag + tid), varannan: index % 2 == 0 }"
-            class="lucka jämn"
-            :id="dag + tid"
-            @click="klickadLucka"
-          ></div>
-        </div>
-      </div>
-      <div class="schema-namn-rubrik">
-        <u>{{förnamn}}s schema</u>
-      </div>
-    </div>-->
-    <!-- ---------------------------------------------------------------- -->
-
-    <!-- Udda veckor -->
-    <h2 class="week-title">Udda veckor</h2>
-    <div id="odd-grid">
-      <div class="column-times">
-        <div class="empty-day">
-          <br />
-        </div>
-        <div v-for="(tid, index) in spelbaraTimmarUtanNollor" :key="index" class="time">{{tid}}</div>
-      </div>
-
-      <div
-        class="column-day"
-        v-for="(dag, index) in rullandeDagar"
-        :key="index"
-        :class="'column-'+ dag"
-      >
-        <div>{{dag}}</div>
-
         <div
-          v-for="(tid, index) in spelbaraTimmar"
+          class="column-day"
+          v-for="(dag, index) in rullandeDagar"
           :key="index"
-          class="slot udda"
-          :id="dag + tid"
-          :class="dag + tid && { marked: 
+          :class="'column-'+ dag"
+        >
+          <div>{{dag}}</div>
+
+          <div
+            v-for="(tid, index) in spelbaraTimmar"
+            :key="index"
+            class="slot odd"
+            :id="dag + tid"
+            :class="dag + tid && { marked: 
           user.oddSlots.includes(dag + tid), varannan: index % 2 == 0 }"
-          @click="klickadLucka"
-        ></div>
+            @click="klickadLucka"
+          ></div>
+        </div>
       </div>
     </div>
     <!-- ---------------------------------------------------------------- -->
     <!-- Jämna veckor -->
-    <h2 class="week-title">Jämna veckor</h2>
-    <div id="odd-grid">
-      <div class="column-times">
-        <div class="empty-day">
-          <br />
+    <div class="card even-slots-card">
+      <h2 class="week-title">Jämna veckor</h2>
+
+      <div class="calendar-grid">
+        <div class="column-times">
+          <div class="empty-day">
+            <br />
+          </div>
+          <div v-for="(tid, index) in spelbaraTimmarUtanNollor" :key="index" class="time">{{tid}}</div>
         </div>
-        <div v-for="(tid, index) in spelbaraTimmarUtanNollor" :key="index" class="time">{{tid}}</div>
-      </div>
-
-      <div
-        class="column-day"
-        v-for="(dag, index) in rullandeDagar"
-        :key="index"
-        :class="'column-'+ dag"
-      >
-        <div>{{dag}}</div>
-
+        <div class="column-lines">
+          <div class="empty-day">
+            <br />
+          </div>
+          <div v-for="(tid, index) in spelbaraTimmarUtanNollor" :key="index" class="line">
+            <br />
+          </div>
+        </div>
         <div
-          v-for="(tid, index) in spelbaraTimmar"
+          class="column-day"
+          v-for="(dag, index) in rullandeDagar"
           :key="index"
-          class="slot udda"
-          :id="dag + tid"
-          :class="dag + tid && { marked: 
+          :class="'column-'+ dag"
+        >
+          <div>{{dag}}</div>
+
+          <div
+            v-for="(tid, index) in spelbaraTimmar"
+            :key="index"
+            class="slot even"
+            :id="dag + tid"
+            :class="dag + tid && { marked: 
           user.evenSlots.includes(dag + tid), varannan: index % 2 == 0 }"
-          @click="klickadLucka"
-        ></div>
+            @click="klickadLucka"
+          ></div>
+        </div>
       </div>
     </div>
     <!-- ---------------------------------------------------------------- -->
@@ -124,12 +86,17 @@
         <button v-show="calendarVisas" @click="saveSchedule">Spara ändringar</button>
       </div>
     </router-link>
+    <app-bottom-menu v-if="false"></app-bottom-menu>
   </div>
 </template>
 
 <script>
+import BottomMenu from "./BottomMenu.vue";
 export default {
   name: "AvailabilityCalendar",
+  components: {
+    "app-bottom-menu": BottomMenu,
+  },
   data: () => {
     return {
       spelare: 10,
@@ -173,7 +140,7 @@ export default {
       arrayMedTider.forEach((element) => {
         let timme = element.substring(0, 2);
         let helHalv = element.slice(2, 4);
-        helHalv = helHalv.replace("00", "");
+        helHalv = helHalv.replace("00", ".00");
         helHalv = helHalv.replace("30", ".30");
         if (timme.startsWith("0")) {
           let utanNollor = timme.substr(1);
@@ -222,17 +189,17 @@ export default {
     klickadLucka: function (lucka) {
       lucka.target.classList.toggle("marked");
       if (lucka.target.classList.contains("marked")) {
-        if (lucka.target.classList.contains("udda")) {
+        if (lucka.target.classList.contains("odd")) {
           this.user.oddSlots.push(lucka.target.id);
-        } else if (lucka.target.classList.contains("jämn")) {
+        } else if (lucka.target.classList.contains("even")) {
           this.user.evenSlots.push(lucka.target.id);
         }
       } else {
-        if (lucka.target.classList.contains("udda")) {
+        if (lucka.target.classList.contains("odd")) {
           this.user.oddSlots = this.user.oddSlots.filter(
             (item) => item !== lucka.target.id
           );
-        } else if (lucka.target.classList.contains("jämn")) {
+        } else if (lucka.target.classList.contains("even")) {
           this.user.evenSlots = this.user.evenSlots.filter(
             (item) => item !== lucka.target.id
           );
@@ -295,13 +262,18 @@ export default {
   flex-direction: column;
   text-align: center;
 }
-#odd-grid {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
+
+.even-slots-card {
+  margin-top: 20px;
 }
 
 .week-title {
   margin: 0 0 20px 0;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: 1fr 10px repeat(7, 1fr);
 }
 
 .time {
@@ -309,7 +281,10 @@ export default {
   border-bottom: 1px solid $light;
   color: #a8a8a8;
   position: relative;
-  top: -10px;
+  top: -8px;
+  padding-right: 5px;
+  font-size: 12px;
+  font-weight: 300;
 }
 
 .time:nth-child(2) {
@@ -321,20 +296,39 @@ export default {
   color: white;
 }
 
+.line {
+  border-top: 1px solid $slot-gap-color;
+  height: 24px;
+}
+
+.line:nth-child(2) {
+  border-top: 1px solid $light;
+  height: 24px;
+}
+
 .slot {
   background: $light;
   height: 24px;
-  border-top: 1px solid #f4f4f4;
-  border-right: 1px solid #f4f4f4;
+  border-top: 1px solid $slot-gap-color;
+  border-left: 1px solid $slot-gap-color;
+}
+
+.slot:last-child {
+  border-bottom: 1px solid $slot-gap-color;
+}
+
+.column-S .slot {
+  border-right: 1px solid $slot-gap-color;
 }
 
 .column-day div:first-child {
   background: #f8fafd;
   color: #a8a8a8;
+  font-weight: 300;
 }
 
 .marked {
-  background: $blue;
+  background: $marked-slots-color;
 }
 
 #save-button {

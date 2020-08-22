@@ -19,7 +19,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 #app {
   padding: 20px 10px 0;
 }
