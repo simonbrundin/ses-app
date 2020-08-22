@@ -257,6 +257,8 @@ export default {
 #spara-knapp {
   position: fixed;
   bottom: 0;
+  margin: auto;
+  justify-self: center;
 }
 
 #kalender {
