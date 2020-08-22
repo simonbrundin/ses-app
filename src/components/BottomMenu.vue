@@ -2,24 +2,25 @@
   <div id="menu">
     <router-link to="/table">
       <i class="bottom-menu-icons im im-data"></i>
-      <div class="menu-item-text gold">Tabell</div>
+      <div class="menu-item-text gold" v-if="showIconTexts">Tabell</div>
     </router-link>
-    <router-link to="/table">
+    <router-link to="/coupon">
       <i class="bottom-menu-icons im im-date-o"></i>
-      <div class="menu-item-text gold">Boka tid</div>
+
+      <div class="menu-item-text gold" v-if="showIconTexts">Boka tid</div>
     </router-link>
-    <router-link to="/" class="home">
-      <i class="bottom-menu-icons im im-dashboard"></i>
-      <div class="menu-item-text gold">Start</div>
+    <router-link to="/">
+      <font-awesome-icon icon="home" :size="iconSize" :color="iconColor" />
+      <div class="menu-item-text gold" v-if="showIconTexts">Start</div>
     </router-link>
     <router-link to="/coupons">
-      <i class="bottom-menu-icons im im-barcode"></i>
-      <div class="menu-item-text gold">Kuponger</div>
+      <font-awesome-icon icon="store" :size="iconSize" :color="iconColor" />
+      <div class="menu-item-text gold" v-if="showIconTexts">Kuponger</div>
     </router-link>
     <router-link to="/slots">
       <div>
-        <i class="bottom-menu-icons im im-calendar"></i>
-        <div class="menu-item-text gold">Luckor</div>
+        <font-awesome-icon icon="calendar-alt" :size="iconSize" :color="iconColor" />
+        <div class="menu-item-text gold" v-if="showIconTexts">Luckor</div>
       </div>
     </router-link>
   </div>
@@ -27,21 +28,24 @@
 
 <script>
 export default {
-  name: "Menu",
+  data() {
+    return { showIconTexts: false, iconSize: "lg", iconColor: "white" };
+  },
 };
 </script>
 
 <style lang="scss">
 #menu {
+  background: $bottom-menu-bg-color;
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
-  margin: 0;
+  margin: 10px;
   padding: 15px 20px;
-  width: calc(100% - 40px);
+  width: calc(100% - 60px);
   position: fixed;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
+  border-radius: 16px;
+
   bottom: 0;
   box-shadow: 0px 3px 78px 0px #08080856;
   -webkit-box-shadow: 0px 3px 78px 0px #0808085b;
@@ -55,18 +59,14 @@ export default {
   text-decoration: none;
 }
 
-.ikon {
-  width: 32px;
-}
-
-.home {
+.router-link-exact-active {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 15px 25px 15px 25px;
-  margin: -50px 0 -10px 0;
-  background: white;
-  border-radius: 100%;
+  padding: 10px 20px;
+  margin: -50px -20px -10px;
+  background: $bottom-menu-active-link;
+  border-radius: 10px;
 }
 
 .rund {
@@ -88,7 +88,11 @@ export default {
 }
 
 .bottom-menu-icons.im {
-  color: $gold;
-  font-size: 36px;
+  color: $light;
+  font-size: 22px;
+}
+
+font-awesome-icon {
+  color: $light;
 }
 </style>
