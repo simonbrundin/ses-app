@@ -58,7 +58,7 @@ export default {
 }
 
 .notification {
-  background: $light;
+  background: $app-bg-color;
   position: fixed;
   top: 0;
   height: 100vh;
@@ -67,14 +67,15 @@ export default {
 }
 
 .notification-image {
-  width: 80%;
+  max-width: 80%;
+  max-height: 230px;
   margin: auto;
 }
 
 .notification-heading {
   font-size: 20px;
   font-weight: 500;
-  color: $dark-grey;
+  color: $app-font-color;
 }
 
 .greeting {
@@ -86,14 +87,14 @@ export default {
 }
 
 .message {
-  color: $grey;
+  color: $app-font-color;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .notification-description {
-  color: $grey;
+  color: $app-font-color;
   text-align: center;
   font-size: 13px;
   z-index: 2;
@@ -101,5 +102,6 @@ export default {
 
 .decline {
   margin: 24px 0 0 0;
+  color: $app-font-color;
 }
 </style>

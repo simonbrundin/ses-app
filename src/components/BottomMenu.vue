@@ -19,10 +19,10 @@
 
       <div class="menu-item-text gold" v-if="showIconTexts">Kuponger</div>
     </router-link>
-    <router-link to="/coupon">
+    <div @click="showGame">
       <svg-icon icon="time" :hasFill="true" class="icon-calendar"></svg-icon>
       <div class="menu-item-text gold" v-if="showIconTexts">Boka tid</div>
-    </router-link>
+    </div>
   </div>
 </template>
 
@@ -30,6 +30,11 @@
 export default {
   data() {
     return { showIconTexts: false, iconSize: "lg", iconColor: "white" };
+  },
+  methods: {
+    showGame: function () {
+      this.$store.state.notifications.ConfirmGame = true;
+    },
   },
 };
 </script>

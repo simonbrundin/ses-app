@@ -8,7 +8,7 @@ export const store = new Vuex.Store({
     playerID: 10,
     dept: 0,
     notifications: {
-      ConfirmGame: false,
+      ConfirmGame: true,
       AddToCalendar: false,
       showNotificationButtons: false,
     },

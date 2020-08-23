@@ -4,7 +4,7 @@
 
     <div class="message">
       <!-- <h2 class="greeting">Hej Simon,</h2> -->
-      <img class="notification-image" src="../../assets/spelare-med-band.png" alt />
+      <img class="notification-image shadowfilter" src="../../assets/spelare-med-band.png" alt />
       <p class="notification-description">
         Vi har hittat en tid som passar alla spelare
         <br />Fungerar tiden för dig?
@@ -15,7 +15,7 @@
         <div class="time-box hours">15</div>
         <div class="time-box mins">30</div>
       </div>
-      <button>Bekräfta matchtiden</button>
+      <button @click="confirmGame">Bekräfta matchtiden</button>
       <p class="decline">Tyvärr, jag har fått förhinder</p>
     </div>
   </div>
@@ -27,10 +27,24 @@ export default {
   components: {
     "navigation-row": NavigationRow,
   },
+  methods: {
+    confirmGame: function () {
+      this.$store.state.notifications.ConfirmGame = false;
+    },
+  },
 };
 </script>
 
 <style lang="scss">
+#confirm-game {
+  margin: 0;
+}
+
+.shadowfilter {
+  -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
+}
+
 .match-time {
   display: flex;
   justify-content: center;
@@ -38,6 +52,8 @@ export default {
 }
 
 .time-box {
+  background: $light;
+  color: $grey;
   display: flex;
   position: relative;
   justify-content: center;
@@ -47,9 +63,8 @@ export default {
   margin: 0 3px;
   width: 70px;
   height: 70px;
-  background: $light;
+  font-weight: 300;
   z-index: auto;
-  color: $dark-grey;
 }
 .time-box:before {
   content: "";
