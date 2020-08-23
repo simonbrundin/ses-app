@@ -1,39 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
 
 @import url('https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css');
 
 // Färger
 
 $gold: #bd996c;
+$shining-gold: linear-gradient(to left, #946837 1%, #ebe48a 50%, #946837 100%);
 $dark: black;
 $light: #FFFCFF;
 $second-color: #2d9b82;
-$confirm: #63B995;
+$confirm: #52B788;
+// #63B995
 $grey: #191e23;
 $dark-grey: #0d1013;
 
 // Universal
-$app-bg-color: #000000;
+$app-bg-color: #1d1d1d;
 // #0d1013
 $app-font-color: $light;
 $card-bg-color: $grey;
 
 // Bottom menu
-$bottom-menu-bg-color:$grey;
-$bottom-menu-icon-color: $light;
+$bottom-menu-bg-color:black;
+$bottom-menu-icon-color: white;
 $bottom-menu-active-link: #ffbb76;
 
 // Slots
+$days-bg-color: #fceacf;
+// #f8fafd
 $slot-gap-color: rgb(230, 230, 230);
-$marked-slots-color: #2b7fd2;
+$marked-slots-color: $gold;
+// #2b7fd2
 
 // -----------------------------------------------------------------------
 
 // Typsnitt
 
 $app-font: 'Montserrat';
+$app-font-weight: 300;
+$app-font-size: 16px;
+
+// Rubriker
+
+h1 {}
+
+h2 {
+  color: $dark;
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+
+h3 {
+  color: $dark;
+}
 
 // -----------------------------------------------------------------------
+
+$border-radius: 10px;
+
 
 @mixin shadow {
   -webkit-box-shadow: 0px 19px 30px 6px rgba(0, 0, 0, 0.22);
@@ -45,7 +71,9 @@ body {
   background: $app-bg-color;
   color: $app-font-color;
   font-family: $app-font;
+  font-weight: $app-font-weight;
   margin: 0px;
+  font-size: $app-font-size;
 }
 
 div {
@@ -60,20 +88,7 @@ div {
   color: $light;
 }
 
-// Rubriker
 
-h1 {}
-
-h2 {
-  color: $dark;
-  margin: 0;
-  font-size: 24px;
-  font-weight: 800;
-}
-
-h3 {
-  color: $dark;
-}
 
 .card {
   background: $light;

@@ -322,7 +322,7 @@ export default {
 }
 
 .column-day div:first-child {
-  background: #f8fafd;
+  background: $days-bg-color;
   color: #a8a8a8;
   font-weight: 300;
 }
