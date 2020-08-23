@@ -20,7 +20,4 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
-  padding: 20px 10px 0;
-}
 </style>

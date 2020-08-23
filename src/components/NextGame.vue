@@ -39,11 +39,11 @@
 
 <script>
 export default {
-  name: "NextGame"
+  name: "NextGame",
 };
 </script>
 
-<style>
+<style lang="scss">
 #next-game {
   margin: 20px 0;
   text-align: center;
@@ -57,7 +57,7 @@ export default {
   display: flex;
   justify-content: center;
   background: white;
-  border-radius: 16px;
+  border-radius: $border-radius;
 
   padding: 10px 20px;
 }

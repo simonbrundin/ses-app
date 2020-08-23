@@ -39,7 +39,7 @@ svg {
 }
 
 .profile-image {
-  border-radius: 18px;
+  border-radius: $border-radius;
   width: 45px;
   height: 45px;
 }

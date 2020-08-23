@@ -42,7 +42,7 @@ export default {
   position: relative;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
+  border-radius: $border-radius;
   font-size: 24px;
   margin: 0 3px;
   width: 70px;

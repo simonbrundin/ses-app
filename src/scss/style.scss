@@ -1,35 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&family=Lato:wght@100;300;400;700;900&family=Nunito:wght@200;400;600;700;800;900&display=swap');
+
 
 @import url('https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css');
 
 // Färger
 
-$gold: #bd996c;
 $shining-gold: linear-gradient(to left, #946837 1%, #ebe48a 50%, #946837 100%);
+$gold: #fbbf05;
+// #997855
+// #bd9b3d
+// #caa335
+// #fbbf05
 $dark: black;
+$dark-grey: #2a2a2a;
+$grey: #4a4a4a;
 $light: #FFFCFF;
 $second-color: #2d9b82;
-$confirm: #52B788;
-// #63B995
-$grey: #191e23;
-$dark-grey: #0d1013;
+$confirm: $gold;
+// #52B788
 
 // Universal
-$app-bg-color: #1d1d1d;
-// #0d1013
+$app-bg-color: $dark;
 $app-font-color: $light;
-$card-bg-color: $grey;
+$card-bg-color: $light;
 
 // Bottom menu
-$bottom-menu-bg-color:black;
-$bottom-menu-icon-color: white;
-$bottom-menu-active-link: #ffbb76;
-
+$bottom-menu-bg-color:$dark;
+$bottom-menu-icon-color: $grey;
+$bottom-menu-active-icon-color: $light;
+$bottom-menu-active-link: $gold;
 // Slots
-$days-bg-color: #fceacf;
-// #f8fafd
-$slot-gap-color: rgb(230, 230, 230);
+$week-toggle-bg-color: $dark-grey;
+$selected-toggle-color: #1a1a1a;
+$days-bg-color: #1a1a1a;
+$slots-bg-color: $dark-grey;
+$slot-gap-color:$grey;
 $marked-slots-color: $gold;
 // #2b7fd2
 
@@ -37,7 +42,7 @@ $marked-slots-color: $gold;
 
 // Typsnitt
 
-$app-font: 'Montserrat';
+$app-font: 'Nunito';
 $app-font-weight: 300;
 $app-font-size: 16px;
 
@@ -58,7 +63,7 @@ h3 {
 
 // -----------------------------------------------------------------------
 
-$border-radius: 10px;
+$border-radius: 16px;
 
 
 @mixin shadow {
@@ -76,6 +81,10 @@ body {
   font-size: $app-font-size;
 }
 
+#app {
+  padding: 10px 20px 0;
+}
+
 div {
   color: $dark;
 }
@@ -91,20 +100,35 @@ div {
 
 
 .card {
-  background: $light;
+  background: $card-bg-color;
   color: $second-color;
-  border-radius: 16px;
+  border-radius: $border-radius;
   padding: 20px;
   box-shadow: 0px 3px 28px 0px #08080856;
   -webkit-box-shadow: 0px 3px 28px 0px #0808085b;
   -moz-box-shadow: 0px 3px 28px 0px #08080848;
 }
 
+.dark-card {
+  background: $dark-grey;
+  color: $light;
+  border-radius: $border-radius;
+  padding: 20px;
+  margin: 20px 0 0 0;
+  box-shadow: 0px 3px 28px 0px #08080856;
+  -webkit-box-shadow: 0px 3px 28px 0px #0808085b;
+  -moz-box-shadow: 0px 3px 28px 0px #08080848;
+}
+
+.dark-card div {
+  color: $light;
+}
+
 button {
   color: white;
   padding: 20px 20px;
   background: #8eb5db;
-  border-radius: 10px;
+  border-radius: $border-radius;
   // margin: auto;
   font-size: 15px;
   letter-spacing: 1px;

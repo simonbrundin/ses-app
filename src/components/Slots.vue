@@ -1,14 +1,19 @@
 <template>
   <div id="calendar">
     <!-- Knappar som byter spelare -->
-
+    <div class="select-week-container">
+      <div class="select-week">
+        <div :class="{selected: showedWeek}" class="odd-button" @click="select">Udda veckor</div>
+        <div :class="{selected: !showedWeek}" class="even-button" @click="select">Jämna veckor</div>
+      </div>
+    </div>
     <!-- Udda veckor -->
-    <div class="card">
-      <h2 class="week-title">Udda veckor</h2>
+    <div class="calendar" v-if="showedWeek">
+      <!-- <h2 class="week-title">Udda veckor</h2> -->
       <div class="calendar-grid">
         <div class="column-times">
           <div class="empty-day">
-            <br />
+            <svg-icon icon="time" :hasFill="true" class="icon-calendar"></svg-icon>
           </div>
           <div v-for="(tid, index) in spelbaraTimmarUtanNollor" :key="index" class="time">{{tid}}</div>
         </div>
@@ -42,13 +47,13 @@
     </div>
     <!-- ---------------------------------------------------------------- -->
     <!-- Jämna veckor -->
-    <div class="card even-slots-card">
-      <h2 class="week-title">Jämna veckor</h2>
+    <div class v-if="!showedWeek">
+      <!-- <h2 class="week-title">Jämna veckor</h2> -->
 
       <div class="calendar-grid">
         <div class="column-times">
           <div class="empty-day">
-            <br />
+            <svg-icon icon="time" :hasFill="true" class="icon-calendar"></svg-icon>
           </div>
           <div v-for="(tid, index) in spelbaraTimmarUtanNollor" :key="index" class="time">{{tid}}</div>
         </div>
@@ -81,12 +86,22 @@
       </div>
     </div>
     <!-- ---------------------------------------------------------------- -->
-    <router-link to="/">
+
+    <!-- <router-link to="/">
       <div id="save-button">
         <button v-show="calendarVisas" @click="saveSchedule">Spara ändringar</button>
       </div>
-    </router-link>
-    <app-bottom-menu v-if="false"></app-bottom-menu>
+    </router-link>-->
+
+    <div class="menu save-slots-menu">
+      <router-link to="/">
+        <div class="save-slots-button" @click="saveSchedule">
+          <div class="save-slots-text">Spara schema</div>
+          <svg-icon icon="cloud-upload" :hasFill="true" class="icon-calendar"></svg-icon>
+        </div>
+      </router-link>
+    </div>
+    <app-bottom-menu v-if="true"></app-bottom-menu>
   </div>
 </template>
 
@@ -102,6 +117,7 @@ export default {
       spelare: 10,
       nextGameNr: 1,
       förnamn: "",
+      showedWeek: true,
       server: "http://localhost:7777/",
       startTid: 7,
       slutTid: 24,
@@ -186,6 +202,14 @@ export default {
     },
   },
   methods: {
+    select: function (element) {
+      let classList = element.target.classList;
+      if (classList.contains("odd-button")) {
+        this.showedWeek = true;
+      } else if (classList.contains("even-button")) {
+        this.showedWeek = false;
+      }
+    },
     klickadLucka: function (lucka) {
       lucka.target.classList.toggle("marked");
       if (lucka.target.classList.contains("marked")) {
@@ -257,74 +281,129 @@ export default {
 
 <style lang="scss">
 #calendar {
-  margin: 0 0 100px 0;
+  margin: 0 0 90px 0;
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
-.even-slots-card {
-  margin-top: 20px;
+// Toggle för att välja vecka
+
+.select-week-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
-.week-title {
-  margin: 0 0 20px 0;
+.select-week {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  background: $week-toggle-bg-color;
+  border-radius: $border-radius;
 }
+
+.select-week div {
+  padding: 10px 20px;
+  color: #a8a8a8;
+  border-radius: $border-radius;
+}
+
+.select-week .selected {
+  background: $selected-toggle-color;
+  color: $light;
+}
+
+// -----------------------------------------------------------------------------
 
 .calendar-grid {
   display: grid;
   grid-template-columns: 1fr 10px repeat(7, 1fr);
+  background: $slots-bg-color;
+  margin: 0;
+
+  @include shadow;
 }
 
 .time {
-  height: 24px;
-  border-bottom: 1px solid $light;
+  height: calc((100vh - 220px) / 17);
+  border-bottom: 1px solid transparent;
   color: #a8a8a8;
   position: relative;
   top: -8px;
-  padding-right: 5px;
+  padding: 0 8px;
   font-size: 12px;
   font-weight: 300;
+  text-align: right;
 }
 
 .time:nth-child(2) {
   visibility: hidden;
 }
 
+// .time:last-child {
+//   border-bottom: 1px solid $slot-gap-color;
+// }
 .empty-day {
-  background: #f8fafd;
+  background: $days-bg-color;
   color: white;
+  padding: 10px 0 10px 8px;
 }
 
+.empty-day div {
+  position: relative;
+  top: 3px;
+}
+.empty-day svg {
+  height: 16px;
+  fill: $light;
+}
+// Fixar border-radius på kalender ---------------------------------------------
+.calendar-grid {
+  border-radius: calc(2px + #{$border-radius}) calc(2px + #{$border-radius})
+    $border-radius $border-radius;
+}
+
+.column-times div:first-child {
+  border-radius: $border-radius 0 0 0;
+}
+.column-times div:last-child {
+  border-radius: 0 0 0 $border-radius;
+}
+.column-S div:first-child {
+  border-radius: 0 $border-radius 0 0;
+  // border-left: 1px solid transparent;
+}
+.column-S div:last-child {
+  border-radius: 0 0 $border-radius 0;
+}
+
+// -----------------------------------------------------------------------------
 .line {
   border-top: 1px solid $slot-gap-color;
-  height: 24px;
+  height: calc((100vh - 220px) / 17);
 }
 
 .line:nth-child(2) {
-  border-top: 1px solid $light;
-  height: 24px;
+  border-top: 1px solid $slots-bg-color;
+  height: calc((100vh - 220px) / 17);
 }
 
 .slot {
-  background: $light;
-  height: 24px;
+  background: $slots-bg-color;
+  height: calc((100vh - 220px) / 17);
   border-top: 1px solid $slot-gap-color;
   border-left: 1px solid $slot-gap-color;
 }
 
 .slot:last-child {
-  border-bottom: 1px solid $slot-gap-color;
-}
-
-.column-S .slot {
-  border-right: 1px solid $slot-gap-color;
 }
 
 .column-day div:first-child {
   background: $days-bg-color;
   color: #a8a8a8;
   font-weight: 300;
+  padding: 10px 0;
 }
 
 .marked {
@@ -337,6 +416,29 @@ export default {
   display: flex;
   justify-content: space-around;
   width: 100%;
+  margin: 0 0 20px 0;
+}
+
+.save-slots-menu a {
+  text-decoration: none;
+}
+
+.save-slots-button {
+  display: flex;
+
+  justify-content: center;
+}
+
+.save-slots-button .svg-container {
+  margin-top: -5px;
+}
+
+.save-slots-text {
+  color: $light;
+  margin-right: 10px;
+  text-decoration: none;
+}
+.week-title {
   margin: 0 0 20px 0;
 }
 </style>

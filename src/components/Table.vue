@@ -17,6 +17,22 @@
         <span class="points">{{ spelare.points }}</span>
       </div>
     </div>
+    <div class="tabell dark-card">
+      <div class="rubriker">
+        <span></span>
+        <span>Namn</span>
+        <span>M</span>
+        <span>P/M</span>
+        <span>P</span>
+      </div>
+      <div v-for="(spelare, index) in table" :key="index" class="rad">
+        <span class="plats">{{ index + 1 }}</span>
+        <span class="spelare">{{ spelare.name }}</span>
+        <span class="matcher">{{ spelare.matches }}</span>
+        <span class="avgpoints">{{ avgPoints(spelare.points, spelare.matches) }}</span>
+        <span class="points">{{ spelare.points }}</span>
+      </div>
+    </div>
     <app-bottom-menu></app-bottom-menu>
   </div>
 </template>

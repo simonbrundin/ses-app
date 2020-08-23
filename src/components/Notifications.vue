@@ -53,6 +53,8 @@ export default {
 
 <style lang="scss">
 #notifications {
+  position: relative;
+  left: -10px;
 }
 
 .notification {

@@ -1,5 +1,5 @@
 <template>
-  <div id="menu">
+  <div class="menu">
     <router-link to="/table">
       <svg-icon icon="rankings" :hasFill="true" class="icon-calendar"></svg-icon>
       <div class="menu-item-text gold" v-if="showIconTexts">Tabell</div>
@@ -35,16 +35,16 @@ export default {
 </script>
 
 <style lang="scss">
-#menu {
+.menu {
   background: $bottom-menu-bg-color;
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
   left: 0px;
-  padding: 15px 0;
+  padding: 18px 0;
   width: 100vw;
   position: fixed;
-  border-radius: 20px 20px 0px 0px;
+  border-radius: $border-radius $border-radius 0px 0px;
 
   bottom: 0;
   box-shadow: 0px 3px 78px 0px #08080856;
@@ -75,44 +75,45 @@ export default {
 }
 
 @mixin active-1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: 10px 20px;
   margin: -50px -20px -10px;
   background: $bottom-menu-active-link;
-  border-radius: 10px;
+  border-radius: $border-radius;
 }
 
 @mixin active-2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: 10px 20px;
-  margin: -50px -20px -10px;
-  // background: $bottom-menu-active-link;
+  margin: -50px -20px -6px;
+
   border-radius: 0px;
   border-bottom: 2px solid $gold;
 }
 @mixin active-3 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: 10px 20px;
-  margin: -50px -20px -10px;
-  // background: $bottom-menu-active-link;
+  margin: -50px -20px -6px;
   border-radius: 0px;
-
   border-style: solid;
   border-width: 2px;
   border-image: linear-gradient(to left, #946837 1%, #ebe48a 50%, #946837 100%)
     100% 0 100% 0/0px 0 2px 0 stretch;
 }
-// Markerad länk alt2
-.router-link-exact-active {
+
+@mixin active-4 {
+  padding: 5px 30px;
+  margin: 0px -20px 0px;
+  background: $dark;
+  border-radius: 100px;
+}
+
+.menu .router-link-exact-active {
   // @include active-1;
-  // @include active-2;
-  @include active-3;
+  @include active-2;
+  // @include active-3;
+  // @include active-4;
+}
+
+.menu .router-link-exact-active svg {
+  fill: $bottom-menu-active-icon-color;
 }
 
 .rund {
