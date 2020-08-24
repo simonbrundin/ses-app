@@ -4,7 +4,7 @@
       <div>3 dagar kvar</div>
     </h2>
     <div class="datum">Torsdag 25/6 kl. 17.30</div>
-    <div class="card">
+    <!-- <div class="card">
       <div class="lag lag1">
         <div class="spelar-ruta left">
           <img src="../assets/max.jpg" class="spelar-bild" alt />
@@ -32,8 +32,8 @@
           <img src="../assets/max.jpg" class="spelar-bild" alt />
           <span>Edin</span>
         </div>
-      </div>
-    </div>
+      </div> 
+    </div>-->
   </div>
 </template>
 

@@ -93,7 +93,7 @@
       </div>
     </router-link>-->
 
-    <div class="menu save-slots-menu">
+    <div class="menu save-slots-menu" v-if="false">
       <router-link to="/">
         <div class="save-slots-button" @click="saveSchedule">
           <div class="save-slots-text">Spara schema</div>
@@ -101,17 +101,13 @@
         </div>
       </router-link>
     </div>
-    <app-bottom-menu v-if="true"></app-bottom-menu>
   </div>
 </template>
 
 <script>
-import BottomMenu from "./BottomMenu.vue";
 export default {
   name: "AvailabilityCalendar",
-  components: {
-    "app-bottom-menu": BottomMenu,
-  },
+
   data: () => {
     return {
       spelare: 10,
@@ -285,6 +281,7 @@ export default {
   display: flex;
   flex-direction: column;
   text-align: center;
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.288));
 }
 
 // Toggle för att välja vecka
@@ -321,8 +318,6 @@ export default {
   grid-template-columns: 1fr 10px repeat(7, 1fr);
   background: $slots-bg-color;
   margin: 0;
-
-  @include shadow;
 }
 
 .time {

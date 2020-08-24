@@ -61,9 +61,11 @@ export default {
   background: $app-bg-color;
   position: fixed;
   top: 0;
+  left: 0;
   height: 100vh;
-  width: 80%;
-  padding: 10%;
+  width: calc(100vw - 2*#{$app-padding};
+  padding: $app-padding;
+  z-index: 100;
 }
 
 .notification-image {

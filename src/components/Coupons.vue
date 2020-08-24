@@ -1,24 +1,25 @@
 <template>
   <div id="coupons">
     <navigation-row></navigation-row>
-    <div
-      class="card company-card"
-      v-for="(company,index) in this.$store.state.coupons.companies"
-      :key="index"
-    >
-      <router-link to="/intersport">
-        <div class="company-row" @click="company.show = !company.show">
-          <img :src="require('../assets/coupons/'+company.logo)" alt />
+    <div class="card-container">
+      <div
+        class="card company-card"
+        v-for="(company,index) in this.$store.state.coupons.companies"
+        :key="index"
+      >
+        <router-link to="/intersport">
+          <div class="company-row" @click="company.show = !company.show">
+            <img :src="require('../assets/coupons/'+company.logo)" alt />
 
-          <div class="company-text">
-            <div>{{company.name}}</div>
-            <div>{{company.couponsLeft}} kuponger kvar</div>
+            <div class="company-text">
+              <div>{{company.name}}</div>
+              <div>{{company.couponsLeft}} kuponger kvar</div>
+            </div>
+            <i class="im im-angle-right"></i>
           </div>
-          <i class="im im-angle-right"></i>
-        </div>
-      </router-link>
+        </router-link>
+      </div>
     </div>
-
     <app-bottom-menu v-if="this.$store.state.coupons.showBottomMenu"></app-bottom-menu>
   </div>
 </template>
