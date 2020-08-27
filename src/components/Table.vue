@@ -92,9 +92,9 @@ export default {
     avgPoints: function (a, b) {
       return Math.round((a / b + Number.EPSILON) * 10) / 10;
     },
-    getImgUrl(pic) {
-      return require("../assets/spelare/" + pic + ".jpg");
-    },
+    // getImgUrl(pic) {
+    //   return require("../assets/spelare/" + pic + ".jpg");
+    // },
   },
 };
 </script>

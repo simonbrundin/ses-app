@@ -72,8 +72,6 @@ button {
   font-weight: 500;
   border: 0;
   background: #fbbf05;
-  -webkit-box-shadow: 20px 20px 50px #00d2c6, -30px -30px 60px #00ffff;
-  box-shadow: 20px 20px 60px #cfcfcf, -20px -20px 60px #cfcfcf;
 }
 
 .menu-item-text {

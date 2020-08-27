@@ -87,11 +87,11 @@
     </div>
     <!-- ---------------------------------------------------------------- -->
 
-    <!-- <router-link to="/">
+    <router-link to="/">
       <div id="save-button">
         <button v-show="calendarVisas" @click="saveSchedule">Spara ändringar</button>
       </div>
-    </router-link>-->
+    </router-link>
 
     <div class="menu save-slots-menu" v-if="false">
       <router-link to="/">
@@ -110,7 +110,7 @@ export default {
 
   data: () => {
     return {
-      spelare: 10,
+      spelare: 7,
       nextGameNr: 1,
       förnamn: "",
       showedWeek: true,

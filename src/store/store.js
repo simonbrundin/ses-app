@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
-    playerID: 10,
+    playerID: 13,
     dept: 0,
     notifications: {
       ConfirmGame: true,

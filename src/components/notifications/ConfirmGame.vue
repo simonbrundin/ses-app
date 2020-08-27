@@ -16,9 +16,9 @@
           <div class="time-box hours">15</div>
           <div class="time-box mins">30</div>
         </div>
-
-        <button @click="confirmGame">Bekräfta matchtiden</button>
       </div>
+      <button @click="confirmGame">Bekräfta matchtiden</button>
+
       <p class="decline">Tyvärr, jag har fått förhinder</p>
     </div>
   </div>
