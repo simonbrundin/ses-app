@@ -15,7 +15,7 @@
     </div>
     <div class="tabell">
       <div class="card-container">
-        <div v-for="(spelare, index) in table" :key="index" class="rad">
+        <div v-for="(spelare, index) in sortedByPoints" :key="index" class="rad">
           <span class="plats">#{{ index + 1 }}</span>
           <span class="spelare">
             {{ spelare.name }}
@@ -23,7 +23,7 @@
             <img :src="'spelare/' + spelare.id +'.jpg'" class="rund" alt />
           </span>
           <span class="matcher">{{ spelare.matches }}</span>
-          <span class="avgpoints">{{ avgPoints(spelare.points, spelare.matches) }}</span>
+          <span class="avgpoints">{{ spelare.ppm }}</span>
           <span class="points">{{ spelare.points }}</span>
         </div>
       </div>
@@ -35,6 +35,7 @@
 export default {
   data() {
     return {
+      server: "http://localhost:7777/",
       table: [
         {
           id: 1,
@@ -86,6 +87,24 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    sortedByPoints: function () {
+      let sortedTable = this.table;
+      sortedTable = sortedTable.sort((a, b) =>
+        a.points < b.points ? -1 : a.points > b.points ? 1 : 0
+      );
+      sortedTable.reverse();
+      return sortedTable;
+    },
+  },
+  mounted() {
+    fetch(this.server + "table/timra/1", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => response.json())
+      .then((promise) => (this.table = promise));
   },
 
   methods: {
