@@ -8,84 +8,51 @@
           <span>Ranking</span>
           <span>Spelare</span>
           <span>M</span>
-          <span>P/M</span>
-          <span>P</span>
+          <span @click="sort = false">P/M</span>
+          <span @click="sort = true">P</span>
         </div>
       </div>
     </div>
     <div class="tabell">
       <div class="card-container">
-        <div v-for="(spelare, index) in sortedByPoints" :key="index" class="rad">
-          <span class="plats">#{{ index + 1 }}</span>
-          <span class="spelare">
-            {{ spelare.name }}
-            <!-- :src="require(`../assets/spelare/${spelare.id}.jpg`)" -->
-            <img :src="'spelare/' + spelare.id +'.jpg'" class="rund" alt />
-          </span>
-          <span class="matcher">{{ spelare.matches }}</span>
-          <span class="avgpoints">{{ spelare.ppm }}</span>
-          <span class="points">{{ spelare.points }}</span>
+        <div v-if="sort">
+          <div v-for="(spelare, index) in sortedByPoints" :key="index" class="rad">
+            <span class="plats">#{{ index + 1 }}</span>
+            <span class="spelare">
+              {{ spelare.name }}
+              <!-- :src="require(`../assets/spelare/${spelare.id}.jpg`)" -->
+              <img :src="'spelare/' + spelare.id +'.jpg'" class="rund" alt />
+            </span>
+            <span class="matcher">{{ spelare.matches }}</span>
+            <span class="avgpoints">{{ spelare.ppm }}</span>
+            <span class="points">{{ spelare.points }}</span>
+          </div>
+        </div>
+        <div v-if="!sort">
+          <div v-for="(spelare, index) in sortedByAvgPoints" :key="index" class="rad">
+            <span class="plats">#{{ index + 1 }}</span>
+            <span class="spelare">
+              {{ spelare.name }}
+              <!-- :src="require(`../assets/spelare/${spelare.id}.jpg`)" -->
+              <img :src="'spelare/' + spelare.id +'.jpg'" class="rund" alt />
+            </span>
+            <span class="matcher">{{ spelare.matches }}</span>
+            <span class="avgpoints">{{ spelare.ppm }}</span>
+            <span class="points">{{ spelare.points }}</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</template>
+</template> 
 
 <script>
 export default {
   data() {
     return {
       server: "http://localhost:7777/",
-      table: [
-        {
-          id: 1,
-          name: "Max Parment",
-          matches: 5,
-          points: 22,
-        },
-        {
-          id: 2,
-          name: "Fredrik Nordin",
-          matches: 3,
-          points: 12,
-        },
-        {
-          id: 3,
-          name: "Christian Blomberg",
-          matches: 7,
-          points: 24,
-        },
-        {
-          id: 4,
-          name: "Paquito",
-          matches: 6,
-          points: 10,
-        },
-        {
-          id: 1,
-          name: "Max Parment",
-          matches: 5,
-          points: 22,
-        },
-        {
-          id: 2,
-          name: "Fredrik Nordin",
-          matches: 3,
-          points: 12,
-        },
-        {
-          id: 3,
-          name: "Christian Blomberg",
-          matches: 7,
-          points: 24,
-        },
-        {
-          id: 4,
-          name: "Paquito",
-          matches: 6,
-          points: 10,
-        },
-      ],
+      sort: true,
+      table: [],
     };
   },
   computed: {
@@ -96,6 +63,14 @@ export default {
       );
       sortedTable.reverse();
       return sortedTable;
+    },
+    sortedByAvgPoints: function () {
+      let sortedTableByAvg = this.table;
+      sortedTableByAvg = sortedTableByAvg.sort((a, b) =>
+        a.ppm < b.ppm ? -1 : a.ppm > b.ppm ? 1 : 0
+      );
+      sortedTableByAvg.reverse();
+      return sortedTableByAvg;
     },
   },
   mounted() {

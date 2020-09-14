@@ -5,10 +5,10 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
-    playerID: 13,
+    playerID: 134,
     dept: 0,
     notifications: {
-      ConfirmGame: true,
+      ConfirmGame: false,
       AddToCalendar: false,
       showNotificationButtons: false,
     },

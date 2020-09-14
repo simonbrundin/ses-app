@@ -54,8 +54,8 @@ div {
   border-radius: 16px;
   padding: 20px;
   margin: 20px 0 0 0;
-  -webkit-box-shadow: 20px 20px 50px #00d2c6, -30px -30px 60px #00ffff;
-  box-shadow: 20px 20px 60px #cfcfcf, -20px -20px 60px #cfcfcf;
+  -webkit-box-shadow: 20px 20px 50px #00d2c6, -30px -30px 60px #00ffff;
+  box-shadow: 20px 20px 60px #cfcfcf, -20px -20px 60px #cfcfcf;
 }
 
 .dark-card div {
