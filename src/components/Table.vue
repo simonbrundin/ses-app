@@ -50,7 +50,6 @@
 export default {
   data() {
     return {
-      server: "http://localhost:7777/",
       sort: true,
       table: [],
     };
@@ -74,7 +73,7 @@ export default {
     },
   },
   mounted() {
-    fetch(this.server + "table/timra/1", {
+    fetch(this.$store.state.server + "/table/timra/1", {
       method: "post",
       headers: { "Content-Type": "application/json" },
     })

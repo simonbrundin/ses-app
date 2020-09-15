@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
+    server: "http://localhost:7777",
     playerID: 134,
     dept: 0,
     notifications: {

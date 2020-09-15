@@ -114,7 +114,7 @@ export default {
       nextGameNr: 1,
       förnamn: "",
       showedWeek: true,
-      server: "http://localhost:7777/",
+
       startTid: 7,
       slutTid: 24,
       halvTimmar: false,
@@ -237,7 +237,7 @@ export default {
         evenSlots: this.user.evenSlots,
       });
 
-      fetch(this.server + "sparaluckor", {
+      fetch(this.$store.state.server + "/sparaluckor", {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: body,
@@ -249,7 +249,7 @@ export default {
       spelare: this.$store.state.playerID,
     });
     // Hämta spelarinfo
-    fetch(this.server + "spelare", {
+    fetch(this.$store.state.server + "/spelare", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: body,
@@ -261,7 +261,7 @@ export default {
 
     // Hämta luckor
 
-    fetch(this.server + "luckor", {
+    fetch(this.$store.state.server + "/luckor", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: body,
