@@ -1,5 +1,6 @@
 <template>
   <div id="match-schedule">
+    <h1 class="title light">Ditt spelschema</h1>
     <div class="card match" v-for="(match, index) in matches" :key="index">{{match.date}}</div>
   </div>
 </template>
