@@ -19,10 +19,10 @@
 
       <div class="menu-item-text gold" v-if="showIconTexts">Kuponger</div>
     </router-link>
-    <div @click="showGame">
+    <router-link to="/schedule">
       <svg-icon icon="time" :hasFill="true" class="icon-calendar"></svg-icon>
       <div class="menu-item-text gold" v-if="showIconTexts">Boka tid</div>
-    </div>
+    </router-link>
   </div>
 </template>
 
