@@ -1,14 +1,15 @@
 <template>
   <div id="match-grid">
     <div>Alla matcher</div>
+    <button @click="getMatches">Uppdatera</button>
     <div class="match-grid">
       <div v-for="(league, leagueIndex) in matches" :key="leagueIndex">
         <div class="league-title">{{leagueIndex +1}}</div>
+        <div>{{matches[0][0]}}</div>
         <div
           v-for="(match, weekIndex) in matches[leagueIndex]"
           :key="weekIndex"
-          :id="leagueIndex + '-' + weekIndex"
-          :class="matches[leagueIndex][weekIndex].status"
+          :class="[matches[leagueIndex][weekIndex].status, matches[leagueIndex][weekIndex].ID]"
           class="match-dot"
           @click="showMatch(matches[leagueIndex][weekIndex].id)"
         ></div>
@@ -79,6 +80,14 @@ export default {
       //   .then((response) => response.json())
       //   .then((promise) => (this.$store.state.admin.selectedMatch = promise));
     },
+    getMatches: function () {
+      fetch(this.$store.state.server + "/allmatches", {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((response) => response.json())
+        .then((promise) => (this.matches = promise));
+    },
   },
 };
 </script>
@@ -105,13 +114,13 @@ export default {
   text-align: center;
 }
 
-.status-red {
+.nn {
   background: red;
 }
 .status-played-without-result {
   background: lightgreen;
 }
-.status-registred {
+.rr {
   background: green;
 }
 </style>

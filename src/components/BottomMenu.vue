@@ -4,7 +4,7 @@
       <svg-icon icon="rankings" :hasFill="true" class="icon-calendar"></svg-icon>
       <div class="menu-item-text gold" v-if="showIconTexts">Tabell</div>
     </router-link>
-    <router-link to="/slots">
+    <router-link to="/userslots">
       <svg-icon icon="calendar-linear" :hasFill="true" class="icon-calendar"></svg-icon>
       <div class="menu-item-text gold" v-if="showIconTexts">Luckor</div>
     </router-link>

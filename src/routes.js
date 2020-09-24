@@ -23,7 +23,7 @@ export const routes = [
     component: Tabell
   },
   {
-    path: '/slots',
+    path: '/userslots',
     component: Slots
   },
   {
