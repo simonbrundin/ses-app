@@ -5,6 +5,7 @@ import { routes } from './routes';
 import { store } from "./store/store";
 
 import SvgIcon from "./components/Svg-icon";
+import './registerServiceWorker'
 
 
 
