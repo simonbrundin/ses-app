@@ -5,8 +5,8 @@
     <div class="card coupon">
       <img src="../../assets/coupons/biteline.png" alt class="coupon-logo" />
 
-      <p class="coupon-number">2 för 1</p>
-      <p class="coupon-text">Take Away från mån-ons</p>
+      <p class="coupon-number">15%</p>
+      <p class="coupon-text">Valfri vara</p>
       <p class="coupon-description">Köp en valfri vara och få 15% rabatt</p>
 
       <button>Aktivera kupong</button>

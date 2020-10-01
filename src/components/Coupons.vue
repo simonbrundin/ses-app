@@ -1,38 +1,40 @@
 <template>
   <div id="coupons">
-    <navigation-row></navigation-row>
+    <!-- <navigation-row></navigation-row> -->
     <div class="card-container">
       <div
         class="card company-card"
-        v-for="(company,index) in this.$store.state.coupons.companies"
+        v-for="(company, index) in this.$store.state.coupons.companies"
         :key="index"
       >
-        <router-link to="/intersport">
+        <router-link to="/coupon">
           <div class="company-row" @click="company.show = !company.show">
-            <img :src="require('../assets/coupons/'+company.logo)" alt />
+            <img :src="require('../assets/coupons/' + company.logo)" alt />
 
             <div class="company-text">
-              <div>{{company.name}}</div>
-              <div>{{company.couponsLeft}} kuponger kvar</div>
+              <div>{{ company.name }}</div>
+              <div>{{ company.coupons[0].title }}</div>
             </div>
             <i class="im im-angle-right"></i>
           </div>
         </router-link>
       </div>
     </div>
-    <app-bottom-menu v-if="this.$store.state.coupons.showBottomMenu"></app-bottom-menu>
+    <app-bottom-menu
+      v-if="this.$store.state.coupons.showBottomMenu"
+    ></app-bottom-menu>
   </div>
 </template>
 
 <script>
-import NavigationRow from "./notifications/NavigationRow.vue";
+// import NavigationRow from "./notifications/NavigationRow.vue";
 import BottomMenu from "../components/BottomMenu.vue";
 export default {
   data() {
     return {};
   },
   components: {
-    "navigation-row": NavigationRow,
+    // "navigation-row": NavigationRow,
     "app-bottom-menu": BottomMenu,
   },
 };
@@ -40,6 +42,7 @@ export default {
 
 <style lang="scss">
 #coupons {
+  margin: 0 0 82px 0;
 }
 
 .company-row {
