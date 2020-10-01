@@ -102,11 +102,12 @@ export default {
 
 <style lang="scss" scope>
 #table {
-  margin: 0 0 60px 0;
+  margin: 0 0 72px 0;
 }
 
 #table h2 {
   text-align: center;
+  color: $light;
 }
 
 .table-top {
@@ -117,7 +118,7 @@ export default {
   padding-left: $app-padding;
 }
 .tabell {
-  margin: 65px 0 0 0;
+  margin: 0 0 0 0;
   display: flex;
   flex-direction: column;
   filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.288));

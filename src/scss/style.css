@@ -45,6 +45,10 @@ div {
   box-shadow: 6px 6px 16px 6px rgba(0, 0, 0, 0.15);
 }
 
+.card h2 {
+  color: black;
+}
+
 .card-container {
   -webkit-filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.288));
           filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.288));

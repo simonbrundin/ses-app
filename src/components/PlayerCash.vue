@@ -27,7 +27,7 @@
 export default {};
 </script>
 
-<style lang="scss">
+<style lang="scss" scope>
 #player-cash {
   color: $light;
   text-align: center;
@@ -37,6 +37,11 @@ export default {};
 #player-cash div {
   color: $dark;
   text-align: center;
+  background: $dark-grey;
+}
+
+#player-cash div div {
+  background: $gold;
 }
 
 #player-cash .title {
@@ -51,8 +56,8 @@ export default {};
   margin: 20px 0 20px;
 }
 
-h2 {
-  color: $dark;
+#player-cash h2 {
+  color: $light;
   margin: 0 0 10px 0;
 }
 

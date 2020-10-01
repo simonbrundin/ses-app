@@ -79,7 +79,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scope>
 #match-schedule {
   margin: 0 0 72px 0;
 }
@@ -93,9 +93,15 @@ export default {
 
 .date-text {
   font-weight: 700;
+  color: $light;
 }
 
 .cancel-button {
   text-align: right;
+  font-size: 14px;
+}
+
+#match-schedule .card {
+  background: $dark-grey;
 }
 </style>

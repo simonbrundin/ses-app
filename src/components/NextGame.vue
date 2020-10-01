@@ -38,12 +38,15 @@ export default {
   text-align: center;
 }
 
-h2 {
-  color: $dark;
+#next-game h2 {
+  color: $light;
+  margin: 0px 0 0;
+  padding: 0;
 }
 
 .datum {
-  margin: 20px;
+  margin: 10px 0 20px;
+  color: $light;
 }
 
 .lag {
@@ -63,10 +66,18 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  background: $gold;
   font-size: 12px;
   font-weight: 700;
   margin: 10px 0;
+}
+
+#next-game.card {
+  background: $dark-grey;
+}
+
+div.spelar-ruta.card {
+  background: $gold;
 }
 
 .right {
@@ -82,11 +93,13 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 0 10px;
+  color: $light;
 }
 
 .vs-linje {
   height: 1px;
-  background: black;
+  background: $dark;
   width: 100%;
 }
 

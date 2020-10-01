@@ -1,5 +1,5 @@
 <template>
-  <div id="notification-payment" v-if=" this.$store.state.dept > 0">
+  <div id="notification-payment" v-if="false">
     <p>
       Det saknas en betalning från dig på
       <strong>{{ this.$store.state.dept }} kr</strong>
