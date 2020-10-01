@@ -31,10 +31,10 @@
       <svg-icon icon="time" :hasFill="true" class="icon-calendar"></svg-icon>
       <div class="menu-item-text gold" v-if="showIconTexts">Boka tid</div>
     </router-link>
-    <router-link to="/admin">
+    <!-- <router-link to="/admin">
       <svg-icon icon="time" :hasFill="true" class="icon-calendar"></svg-icon>
       <div class="menu-item-text gold" v-if="showIconTexts">Admin</div>
-    </router-link>
+    </router-link> -->
   </div>
 </template>
 

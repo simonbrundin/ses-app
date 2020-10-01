@@ -31,19 +31,55 @@ export const store = new Vuex.Store({
     coupons: {
       showBottomMenu: true,
       companies: {
+        biteline: {
+          name: "Biteline",
+          logo: "biteline.png",
+          couponsLeft: 12,
+          couponLink: "BiteLine.vue",
+          show: false,
+          coupons: [
+            {
+              title: '2 för 1 mån-ons Take Away',
+              description: '2 för 1 mån-ons Take Away'
+            }
+          ]
+        },
         intersport: {
           name: "Intersport",
+          link: '/intersport',
           logo: "intersport-standing.png",
           couponsLeft: 5,
           couponLink: "InterSport.vue",
           show: true,
           coupons: [
             {
-              title: '15% valfri vara',
+              title: '20% på allt inom padel',
               description: 'Köp valfri vara och få 15% rabatt'
-            },
+            }
+          ]
+        },
+        bilbolaget: {
+          name: "Bilbolaget",
+          logo: "bilbolaget.png",
+          couponsLeft: 5,
+          couponLink: "Bilbolaget.vue",
+          show: false,
+          coupons: [
             {
-              title: '15% valfri vara',
+              title: '50% på Deluxe Biltvätt',
+              description: 'Köp valfri vara och få 15% rabatt'
+            }
+          ]
+        },
+        bestwestern: {
+          name: "Best Western",
+          logo: "bestwestern.png",
+          couponsLeft: 5,
+          couponLink: "Bestwestern.vue",
+          show: false,
+          coupons: [
+            {
+              title: '20% på alla övernattningar',
               description: 'Köp valfri vara och få 15% rabatt'
             }
           ]
@@ -54,13 +90,53 @@ export const store = new Vuex.Store({
           couponsLeft: 5,
           couponLink: "Palt.vue",
           show: false,
+          coupons: [
+            {
+              title: '20% på två eller fler plagg',
+              description: 'Köp valfri vara och få 15% rabatt'
+            }
+          ]
         },
-        biteline: {
-          name: "Biteline",
-          logo: "biteline.png",
+
+        jacknjones: {
+          name: "Jack & Jones",
+          logo: "jackjones.svg",
+          couponsLeft: 5,
+          couponLink: "jackjones.vue",
+          show: false,
+          coupons: [
+            {
+              title: '20% på två eller fler plagg',
+              description: 'Köp valfri vara och få 15% rabatt'
+            }
+          ]
+        },
+
+        norrlandsfarg: {
+          name: "Norrlands Färg",
+          logo: "norrlandsfarg.png",
           couponsLeft: 12,
           couponLink: "BiteLine.vue",
           show: false,
+          coupons: [
+            {
+              title: '20% på all färg',
+              description: '2 för 1 mån-ons Take Away'
+            }
+          ]
+        },
+        mammaaugustas: {
+          name: "Mamma Augustas Kök",
+          logo: "augustaskok.png",
+          couponsLeft: 12,
+          couponLink: "Mammaaugustas.vue",
+          show: false,
+          coupons: [
+            {
+              title: '25% på mat & dryck',
+              description: '2 för 1 mån-ons Take Away'
+            }
+          ]
         },
       },
     }

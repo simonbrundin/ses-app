@@ -8,7 +8,7 @@ h2 {
 }
 
 h3 {
-  color: black;
+  color: #f7f7f7;
 }
 
 body {
@@ -21,7 +21,7 @@ body {
 }
 
 #app {
-  padding: 20px;
+  padding: 10px 20px;
 }
 
 div {
@@ -41,6 +41,8 @@ div {
   color: #2d9b82;
   border-radius: 16px;
   padding: 20px;
+  -webkit-box-shadow: 6px 6px 16px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 6px 6px 16px 6px rgba(0, 0, 0, 0.15);
 }
 
 .card-container {
@@ -54,8 +56,8 @@ div {
   border-radius: 16px;
   padding: 20px;
   margin: 20px 0 0 0;
-  -webkit-box-shadow: 20px 20px 50px #00d2c6, -30px -30px 60px #00ffff;
-  box-shadow: 20px 20px 60px #cfcfcf, -20px -20px 60px #cfcfcf;
+  -webkit-box-shadow: 6px 6px 16px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 6px 6px 16px 6px rgba(0, 0, 0, 0.15);
 }
 
 .dark-card div {
@@ -64,12 +66,12 @@ div {
 
 button {
   color: white;
-  padding: 20px 20px;
+  padding: 12px 20px;
   background: #8eb5db;
   border-radius: 16px;
   font-size: 15px;
-  letter-spacing: 1px;
-  font-weight: 500;
+  font-weight: 300;
+  font-family: 'Montserrat';
   border: 0;
   background: #fbbf05;
 }

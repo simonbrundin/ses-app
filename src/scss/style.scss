@@ -58,7 +58,7 @@ h2 {
 }
 
 h3 {
-  color: $dark;
+  color: $light;
 }
 
 // -----------------------------------------------------------------------
@@ -67,15 +67,15 @@ $border-radius: 16px;
 $app-padding: 20px;
 
 @mixin shadow {
-  -webkit-box-shadow: 20px 20px 50px #00d2c6,
-    -30px -30px 60px #00ffff;
-  -moz-box-shadow: 20px 20px 50px #00d2c6,
-    -30px -30px 60px #00ffff;
-  box-shadow: 20px 20px 60px #cfcfcf,
-    -20px -20px 60px #cfcfcf;
-  // -webkit-box-shadow: 0px 19px 30px 6px rgba(0, 0, 0, 0.22);
-  // -moz-box-shadow: 0px 19px 30px 6px rgba(0, 0, 0, 0.22);
-  // box-shadow: 0px 19px 30px 6px rgba(0, 0, 0, 0.22);
+  // -webkit-box-shadow: 20px 20px 50px #00d2c6,
+  //   -30px -30px 60px #00ffff;
+  // -moz-box-shadow: 20px 20px 50px #00d2c6,
+  //   -30px -30px 60px #00ffff;
+  // box-shadow: 20px 20px 60px #cfcfcf,
+  //   -20px -20px 60px #cfcfcf;
+  -webkit-box-shadow: 6px 6px 16px 6px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 6px 6px 16px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 6px 6px 16px 6px rgba(0, 0, 0, 0.15);
 }
 
 body {
@@ -88,7 +88,7 @@ body {
 }
 
 #app {
-  padding: $app-padding;
+  padding: 10px $app-padding;
 
 }
 
@@ -111,7 +111,7 @@ div {
   color: $second-color;
   border-radius: $border-radius;
   padding: 20px;
-  // @include shadow;
+  @include shadow;
   // filter: drop-shadow(0 0 40px #000)
 }
 
@@ -134,13 +134,14 @@ div {
 
 button {
   color: white;
-  padding: 20px 20px;
+  padding: 12px 20px;
   background: #8eb5db;
   border-radius: $border-radius;
   // margin: auto;
   font-size: 15px;
-  letter-spacing: 1px;
-  font-weight: 500;
+
+  font-weight: 300;
+  font-family: 'Montserrat';
   border: 0;
   background: $confirm;
   // @include shadow;

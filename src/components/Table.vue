@@ -100,7 +100,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scope>
 #table {
   margin: 0 0 60px 0;
 }
@@ -158,12 +158,12 @@ export default {
 .rad span {
   padding: 12px 0;
 }
-.rubriker span:nth-child(1) {
+#table .rubriker span:nth-child(1) {
   background: none;
   color: $light-grey;
 }
 
-span:nth-child(1) {
+#table span:nth-child(1) {
   margin: 0 8px 0 -1px;
   text-align: center;
   color: $dark-grey;
@@ -173,7 +173,7 @@ span:nth-child(1) {
   border-radius: $border-radius $border-radius 0 $border-radius;
 }
 
-span:nth-child(2) {
+#table span:nth-child(2) {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -182,15 +182,15 @@ span:nth-child(2) {
   width: 100%;
 }
 
-span:nth-child(3) {
+#table span:nth-child(3) {
   justify-self: flex-end;
 }
 
-span:nth-child(4) {
+#table span:nth-child(4) {
   justify-self: flex-end;
 }
 
-span:nth-child(5) {
+#table span:nth-child(5) {
   justify-self: flex-end;
 }
 

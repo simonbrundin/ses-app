@@ -3,8 +3,20 @@
     <!-- Knappar som byter spelare -->
     <div class="select-week-container">
       <div class="select-week">
-        <div :class="{selected: showedWeek}" class="odd-button" @click="select">Udda veckor</div>
-        <div :class="{selected: !showedWeek}" class="even-button" @click="select">Jämna veckor</div>
+        <div
+          :class="{ selected: showedWeek }"
+          class="odd-button"
+          @click="select"
+        >
+          Udda veckor
+        </div>
+        <div
+          :class="{ selected: !showedWeek }"
+          class="even-button"
+          @click="select"
+        >
+          Jämna veckor
+        </div>
       </div>
     </div>
     <!-- Udda veckor -->
@@ -13,15 +25,29 @@
       <div class="calendar-grid">
         <div class="column-times">
           <div class="empty-day">
-            <svg-icon icon="time" :hasFill="true" class="icon-calendar"></svg-icon>
+            <svg-icon
+              icon="time"
+              :hasFill="true"
+              class="icon-calendar"
+            ></svg-icon>
           </div>
-          <div v-for="(tid, index) in spelbaraTimmarUtanNollor" :key="index" class="time">{{tid}}</div>
+          <div
+            v-for="(tid, index) in spelbaraTimmarUtanNollor"
+            :key="index"
+            class="time"
+          >
+            {{ tid }}
+          </div>
         </div>
         <div class="column-lines">
           <div class="empty-day">
             <br />
           </div>
-          <div v-for="(tid, index) in spelbaraTimmarUtanNollor" :key="index" class="line">
+          <div
+            v-for="(tid, index) in spelbaraTimmarUtanNollor"
+            :key="index"
+            class="line"
+          >
             <br />
           </div>
         </div>
@@ -29,17 +55,21 @@
           class="column-day"
           v-for="(dag, index) in rullandeDagar"
           :key="index"
-          :class="'column-'+ dag"
+          :class="'column-' + dag"
         >
-          <div>{{dag}}</div>
+          <div>{{ dag }}</div>
 
           <div
             v-for="(tid, index) in spelbaraTimmar"
             :key="index"
             class="slot odd"
             :id="dag + tid"
-            :class="dag + tid && { marked: 
-          user.oddSlots.includes(dag + tid), varannan: index % 2 == 0 }"
+            :class="
+              dag + tid && {
+                marked: user.oddSlots.includes(dag + tid),
+                varannan: index % 2 == 0,
+              }
+            "
             @click="klickadLucka"
           ></div>
         </div>
@@ -53,15 +83,29 @@
       <div class="calendar-grid">
         <div class="column-times">
           <div class="empty-day">
-            <svg-icon icon="time" :hasFill="true" class="icon-calendar"></svg-icon>
+            <svg-icon
+              icon="time"
+              :hasFill="true"
+              class="icon-calendar"
+            ></svg-icon>
           </div>
-          <div v-for="(tid, index) in spelbaraTimmarUtanNollor" :key="index" class="time">{{tid}}</div>
+          <div
+            v-for="(tid, index) in spelbaraTimmarUtanNollor"
+            :key="index"
+            class="time"
+          >
+            {{ tid }}
+          </div>
         </div>
         <div class="column-lines">
           <div class="empty-day">
             <br />
           </div>
-          <div v-for="(tid, index) in spelbaraTimmarUtanNollor" :key="index" class="line">
+          <div
+            v-for="(tid, index) in spelbaraTimmarUtanNollor"
+            :key="index"
+            class="line"
+          >
             <br />
           </div>
         </div>
@@ -69,17 +113,21 @@
           class="column-day"
           v-for="(dag, index) in rullandeDagar"
           :key="index"
-          :class="'column-'+ dag"
+          :class="'column-' + dag"
         >
-          <div>{{dag}}</div>
+          <div>{{ dag }}</div>
 
           <div
             v-for="(tid, index) in spelbaraTimmar"
             :key="index"
             class="slot even"
             :id="dag + tid"
-            :class="dag + tid && { marked: 
-          user.evenSlots.includes(dag + tid), varannan: index % 2 == 0 }"
+            :class="
+              dag + tid && {
+                marked: user.evenSlots.includes(dag + tid),
+                varannan: index % 2 == 0,
+              }
+            "
             @click="klickadLucka"
           ></div>
         </div>
@@ -89,7 +137,9 @@
 
     <router-link to="/">
       <div id="save-button">
-        <button v-show="calendarVisas" @click="saveSchedule">Spara ändringar</button>
+        <button v-show="calendarVisas" @click="saveSchedule">
+          Spara ändringar
+        </button>
       </div>
     </router-link>
 
@@ -97,7 +147,11 @@
       <router-link to="/">
         <div class="save-slots-button" @click="saveSchedule">
           <div class="save-slots-text">Spara schema</div>
-          <svg-icon icon="cloud-upload" :hasFill="true" class="icon-calendar"></svg-icon>
+          <svg-icon
+            icon="cloud-upload"
+            :hasFill="true"
+            class="icon-calendar"
+          ></svg-icon>
         </div>
       </router-link>
     </div>
@@ -277,7 +331,7 @@ export default {
 
 <style lang="scss">
 #calendar {
-  margin: 0 0 90px 0;
+  margin: 0 0 65px 0;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -321,7 +375,7 @@ export default {
 }
 
 .time {
-  height: calc((100vh - 220px) / 17);
+  height: calc((100vh - 260px) / 17);
   border-bottom: 1px solid transparent;
   color: #a8a8a8;
   position: relative;
@@ -376,17 +430,17 @@ export default {
 // -----------------------------------------------------------------------------
 .line {
   border-top: 1px solid $slot-gap-color;
-  height: calc((100vh - 220px) / 17);
+  height: calc((100vh - 260px) / 17);
 }
 
 .line:nth-child(2) {
   border-top: 1px solid $slots-bg-color;
-  height: calc((100vh - 220px) / 17);
+  height: calc((100vh - 260px) / 17);
 }
 
 .slot {
   background: $slots-bg-color;
-  height: calc((100vh - 220px) / 17);
+  height: calc((100vh - 260px) / 17);
   border-top: 1px solid $slot-gap-color;
   border-left: 1px solid $slot-gap-color;
 }
@@ -406,12 +460,15 @@ export default {
 }
 
 #save-button {
-  position: fixed;
-  bottom: 0;
+  text-decoration: none;
   display: flex;
   justify-content: space-around;
   width: 100%;
-  margin: 0 0 20px 0;
+  margin: 10px 0 0 0;
+}
+
+#calendar a {
+  text-decoration: none;
 }
 
 .save-slots-menu a {
