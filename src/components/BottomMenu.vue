@@ -68,6 +68,23 @@ export default {
   -webkit-box-shadow: 0px 3px 78px 0px #0808085b;
   -moz-box-shadow: 0px 3px 78px 0px #08080848;
 }
+@media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
+  .menu {
+    padding: 18px 0 28px;
+  }
+}
+
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .menu {
+    padding: 18px 0 28px;
+  }
+}
+
+@media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
+  .menu {
+    padding: 18px 0 28px;
+  }
+}
 
 // Ikoner
 

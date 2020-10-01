@@ -4,11 +4,14 @@
     <div class="datum">Torsdag 25/6 kl. 17.30</div>
 
     <div class="spelar-ruta card">
-      <img src="../../public/spelare/2.jpg" class="spelar-bild" alt />
-      <div>Nordin</div>
-
-      <img src="../../public/spelare/3.jpg" class="spelar-bild" alt />
-      <div>Blomberg</div>
+      <div class="spelare">
+        <div>Nordin</div>
+        <img src="../../public/spelare/2.jpg" class="spelar-bild" alt />
+      </div>
+      <div class="spelare">
+        <img src="../../public/spelare/3.jpg" class="spelar-bild two" alt />
+        <div>Blomberg</div>
+      </div>
     </div>
     <div class="vs">
       <span class="vs-linje"></span>
@@ -17,11 +20,14 @@
     </div>
 
     <div class="spelar-ruta card">
-      <img src="../../public/spelare/4.jpg" class="spelar-bild" alt />
-      <div>Nordin</div>
-
-      <img src="../../public/spelare/134.jpg" class="spelar-bild" alt />
-      <div>Edin</div>
+      <div class="spelare">
+        <div>Paquito</div>
+        <img src="../../public/spelare/4.jpg" class="spelar-bild" alt />
+      </div>
+      <div class="spelare">
+        <img src="../../public/spelare/134.jpg" class="spelar-bild two" alt />
+        <div>Parment</div>
+      </div>
     </div>
   </div>
 </template>
@@ -62,6 +68,20 @@ h3 {
   margin: 0px 5px;
 }
 
+.spelare:nth-child(1) {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 50%;
+  margin: 0 0 0 -10px;
+}
+.spelare:nth-child(2) {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+}
+
 .spelar-ruta {
   display: flex;
   justify-content: center;
@@ -72,6 +92,9 @@ h3 {
   margin: 10px 0;
 }
 
+.spelar-bild.two {
+  margin: 0 10px 0;
+}
 #next-game.card {
   background: $dark-grey;
 }

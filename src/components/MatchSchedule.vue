@@ -92,7 +92,7 @@ export default {
 }
 
 .date-text {
-  font-weight: 700;
+  font-weight: 300;
   color: $light;
 }
 

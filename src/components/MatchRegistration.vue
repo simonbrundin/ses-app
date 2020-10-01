@@ -8,18 +8,42 @@
       <div class="spelare">
         <div class="lag">
           <select v-model="hemmaspelare1" single>
-            <option :value="spelare" v-for="(spelare, index) in spelare" :key="index">{{spelare}}</option>
+            <option
+              :value="spelare"
+              v-for="(spelare, index) in spelare"
+              :key="index"
+            >
+              {{ spelare }}
+            </option>
           </select>
           <select v-model="hemmaspelare2" single>
-            <option :value="spelare" v-for="(spelare, index) in spelare" :key="index">{{spelare}}</option>
+            <option
+              :value="spelare"
+              v-for="(spelare, index) in spelare"
+              :key="index"
+            >
+              {{ spelare }}
+            </option>
           </select>
         </div>
         <div class="lag">
           <select v-model="bortaspelare1" single>
-            <option :value="spelare" v-for="(spelare, index) in spelare" :key="index">{{spelare}}</option>
+            <option
+              :value="spelare"
+              v-for="(spelare, index) in spelare"
+              :key="index"
+            >
+              {{ spelare }}
+            </option>
           </select>
           <select v-model="bortaspelare2" single>
-            <option :value="spelare" v-for="(spelare, index) in spelare" :key="index">{{spelare}}</option>
+            <option
+              :value="spelare"
+              v-for="(spelare, index) in spelare"
+              :key="index"
+            >
+              {{ spelare }}
+            </option>
           </select>
         </div>
       </div>
@@ -30,7 +54,7 @@
         <button @click="addPoints('hemma')">+</button>
         <button @click="removePoints('hemma')">-</button>
       </div>
-      <div class="siffror">{{pointshemma}} - {{pointsborta}}</div>
+      <div class="siffror">{{ pointshemma }} - {{ pointsborta }}</div>
       <div class="poängknappar">
         <button @click="addPoints('borta')">+</button>
         <button @click="removePoints('borta')">-</button>
@@ -38,7 +62,9 @@
     </div>
 
     <div class="registreringsknapp">
-      <button class="registerbutton" @click="registreraPoäng()">Registrera</button>
+      <button class="registerbutton" @click="registreraPoäng()">
+        Registrera
+      </button>
     </div>
   </div>
 </template>
@@ -120,7 +146,7 @@ export default {
 };
 </script>
 
-<style >
+<style lang="scss" scope>
 .matchnr {
   display: flex;
   align-items: center;
@@ -134,10 +160,10 @@ export default {
   width: 50px;
 }
 
-.spelare {
-  display: flex;
-  justify-content: center;
-}
+// .spelare {
+//   display: flex;
+//   justify-content: center;
+// }
 
 .lag {
   display: flex;

@@ -1,6 +1,6 @@
 <template>
   <div id="notification-payment" class="card" v-if="true">
-    <img src="../../assets/swish.png" alt="" class="" />
+    <img src="../../assets/swish.png" alt="" class="swish-img" />
     <div>Betala för förra matchen :)</div>
     <button>Betala nu</button>
   </div>
@@ -22,9 +22,9 @@ export default {};
   margin: 20px;
 }
 
-#notification-payment img {
-  width: 50%;
-  height: 50%;
+.swish-img {
+  width: 150px;
+  height: 200px;
   margin: auto;
 }
 </style>
