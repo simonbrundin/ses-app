@@ -24,6 +24,7 @@ export default {};
 
 #notification-payment img {
   width: 50%;
+  height: 50%;
   margin: auto;
 }
 </style>
