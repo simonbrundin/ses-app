@@ -6,8 +6,8 @@
       <img src="../../assets/coupons/biteline.png" alt class="coupon-logo" />
 
       <p class="coupon-number">2 för 1</p>
-      <p class="coupon-text">Take Away från mån-ons</p>
-      <p class="coupon-description">Köp en valfri vara och få 15% rabatt</p>
+      <p class="coupon-text">Take Away</p>
+      <p class="coupon-description">Erbjudandet gäller mån-ons</p>
 
       <button>Aktivera kupong</button>
       <p class="valid-text">Giltig till 2020-12-13</p>

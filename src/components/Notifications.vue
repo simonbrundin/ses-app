@@ -1,5 +1,5 @@
 <template>
-  <div id="notifications">
+  <div id="notifications" v-if="false">
     <!-- Bekräfta lediga luckor -->
     <confirm-game class="notification"></confirm-game>
 
@@ -9,7 +9,7 @@
     <!-- Betalning saknas -->
     <payment class="notification"></payment>
     <!-- Acceptera datum -->
-    <div class="notification accept-game" v-if=" !acceptedNextMatch ">
+    <div class="notification accept-game" v-if="!acceptedNextMatch">
       <p>
         Vi har hittat en ny möjlig match.
         <br />
@@ -18,10 +18,15 @@
       <button>Ja</button>
       <button>Nej</button>
     </div>
-    <div class="dev-notification-buttons" v-if="this.$store.state.showNotificationButtons">
-      <button @click="addedNextMatchToCalendar = !addedNextMatchToCalendar">Kalender</button>
-      <button @click="acceptedNextMatch= !acceptedNextMatch">Acceptera</button>
-      <button @click="acceptedNextMatch= !acceptedNextMatch">bekräfta</button>
+    <div
+      class="dev-notification-buttons"
+      v-if="this.$store.state.showNotificationButtons"
+    >
+      <button @click="addedNextMatchToCalendar = !addedNextMatchToCalendar">
+        Kalender
+      </button>
+      <button @click="acceptedNextMatch = !acceptedNextMatch">Acceptera</button>
+      <button @click="acceptedNextMatch = !acceptedNextMatch">bekräfta</button>
       <button @click="noNotifications = false">x</button>
     </div>
     <h2 v-else @click="noNotifications = true"></h2>

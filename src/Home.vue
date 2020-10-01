@@ -1,7 +1,8 @@
 <template>
   <div id="home">
-    <next-game></next-game>
     <payment-swish></payment-swish>
+    <next-game></next-game>
+
     <app-bottom-menu></app-bottom-menu>
     <player-cash></player-cash>
   </div>
@@ -23,5 +24,8 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scope>
+#home {
+  margin: 10px 0 0 0;
+}
 </style>
