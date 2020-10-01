@@ -7,6 +7,7 @@ import Intersport from './components/coupons/InterSport.vue'
 import Admin from './components/Admin.vue'
 import AdminMatchGrid from './components/admin/MatchGrid.vue'
 import MatchSchedule from './components/MatchSchedule.vue'
+import MatchRegistration from './components/MatchRegistration.vue'
 
 
 export const routes = [
@@ -45,5 +46,9 @@ export const routes = [
   {
     path: '/admin/match-grid',
     component: AdminMatchGrid
+  },
+  {
+    path: '/matchregistration',
+    component: MatchRegistration
   }
 ];

@@ -8,6 +8,8 @@ export const store = new Vuex.Store({
     server: "http://localhost:7777",
     playerID: 134,
     dept: 0,
+    showMenu: false,
+    showMenuIcon: false,
     admin: {
       showMatchWindow: false,
       selectedMatch: {

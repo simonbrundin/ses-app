@@ -1,11 +1,19 @@
 <template>
   <div class="menu">
     <router-link to="/table">
-      <svg-icon icon="rankings" :hasFill="true" class="icon-calendar"></svg-icon>
+      <svg-icon
+        icon="rankings"
+        :hasFill="true"
+        class="icon-calendar"
+      ></svg-icon>
       <div class="menu-item-text gold" v-if="showIconTexts">Tabell</div>
     </router-link>
     <router-link to="/userslots">
-      <svg-icon icon="calendar-linear" :hasFill="true" class="icon-calendar"></svg-icon>
+      <svg-icon
+        icon="calendar-linear"
+        :hasFill="true"
+        class="icon-calendar"
+      ></svg-icon>
       <div class="menu-item-text gold" v-if="showIconTexts">Luckor</div>
     </router-link>
 
@@ -22,6 +30,10 @@
     <router-link to="/schedule">
       <svg-icon icon="time" :hasFill="true" class="icon-calendar"></svg-icon>
       <div class="menu-item-text gold" v-if="showIconTexts">Boka tid</div>
+    </router-link>
+    <router-link to="/admin">
+      <svg-icon icon="time" :hasFill="true" class="icon-calendar"></svg-icon>
+      <div class="menu-item-text gold" v-if="showIconTexts">Admin</div>
     </router-link>
   </div>
 </template>

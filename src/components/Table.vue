@@ -2,7 +2,7 @@
   <div id="table">
     <!-- Plats, Spelare, Matcher, Poäng, Medelpoäng -->
     <div class="table-top">
-      <h2>SES Timrå Div 1</h2>
+      <h2>Din serie</h2>
       <div class="card-container">
         <div class="rubriker">
           <span>Ranking</span>
@@ -16,12 +16,16 @@
     <div class="tabell">
       <div class="card-container">
         <div v-if="sort">
-          <div v-for="(spelare, index) in sortedByPoints" :key="index" class="rad">
+          <div
+            v-for="(spelare, index) in sortedByPoints"
+            :key="index"
+            class="rad"
+          >
             <span class="plats">#{{ index + 1 }}</span>
             <span class="spelare">
               {{ spelare.name }}
               <!-- :src="require(`../assets/spelare/${spelare.id}.jpg`)" -->
-              <img :src="'spelare/' + spelare.id +'.jpg'" class="rund" alt />
+              <img :src="'spelare/' + spelare.id + '.jpg'" class="rund" alt />
             </span>
             <span class="matcher">{{ spelare.matches }}</span>
             <span class="avgpoints">{{ spelare.ppm }}</span>
@@ -29,12 +33,16 @@
           </div>
         </div>
         <div v-if="!sort">
-          <div v-for="(spelare, index) in sortedByAvgPoints" :key="index" class="rad">
+          <div
+            v-for="(spelare, index) in sortedByAvgPoints"
+            :key="index"
+            class="rad"
+          >
             <span class="plats">#{{ index + 1 }}</span>
             <span class="spelare">
               {{ spelare.name }}
               <!-- :src="require(`../assets/spelare/${spelare.id}.jpg`)" -->
-              <img :src="'spelare/' + spelare.id +'.jpg'" class="rund" alt />
+              <img :src="'spelare/' + spelare.id + '.jpg'" class="rund" alt />
             </span>
             <span class="matcher">{{ spelare.matches }}</span>
             <span class="avgpoints">{{ spelare.ppm }}</span>
@@ -102,9 +110,7 @@ export default {
 }
 
 .table-top {
-  position: fixed;
-  top: 0;
-  z-index: 100;
+  z-index: 1;
   width: calc(100vw - 2 *#{$app-padding});
   background: $dark;
   margin-left: -$app-padding;
