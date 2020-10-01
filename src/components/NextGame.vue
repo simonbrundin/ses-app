@@ -1,39 +1,28 @@
 <template>
   <div id="next-game" class="card">
-    <h2>
-      <div>3 dagar kvar</div>
-    </h2>
+    <h2>Nästa match</h2>
     <div class="datum">Torsdag 25/6 kl. 17.30</div>
-    <!-- <div class="card">
-      <div class="lag lag1">
-        <div class="spelar-ruta left">
-          <img src="../assets/max.jpg" class="spelar-bild" alt />
-          <span>Brundin</span>
-        </div>
 
-        <div class="spelar-ruta right">
-          <img src="../assets/max.jpg" class="spelar-bild" alt />
-          <span>Blomberg</span>
-        </div>
-      </div>
-      <div class="vs">
-        <span class="vs-linje"></span>
-        <span class="vs-text">vs</span>
-        <span class="vs-linje"></span>
-      </div>
+    <div class="spelar-ruta card">
+      <img src="../../public/spelare/2.jpg" class="spelar-bild" alt />
+      <div>Nordin</div>
 
-      <div class="lag lag2">
-        <div class="spelar-ruta left">
-          <img src="../assets/max.jpg" class="spelar-bild" alt />
-          <span>Nordin</span>
-        </div>
+      <img src="../../public/spelare/3.jpg" class="spelar-bild" alt />
+      <div>Blomberg</div>
+    </div>
+    <div class="vs">
+      <span class="vs-linje"></span>
+      <span class="vs-text">vs</span>
+      <span class="vs-linje"></span>
+    </div>
 
-        <div class="spelar-ruta right">
-          <img src="../assets/max.jpg" class="spelar-bild" alt />
-          <span>Edin</span>
-        </div>
-      </div> 
-    </div>-->
+    <div class="spelar-ruta card">
+      <img src="../../public/spelare/4.jpg" class="spelar-bild" alt />
+      <div>Nordin</div>
+
+      <img src="../../public/spelare/134.jpg" class="spelar-bild" alt />
+      <div>Edin</div>
+    </div>
   </div>
 </template>
 
@@ -43,10 +32,14 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scope>
 #next-game {
   margin: 20px 0;
   text-align: center;
+}
+
+h2 {
+  color: $dark;
 }
 
 .datum {
@@ -68,26 +61,21 @@ h3 {
 
 .spelar-ruta {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   font-size: 12px;
   font-weight: 700;
-}
-
-.left {
-  align-items: center;
-  margin: 0 10px 0 0;
+  margin: 10px 0;
 }
 
 .right {
-  align-items: center;
-  margin: 0 0 0 10px;
 }
 
 .spelar-bild {
-  width: 80px;
+  width: 36px;
   border-radius: 100%;
-  margin: 0 0 5px 0;
+  margin: 0 10px 0;
 }
 
 .vs {
