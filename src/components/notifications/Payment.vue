@@ -24,7 +24,7 @@ export default {};
 
 .swish-img {
   width: 150px;
-  height: 200px;
+  height: 198px;
   margin: auto;
 }
 </style>

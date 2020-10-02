@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
-    server: "http://localhost:7777",
+    server: "https://superelitserien-server.herokuapp.com",
     playerID: 134,
     dept: 0,
     showMenu: false,
@@ -39,8 +39,8 @@ export const store = new Vuex.Store({
           show: false,
           coupons: [
             {
-              title: '2 för 1 mån-ons Take Away',
-              description: '2 för 1 mån-ons Take Away'
+              title: '20% på avhämtning',
+              description: 'Gäller alla dagar i veckan hos Biteline'
             }
           ]
         },
@@ -135,6 +135,45 @@ export const store = new Vuex.Store({
             {
               title: '25% på mat & dryck',
               description: '2 för 1 mån-ons Take Away'
+            }
+          ]
+        },
+        stargym: {
+          name: "Stargym",
+          logo: "stargym.png",
+          couponsLeft: 12,
+          couponLink: "stargym.vue",
+          show: false,
+          coupons: [
+            {
+              title: '40% på årskort',
+              description: 'Vid köp av årskort hos StarGym'
+            }
+          ]
+        },
+        pinchos: {
+          name: "Pinchos",
+          logo: "pinchos.jpg",
+          couponsLeft: 12,
+          couponLink: "pinchos.vue",
+          show: false,
+          coupons: [
+            {
+              title: '5:e rätten på köpet',
+              description: 'Köp 4 rätter och få 5:e på köpet'
+            }
+          ]
+        },
+        totalpadel: {
+          name: "Total Padel",
+          logo: "totalpadels.png",
+          couponsLeft: 12,
+          couponLink: "totalpadel.vue",
+          show: false,
+          coupons: [
+            {
+              title: '15% på Legendracket',
+              description: 'Rabatt på alla racketar från Legend'
             }
           ]
         },
