@@ -177,6 +177,19 @@ export const store = new Vuex.Store({
             }
           ]
         },
+        pingpong: {
+          name: "Ping Pong",
+          logo: "pingpong.png",
+          couponsLeft: 12,
+          couponLink: "pingpong.vue",
+          show: false,
+          coupons: [
+            {
+              title: '20% på all mat',
+              description: 'Käka gomat hos Ping Pong och spara 20%'
+            }
+          ]
+        },
       },
     }
   }
