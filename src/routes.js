@@ -8,6 +8,7 @@ import Admin from './components/Admin.vue'
 import AdminMatchGrid from './components/admin/MatchGrid.vue'
 import MatchSchedule from './components/MatchSchedule.vue'
 import MatchRegistration from './components/MatchRegistration.vue'
+import Profile from "./views/Profile.vue";
 
 
 export const routes = [
@@ -50,5 +51,10 @@ export const routes = [
   {
     path: '/matchregistration',
     component: MatchRegistration
+  }
+  ,
+  {
+    path: '/profile',
+    component: Profile
   }
 ];
