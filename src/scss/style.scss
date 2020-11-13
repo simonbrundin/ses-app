@@ -66,6 +66,17 @@ h3 {
 $border-radius: 16px;
 $app-padding: 20px;
 
+.full-screen {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+
+  left: 0;
+  margin: 0;
+  z-index: 100;
+}
+
 @mixin shadow {
   // -webkit-box-shadow: 20px 20px 50px #00d2c6,
   //   -30px -30px 60px #00ffff;

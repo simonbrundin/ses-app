@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <!-- Check that the SDK client is not currently loading before accessing is methods -->
-
+    <div class="light">{{ this.$store.state.user.firstName }}</div>
     <payment-swish></payment-swish>
     <next-game></next-game>
 

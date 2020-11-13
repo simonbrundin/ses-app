@@ -1,13 +1,50 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
+  mutations: {
+    userInfo(state, userInfo) {
+
+      console.log('kör');
+      console.log(userInfo);
+      // state.user.socialID = this.$auth.user.sub;
+      state.user.firstName = userInfo.firstname;
+      state.user.lastName = userInfo.lastname;
+      state.user.email = userInfo.email;
+      state.user.tel = userInfo.tel;
+      console.log('klar');
+    },
+    firstName(state, value) {
+      state.user.firstName = value;
+    },
+    lastName(state, value) {
+      state.user.lastName = value;
+    },
+    email(state, value) {
+      state.user.email = value;
+    },
+    tel(state, value) {
+      state.user.tel = value;
+    }
+  },
   state: {
-    server: "https://superelitserien-server.herokuapp.com",
-    playerID: 134,
-    dept: 0,
+    // server: "https://superelitserien-server.herokuapp.com",
+    server: "http://localhost:7777",
+    user: {
+      socialID: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      tel: '',
+      odd: [],
+      even: [],
+      dept: 0,
+    }
+    ,
+    showContactInfo: false,
     showMenu: false,
     showMenuIcon: false,
     admin: {

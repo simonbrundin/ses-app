@@ -1,5 +1,9 @@
 <template>
   <div id="calendar">
+    <div
+      v-if="this.$auth.user.sub.includes('facebook')"
+      @DOMNodeInserted="getSchedule"
+    ></div>
     <!-- Knappar som byter spelare -->
     <div class="select-week-container">
       <div class="select-week">
@@ -159,6 +163,7 @@
 </template>
 
 <script>
+import syncUserInfo from "../mixins/syncUserInfo.js";
 export default {
   name: "AvailabilityCalendar",
 
@@ -168,7 +173,6 @@ export default {
       nextGameNr: 1,
       förnamn: "",
       showedWeek: true,
-
       startTid: 7,
       slutTid: 24,
       halvTimmar: false,
@@ -286,46 +290,43 @@ export default {
       // Skicka luckorna till servern
 
       let body = JSON.stringify({
-        spelare: this.$store.state.playerID,
+        spelare: this.$auth.user.sub,
         oddSlots: this.user.oddSlots,
         evenSlots: this.user.evenSlots,
       });
-
+      console.log(body);
       fetch(this.$store.state.server + "/sparaluckor", {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: body,
       });
     },
-  },
-  mounted() {
-    let body = JSON.stringify({
-      spelare: this.$store.state.playerID,
-    });
-    // Hämta spelarinfo
-    fetch(this.$store.state.server + "/spelare", {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: body,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        this.förnamn = data;
+    getSchedule: function () {
+      this.getUserInfo();
+      let body = JSON.stringify({
+        spelare: this.$auth.user.sub,
       });
+      console.log(body);
+      // Hämta luckor
 
-    // Hämta luckor
+      fetch(this.$store.state.server + "/luckor", {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: body,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.u !== null) {
+            this.user.oddSlots = data.u;
+          }
 
-    fetch(this.$store.state.server + "/luckor", {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: body,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        this.user.oddSlots = data.u;
-        this.user.evenSlots = data.j;
-      });
+          if (data.j !== null) {
+            this.user.evenSlots = data.j;
+          }
+        });
+    },
   },
+  mixins: [syncUserInfo],
 };
 </script>
 
