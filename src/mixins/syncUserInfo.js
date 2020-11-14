@@ -16,7 +16,6 @@ export default {
           .then((response) => response.json())
           .then((promise) => {
             userInfo = promise[0];
-            console.log(userInfo);
             this.$store.commit("userInfo", userInfo);
           });
       }

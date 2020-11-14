@@ -1,7 +1,11 @@
 <template>
   <div id="home">
     <!-- Check that the SDK client is not currently loading before accessing is methods -->
-    <div class="light">{{ this.$store.state.user.firstName }}</div>
+    <div class="profile-image-container">
+      <router-link to="/profile">
+        <img :src="this.$auth.user.picture" id="profile-image"
+      /></router-link>
+    </div>
     <payment-swish></payment-swish>
     <next-game></next-game>
 
@@ -44,6 +48,18 @@ export default {
 <style lang="scss" scope>
 #home {
   margin: 10px 0 0 0;
+}
+
+.profile-image-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 0 0 0;
+}
+
+#profile-image {
+  width: 40px;
+  border-radius: 100px;
+  justify-self: end;
 }
 </style>
 

@@ -81,7 +81,7 @@ export default {
     },
   },
   mounted() {
-    fetch(this.$store.state.server + "/table/timra/1", {
+    fetch(this.$store.state.server + "/table/timra/test", {
       method: "post",
       headers: { "Content-Type": "application/json" },
     })

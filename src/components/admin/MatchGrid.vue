@@ -4,12 +4,15 @@
     <button @click="getMatches">Uppdatera</button>
     <div class="match-grid">
       <div v-for="(league, leagueIndex) in matches" :key="leagueIndex">
-        <div class="league-title">{{leagueIndex +1}}</div>
-        <div>{{matches[0][0]}}</div>
+        <div class="league-title">{{ leagueIndex + 1 }}</div>
+        <div>{{ matches[0][0] }}</div>
         <div
           v-for="(match, weekIndex) in matches[leagueIndex]"
           :key="weekIndex"
-          :class="[matches[leagueIndex][weekIndex].status, matches[leagueIndex][weekIndex].ID]"
+          :class="[
+            matches[leagueIndex][weekIndex].status,
+            matches[leagueIndex][weekIndex].ID,
+          ]"
           class="match-dot"
           @click="showMatch(matches[leagueIndex][weekIndex].id)"
         ></div>
@@ -81,9 +84,13 @@ export default {
       //   .then((promise) => (this.$store.state.admin.selectedMatch = promise));
     },
     getMatches: function () {
+      let body = JSON.stringify({
+        appVersion: this.$store.appVersion,
+      });
       fetch(this.$store.state.server + "/allmatches", {
         method: "post",
         headers: { "Content-Type": "application/json" },
+        body: body,
       })
         .then((response) => response.json())
         .then((promise) => (this.matches = promise));

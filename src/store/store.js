@@ -7,15 +7,11 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   mutations: {
     userInfo(state, userInfo) {
-
-      console.log('kör');
-      console.log(userInfo);
       // state.user.socialID = this.$auth.user.sub;
       state.user.firstName = userInfo.firstname;
       state.user.lastName = userInfo.lastname;
       state.user.email = userInfo.email;
       state.user.tel = userInfo.tel;
-      console.log('klar');
     },
     firstName(state, value) {
       state.user.firstName = value;
@@ -33,6 +29,7 @@ export const store = new Vuex.Store({
   state: {
     // server: "https://superelitserien-server.herokuapp.com",
     server: "http://localhost:7777",
+    appVersion: '1.0.0',
     user: {
       socialID: '',
       firstName: '',
@@ -44,7 +41,7 @@ export const store = new Vuex.Store({
       dept: 0,
     }
     ,
-    showContactInfo: false,
+    showContactInfo: true,
     showMenu: false,
     showMenuIcon: false,
     admin: {

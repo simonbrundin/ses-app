@@ -4,12 +4,13 @@
       <!-- <div @hook:mounted="login"></div> -->
       <!-- show login when not authenticated -->
       <button v-if="!$auth.isAuthenticated" @click="login">Log in</button>
+      <div @DOMNodeInserted="getAppVersion"></div>
       <div
         v-if="$auth.isAuthenticated"
         @DOMNodeInserted="getUserInfo"
         @click="getUserInfo"
       ></div>
-      <login-screen v-if="false"></login-screen>
+
       <!-- show logout when authenticated -->
       <!-- <button v-if="$auth.isAuthenticated" @click="logout">Log out</button> -->
       <!-- NEW - add a route to the profile page -->
@@ -47,7 +48,7 @@
 import Notifications from "./components/Notifications.vue";
 import BottomMenu from "./components/BottomMenu";
 import Menu from "./components/Menu";
-import LoginScreen from "./views/LoginScreen.vue";
+
 import ContactInformation from "./components/ContactInformation.vue";
 import syncUserInfo from "./mixins/syncUserInfo.js";
 export default {
@@ -56,7 +57,7 @@ export default {
     Menu,
     notifications: Notifications,
     "app-bottom-menu": BottomMenu,
-    "login-screen": LoginScreen,
+
     "contact-info": ContactInformation,
   },
   data() {
@@ -76,6 +77,31 @@ export default {
     showMenu: function () {
       this.$store.state.showMenu = true;
     },
+
+    getAppVersion() {
+      const forceReload = () =>
+        navigator.serviceWorker
+          .getRegistrations()
+          .then((registrations) =>
+            Promise.all(registrations.map((r) => r.unregister()))
+          )
+          .then(() => window.location.reload());
+      let server = this.$store.state.server;
+      let body = JSON.stringify({
+        appVersion: this.$store.appVersion,
+      });
+      fetch(server + "/getappversion", {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: body,
+      })
+        .then((response) => response.json())
+        .then((promise) => {
+          if (promise !== this.$store.state.appVersion) {
+            forceReload();
+          }
+        });
+    },
   },
   updated: function () {
     if (!this.$auth.isAuthenticated) {
@@ -89,7 +115,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scope>
 .menu-icon {
   color: $light;
 }

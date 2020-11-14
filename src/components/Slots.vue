@@ -306,7 +306,7 @@ export default {
       let body = JSON.stringify({
         spelare: this.$auth.user.sub,
       });
-      console.log(body);
+
       // Hämta luckor
 
       fetch(this.$store.state.server + "/luckor", {
