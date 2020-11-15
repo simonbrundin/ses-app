@@ -2,27 +2,23 @@
   <div id="admin">
     <AdminTodos></AdminTodos>
     <!-- Meny -->
-    <router-link to="/admin/match-grid">
-      <button>Alla matcher</button>
-    </router-link>
-    <button>Sök match</button>
-    <button>Alla spelare</button>
-    <router-view></router-view>
-    <MatchGrid></MatchGrid>
-    <PlayerGrid></PlayerGrid>
-    <div class="league-input">
+    <!-- <button>Sök match</button> -->
+    <button @click="showMatchGrid = !showMatchGrid">Alla matcher</button>
+    <button @click="showPlayerGrid = !showMatchGrid">Alla spelare</button>
+    <MatchGrid v-if="showMatchGrid"></MatchGrid>
+    <MatchInfo v-if="this.$store.state.admin.showMatchWindow"></MatchInfo>
+    <PlayerGrid v-if="showPlayerGrid"></PlayerGrid>
+    <!-- <div class="league-input">
       <select name="city" v-model="city">
         <option value="timra">Timrå</option>
         <option value="stockholm">Stockholm</option>
         <option value="ornskoldsvik">Örnsköldsvik</option>
       </select>
       <button @click="league++">+</button>
-      {{league}}
+      {{ league }}
       <button @click="league--">-</button>
       <button @click="getMatches">Hämta matcher</button>
-    </div>
-
-    <MatchInfo v-if="this.$store.state.admin.showMatchWindow"></MatchInfo>
+    </div> -->
   </div>
 </template>
 
@@ -42,6 +38,8 @@ export default {
     return {
       city: "timra",
       league: "1",
+      showMatchGrid: false,
+      showPlayerGrid: false,
     };
   },
   methods: {

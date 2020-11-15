@@ -14,7 +14,7 @@
     <div></div>
     <br />
     <button @click="updateInfo">Spara uppgifter</button>
-    <button @click="getUserInfo">Uppdatera</button>
+    <!-- <button @click="getUserInfo">Uppdatera</button> -->
   </div>
 </template>
 
@@ -98,7 +98,9 @@ export default {
     },
   },
   mixins: [syncUserInfo],
-  mounted: function () {},
+  updated: function () {
+    this.$store.commit("showContactInfo", true);
+  },
 };
 </script>
 

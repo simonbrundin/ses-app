@@ -24,7 +24,23 @@ export const store = new Vuex.Store({
     },
     tel(state, value) {
       state.user.tel = value;
-    }
+    },
+    showContactInfo(state, value) {
+      state.showContactInfo = value;
+    },
+    selectedMatch(state, value) {
+      state.admin.selectedMatch = value;
+    },
+    showScheduleInstructions(state, value) {
+      state.notifications.showScheduleInstructions = value;
+    },
+    NotEnoughSlots(state, value) {
+      state.notifications.NotEnoughSlots = value;
+    },
+    showSchedule(state, value) {
+      state.showSchedule = value;
+    },
+
   },
   state: {
     // server: "https://superelitserien-server.herokuapp.com",
@@ -36,18 +52,19 @@ export const store = new Vuex.Store({
       lastName: '',
       email: '',
       tel: '',
-      odd: [],
-      even: [],
+      oddslots: [],
+      evenslots: [],
       dept: 0,
     }
     ,
-    showContactInfo: true,
+    showContactInfo: false,
+    showSchedule: true,
     showMenu: false,
     showMenuIcon: false,
     admin: {
       showMatchWindow: false,
       selectedMatch: {
-        id: 0,
+        id: 58,
         h1: "Micke",
         h2: "Simon",
         a1: "Eva",
@@ -58,6 +75,8 @@ export const store = new Vuex.Store({
     },
 
     notifications: {
+      showScheduleInstructions: true,
+      NotEnoughSlots: false,
       ConfirmGame: false,
       AddToCalendar: false,
       showNotificationButtons: false,

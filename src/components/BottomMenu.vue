@@ -51,7 +51,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scope>
 .menu {
   background: $bottom-menu-bg-color;
   display: flex;

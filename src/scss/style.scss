@@ -61,6 +61,10 @@ h3 {
   color: $light;
 }
 
+p {
+  font-size: 16px;
+}
+
 // -----------------------------------------------------------------------
 
 $border-radius: 16px;
@@ -68,13 +72,14 @@ $app-padding: 20px;
 
 .full-screen {
   position: fixed;
+  padding: $app-padding;
   top: 0;
-  height: 100vh;
-  width: 100vw;
-
+  height: calc(100vh - 40px);
+  width: calc(100vw - 40px);
+  background: $dark;
   left: 0;
   margin: 0;
-  z-index: 100;
+  z-index: 200;
 }
 
 @mixin shadow {

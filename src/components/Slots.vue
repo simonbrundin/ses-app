@@ -1,9 +1,19 @@
 <template>
   <div id="calendar">
+    <div v-if="this.$auth.user.sub" @DOMNodeInserted="getSchedule"></div>
     <div
-      v-if="this.$auth.user.sub.includes('facebook')"
-      @DOMNodeInserted="getSchedule"
-    ></div>
+      class="full-screen"
+      v-if="this.$store.state.notifications.showScheduleInstructions"
+    >
+      <ScheduleInstructions></ScheduleInstructions>
+    </div>
+    <div
+      class="full-screen"
+      v-if="this.$store.state.notifications.NotEnoughSlots"
+    >
+      <NotEnoughSlots></NotEnoughSlots>
+    </div>
+
     <!-- Knappar som byter spelare -->
     <div class="select-week-container">
       <div class="select-week">
@@ -139,15 +149,15 @@
     </div>
     <!-- ---------------------------------------------------------------- -->
 
-    <router-link to="/">
-      <div id="save-button">
-        <button v-show="calendarVisas" @click="saveSchedule">
-          Spara ändringar
-        </button>
-      </div>
-    </router-link>
+    <!-- <router-link to="/"> -->
+    <div id="save-button">
+      <button v-show="calendarVisas" @click="saveSchedule">
+        Spara ändringar
+      </button>
+    </div>
+    <!-- </router-link> -->
 
-    <div class="menu save-slots-menu" v-if="false">
+    <!-- <div class="menu save-slots-menu" v-if="false">
       <router-link to="/">
         <div class="save-slots-button" @click="saveSchedule">
           <div class="save-slots-text">Spara schema</div>
@@ -158,14 +168,20 @@
           ></svg-icon>
         </div>
       </router-link>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 import syncUserInfo from "../mixins/syncUserInfo.js";
+import NotEnoughSlots from "./notifications/NotEnoughSlots.vue";
+import ScheduleInstructions from "./notifications/ScheduleInstructions.vue";
 export default {
   name: "AvailabilityCalendar",
+  components: {
+    NotEnoughSlots,
+    ScheduleInstructions,
+  },
 
   data: () => {
     return {
@@ -185,6 +201,10 @@ export default {
     };
   },
   computed: {
+    inloggad: function () {
+      console.log(this.$auth.user.sub.includes("facebook"));
+      return this.$auth.user.sub.includes("facebook");
+    },
     spelbaraTimmar() {
       let arrayMedTider = [];
       let repeat = this.slutTid - this.startTid;
@@ -284,22 +304,34 @@ export default {
         }
       }
     },
+    checkEnoughSlots: function () {
+      if (this.user.oddSlots.length > 7 && this.user.evenSlots.length > 7) {
+        return false;
+      } else {
+        this.$store.commit("NotEnoughSlots", true);
+        return true;
+      }
+    },
     saveSchedule: function () {
-      // Dölj calendarn
-      this.calendarVisas = false;
-      // Skicka luckorna till servern
+      if (this.checkEnoughSlots()) {
+        null;
+      } else {
+        // Dölj calendarn
+        this.$store.commit("showSchedule", false);
+        // Skicka luckorna till servern
 
-      let body = JSON.stringify({
-        spelare: this.$auth.user.sub,
-        oddSlots: this.user.oddSlots,
-        evenSlots: this.user.evenSlots,
-      });
-      console.log(body);
-      fetch(this.$store.state.server + "/sparaluckor", {
-        method: "post",
-        headers: { "Content-Type": "application/json" },
-        body: body,
-      });
+        let body = JSON.stringify({
+          spelare: this.$auth.user.sub,
+          oddSlots: this.user.oddSlots,
+          evenSlots: this.user.evenSlots,
+        });
+        console.log(body);
+        fetch(this.$store.state.server + "/sparaluckor", {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: body,
+        });
+      }
     },
     getSchedule: function () {
       this.getUserInfo();
@@ -323,6 +355,10 @@ export default {
           if (data.j !== null) {
             this.user.evenSlots = data.j;
           }
+          if (this.user.oddSlots.length > 7 && this.user.evenSlots.length > 7) {
+            this.$store.commit("showSchedule", false);
+            this.$store.commit("showScheduleInstructions", false);
+          }
         });
     },
   },
@@ -330,13 +366,25 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scope>
 #calendar {
   margin: 0 0 65px 0;
   display: flex;
   flex-direction: column;
   text-align: center;
   filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.288));
+}
+
+#calendar .full-screen {
+  position: fixed;
+  padding: 0;
+  top: 0;
+  height: calc(100vh - 20px);
+  width: calc(100vw - 40px);
+  background: $dark;
+  left: 0;
+  margin: 0;
+  z-index: 200;
 }
 
 // Toggle för att välja vecka
@@ -408,6 +456,11 @@ export default {
   height: 16px;
   fill: $light;
 }
+
+#calendar .icon-calendar svg {
+  height: 16px;
+}
+
 // Fixar border-radius på kalender ---------------------------------------------
 .calendar-grid {
   border-radius: calc(2px + #{$border-radius}) calc(2px + #{$border-radius})

@@ -29,6 +29,9 @@
           this.$store.state.showContactInfo)
       "
     ></contact-info>
+    <div v-if="this.$store.state.showSchedule" class="full-screen">
+      <Slots></Slots>
+    </div>
     <!-- <contact-info v-if="false"></contact-info> -->
     <div
       @click="showMenu"
@@ -46,6 +49,7 @@
 
 <script>
 import Notifications from "./components/Notifications.vue";
+import Slots from "./components/Slots.vue";
 import BottomMenu from "./components/BottomMenu";
 import Menu from "./components/Menu";
 
@@ -56,6 +60,7 @@ export default {
   components: {
     Menu,
     notifications: Notifications,
+    Slots,
     "app-bottom-menu": BottomMenu,
 
     "contact-info": ContactInformation,

@@ -1,10 +1,18 @@
 <template>
   <div id="match-info">
-    <div>Match ID: {{this.$store.state.admin.selectedMatch.id}}</div>
+    <div>Match ID: {{ this.$store.state.admin.selectedMatch.ID }}</div>
 
-    <div>{{this.$store.state.admin.selectedMatch.h1}} & {{this.$store.state.admin.selectedMatch.h2}} - {{this.$store.state.admin.selectedMatch.hp}}</div>
+    <div>
+      {{ this.$store.state.admin.selectedMatch.hemma1 }} &
+      {{ this.$store.state.admin.selectedMatch.hemma2 }} -
+      {{ this.$store.state.admin.selectedMatch.pointshemma }}
+    </div>
 
-    <div>{{this.$store.state.admin.selectedMatch.a1}} & {{this.$store.state.admin.selectedMatch.a2}} - {{this.$store.state.admin.selectedMatch.ap}}</div>
+    <div>
+      {{ this.$store.state.admin.selectedMatch.borta1 }} &
+      {{ this.$store.state.admin.selectedMatch.borta2 }} -
+      {{ this.$store.state.admin.selectedMatch.pointsborta }}
+    </div>
     <div>
       <button @click="addPoints">+</button>
       <button @click="subtractPoints">-</button>
@@ -25,20 +33,20 @@ export default {
       this.$store.state.admin.showMatchWindow = false;
     },
     addPoints: function () {
-      if (this.$store.state.admin.selectedMatch.hp === 6) {
+      if (this.$store.state.admin.selectedMatch.pointshemma === 6) {
         null;
       } else {
-        this.$store.state.admin.selectedMatch.hp++;
-        this.$store.state.admin.selectedMatch.hp++;
-        switch (this.$store.state.admin.selectedMatch.hp) {
+        this.$store.state.admin.selectedMatch.pointshemma++;
+        this.$store.state.admin.selectedMatch.pointshemma++;
+        switch (this.$store.state.admin.selectedMatch.pointshemma) {
           case 2:
-            this.$store.state.admin.selectedMatch.ap = 4;
+            this.$store.state.admin.selectedMatch.pointsborta = 4;
             break;
           case 4:
-            this.$store.state.admin.selectedMatch.ap = 2;
+            this.$store.state.admin.selectedMatch.pointsborta = 2;
             break;
           case 6:
-            this.$store.state.admin.selectedMatch.ap = 0;
+            this.$store.state.admin.selectedMatch.pointsborta = 0;
             break;
 
           default:
@@ -47,13 +55,13 @@ export default {
       }
     },
     subtractPoints: function () {
-      if (this.$store.state.admin.selectedMatch.ap === 6) {
+      if (this.$store.state.admin.selectedMatch.pointsborta === 6) {
         null;
       } else {
-        this.$store.state.admin.selectedMatch.ap++;
-        this.$store.state.admin.selectedMatch.ap++;
-        this.$store.state.admin.selectedMatch.hp--;
-        this.$store.state.admin.selectedMatch.hp--;
+        this.$store.state.admin.selectedMatch.pointsborta++;
+        this.$store.state.admin.selectedMatch.pointsborta++;
+        this.$store.state.admin.selectedMatch.pointshemma--;
+        this.$store.state.admin.selectedMatch.pointshemma--;
       }
     },
   },

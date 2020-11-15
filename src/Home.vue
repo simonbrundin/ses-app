@@ -6,6 +6,7 @@
         <img :src="this.$auth.user.picture" id="profile-image"
       /></router-link>
     </div>
+    <waiting-for-players></waiting-for-players>
     <payment-swish></payment-swish>
     <next-game></next-game>
 
@@ -19,9 +20,11 @@ import NextGame from "./components/NextGame.vue";
 import BottomMenu from "./components/BottomMenu.vue";
 import Payment from "./components/notifications/Payment.vue";
 import PlayerCash from "./components/PlayerCash.vue";
+import WaitingForPlayers from "./components/notifications/WaitingForPlayers.vue";
 
 export default {
   components: {
+    WaitingForPlayers,
     "next-game": NextGame,
     "app-bottom-menu": BottomMenu,
     "player-cash": PlayerCash,

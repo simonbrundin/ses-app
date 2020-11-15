@@ -1,87 +1,104 @@
 <template>
   <div id="match-grid">
     <div>Alla matcher</div>
-    <button @click="getMatches">Uppdatera</button>
+    <button @click="updateMatchGrid">Uppdatera</button><br />
     <div class="match-grid">
-      <div v-for="(league, leagueIndex) in matches" :key="leagueIndex">
-        <div class="league-title">{{ leagueIndex + 1 }}</div>
-        <div>{{ matches[0][0] }}</div>
+      <div>
+        <div><br /></div>
+        <div v-for="item in 60" :key="item" class="match-number">
+          {{ item }}
+        </div>
+      </div>
+      <div v-for="(league, leagueIndex) in leagues" :key="leagueIndex">
+        <div class="league-title">
+          {{ league.namn.replace("matcher-timra-", "") }}
+        </div>
+        <!-- <div>{{ matches[0][0] }}</div> -->
         <div
-          v-for="(match, weekIndex) in matches[leagueIndex]"
+          v-for="(match, weekIndex) in league.matcher"
           :key="weekIndex"
           :class="[
-            matches[leagueIndex][weekIndex].status,
-            matches[leagueIndex][weekIndex].ID,
+            match.ID,
+            [
+              totalPointsEquals6(match.pointshemma, match.pointsborta)
+                ? ['registrerat-resultat']
+                : [''],
+            ],
+            [
+              haveCommonSlots(match.oddslots.length, match.evenslots.length)
+                ? ['inga-gemensamma-luckor']
+                : [''],
+            ],
           ]"
           class="match-dot"
-          @click="showMatch(matches[leagueIndex][weekIndex].id)"
-        ></div>
+          @click="showMatch(league.namn, match.ID)"
+        >
+          {{ match.ID }}
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+// [
+//               haveCommonSlots(
+//                 matches[leagueIndex][weekIndex].oddslots.length,
+//                 matches[leagueIndex][weekIndex].evenslots.length
+//               )
+//                 ? ['']
+//                 : ['inga-gemensamma-luckor'],
+//             ],
 export default {
   data() {
     return {
-      matches: [
-        [
-          { id: 1, status: "status-played-without-result" },
-          { id: 2, status: "status-registred" },
-          { id: 3, status: "" },
-        ],
-        [
-          { id: 4, status: "status-red" },
-          { id: 5, status: "status-registred" },
-        ],
-        [
-          { id: 1, status: "status-played-without-result" },
-          { id: 2, status: "status-registred" },
-          { id: 3, status: "" },
-          { id: 1, status: "status-played-without-result" },
-          { id: 2, status: "status-registred" },
-          { id: 3, status: "" },
-          { id: 1, status: "status-played-without-result" },
-
-          { id: 1, status: "status-played-without-result" },
-          { id: 2, status: "status-registred" },
-          { id: 3, status: "" },
-          { id: 1, status: "status-played-without-result" },
-          { id: 2, status: "status-registred" },
-          { id: 3, status: "" },
-          { id: 1, status: "status-played-without-result" },
-          { id: 2, status: "status-registred" },
-          { id: 3, status: "" },
-        ],
-        [
-          { id: 4, status: "status-red" },
-          { id: 5, status: "status-registred" },
-        ],
-        [
-          { id: 1, status: "status-played-without-result" },
-          { id: 2, status: "status-registred" },
-          { id: 3, status: "" },
-        ],
-        [
-          { id: 4, status: "status-red" },
-          { id: 5, status: "status-registred" },
-        ],
-      ],
+      leagues: [],
     };
   },
+  computed: {},
   methods: {
-    showMatch: function (id) {
-      this.$store.state.admin.showMatchWindow = true;
-      this.$store.state.admin.selectedMatch.id = id;
+    totalPointsEquals6: function (hemma, borta) {
+      if (hemma + borta === 6) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    haveCommonSlots: function (odd, even) {
+      if (odd + even === 0) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    showMatch: function (league, matchID) {
+      this.$store.state.admin.selectedMatch.id = matchID;
       // Hämta matchinfo
-
-      // fetch(this.$store.state.server + "/matchinfo/" + id, {
-      //   method: "post",
-      //   headers: { "Content-Type": "application/json" },
-      // })
-      //   .then((response) => response.json())
-      //   .then((promise) => (this.$store.state.admin.selectedMatch = promise));
+      let body = JSON.stringify({
+        league: league,
+        matchID: matchID,
+      });
+      fetch(this.$store.state.server + "/matchinfo/", {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: body,
+      })
+        .then((response) => response.json())
+        .then((promise) => {
+          this.$store.commit("selectedMatch", promise[0]);
+          this.$store.state.admin.showMatchWindow = true;
+        });
+    },
+    updateMatchGrid: function () {
+      this.getMatches();
+      this.updateCommonSlots();
+    },
+    updateCommonSlots: function () {
+      fetch(this.$store.state.server + "/updatecommonslots")
+        .then((response) => response.json())
+        .then((promise) => {
+          console.log(promise);
+        });
     },
     getMatches: function () {
       let body = JSON.stringify({
@@ -93,13 +110,15 @@ export default {
         body: body,
       })
         .then((response) => response.json())
-        .then((promise) => (this.matches = promise));
+        .then((promise) => {
+          this.leagues = promise;
+        });
     },
   },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scope>
 .match-grid {
   display: grid;
   grid-template-columns: repeat(25, 1fr);
@@ -112,18 +131,39 @@ export default {
   border: 1px solid white;
   background: $dark;
   margin-top: 3px;
-  height: 2vh;
+  height: 10px;
   width: 100%;
   border-radius: 100px;
+  color: white;
+  text-align: center;
+  font-size: 8px;
+}
+
+.match-number {
+  border: 1px solid transparent;
+  background: $dark;
+  margin-top: 3px;
+  height: 10px;
+  width: 100%;
+  border-radius: 100px;
+  color: white;
+  text-align: center;
+  font-size: 8px;
 }
 
 .league-title {
   text-align: center;
+  color: white;
 }
 
-.nn {
+.registrerat-resultat {
+  background: green;
+}
+
+.inga-gemensamma-luckor {
   background: red;
 }
+
 .status-played-without-result {
   background: lightgreen;
 }
