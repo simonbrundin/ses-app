@@ -53,6 +53,8 @@ export default {
   data() {
     return {
       leagues: [],
+      selectedLeague: "",
+      spelare: {},
     };
   },
   computed: {},
@@ -72,7 +74,7 @@ export default {
       }
     },
     showMatch: function (league, matchID) {
-      this.$store.state.admin.selectedMatch.id = matchID;
+      this.$store.commit("selectedLeague", league);
       // Hämta matchinfo
       let body = JSON.stringify({
         league: league,
@@ -87,6 +89,29 @@ export default {
         .then((promise) => {
           this.$store.commit("selectedMatch", promise[0]);
           this.$store.state.admin.showMatchWindow = true;
+        })
+        .then(() => {
+          let body2 = JSON.stringify({
+            hemma1: this.$store.state.admin.selectedMatch.hemma1,
+            hemma2: this.$store.state.admin.selectedMatch.hemma2,
+            borta1: this.$store.state.admin.selectedMatch.borta1,
+            borta2: this.$store.state.admin.selectedMatch.borta2,
+          });
+          fetch(this.$store.state.server + "/getplayersnames/", {
+            method: "post",
+            headers: { "Content-Type": "application/json" },
+            body: body2,
+          })
+            .then((response) => response.json())
+            .then((promise) => {
+              this.$store.commit("selectedMatchPlayers", promise);
+
+              // this.$store.commit("hemma1", promise[0].hemma1);
+              // this.$store.commit("hemma2", promise[0].hemma2);
+              // this.$store.commit("borta1", promise[0].borta1);
+              // this.$store.commit("borta2", promise[0].borta2);
+              this.$store.state.admin.showMatchWindow = true;
+            });
         });
     },
     updateMatchGrid: function () {

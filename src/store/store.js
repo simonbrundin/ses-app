@@ -31,6 +31,31 @@ export const store = new Vuex.Store({
     selectedMatch(state, value) {
       state.admin.selectedMatch = value;
     },
+    selectedMatchPlayers(state, value) {
+      state.admin.selectedMatchPlayers = value;
+    },
+    selectedLeague(state, value) {
+      state.admin.selectedLeague = value;
+    },
+    hemma1(state, value) {
+      state.admin.selectedMatch.hemma1 = value;
+    },
+    hemma2(state, value) {
+      state.admin.selectedMatch.hemma2 = value;
+    },
+    borta1(state, value) {
+      state.admin.selectedMatch.borta1 = value;
+    },
+    borta2(state, value) {
+      state.admin.selectedMatch.borta2 = value;
+    },
+    addHomePoints(state, value) {
+      state.admin.selectedMatch.pointshemma = value;
+    },
+    addAwayPoints(state, value) {
+      state.admin.selectedMatch.pointsborta = value;
+    },
+
     showScheduleInstructions(state, value) {
       state.notifications.showScheduleInstructions = value;
     },
@@ -63,14 +88,10 @@ export const store = new Vuex.Store({
     showMenuIcon: false,
     admin: {
       showMatchWindow: false,
+      selectedLeague: '',
+      selectedMatchPlayers: {},
       selectedMatch: {
-        id: 58,
-        h1: "Micke",
-        h2: "Simon",
-        a1: "Eva",
-        a2: "Sophie",
-        hp: 0,
-        ap: 0,
+
       }
     },
 

@@ -9,48 +9,35 @@
     "deploy": "sh deploy.sh"
   },
   "dependencies": {
-    "@auth0/auth0-spa-js": "^1.13.2",
-    "@fortawesome/fontawesome-free": "^5.15.1",
-    "@fortawesome/fontawesome-svg-core": "^1.2.32",
-    "@fortawesome/free-solid-svg-icons": "^5.15.1",
-    "@fortawesome/vue-fontawesome": "^0.1.10",
-    "core-js": "^3.7.0",
-    "knex": "^0.21.12",
-    "pg": "^8.5.0",
-    "register-service-worker": "^1.7.1",
-    "vue": "^2.6.12",
+    "@auth0/auth0-spa-js": "^1.13.6",
+    "@fortawesome/fontawesome-free": "^5.15.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/vue-fontawesome": "^2.0.2",
+    "core-js": "^3.8.3",
+    "knex": "^0.21.17",
+    "pg": "^8.5.1",
+    "register-service-worker": "^1.7.2",
+    "vue": "^3.0.0-beta.1",
     "vue-awesome": "^4.1.0",
     "vue-icon": "^2.1.2",
-    "vue-router": "^3.4.9",
+    "vue-router": "^3.5.1",
     "vue-schedule-selector": "^1.0.13",
-    "vuex": "^3.5.1"
+    "vuex": "^4.0.0-alpha.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.8",
-    "@vue/cli-plugin-eslint": "^4.5.8",
-    "@vue/cli-plugin-pwa": "^4.5.8",
-    "@vue/cli-service": "^4.5.8",
+    "@vue/cli-plugin-babel": "^4.5.11",
+    "@vue/cli-plugin-eslint": "^4.5.11",
+    "@vue/cli-plugin-pwa": "^4.5.11",
+    "@vue/cli-service": "^4.5.11",
+    "@vue/compiler-sfc": "^3.0.5",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
+    "eslint": "^7.19.0",
+    "eslint-plugin-vue": "^7.5.0",
     "html-loader": "^1.3.2",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^9.0.3",
-    "vue-template-compiler": "^2.6.12"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
+    "node-sass": "^5.0.0",
+    "sass-loader": "^11.0.0",
+    "vue-cli-plugin-vue-next": "~0.1.4"
   },
   "browserslist": [
     "> 1%",

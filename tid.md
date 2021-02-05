@@ -1,1 +1,0 @@
-23/6 5 h Installera allt som behövs till projektet, skapa en wireframe och bygg komponenter
