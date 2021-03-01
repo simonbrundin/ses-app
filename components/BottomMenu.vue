@@ -142,10 +142,6 @@ export default {
   fill: $bottom-menu-active-icon-color;
 }
 
-.rund {
-  border-radius: 100%;
-}
-
 .profil-bild {
   width: 32px;
 }

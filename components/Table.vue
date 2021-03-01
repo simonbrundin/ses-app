@@ -26,7 +26,7 @@
               {{ spelare.name }}
 
               <img
-                :src="'@/assets/spelare/'+ ${spelare.id}'.jpg')"
+                :src="require(`@/assets/spelare/${spelare.id}.jpg`)"
                 class="rund"
                 alt
               />
@@ -45,8 +45,12 @@
             <span class="plats">#{{ index + 1 }}</span>
             <span class="spelare">
               {{ spelare.name }}
-              <!-- :src="require(`../assets/spelare/${spelare.id}.jpg`)" -->
-              <img :src="'spelare/' + spelare.id + '.jpg'" class="rund" alt />
+
+              <img
+                :src="require(`@/assets/spelare/${spelare.id}.jpg`)"
+                class="rund"
+                alt
+              />
             </span>
             <span class="matcher">{{ spelare.matches }}</span>
             <span class="avgpoints">{{ spelare.ppm }}</span>
@@ -199,20 +203,8 @@ export default {
   justify-self: flex-end;
 }
 
-.plats {
-}
-
 .spelare img {
   height: 32px;
   margin-right: 0px;
-}
-
-.matcher {
-}
-
-.avgpoints {
-}
-
-.points {
 }
 </style>

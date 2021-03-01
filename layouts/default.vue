@@ -1,20 +1,29 @@
 <template>
   <div>
-    <Notifications />
-    <nuxt />
+    <div class="container">
+      <Notifications />
+      <nuxt />
+    </div>
+    <BottomMenu />
   </div>
 </template>
 
 <script>
-import Notifications from '@/components/Notifications.vue'
-export default {
-  components: {
-    Notifications,
-  },
-  setup() {
-    return {}
-  },
-}
+  import Notifications from '@/components/Notifications.vue'
+  import BottomMenu from '@/components/BottomMenu.vue';
+  export default {
+    components: {
+      Notifications,
+      BottomMenu
+    },
+    setup() {
+      return {}
+    },
+  }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scope>
+  .container {
+    padding: 20px;
+  }
+</style>

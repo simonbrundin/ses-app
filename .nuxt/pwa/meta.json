@@ -21,6 +21,11 @@
       "content": "ses-app"
     },
     {
+      "hid": "description",
+      "name": "description",
+      "content": "## Project setup ``` npm install ```"
+    },
+    {
       "hid": "og:type",
       "name": "og:type",
       "property": "og:type",
@@ -37,12 +42,18 @@
       "name": "og:site_name",
       "property": "og:site_name",
       "content": "ses-app"
+    },
+    {
+      "hid": "og:description",
+      "name": "og:description",
+      "property": "og:description",
+      "content": "## Project setup ``` npm install ```"
     }
   ],
   "link": [
     {
       "rel": "manifest",
-      "href": "/_nuxt/manifest.c9bc241e.json",
+      "href": "/_nuxt/manifest.a6c53910.json",
       "hid": "manifest"
     }
   ],

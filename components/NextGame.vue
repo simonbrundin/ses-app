@@ -6,10 +6,10 @@
     <div class="spelar-ruta card">
       <div class="spelare">
         <div>Nordin</div>
-        <img src="@/public/spelare/2.jpg" class="spelar-bild" alt />
+        <img src="@/assets/spelare/183.jpg" class="spelar-bild" alt />
       </div>
       <div class="spelare">
-        <img src="@/public/spelare/3.jpg" class="spelar-bild two" alt />
+        <img src="@/assets/spelare/184.jpg" class="spelar-bild two" alt />
         <div>Blomberg</div>
       </div>
     </div>
@@ -22,10 +22,10 @@
     <div class="spelar-ruta card">
       <div class="spelare">
         <div>Paquito</div>
-        <img src="@/public/spelare/4.jpg" class="spelar-bild" alt />
+        <img src="@/assets/spelare/185.jpg" class="spelar-bild" alt />
       </div>
       <div class="spelare">
-        <img src="@/public/spelare/134.jpg" class="spelar-bild two" alt />
+        <img src="@/assets/spelare/186.jpg" class="spelar-bild two" alt />
         <div>Parment</div>
       </div>
     </div>
@@ -35,7 +35,7 @@
 <script>
 export default {
   name: 'NextGame',
-}
+};
 </script>
 
 <style lang="scss" scope>
@@ -101,9 +101,6 @@ h3 {
 
 div.spelar-ruta.card {
   background: $gold;
-}
-
-.right {
 }
 
 .spelar-bild {

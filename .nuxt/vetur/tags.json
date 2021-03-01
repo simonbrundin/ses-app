@@ -1,4 +1,7 @@
 {
+  "Auth": {
+    "description": "Auto imported from components/auth.vue"
+  },
   "Book": {
     "description": "Auto imported from components/Book.vue"
   },
@@ -40,9 +43,6 @@
   },
   "Table": {
     "description": "Auto imported from components/Table.vue"
-  },
-  "Auth": {
-    "description": "Auto imported from components/auth.vue"
   },
   "AdminTodos": {
     "description": "Auto imported from components/admin/AdminTodos.vue"
