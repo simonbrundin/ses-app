@@ -1,25 +1,26 @@
 <template>
   <div id="app">
-    <div v-if="!$auth.loading">
-      <!-- <div @hook:mounted="login"></div> -->
-      <!-- show login when not authenticated -->
-      <button v-if="!$auth.isAuthenticated" @click="login">Log in</button>
-      <div @DOMNodeInserted="getAppVersion"></div>
+    <!--     <div v-if="!$auth.loading">
+ -->
+    <!-- <div @hook:mounted="login"></div> -->
+    <!-- show login when not authenticated -->
+    <!-- button v-if="!$auth.isAuthenticated" @click="login">Log in</button>
+      <div @DOMNodeInserted="getAppVersion" />
       <div
         v-if="$auth.isAuthenticated"
         @DOMNodeInserted="getUserInfo"
         @click="getUserInfo"
-      ></div>
+      /> -->
 
-      <!-- show logout when authenticated -->
-      <!-- <button v-if="$auth.isAuthenticated" @click="logout">Log out</button> -->
-      <!-- NEW - add a route to the profile page -->
+    <!-- show logout when authenticated -->
+    <!-- <button v-if="$auth.isAuthenticated" @click="logout">Log out</button> -->
+    <!-- NEW - add a route to the profile page -->
 
-      <!-- <router-link v-if="$auth.isAuthenticated" to="/profile"> -->
-      <!-- <button>Profile</button> -->
-      <!-- </router-link> -->
-    </div>
-    <contact-info
+    <!-- <router-link v-if="$auth.isAuthenticated" to="/profile"> -->
+    <!-- <button>Profile</button> -->
+    <!-- </router-link> -->
+
+    <!-- <contact-info
       v-if="
         $auth.isAuthenticated &&
         (this.$store.state.user.firstName === '' ||
@@ -28,22 +29,22 @@
           this.$store.state.user.tel === '' ||
           this.$store.state.showContactInfo)
       "
-    ></contact-info>
+    /> --><contact-info />
     <div v-if="this.$store.state.showSchedule" class="full-screen">
-      <Slots></Slots>
+      <Slots />
     </div>
     <!-- <contact-info v-if="false"></contact-info> -->
     <div
-      @click="showMenu"
-      class="menu-icon"
       v-if="this.$store.state.showMenuIcon"
+      class="menu-icon"
+      @click="showMenu"
     >
       Meny
     </div>
-    <Menu v-if="this.$store.state.showMenu"></Menu>
-    <router-view></router-view>
+    <Menu v-if="this.$store.state.showMenu" />
+    <router-view />
     <notifications />
-    <app-bottom-menu v-if="true"></app-bottom-menu>
+    <app-bottom-menu v-if="true" />
   </div>
 </template>
 
@@ -65,8 +66,17 @@ export default {
 
     "contact-info": ContactInformation,
   },
+
+  mixins: [syncUserInfo],
   data() {
     return {};
+  },
+  updated: function () {
+    if (!this.$auth.isAuthenticated) {
+      this.$auth.loginWithRedirect();
+    } else {
+      this.$auth.getTokenSilently();
+    }
   },
   methods: {
     // Log the user in
@@ -108,19 +118,10 @@ export default {
         });
     },
   },
-  updated: function () {
-    if (!this.$auth.isAuthenticated) {
-      this.$auth.loginWithRedirect();
-    } else {
-      this.$auth.getTokenSilently();
-    }
-  },
-
-  mixins: [syncUserInfo],
 };
 </script>
 
-<style lang="scss" scope>
+<style>
 .menu-icon {
   color: $light;
 }

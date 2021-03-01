@@ -1,0 +1,51 @@
+[
+  {
+    "name": "admin",
+    "path": "/admin",
+    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/admin.vue",
+    "chunkName": "pages/admin",
+    "_name": "_421f72b0"
+  },
+  {
+    "name": "coupons",
+    "path": "/coupons",
+    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/coupons.vue",
+    "chunkName": "pages/coupons",
+    "_name": "_afef55b4"
+  },
+  {
+    "name": "home",
+    "path": "/home",
+    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/home.vue",
+    "chunkName": "pages/home",
+    "_name": "_5d5678d4"
+  },
+  {
+    "name": "schedule",
+    "path": "/schedule",
+    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/schedule.vue",
+    "chunkName": "pages/schedule",
+    "_name": "_054bddce"
+  },
+  {
+    "name": "slots",
+    "path": "/slots",
+    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/slots.vue",
+    "chunkName": "pages/slots",
+    "_name": "_07a1b68e"
+  },
+  {
+    "name": "table",
+    "path": "/table",
+    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/table.vue",
+    "chunkName": "pages/table",
+    "_name": "_671c27a7"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_a4fe1aaa"
+  }
+]
