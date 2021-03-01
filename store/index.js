@@ -1,5 +1,5 @@
 export const state = () => ({
-  server: 'http://localhost:7777',
+  server: 'https://superelitserien-server.herokuapp.com',
   appVersion: '1.0.0',
 })
 

@@ -11,6 +11,7 @@ export { default as NextGame } from '../../components/NextGame.vue'
 export { default as Notifications } from '../../components/Notifications.vue'
 export { default as PlayerCash } from '../../components/PlayerCash.vue'
 export { default as SvgIcon } from '../../components/Svg-icon.vue'
+export { default as Table } from '../../components/Table.vue'
 export { default as Auth } from '../../components/auth.vue'
 export { default as AdminTodos } from '../../components/admin/AdminTodos.vue'
 export { default as AdminMatchGrid } from '../../components/admin/MatchGrid.vue'
@@ -40,6 +41,7 @@ export const LazyNextGame = import('../../components/NextGame.vue' /* webpackChu
 export const LazyNotifications = import('../../components/Notifications.vue' /* webpackChunkName: "components/notifications" */).then(c => c.default || c)
 export const LazyPlayerCash = import('../../components/PlayerCash.vue' /* webpackChunkName: "components/player-cash" */).then(c => c.default || c)
 export const LazySvgIcon = import('../../components/Svg-icon.vue' /* webpackChunkName: "components/svg-icon" */).then(c => c.default || c)
+export const LazyTable = import('../../components/Table.vue' /* webpackChunkName: "components/table" */).then(c => c.default || c)
 export const LazyAuth = import('../../components/auth.vue' /* webpackChunkName: "components/auth" */).then(c => c.default || c)
 export const LazyAdminTodos = import('../../components/admin/AdminTodos.vue' /* webpackChunkName: "components/admin-todos" */).then(c => c.default || c)
 export const LazyAdminMatchGrid = import('../../components/admin/MatchGrid.vue' /* webpackChunkName: "components/admin-match-grid" */).then(c => c.default || c)

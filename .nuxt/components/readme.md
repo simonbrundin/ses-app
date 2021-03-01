@@ -19,6 +19,7 @@ You can directly use them in pages and other components without the need to impo
 - `<Notifications>` | `<notifications>` (components/Notifications.vue)
 - `<PlayerCash>` | `<player-cash>` (components/PlayerCash.vue)
 - `<SvgIcon>` | `<svg-icon>` (components/Svg-icon.vue)
+- `<Table>` | `<table>` (components/Table.vue)
 - `<Auth>` | `<auth>` (components/auth.vue)
 - `<AdminTodos>` | `<admin-todos>` (components/admin/AdminTodos.vue)
 - `<AdminMatchGrid>` | `<admin-match-grid>` (components/admin/MatchGrid.vue)
