@@ -1,15 +1,14 @@
 <template>
   <div id="calendar">
-    <div v-if="this.$auth.user.sub" @DOMNodeInserted="getSchedule"></div>
     <div
+      v-if="this.$store.state.showHide.notifications.showScheduleInstructions"
       class="full-screen"
-      v-if="this.$store.state.notifications.showScheduleInstructions"
     >
       <ScheduleInstructions></ScheduleInstructions>
     </div>
     <div
+      v-if="this.$store.state.showHide.notifications.NotEnoughSlots"
       class="full-screen"
-      v-if="this.$store.state.notifications.NotEnoughSlots"
     >
       <NotEnoughSlots></NotEnoughSlots>
     </div>
@@ -34,14 +33,14 @@
       </div>
     </div>
     <!-- Udda veckor -->
-    <div class="calendar" v-if="showedWeek">
+    <div v-if="showedWeek" class="calendar">
       <!-- <h2 class="week-title">Udda veckor</h2> -->
       <div class="calendar-grid">
         <div class="column-times">
           <div class="empty-day">
             <svg-icon
               icon="time"
-              :hasFill="true"
+              :has-fill="true"
               class="icon-calendar"
             ></svg-icon>
           </div>
@@ -66,18 +65,18 @@
           </div>
         </div>
         <div
-          class="column-day"
           v-for="(dag, index) in rullandeDagar"
           :key="index"
+          class="column-day"
           :class="'column-' + dag"
         >
           <div>{{ dag }}</div>
 
           <div
-            v-for="(tid, index) in spelbaraTimmar"
-            :key="index"
-            class="slot odd"
+            v-for="(tid, index2) in spelbaraTimmar"
             :id="dag + tid"
+            :key="index2"
+            class="slot odd"
             :class="
               dag + tid && {
                 marked: user.oddSlots.includes(dag + tid),
@@ -91,17 +90,13 @@
     </div>
     <!-- ---------------------------------------------------------------- -->
     <!-- Jämna veckor -->
-    <div class v-if="!showedWeek">
+    <div v-if="!showedWeek" class>
       <!-- <h2 class="week-title">Jämna veckor</h2> -->
 
       <div class="calendar-grid">
         <div class="column-times">
           <div class="empty-day">
-            <svg-icon
-              icon="time"
-              :hasFill="true"
-              class="icon-calendar"
-            ></svg-icon>
+            <SVGIcon name="shop-1" />
           </div>
           <div
             v-for="(tid, index) in spelbaraTimmarUtanNollor"
@@ -124,18 +119,18 @@
           </div>
         </div>
         <div
-          class="column-day"
           v-for="(dag, index) in rullandeDagar"
           :key="index"
+          class="column-day"
           :class="'column-' + dag"
         >
           <div>{{ dag }}</div>
 
           <div
-            v-for="(tid, index) in spelbaraTimmar"
-            :key="index"
-            class="slot even"
+            v-for="(tid, index2) in spelbaraTimmar"
             :id="dag + tid"
+            :key="index2"
+            class="slot even"
             :class="
               dag + tid && {
                 marked: user.evenSlots.includes(dag + tid),
@@ -173,21 +168,22 @@
 </template>
 
 <script>
-import syncUserInfo from "@/services/syncUserInfo.js";
-import NotEnoughSlots from "@/components/notifications/NotEnoughSlots.vue";
-import ScheduleInstructions from "@/components/notifications/ScheduleInstructions.vue";
+import syncUserInfo from '@/services/syncUserInfo.js';
+import NotEnoughSlots from '@/components/notifications/NotEnoughSlots.vue';
+import ScheduleInstructions from '@/components/notifications/ScheduleInstructions.vue';
 export default {
-  name: "AvailabilityCalendar",
+  name: 'AvailabilityCalendar',
   components: {
     NotEnoughSlots,
     ScheduleInstructions,
   },
+  mixins: [syncUserInfo],
 
   data: () => {
     return {
       spelare: 7,
       nextGameNr: 1,
-      förnamn: "",
+      förnamn: '',
       showedWeek: true,
       startTid: 7,
       slutTid: 24,
@@ -201,69 +197,69 @@ export default {
     };
   },
   computed: {
-    inloggad: function () {
-      console.log(this.$auth.user.sub.includes("facebook"));
-      return this.$auth.user.sub.includes("facebook");
+    inloggad() {
+      console.log(this.$auth.user.sub.includes('facebook'));
+      return this.$auth.user.sub.includes('facebook');
     },
     spelbaraTimmar() {
-      let arrayMedTider = [];
-      let repeat = this.slutTid - this.startTid;
+      const arrayMedTider = [];
+      const repeat = this.slutTid - this.startTid;
       for (let i = 0; i < repeat; i++) {
-        let tid = this.startTid + i;
+        const tid = this.startTid + i;
         if (tid < 10) {
-          arrayMedTider.push("0" + tid.toString() + "00");
+          arrayMedTider.push('0' + tid.toString() + '00');
           if (this.halvTimmar) {
-            arrayMedTider.push("0" + tid.toString() + "30");
+            arrayMedTider.push('0' + tid.toString() + '30');
           }
         } else {
-          arrayMedTider.push(tid.toString() + "00");
+          arrayMedTider.push(tid.toString() + '00');
           if (this.halvTimmar) {
-            arrayMedTider.push(tid.toString() + "30");
+            arrayMedTider.push(tid.toString() + '30');
           }
         }
       }
       return arrayMedTider;
     },
     spelbaraTimmarUtanNollor() {
-      let arrayMedTider = this.spelbaraTimmar;
-      let arrayMedTiderUtanNollor = [];
+      const arrayMedTider = this.spelbaraTimmar;
+      const arrayMedTiderUtanNollor = [];
       arrayMedTider.forEach((element) => {
         let timme = element.substring(0, 2);
         let helHalv = element.slice(2, 4);
-        helHalv = helHalv.replace("00", ".00");
-        helHalv = helHalv.replace("30", ".30");
-        if (timme.startsWith("0")) {
-          let utanNollor = timme.substr(1);
+        helHalv = helHalv.replace('00', '.00');
+        helHalv = helHalv.replace('30', '.30');
+        if (timme.startsWith('0')) {
+          const utanNollor = timme.substr(1);
           timme = utanNollor;
         }
-        let tid = timme + helHalv;
+        const tid = timme + helHalv;
         arrayMedTiderUtanNollor.push(tid);
       });
       return arrayMedTiderUtanNollor;
     },
     rullandeDagar() {
-      let idag = new Date();
+      const idag = new Date();
       let idagVeckodagsnummer = idag.getDay();
       // let idagcalendardagsnr = idag.getDate();
       // let idagMånadsnr = idag.getMonth();
       if (this.fastVecka) {
         idagVeckodagsnummer = 0;
       }
-      let veckodagar = [
-        "M",
-        "Ti",
-        "O",
-        "To",
-        "F",
-        "L",
-        "S",
-        "M",
-        "Ti",
-        "O",
-        "To",
-        "F",
-        "L",
-        "S",
+      const veckodagar = [
+        'M',
+        'Ti',
+        'O',
+        'To',
+        'F',
+        'L',
+        'S',
+        'M',
+        'Ti',
+        'O',
+        'To',
+        'F',
+        'L',
+        'S',
       ];
       for (let index = 0; index < 7 - idagVeckodagsnummer; index++) {
         veckodagar.pop();
@@ -276,75 +272,73 @@ export default {
     },
   },
   methods: {
-    select: function (element) {
-      let classList = element.target.classList;
-      if (classList.contains("odd-button")) {
+    select(element) {
+      const classList = element.target.classList;
+      if (classList.contains('odd-button')) {
         this.showedWeek = true;
-      } else if (classList.contains("even-button")) {
+      } else if (classList.contains('even-button')) {
         this.showedWeek = false;
       }
     },
-    klickadLucka: function (lucka) {
-      lucka.target.classList.toggle("marked");
-      if (lucka.target.classList.contains("marked")) {
-        if (lucka.target.classList.contains("odd")) {
+    klickadLucka(lucka) {
+      lucka.target.classList.toggle('marked');
+      if (lucka.target.classList.contains('marked')) {
+        if (lucka.target.classList.contains('odd')) {
           this.user.oddSlots.push(lucka.target.id);
-        } else if (lucka.target.classList.contains("even")) {
+        } else if (lucka.target.classList.contains('even')) {
           this.user.evenSlots.push(lucka.target.id);
         }
-      } else {
-        if (lucka.target.classList.contains("odd")) {
-          this.user.oddSlots = this.user.oddSlots.filter(
-            (item) => item !== lucka.target.id
-          );
-        } else if (lucka.target.classList.contains("even")) {
-          this.user.evenSlots = this.user.evenSlots.filter(
-            (item) => item !== lucka.target.id
-          );
-        }
+      } else if (lucka.target.classList.contains('odd')) {
+        this.user.oddSlots = this.user.oddSlots.filter(
+          (item) => item !== lucka.target.id
+        );
+      } else if (lucka.target.classList.contains('even')) {
+        this.user.evenSlots = this.user.evenSlots.filter(
+          (item) => item !== lucka.target.id
+        );
       }
     },
-    checkEnoughSlots: function () {
+    checkEnoughSlots() {
       if (this.user.oddSlots.length > 7 && this.user.evenSlots.length > 7) {
         return false;
       } else {
-        this.$store.commit("NotEnoughSlots", true);
+        this.$store.commit('NotEnoughSlots', true);
         return true;
       }
     },
-    saveSchedule: function () {
+    saveSchedule() {
       if (this.checkEnoughSlots()) {
-        null;
+        return 0;
       } else {
         // Dölj calendarn
-        this.$store.commit("showSchedule", false);
+        this.$store.commit('showSchedule', false);
         // Skicka luckorna till servern
 
-        let body = JSON.stringify({
+        const body = JSON.stringify({
           spelare: this.$auth.user.sub,
           oddSlots: this.user.oddSlots,
           evenSlots: this.user.evenSlots,
         });
         console.log(body);
-        fetch(this.$store.state.server + "/sparaluckor", {
-          method: "post",
-          headers: { "Content-Type": "application/json" },
-          body: body,
+        fetch(this.$store.state.server + '/sparaluckor', {
+          method: 'post',
+          headers: { 'Content-Type': 'application/json' },
+          body,
         });
       }
     },
-    getSchedule: function () {
+    getSchedule() {
       this.getUserInfo();
-      let body = JSON.stringify({
+      const body = JSON.stringify({
         spelare: this.$auth.user.sub,
       });
 
       // Hämta luckor
 
-      fetch(this.$store.state.server + "/luckor", {
-        method: "post",
-        headers: { "Content-Type": "application/json" },
-        body: body,
+      fetch(this.$store.state.server + '/luckor', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        body,
       })
         .then((response) => response.json())
         .then((data) => {
@@ -356,13 +350,12 @@ export default {
             this.user.evenSlots = data.j;
           }
           if (this.user.oddSlots.length > 7 && this.user.evenSlots.length > 7) {
-            this.$store.commit("showSchedule", false);
-            this.$store.commit("showScheduleInstructions", false);
+            this.$store.commit('showSchedule', false);
+            this.$store.commit('showScheduleInstructions', false);
           }
         });
     },
   },
-  mixins: [syncUserInfo],
 };
 </script>
 
@@ -548,5 +541,3 @@ export default {
   margin: 0 0 20px 0;
 }
 </style>
-
-

@@ -10,15 +10,21 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&family=Lato:wght@100;300;400;700;900&family=Nunito:wght@200;400;600;700;800;900&display=swap' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&family=Lato:wght@100;300;400;700;900&family=Nunito:wght@200;400;600;700;800;900&display=swap',
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-css: ['~/assets/stylesheets/style.scss'],
-styleResources: {
-    scss: ['./assets/stylesheets/*.scss']
+  css: ['~/assets/stylesheets/style.scss'],
+  styleResources: {
+    scss: ['~/assets/stylesheets/*.scss'],
   },
-
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -52,5 +58,18 @@ styleResources: {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
-}
+  build: {
+    extend: (config) => {
+      const svgRule = config.module.rules.find((rule) =>
+        rule.test.test('.svg')
+      );
+
+      svgRule.test = /\.(png|jpe?g|gif|webp)$/;
+
+      config.module.rules.push({
+        test: /\.svg$/,
+        use: ['babel-loader', 'vue-svg-loader'],
+      });
+    },
+  },
+};

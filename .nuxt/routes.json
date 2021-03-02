@@ -3,42 +3,49 @@
     "name": "admin",
     "path": "/admin",
     "component": "C:\\\\Users\\\\assis\\\\Documents\\\\ses-app\\\\pages\\\\admin.vue",
-    "chunkName": "pages/admin"
+    "chunkName": "pages/admin",
+    "_name": "_b8cdbae0"
   },
   {
     "name": "coupons",
     "path": "/coupons",
     "component": "C:\\\\Users\\\\assis\\\\Documents\\\\ses-app\\\\pages\\\\coupons.vue",
-    "chunkName": "pages/coupons"
+    "chunkName": "pages/coupons",
+    "_name": "_342c51e4"
   },
   {
     "name": "home",
     "path": "/home",
     "component": "C:\\\\Users\\\\assis\\\\Documents\\\\ses-app\\\\pages\\\\home.vue",
-    "chunkName": "pages/home"
+    "chunkName": "pages/home",
+    "_name": "_50a66aa4"
   },
   {
     "name": "schedule",
     "path": "/schedule",
     "component": "C:\\\\Users\\\\assis\\\\Documents\\\\ses-app\\\\pages\\\\schedule.vue",
-    "chunkName": "pages/schedule"
+    "chunkName": "pages/schedule",
+    "_name": "_f8cace34"
   },
   {
     "name": "slots",
     "path": "/slots",
     "component": "C:\\\\Users\\\\assis\\\\Documents\\\\ses-app\\\\pages\\\\slots.vue",
-    "chunkName": "pages/slots"
+    "chunkName": "pages/slots",
+    "_name": "_676adb14"
   },
   {
     "name": "table",
     "path": "/table",
     "component": "C:\\\\Users\\\\assis\\\\Documents\\\\ses-app\\\\pages\\\\table.vue",
-    "chunkName": "pages/table"
+    "chunkName": "pages/table",
+    "_name": "_2bc5038f"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\assis\\\\Documents\\\\ses-app\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_7229ce93"
   }
 ]

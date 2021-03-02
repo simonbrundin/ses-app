@@ -1,25 +1,26 @@
 <template>
   <div class="menu">
     <nuxt-link to="/table">
-      <img src="@/assets/ikoner/ikon-tabell.png" alt="" />
+      <SVGIcon name="shop-1" />
       <div v-if="showIconTexts" class="menu-item-text gold">Tabell</div>
     </nuxt-link>
     <nuxt-link to="/slots">
-      <img src="@/assets/ikoner/ikon-tabell.png" alt="" />
+      <SVGIcon name="shop-1" />
       <div v-if="showIconTexts" class="menu-item-text gold">Luckor</div>
     </nuxt-link>
 
     <nuxt-link to="/">
-      <img src="@/assets/ikoner/iconmonstr-home-10-32.png" alt="" />
+      <SVGIcon name="shop-1" />
       <div v-if="showIconTexts" class="menu-item-text gold">Start</div>
     </nuxt-link>
 
     <nuxt-link to="/coupons">
-      <img src="@/assets/ikoner/iconmonstr-view-5-32.png" alt="" />
+      <SVGIcon name="shop-1" />
+
       <div v-if="showIconTexts" class="menu-item-text gold">Kuponger</div>
     </nuxt-link>
     <nuxt-link to="/schedule">
-      <img src="@/assets/ikoner/iconmonstr-calendar.png" alt="" />
+      <SVGIcon name="shop-1" />
       <div v-if="showIconTexts" class="menu-item-text gold">Boka tid</div>
     </nuxt-link>
     <!-- <nuxt-link to="/admin">
@@ -30,17 +31,24 @@
 </template>
 
 <script>
+import SVGIcon from '@/components/SVGIcon.vue';
+
 export default {
-  components: {},
+  components: { SVGIcon },
   data() {
-    return { showIconTexts: false, iconSize: 'lg', iconColor: 'white' }
+    return {
+      mySVG: require('@/assets/svg/home.svg'),
+      showIconTexts: false,
+      iconSize: 'lg',
+      iconColor: 'white',
+    };
   },
   methods: {
     showGame() {
-      this.$store.state.notifications.ConfirmGame = true
+      this.$store.state.notifications.ConfirmGame = true;
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scope>

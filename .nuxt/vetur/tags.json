@@ -17,6 +17,9 @@
   "HelloWorld": {
     "description": "Auto imported from components/HelloWorld.vue"
   },
+  "Icon": {
+    "description": "Auto imported from components/Icon.vue"
+  },
   "Login": {
     "description": "Auto imported from components/Login.vue"
   },
@@ -38,8 +41,8 @@
   "PlayerCash": {
     "description": "Auto imported from components/PlayerCash.vue"
   },
-  "SvgIcon": {
-    "description": "Auto imported from components/Svg-icon.vue"
+  "SVGIcon": {
+    "description": "Auto imported from components/SVGIcon.vue"
   },
   "Table": {
     "description": "Auto imported from components/Table.vue"

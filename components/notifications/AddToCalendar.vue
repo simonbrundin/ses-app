@@ -1,5 +1,8 @@
 <template>
-  <div id="add-to-calendar" v-if="this.$store.state.notifications.AddToCalendar">
+  <div
+    v-if="this.$store.state.notifications.AddToCalendar"
+    id="add-to-calendar"
+  >
     <navigation-row></navigation-row>
     <div class="message">
       <!-- <h2 class="greeting">Hej Simon,</h2> -->
@@ -24,17 +27,17 @@
 </template>
 
 <script>
-import NavigationRow from "./NavigationRow.vue";
+import NavigationRow from './NavigationRow.vue';
 export default {
   components: {
-    "navigation-row": NavigationRow,
+    'navigation-row': NavigationRow,
   },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 svg {
-  width: 12px;
+  width: 52px;
   fill: rgb(145, 145, 145);
 }
 

@@ -68,24 +68,24 @@ export default {
     return {
       sort: true,
       table: [],
-    }
+    };
   },
   computed: {
     sortedByPoints() {
-      let sortedTable = this.table
+      let sortedTable = this.table;
       sortedTable = sortedTable.sort((a, b) =>
         a.points < b.points ? -1 : a.points > b.points ? 1 : 0
-      )
-      sortedTable.reverse()
-      return sortedTable
+      );
+      sortedTable.reverse();
+      return sortedTable;
     },
     sortedByAvgPoints() {
-      let sortedTableByAvg = this.table
+      let sortedTableByAvg = this.table;
       sortedTableByAvg = sortedTableByAvg.sort((a, b) =>
         a.ppm < b.ppm ? -1 : a.ppm > b.ppm ? 1 : 0
-      )
-      sortedTableByAvg.reverse()
-      return sortedTableByAvg
+      );
+      sortedTableByAvg.reverse();
+      return sortedTableByAvg;
     },
   },
   mounted() {
@@ -94,18 +94,18 @@ export default {
       headers: { 'Content-Type': 'application/json' },
     })
       .then((response) => response.json())
-      .then((promise) => (this.table = promise))
+      .then((promise) => (this.table = promise));
   },
 
   methods: {
     avgPoints(a, b) {
-      return Math.round((a / b + Number.EPSILON) * 10) / 10
+      return Math.round((a / b + Number.EPSILON) * 10) / 10;
     },
     // getImgUrl(pic) {
     //   return require("../assets/spelare/" + pic + ".jpg");
     // },
   },
-}
+};
 </script>
 
 <style lang="scss" scope>

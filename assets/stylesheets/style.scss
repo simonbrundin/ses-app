@@ -24,7 +24,7 @@ $app-font-color: $light;
 $card-bg-color: $light;
 
 // Bottom menu
-$bottom-menu-bg-color:$dark;
+$bottom-menu-bg-color: $dark;
 $bottom-menu-icon-color: $grey;
 $bottom-menu-active-icon-color: $light;
 $bottom-menu-active-link: $gold;
@@ -33,7 +33,7 @@ $week-toggle-bg-color: #1a1a1a;
 $selected-toggle-color: $gold;
 $days-bg-color: #1a1a1a;
 $slots-bg-color: $light;
-$slot-gap-color:$light-grey;
+$slot-gap-color: $light-grey;
 $marked-slots-color: $gold;
 // #2b7fd2
 // #00000015
@@ -48,10 +48,12 @@ $app-font-size: 16px;
 
 // Rubriker
 
-h1 {color: $light;
+h1 {
+  color: $light;
   margin: 0;
   font-size: 1.75rem;
-  font-weight: 800;}
+  font-weight: 800;
+}
 
 h2 {
   color: $light;
@@ -109,11 +111,6 @@ body {
   font-size: $app-font-size;
 }
 
-#app {
-  padding: 10px $app-padding;
-
-}
-
 div {
   color: $dark;
 }
@@ -125,8 +122,6 @@ div {
 .light div {
   color: $light;
 }
-
-
 
 .card {
   background: $card-bg-color;
@@ -172,8 +167,6 @@ button {
   background: $confirm;
   // @include shadow;
 }
-
-
 
 .menu-item-text {
   color: $grey;
