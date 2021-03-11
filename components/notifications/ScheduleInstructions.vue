@@ -1,5 +1,9 @@
 <template>
-  <div id="not-enough-slots" class="card" v-if="true">
+  <div
+    v-if="this.$store.showHide.scheduleInstructions"
+    id="not-enough-slots"
+    class="card"
+  >
     <img src="../../assets/alert.png" alt="" class="alert-img" />
 
     <h1>Viktig information</h1>
@@ -14,15 +18,22 @@
       <li>Minst fyra olika dagar båda veckorna</li>
       <li>Minst 2 timmar per vald dag</li>
     </ul>
-    <button @click="dismissInstructions">Okej</button>
+    <button
+      @click="
+        this.$store.showHide.scheduleInstructions = !this.$store.showHide
+          .scheduleInstructions
+      "
+    >
+      Okej
+    </button>
   </div>
 </template>
 
 <script>
 export default {
   methods: {
-    dismissInstructions: function () {
-      this.$store.commit("showScheduleInstructions", false);
+    dismissInstructions() {
+      this.$store.showHide.commit('showScheduleInstructions', false);
     },
   },
 };

@@ -4,13 +4,13 @@
       v-if="this.$store.state.showHide.notifications.showScheduleInstructions"
       class="full-screen"
     >
-      <ScheduleInstructions></ScheduleInstructions>
+      <ScheduleInstructions />
     </div>
     <div
       v-if="this.$store.state.showHide.notifications.NotEnoughSlots"
       class="full-screen"
     >
-      <NotEnoughSlots></NotEnoughSlots>
+      <NotEnoughSlots />
     </div>
 
     <!-- Knappar som byter spelare -->
@@ -38,11 +38,7 @@
       <div class="calendar-grid">
         <div class="column-times">
           <div class="empty-day">
-            <svg-icon
-              icon="time"
-              :has-fill="true"
-              class="icon-calendar"
-            ></svg-icon>
+            <SVGIcon name="shop-1" />
           </div>
           <div
             v-for="(tid, index) in spelbaraTimmarUtanNollor"
@@ -84,7 +80,7 @@
               }
             "
             @click="klickadLucka"
-          ></div>
+          />
         </div>
       </div>
     </div>
@@ -138,7 +134,7 @@
               }
             "
             @click="klickadLucka"
-          ></div>
+          />
         </div>
       </div>
     </div>
@@ -271,6 +267,11 @@ export default {
       return veckodagar;
     },
   },
+  mounted() {
+    this.getSchedule();
+    // Code that will run only after the
+    // entire view has been rendered
+  },
   methods: {
     select(element) {
       const classList = element.target.classList;
@@ -359,7 +360,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 #calendar {
   margin: 0 0 65px 0;
   display: flex;
@@ -447,7 +448,7 @@ export default {
 }
 .empty-day svg {
   height: 16px;
-  fill: $light;
+  fill: $days-bg-color;
 }
 
 #calendar .icon-calendar svg {

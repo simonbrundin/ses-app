@@ -8,7 +8,7 @@ const VUEX_PROPERTIES = ['state', 'getters', 'actions', 'mutations']
 let store = {};
 
 (function updateModules () {
-  store = normalizeRoot(require('..\\store\\index.js'), 'store/index.js')
+  store = normalizeRoot(require('../store/index.js'), 'store/index.js')
 
   // If store is an exported method = classic mode (deprecated)
 
@@ -19,21 +19,21 @@ let store = {};
   // Enforce store modules
   store.modules = store.modules || {}
 
-  resolveStoreModules(require('..\\store\\admin.js'), 'admin.js')
-  resolveStoreModules(require('..\\store\\coupons.js'), 'coupons.js')
-  resolveStoreModules(require('..\\store\\showHide.js'), 'showHide.js')
-  resolveStoreModules(require('..\\store\\user.js'), 'user.js')
+  resolveStoreModules(require('../store/admin.js'), 'admin.js')
+  resolveStoreModules(require('../store/coupons.js'), 'coupons.js')
+  resolveStoreModules(require('../store/showHide.js'), 'showHide.js')
+  resolveStoreModules(require('../store/user.js'), 'user.js')
 
   // If the environment supports hot reloading...
 
   if (process.client && module.hot) {
     // Whenever any Vuex module is updated...
     module.hot.accept([
-      '..\\store\\admin.js',
-      '..\\store\\coupons.js',
-      '..\\store\\index.js',
-      '..\\store\\showHide.js',
-      '..\\store\\user.js',
+      '../store/admin.js',
+      '../store/coupons.js',
+      '../store/index.js',
+      '../store/showHide.js',
+      '../store/user.js',
     ], () => {
       // Update `root.modules` with the latest definitions.
       updateModules()

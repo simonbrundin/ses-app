@@ -37,7 +37,6 @@ export default {
   components: { SVGIcon },
   data() {
     return {
-      mySVG: require('@/assets/svg/home.svg'),
       showIconTexts: false,
       iconSize: 'lg',
       iconColor: 'white',
@@ -51,7 +50,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 .menu {
   background: $bottom-menu-bg-color;
   display: flex;
@@ -147,6 +146,10 @@ export default {
 }
 
 .menu .nuxt-link-exact-active svg {
+  fill: $bottom-menu-active-icon-color;
+}
+
+.menu svg {
   fill: $bottom-menu-active-icon-color;
 }
 

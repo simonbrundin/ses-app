@@ -4,13 +4,13 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _b8cdbae0 = () => interopDefault(import('..\\pages\\admin.vue' /* webpackChunkName: "pages/admin" */))
-const _342c51e4 = () => interopDefault(import('..\\pages\\coupons.vue' /* webpackChunkName: "pages/coupons" */))
-const _50a66aa4 = () => interopDefault(import('..\\pages\\home.vue' /* webpackChunkName: "pages/home" */))
-const _f8cace34 = () => interopDefault(import('..\\pages\\schedule.vue' /* webpackChunkName: "pages/schedule" */))
-const _676adb14 = () => interopDefault(import('..\\pages\\slots.vue' /* webpackChunkName: "pages/slots" */))
-const _2bc5038f = () => interopDefault(import('..\\pages\\table.vue' /* webpackChunkName: "pages/table" */))
-const _7229ce93 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _421f72b0 = () => interopDefault(import('../pages/admin.vue' /* webpackChunkName: "pages/admin" */))
+const _afef55b4 = () => interopDefault(import('../pages/coupons.vue' /* webpackChunkName: "pages/coupons" */))
+const _5d5678d4 = () => interopDefault(import('../pages/home.vue' /* webpackChunkName: "pages/home" */))
+const _054bddce = () => interopDefault(import('../pages/schedule.vue' /* webpackChunkName: "pages/schedule" */))
+const _07a1b68e = () => interopDefault(import('../pages/slots.vue' /* webpackChunkName: "pages/slots" */))
+const _671c27a7 = () => interopDefault(import('../pages/table.vue' /* webpackChunkName: "pages/table" */))
+const _a4fe1aaa = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -25,31 +25,31 @@ export const routerOptions = {
 
   routes: [{
     path: "/admin",
-    component: _b8cdbae0,
+    component: _421f72b0,
     name: "admin"
   }, {
     path: "/coupons",
-    component: _342c51e4,
+    component: _afef55b4,
     name: "coupons"
   }, {
     path: "/home",
-    component: _50a66aa4,
+    component: _5d5678d4,
     name: "home"
   }, {
     path: "/schedule",
-    component: _f8cace34,
+    component: _054bddce,
     name: "schedule"
   }, {
     path: "/slots",
-    component: _676adb14,
+    component: _07a1b68e,
     name: "slots"
   }, {
     path: "/table",
-    component: _2bc5038f,
+    component: _671c27a7,
     name: "table"
   }, {
     path: "/",
-    component: _7229ce93,
+    component: _a4fe1aaa,
     name: "index"
   }],
 

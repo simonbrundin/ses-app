@@ -25,6 +25,9 @@ export default {
   styleResources: {
     scss: ['~/assets/stylesheets/*.scss'],
   },
+  router: {
+  middleware: ['auth']
+},
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -45,6 +48,7 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/auth-next',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -56,6 +60,9 @@ export default {
       lang: 'en',
     },
   },
+  auth: {
+    // Options
+  }
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

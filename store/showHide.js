@@ -6,25 +6,25 @@ export const state = () => ({
   admin: { showMatchWindow: false },
 
   notifications: {
-    showScheduleInstructions: true,
+    scheduleInstructions: true,
     notEnoughSlots: false,
     confirmGame: false,
     addToCalendar: false,
     showNotificationButtons: false,
   },
-})
+});
 
 export const mutations = {
   showContactInfo(state, value) {
-    state.showContactInfo = value
+    state.showContactInfo = value;
   },
   showScheduleInstructions(state, value) {
-    state.notifications.showScheduleInstructions = value
+    state.notifications.showScheduleInstructions = value;
   },
   NotEnoughSlots(state, value) {
-    state.notifications.NotEnoughSlots = value
+    state.notifications.NotEnoughSlots = value;
   },
   showSchedule(state, value) {
-    state.showSchedule = value
+    state.showSchedule = value;
   },
-}
+};
