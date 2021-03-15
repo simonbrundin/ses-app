@@ -2,7 +2,9 @@
   <div id="player-grid">
     <div class="player-grid">
       <div v-for="(league, leagueIndex) in players" :key="leagueIndex">
-        <div v-for="(player, index) in players[leagueIndex]" :key="index">{{player.name}}</div>
+        <div v-for="(player, index) in players[leagueIndex]" :key="index">
+          {{ player.name }}
+        </div>
       </div>
     </div>
   </div>
@@ -14,12 +16,12 @@ export default {
     return {
       players: [
         [
-          { id: 0, name: "Micke" },
-          { id: 0, name: "Micke" },
+          { id: 0, name: 'Micke' },
+          { id: 0, name: 'Micke' },
         ],
         [
-          { id: 0, name: "Micke" },
-          { id: 0, name: "Micke" },
+          { id: 0, name: 'Micke' },
+          { id: 0, name: 'Micke' },
         ],
       ],
     };

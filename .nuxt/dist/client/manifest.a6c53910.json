@@ -1,6 +1,7 @@
 {
   "name": "ses-app",
   "short_name": "ses-app",
+  "description": "## Project setup ``` npm install ```",
   "icons": [],
   "start_url": "/?standalone=true",
   "display": "standalone",

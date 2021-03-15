@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-if="this.$store.state.notifications.AddToCalendar"
-    id="add-to-calendar"
-  >
+  <div v-if="$store.state.notifications.AddToCalendar" id="add-to-calendar">
     <navigation-row></navigation-row>
     <div class="message">
       <!-- <h2 class="greeting">Hej Simon,</h2> -->

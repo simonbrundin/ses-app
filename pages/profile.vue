@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <img id="profile-image" :src="$auth.user.picture" />
-    <button @click="$auth.logout()">Logga ut</button>
-  </div>
+  <div><button @click="$auth.logout()">Logga ut</button>{{ $auth.token }}</div>
 </template>
 
 <script>

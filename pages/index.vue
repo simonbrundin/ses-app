@@ -1,11 +1,10 @@
 <template>
   <div id="app">
     <nuxt-link v-if="$auth.loggedIn" to="/profile"
-      ><img id="profile-image" :src="$auth.user.picture" />
-      {{ $auth.user.sub }}
+      ><img id="profile-image" :src="$auth.user.picture" class="round" />
     </nuxt-link>
     <button v-if="!$auth.loggedIn" @click="$auth.loginWith('auth0')">
-    Logga in
+      Logga in
     </button>
     <div v-if="$store.state.showMenuIcon" class="menu-icon" @click="showMenu">
       Meny

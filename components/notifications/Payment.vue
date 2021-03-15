@@ -1,5 +1,5 @@
 <template>
-  <div id="notification-payment" class="card" v-if="true">
+  <div v-if="true" id="notification-payment" class="card">
     <img src="../../assets/swish.png" alt="" class="swish-img" />
     <div>Betala för förra matchen :)</div>
     <button>Betala nu</button>

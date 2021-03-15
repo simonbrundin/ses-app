@@ -186,7 +186,6 @@ export default {
   },
   computed: {
     inloggad() {
-      console.log(this.$auth.user.sub.includes('facebook'));
       return this.$auth.user.sub.includes('facebook');
     },
     spelbaraTimmar() {
@@ -312,7 +311,7 @@ export default {
           oddSlots: this.user.oddSlots,
           evenSlots: this.user.evenSlots,
         });
-        console.log(body);
+
         fetch(this.$store.state.server + '/sparaluckor', {
           method: 'post',
           headers: { 'Content-Type': 'application/json' },
@@ -343,8 +342,8 @@ export default {
             this.user.evenSlots = data.j;
           }
           if (this.user.oddSlots.length > 7 && this.user.evenSlots.length > 7) {
-            this.$store.commit('showSchedule', false);
-            this.$store.commit('showScheduleInstructions', false);
+            this.$store.commit('showHide/showSchedule', false);
+            this.$store.commit('showHide/showScheduleInstructions', false);
           }
         });
     },

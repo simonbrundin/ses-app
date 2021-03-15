@@ -1,5 +1,5 @@
 <template>
-  <div id="not-enough-slots" class="card" v-if="true">
+  <div v-if="true" id="not-enough-slots" class="card">
     <img src="../../assets/alert.png" alt="" class="alert-img" />
     <div><strong>Fyll i fler tider :)</strong></div>
     <ul>
@@ -14,8 +14,8 @@
 <script>
 export default {
   methods: {
-    dismissInstructions: function () {
-      this.$store.commit("NotEnoughSlots", false);
+    dismissInstructions() {
+      this.$store.commit('NotEnoughSlots', false);
     },
   },
 };

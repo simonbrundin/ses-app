@@ -1,57 +1,57 @@
 <template>
   <div id="match-info">
-    <div>Match ID: {{ this.$store.state.admin.selectedMatch.ID }}</div>
+    <div>Match ID: {{ $store.state.admin.selectedMatch.ID }}</div>
 
     <div>
       {{
-        this.$store.state.admin.selectedMatchPlayers[
-          this.$store.state.admin.selectedMatch.hemma1
+        $store.state.admin.selectedMatchPlayers[
+          $store.state.admin.selectedMatch.hemma1
         ].firstname
       }}
       {{
-        this.$store.state.admin.selectedMatchPlayers[
-          this.$store.state.admin.selectedMatch.hemma1
+        $store.state.admin.selectedMatchPlayers[
+          $store.state.admin.selectedMatch.hemma1
         ].lastname
       }}
       &
       {{
-        this.$store.state.admin.selectedMatchPlayers[
-          this.$store.state.admin.selectedMatch.hemma2
+        $store.state.admin.selectedMatchPlayers[
+          $store.state.admin.selectedMatch.hemma2
         ].firstname
       }}
       {{
-        this.$store.state.admin.selectedMatchPlayers[
-          this.$store.state.admin.selectedMatch.hemma2
+        $store.state.admin.selectedMatchPlayers[
+          $store.state.admin.selectedMatch.hemma2
         ].lastname
       }}
       -
-      {{ this.$store.state.admin.selectedMatch.pointshemma }}
+      {{ $store.state.admin.selectedMatch.pointshemma }}
     </div>
 
     <div>
       {{
-        this.$store.state.admin.selectedMatchPlayers[
-          this.$store.state.admin.selectedMatch.borta1
+        $store.state.admin.selectedMatchPlayers[
+          $store.state.admin.selectedMatch.borta1
         ].firstname
       }}
       {{
-        this.$store.state.admin.selectedMatchPlayers[
-          this.$store.state.admin.selectedMatch.borta1
+        $store.state.admin.selectedMatchPlayers[
+          $store.state.admin.selectedMatch.borta1
         ].lastname
       }}
       &
       {{
-        this.$store.state.admin.selectedMatchPlayers[
-          this.$store.state.admin.selectedMatch.borta2
+        $store.state.admin.selectedMatchPlayers[
+          $store.state.admin.selectedMatch.borta2
         ].firstname
       }}
       {{
-        this.$store.state.admin.selectedMatchPlayers[
-          this.$store.state.admin.selectedMatch.borta2
+        $store.state.admin.selectedMatchPlayers[
+          $store.state.admin.selectedMatch.borta2
         ].lastname
       }}
       -
-      {{ this.$store.state.admin.selectedMatch.pointsborta }}
+      {{ $store.state.admin.selectedMatch.pointsborta }}
     </div>
     <div>
       <button @click="changePoints">Ändra poäng</button>
@@ -68,49 +68,48 @@ export default {
     };
   },
   methods: {
-    saveMatchData: function () {
-      let body = JSON.stringify({
+    saveMatchData() {
+      const body = JSON.stringify({
         league: this.$store.state.admin.selectedLeague,
         ID: this.$store.state.admin.selectedMatch.ID,
         pointshemma: this.$store.state.admin.selectedMatch.pointshemma,
         pointsborta: this.$store.state.admin.selectedMatch.pointsborta,
       });
 
-      fetch(this.$store.state.server + "/updatematch", {
-        method: "post",
-        headers: { "Content-Type": "application/json" },
-        body: body,
+      fetch(this.$store.state.server + '/updatematch', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        body,
       })
         .then((response) => response.json())
         .then((promise) => {
-          console.log(promise);
           this.$store.state.admin.showMatchWindow = false;
         });
     },
 
-    changePoints: function () {
+    changePoints() {
       switch (this.$store.state.admin.selectedMatch.pointsborta) {
         case 0:
           if (this.$store.state.admin.selectedMatch.pointshemma === 6) {
-            this.$store.commit("addHomePoints", 4);
-            this.$store.commit("addAwayPoints", 2);
+            this.$store.commit('addHomePoints', 4);
+            this.$store.commit('addAwayPoints', 2);
           } else {
-            this.$store.commit("addHomePoints", 6);
-            this.$store.commit("addAwayPoints", 0);
+            this.$store.commit('addHomePoints', 6);
+            this.$store.commit('addAwayPoints', 0);
           }
 
           break;
         case 2:
-          this.$store.commit("addHomePoints", 2);
-          this.$store.commit("addAwayPoints", 4);
+          this.$store.commit('addHomePoints', 2);
+          this.$store.commit('addAwayPoints', 4);
           break;
         case 4:
-          this.$store.commit("addHomePoints", 0);
-          this.$store.commit("addAwayPoints", 6);
+          this.$store.commit('addHomePoints', 0);
+          this.$store.commit('addAwayPoints', 6);
           break;
         case 6:
-          this.$store.commit("addHomePoints", 0);
-          this.$store.commit("addAwayPoints", 0);
+          this.$store.commit('addHomePoints', 0);
+          this.$store.commit('addAwayPoints', 0);
           break;
         default:
           break;

@@ -11,7 +11,7 @@
       </div>
       <div v-for="(league, leagueIndex) in leagues" :key="leagueIndex">
         <div class="league-title">
-          {{ league.namn.replace("matcher-timra-", "") }}
+          {{ league.namn.replace('matcher-timra-', '') }}
         </div>
         <!-- <div>{{ matches[0][0] }}</div> -->
         <div
@@ -53,58 +53,58 @@ export default {
   data() {
     return {
       leagues: [],
-      selectedLeague: "",
+      selectedLeague: '',
       spelare: {},
     };
   },
   computed: {},
   methods: {
-    totalPointsEquals6: function (hemma, borta) {
+    totalPointsEquals6(hemma, borta) {
       if (hemma + borta === 6) {
         return true;
       } else {
         return false;
       }
     },
-    haveCommonSlots: function (odd, even) {
+    haveCommonSlots(odd, even) {
       if (odd + even === 0) {
         return true;
       } else {
         return false;
       }
     },
-    showMatch: function (league, matchID) {
-      this.$store.commit("selectedLeague", league);
+    showMatch(league, matchID) {
+      this.$store.commit('selectedLeague', league);
       // Hämta matchinfo
-      let body = JSON.stringify({
-        league: league,
-        matchID: matchID,
+      const body = JSON.stringify({
+        league,
+        matchID,
       });
-      fetch(this.$store.state.server + "/matchinfo/", {
-        method: "post",
-        headers: { "Content-Type": "application/json" },
-        body: body,
+      fetch(this.$store.state.server + '/matchinfo/', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        body,
       })
         .then((response) => response.json())
         .then((promise) => {
-          this.$store.commit("selectedMatch", promise[0]);
+          this.$store.commit('selectedMatch', promise[0]);
           this.$store.state.admin.showMatchWindow = true;
         })
         .then(() => {
-          let body2 = JSON.stringify({
+          const body2 = JSON.stringify({
             hemma1: this.$store.state.admin.selectedMatch.hemma1,
             hemma2: this.$store.state.admin.selectedMatch.hemma2,
             borta1: this.$store.state.admin.selectedMatch.borta1,
             borta2: this.$store.state.admin.selectedMatch.borta2,
           });
-          fetch(this.$store.state.server + "/getplayersnames/", {
-            method: "post",
-            headers: { "Content-Type": "application/json" },
+          fetch(this.$store.state.server + '/getplayersnames/', {
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' },
             body: body2,
           })
             .then((response) => response.json())
             .then((promise) => {
-              this.$store.commit("selectedMatchPlayers", promise);
+              this.$store.commit('selectedMatchPlayers', promise);
 
               // this.$store.commit("hemma1", promise[0].hemma1);
               // this.$store.commit("hemma2", promise[0].hemma2);
@@ -114,25 +114,23 @@ export default {
             });
         });
     },
-    updateMatchGrid: function () {
+    updateMatchGrid() {
       this.getMatches();
       this.updateCommonSlots();
     },
-    updateCommonSlots: function () {
-      fetch(this.$store.state.server + "/updatecommonslots")
-        .then((response) => response.json())
-        .then((promise) => {
-          console.log(promise);
-        });
+    updateCommonSlots() {
+      fetch(this.$store.state.server + '/updatecommonslots').then((response) =>
+        response.json()
+      );
     },
-    getMatches: function () {
-      let body = JSON.stringify({
+    getMatches() {
+      const body = JSON.stringify({
         appVersion: this.$store.appVersion,
       });
-      fetch(this.$store.state.server + "/allmatches", {
-        method: "post",
-        headers: { "Content-Type": "application/json" },
-        body: body,
+      fetch(this.$store.state.server + '/allmatches', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        body,
       })
         .then((response) => response.json())
         .then((promise) => {

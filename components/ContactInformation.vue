@@ -93,11 +93,7 @@ export default {
           method: 'post',
           headers: { 'Content-Type': 'application/json' },
           body,
-        })
-          .then((response) => response.json())
-          .then((promise) => {
-            console.log(promise);
-          });
+        }).then((response) => response.json());
       }
     },
   },

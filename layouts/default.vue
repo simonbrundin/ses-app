@@ -21,7 +21,7 @@ export default {
   },
   mounted() {
     if (!this.$auth.loggedIn) {
-      this.$auth.loginWith('facebook');
+      this.$auth.loginWith('auth0');
     }
   },
 };

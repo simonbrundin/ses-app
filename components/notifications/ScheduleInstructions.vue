@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="this.$store.showHide.scheduleInstructions"
+    v-if="$store.showHide.scheduleInstructions"
     id="not-enough-slots"
     class="card"
   >
@@ -20,7 +20,7 @@
     </ul>
     <button
       @click="
-        this.$store.showHide.scheduleInstructions = !this.$store.showHide
+        $store.showHide.scheduleInstructions = !$store.showHide
           .scheduleInstructions
       "
     >

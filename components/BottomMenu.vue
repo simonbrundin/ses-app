@@ -92,7 +92,10 @@ export default {
   width: 26px;
   fill: $bottom-menu-icon-color;
 }
-.icon-store svg {
+a .icon {
+  color: $bottom-menu-icon-color;
+}
+svg.icon {
   height: 26px;
   width: 26px;
   fill: $bottom-menu-icon-color;

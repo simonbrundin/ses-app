@@ -27,7 +27,7 @@
 
               <img
                 :src="require(`@/assets/spelare/${spelare.id}.jpg`)"
-                class="rund"
+                class="round"
                 alt
               />
             </span>
@@ -48,7 +48,7 @@
 
               <img
                 :src="require(`@/assets/spelare/${spelare.id}.jpg`)"
-                class="rund"
+                class="round"
                 alt
               />
             </span>

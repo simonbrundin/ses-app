@@ -21,7 +21,7 @@
       </div>
     </div>
     <app-bottom-menu
-      v-if="this.$store.state.coupons.showBottomMenu"
+      v-if="$store.state.coupons.showBottomMenu"
     ></app-bottom-menu>
   </div>
 </template>

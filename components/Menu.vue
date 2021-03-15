@@ -1,5 +1,5 @@
 <template>
-  <div id="menu" v-if="true">
+  <div v-if="true" id="menu">
     <h1 class="menu-title">Menu</h1>
     <ul @click="hideMenu">
       <router-link to="/table" class="menu-link">Tabell</router-link>
@@ -16,7 +16,7 @@ export default {
     return {};
   },
   methods: {
-    hideMenu: function () {
+    hideMenu() {
       this.$store.state.showMenu = false;
     },
   },

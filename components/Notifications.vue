@@ -1,5 +1,5 @@
 <template>
-  <div id="notifications" v-if="false">
+  <div v-if="false" id="notifications">
     <!-- Bekräfta lediga luckor -->
     <confirm-game class="notification"></confirm-game>
 
@@ -9,7 +9,7 @@
     <!-- Betalning saknas -->
     <payment class="notification"></payment>
     <!-- Acceptera datum -->
-    <div class="notification accept-game" v-if="!acceptedNextMatch">
+    <div v-if="!acceptedNextMatch" class="notification accept-game">
       <p>
         Vi har hittat en ny möjlig match.
         <br />
@@ -19,8 +19,8 @@
       <button>Nej</button>
     </div>
     <div
+      v-if="$store.state.showNotificationButtons"
       class="dev-notification-buttons"
-      v-if="this.$store.state.showNotificationButtons"
     >
       <button @click="addedNextMatchToCalendar = !addedNextMatchToCalendar">
         Kalender
@@ -34,21 +34,21 @@
 </template>
 
 <script>
-import Payment from "./notifications/Payment";
-import ConfirmGame from "./notifications/ConfirmGame";
-import AddToCalendar from "./notifications/AddToCalendar";
+import Payment from './notifications/Payment';
+import ConfirmGame from './notifications/ConfirmGame';
+import AddToCalendar from './notifications/AddToCalendar';
 export default {
   components: {
     payment: Payment,
-    "confirm-game": ConfirmGame,
-    "add-to-calendar": AddToCalendar,
+    'confirm-game': ConfirmGame,
+    'add-to-calendar': AddToCalendar,
   },
   data() {
     return {
       leftToPay: 0,
       addedNextMatchToCalendar: true,
       acceptedNextMatch: true,
-      proposedNextGameDate: "Torsdag 12/8 16.00",
+      proposedNextGameDate: 'Torsdag 12/8 16.00',
       noNotifications: true,
       daysConfirmed: 1,
     };
@@ -68,7 +68,7 @@ export default {
   top: 0;
   left: 0;
   height: 100vh;
-  width: calc(100vw - 2*#{$app-padding});
+  width: calc(100vw - 2 *#{$app-padding});
   padding: $app-padding;
   z-index: 100;
 }

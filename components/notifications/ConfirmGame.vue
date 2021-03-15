@@ -1,10 +1,14 @@
 <template>
-  <div id="confirm-game" v-if="this.$store.state.notifications.ConfirmGame">
+  <div v-if="$store.state.notifications.ConfirmGame" id="confirm-game">
     <navigation-row></navigation-row>
 
     <div class="message">
       <!-- <h2 class="greeting">Hej Simon,</h2> -->
-      <img class="notification-image" src="../../assets/spelare-med-band.png" alt />
+      <img
+        class="notification-image"
+        src="../../assets/spelare-med-band.png"
+        alt
+      />
       <p class="notification-description">
         Vi har hittat en tid som passar alla spelare
         <br />Fungerar tiden för dig?
@@ -25,13 +29,13 @@
 </template>
 
 <script>
-import NavigationRow from "./NavigationRow";
+import NavigationRow from './NavigationRow';
 export default {
   components: {
-    "navigation-row": NavigationRow,
+    'navigation-row': NavigationRow,
   },
   methods: {
-    confirmGame: function () {
+    confirmGame() {
       this.$store.state.notifications.ConfirmGame = false;
     },
   },

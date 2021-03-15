@@ -1,5 +1,5 @@
 <template>
-  <div id="waiting-for-players" class="card" v-if="true">
+  <div v-if="true" id="waiting-for-players" class="card">
     <img src="../../assets/alert.png" alt="" class="alert-img" />
     <div>
       Just nu väntar vi på att alla i din serie ska fylla i sina önsketider.
@@ -16,8 +16,8 @@
 <script>
 export default {
   methods: {
-    dismissInstructions: function () {
-      this.$store.commit("NotEnoughSlots", false);
+    dismissInstructions() {
+      this.$store.commit('NotEnoughSlots', false);
     },
   },
 };

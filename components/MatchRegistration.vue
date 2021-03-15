@@ -9,7 +9,7 @@
         <div class="lag">
           <select v-model="hemmaspelare1" single>
             <option
-              v-for="(spelare, index) in spelare"
+              v-for="(spelare, index) in spelarna"
               :key="index"
               :value="spelare"
             >
@@ -18,7 +18,7 @@
           </select>
           <select v-model="hemmaspelare2" single>
             <option
-              v-for="(spelare, index) in spelare"
+              v-for="(spelare, index) in spelarna"
               :key="index"
               :value="spelare"
             >
@@ -29,7 +29,7 @@
         <div class="lag">
           <select v-model="bortaspelare1" single>
             <option
-              v-for="(spelare, index) in spelare"
+              v-for="(spelare, index) in spelarna"
               :key="index"
               :value="spelare"
             >
@@ -38,7 +38,7 @@
           </select>
           <select v-model="bortaspelare2" single>
             <option
-              v-for="(spelare, index) in spelare"
+              v-for="(spelare, index) in spelarna"
               :key="index"
               :value="spelare"
             >
@@ -81,7 +81,7 @@ export default {
       bortaspelare2: '',
       pointshemma: 0,
       pointsborta: 0,
-      spelare: ['Simon Brundin', 'Fredrik Nordin', 'Christian Blomberg'],
+      spelarna: ['Simon Brundin', 'Fredrik Nordin', 'Christian Blomberg'],
     };
   },
   methods: {
@@ -129,7 +129,7 @@ export default {
       if (this.pointshemma + this.pointsborta === 6) {
         return;
       } else {
-        console.log('Poängsumman blir inte 6');
+        prompt('Poängsumman blir inte 6');
       }
       if (
         this.hemmaspelare1 !== '' &&
@@ -137,9 +137,9 @@ export default {
         this.bortaspelare1 !== '' &&
         this.bortaspelare2 !== ''
       ) {
-        console.log('Registrera');
+        prompt('Registrera');
       } else {
-        console.log('Fyll i alla spelare');
+        prompt('Fyll i alla spelare');
       }
     },
   },
