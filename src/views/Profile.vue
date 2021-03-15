@@ -1,8 +1,8 @@
 <template>
   <div>
     <router-link to="/">
-      <svg-icon icon="home" :hasFill="true" class="icon-calendar"></svg-icon>
-      <div class="menu-item-text gold" v-if="showIconTexts">Start</div>
+      <svg-icon icon="home" :has-fill="true" class="icon-calendar"></svg-icon>
+      <div v-if="showIconTexts" class="menu-item-text gold">Start</div>
     </router-link>
     <!-- <div class="profile-image-container">
       <router-link to="/">
@@ -10,7 +10,7 @@
       /></router-link>
     </div> -->
     <div>
-      <img :src="this.$auth.user.picture" id="profile-image" />
+      <img id="profile-image" :src="this.$auth.user.picture" />
       <h2>{{ $auth.user.name }}</h2>
       <p>{{ $auth.user.email }}</p>
     </div>
@@ -33,7 +33,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 .profile-image-container {
   display: flex;
   justify-content: flex-end;

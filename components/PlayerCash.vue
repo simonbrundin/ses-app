@@ -27,7 +27,7 @@
 export default {};
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 #player-cash {
   color: $light;
   text-align: center;

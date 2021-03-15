@@ -100,7 +100,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 #contact-information-screen {
   padding: 20px;
   background: $dark;

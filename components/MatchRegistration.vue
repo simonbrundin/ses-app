@@ -146,7 +146,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 .matchnr {
   display: flex;
   align-items: center;

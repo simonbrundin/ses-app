@@ -48,7 +48,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 #home {
   margin: 10px 0 0 0;
 }

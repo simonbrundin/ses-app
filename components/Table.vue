@@ -108,7 +108,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 #table {
   margin: 0 0 72px 0;
 }

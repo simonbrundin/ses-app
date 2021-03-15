@@ -38,7 +38,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 #next-game {
   margin: 20px 0;
   text-align: center;

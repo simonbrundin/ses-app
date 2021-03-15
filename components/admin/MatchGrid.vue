@@ -141,7 +141,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 .match-grid {
   display: grid;
   grid-template-columns: repeat(25, 1fr);
