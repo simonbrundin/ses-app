@@ -3,7 +3,7 @@
     <!-- Check that the SDK client is not currently loading before accessing is methods -->
     <div class="profile-image-container">
       <router-link to="/profile">
-        <img :src="this.$auth.user.picture" id="profile-image"
+        <img id="profile-image" :src="$auth.user.picture"
       /></router-link>
     </div>
     <waiting-for-players></waiting-for-players>
@@ -16,19 +16,19 @@
 </template>
 
 <script>
-import NextGame from "../components/NextGame.vue";
-import BottomMenu from "../components/BottomMenu.vue";
-import Payment from "../components/notifications/Payment.vue";
-import PlayerCash from "../components/PlayerCash.vue";
-import WaitingForPlayers from "../components/notifications/WaitingForPlayers.vue";
+import NextGame from '../components/NextGame.vue';
+import BottomMenu from '../components/BottomMenu.vue';
+import Payment from '../components/notifications/Payment.vue';
+import PlayerCash from '../components/PlayerCash.vue';
+import WaitingForPlayers from '../components/notifications/WaitingForPlayers.vue';
 
 export default {
   components: {
     WaitingForPlayers,
-    "next-game": NextGame,
-    "app-bottom-menu": BottomMenu,
-    "player-cash": PlayerCash,
-    "payment-swish": Payment,
+    'next-game': NextGame,
+    'app-bottom-menu': BottomMenu,
+    'player-cash': PlayerCash,
+    'payment-swish': Payment,
   },
   methods: {
     // Log the user in

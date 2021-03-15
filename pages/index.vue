@@ -1,14 +1,17 @@
 <template>
   <div id="app">
-    <div
-      v-if="this.$store.state.showMenuIcon"
-      class="menu-icon"
-      @click="showMenu"
-    >
+    <nuxt-link v-if="$auth.loggedIn" to="/profile"
+      ><img id="profile-image" :src="$auth.user.picture" />
+      {{ $auth.user.sub }}
+    </nuxt-link>
+    <button v-if="!$auth.loggedIn" @click="$auth.loginWith('auth0')">
+    Logga in
+    </button>
+    <div v-if="$store.state.showMenuIcon" class="menu-icon" @click="showMenu">
       Meny
     </div>
     <NextGame />
-    <Menu v-if="this.$store.state.showHide.menu" />
+    <Menu v-if="$store.state.showHide.menu" />
     <notifications />
   </div>
 </template>

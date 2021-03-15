@@ -1,40 +1,40 @@
 <template>
   <div class="menu">
     <nuxt-link to="/table">
-      <SVGIcon name="shop-1" />
+      <IconCup class="icon" />
       <div v-if="showIconTexts" class="menu-item-text gold">Tabell</div>
     </nuxt-link>
     <nuxt-link to="/slots">
-      <SVGIcon name="shop-1" />
+      <IconCalendar class="icon" />
       <div v-if="showIconTexts" class="menu-item-text gold">Luckor</div>
     </nuxt-link>
 
     <nuxt-link to="/">
-      <SVGIcon name="shop-1" />
+      <IconHome class="icon" />
       <div v-if="showIconTexts" class="menu-item-text gold">Start</div>
     </nuxt-link>
 
     <nuxt-link to="/coupons">
-      <SVGIcon name="shop-1" />
+      <IconStore class="icon" />
 
       <div v-if="showIconTexts" class="menu-item-text gold">Kuponger</div>
     </nuxt-link>
     <nuxt-link to="/schedule">
-      <SVGIcon name="shop-1" />
+      <IconClock class="icon" />
       <div v-if="showIconTexts" class="menu-item-text gold">Boka tid</div>
     </nuxt-link>
-    <!-- <nuxt-link to="/admin">
-      <svg-icon icon="time" :hasFill="true" class="icon-calendar"></svg-icon>
-      <div class="menu-item-text gold" v-if="showIconTexts">Admin</div>
-    </nuxt-link> -->
   </div>
 </template>
 
 <script>
-import SVGIcon from '@/components/SVGIcon.vue';
+import IconHome from './icons/IconHome.vue';
+import IconCup from './icons/IconCup.vue';
+import IconStore from './icons/IconStore.vue';
+import IconClock from './icons/IconClock.vue';
+import IconCalendar from './icons/IconCalendar.vue';
 
 export default {
-  components: { SVGIcon },
+  components: { IconHome, IconCup, IconStore, IconClock, IconCalendar },
   data() {
     return {
       showIconTexts: false,
@@ -87,6 +87,11 @@ export default {
 
 // Ikoner
 
+.icon {
+  height: 26px;
+  width: 26px;
+  fill: $bottom-menu-icon-color;
+}
 .icon-store svg {
   height: 26px;
   width: 26px;

@@ -19,11 +19,11 @@
     <contact-info
       v-if="
         $auth.isAuthenticated &&
-        (this.$store.state.user.firstName === '' ||
-          this.$store.state.user.lastName === '' ||
-          this.$store.state.user.email === '' ||
-          this.$store.state.user.tel === '' ||
-          this.$store.state.showContactInfo)
+        ($store.state.user.firstName === '' ||
+          $store.state.user.lastName === '' ||
+          $store.state.user.email === '' ||
+          $store.state.user.tel === '' ||
+          $store.state.showContactInfo)
       "
     />
     <contact-info />
@@ -33,9 +33,9 @@
 <script>
 export default {
   setup() {
-    return {}
+    return {};
   },
-}
+};
 </script>
 
 <style lang="scss" scoped></style>

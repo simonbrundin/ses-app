@@ -9,18 +9,18 @@
         <div class="lag">
           <select v-model="hemmaspelare1" single>
             <option
-              :value="spelare"
               v-for="(spelare, index) in spelare"
               :key="index"
+              :value="spelare"
             >
               {{ spelare }}
             </option>
           </select>
           <select v-model="hemmaspelare2" single>
             <option
-              :value="spelare"
               v-for="(spelare, index) in spelare"
               :key="index"
+              :value="spelare"
             >
               {{ spelare }}
             </option>
@@ -29,18 +29,18 @@
         <div class="lag">
           <select v-model="bortaspelare1" single>
             <option
-              :value="spelare"
               v-for="(spelare, index) in spelare"
               :key="index"
+              :value="spelare"
             >
               {{ spelare }}
             </option>
           </select>
           <select v-model="bortaspelare2" single>
             <option
-              :value="spelare"
               v-for="(spelare, index) in spelare"
               :key="index"
+              :value="spelare"
             >
               {{ spelare }}
             </option>
@@ -71,32 +71,32 @@
 
 <script>
 export default {
-  name: "MatchRegistration",
+  name: 'MatchRegistration',
 
-  data: function () {
+  data() {
     return {
-      hemmaspelare1: "",
-      hemmaspelare2: "",
-      bortaspelare1: "",
-      bortaspelare2: "",
+      hemmaspelare1: '',
+      hemmaspelare2: '',
+      bortaspelare1: '',
+      bortaspelare2: '',
       pointshemma: 0,
       pointsborta: 0,
-      spelare: ["Simon Brundin", "Fredrik Nordin", "Christian Blomberg"],
+      spelare: ['Simon Brundin', 'Fredrik Nordin', 'Christian Blomberg'],
     };
   },
   methods: {
-    addPoints: function (lag) {
+    addPoints(lag) {
       switch (lag) {
-        case "hemma":
+        case 'hemma':
           if (this.pointshemma > 5) {
-            null;
+            break;
           } else {
             this.pointshemma = this.pointshemma + 2;
           }
           break;
-        case "borta":
+        case 'borta':
           if (this.pointsborta > 5) {
-            null;
+            break;
           } else {
             this.pointsborta = this.pointsborta + 2;
           }
@@ -105,18 +105,18 @@ export default {
           break;
       }
     },
-    removePoints: function (lag) {
+    removePoints(lag) {
       switch (lag) {
-        case "hemma":
+        case 'hemma':
           if (this.pointshemma === 0) {
-            null;
+            break;
           } else {
             this.pointshemma = this.pointshemma - 2;
           }
           break;
-        case "borta":
+        case 'borta':
           if (this.pointsborta === 0) {
-            null;
+            break;
           } else {
             this.pointsborta = this.pointsborta - 2;
           }
@@ -125,21 +125,21 @@ export default {
           break;
       }
     },
-    registreraPoäng: function () {
+    registreraPoäng() {
       if (this.pointshemma + this.pointsborta === 6) {
-        null;
+        return;
       } else {
-        console.log("Poängsumman blir inte 6");
+        console.log('Poängsumman blir inte 6');
       }
       if (
-        this.hemmaspelare1 !== "" &&
-        this.hemmaspelare2 !== "" &&
-        this.bortaspelare1 !== "" &&
-        this.bortaspelare2 !== ""
+        this.hemmaspelare1 !== '' &&
+        this.hemmaspelare2 !== '' &&
+        this.bortaspelare1 !== '' &&
+        this.bortaspelare2 !== ''
       ) {
-        console.log("Registrera");
+        console.log('Registrera');
       } else {
-        console.log("Fyll i alla spelare");
+        console.log('Fyll i alla spelare');
       }
     },
   },

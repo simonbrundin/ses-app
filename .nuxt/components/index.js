@@ -6,7 +6,6 @@ export { default as HelloWorld } from '../../components/HelloWorld.vue'
 export { default as Icon } from '../../components/Icon.vue'
 export { default as Login } from '../../components/Login.vue'
 export { default as MatchRegistration } from '../../components/MatchRegistration.vue'
-export { default as MatchSchedule } from '../../components/MatchSchedule.vue'
 export { default as Menu } from '../../components/Menu.vue'
 export { default as NextGame } from '../../components/NextGame.vue'
 export { default as Notifications } from '../../components/Notifications.vue'
@@ -21,6 +20,11 @@ export { default as AdminPlayerGrid } from '../../components/admin/PlayerGrid.vu
 export { default as CouponsBiteline } from '../../components/coupons/Biteline.vue'
 export { default as CouponsCoupon } from '../../components/coupons/Coupon.vue'
 export { default as CouponsInterSport } from '../../components/coupons/InterSport.vue'
+export { default as IconsIconCalendar } from '../../components/icons/IconCalendar.vue'
+export { default as IconsIconClock } from '../../components/icons/IconClock.vue'
+export { default as IconsIconCup } from '../../components/icons/IconCup.vue'
+export { default as IconsIconHome } from '../../components/icons/IconHome.vue'
+export { default as IconsIconStore } from '../../components/icons/IconStore.vue'
 export { default as NotificationsAddToCalendar } from '../../components/notifications/AddToCalendar.vue'
 export { default as NotificationsConfirmGame } from '../../components/notifications/ConfirmGame.vue'
 export { default as NotificationsNavigationRow } from '../../components/notifications/NavigationRow.vue'
@@ -37,7 +41,6 @@ export const LazyHelloWorld = import('../../components/HelloWorld.vue' /* webpac
 export const LazyIcon = import('../../components/Icon.vue' /* webpackChunkName: "components/icon" */).then(c => c.default || c)
 export const LazyLogin = import('../../components/Login.vue' /* webpackChunkName: "components/login" */).then(c => c.default || c)
 export const LazyMatchRegistration = import('../../components/MatchRegistration.vue' /* webpackChunkName: "components/match-registration" */).then(c => c.default || c)
-export const LazyMatchSchedule = import('../../components/MatchSchedule.vue' /* webpackChunkName: "components/match-schedule" */).then(c => c.default || c)
 export const LazyMenu = import('../../components/Menu.vue' /* webpackChunkName: "components/menu" */).then(c => c.default || c)
 export const LazyNextGame = import('../../components/NextGame.vue' /* webpackChunkName: "components/next-game" */).then(c => c.default || c)
 export const LazyNotifications = import('../../components/Notifications.vue' /* webpackChunkName: "components/notifications" */).then(c => c.default || c)
@@ -52,6 +55,11 @@ export const LazyAdminPlayerGrid = import('../../components/admin/PlayerGrid.vue
 export const LazyCouponsBiteline = import('../../components/coupons/Biteline.vue' /* webpackChunkName: "components/coupons-biteline" */).then(c => c.default || c)
 export const LazyCouponsCoupon = import('../../components/coupons/Coupon.vue' /* webpackChunkName: "components/coupons-coupon" */).then(c => c.default || c)
 export const LazyCouponsInterSport = import('../../components/coupons/InterSport.vue' /* webpackChunkName: "components/coupons-inter-sport" */).then(c => c.default || c)
+export const LazyIconsIconCalendar = import('../../components/icons/IconCalendar.vue' /* webpackChunkName: "components/icons-icon-calendar" */).then(c => c.default || c)
+export const LazyIconsIconClock = import('../../components/icons/IconClock.vue' /* webpackChunkName: "components/icons-icon-clock" */).then(c => c.default || c)
+export const LazyIconsIconCup = import('../../components/icons/IconCup.vue' /* webpackChunkName: "components/icons-icon-cup" */).then(c => c.default || c)
+export const LazyIconsIconHome = import('../../components/icons/IconHome.vue' /* webpackChunkName: "components/icons-icon-home" */).then(c => c.default || c)
+export const LazyIconsIconStore = import('../../components/icons/IconStore.vue' /* webpackChunkName: "components/icons-icon-store" */).then(c => c.default || c)
 export const LazyNotificationsAddToCalendar = import('../../components/notifications/AddToCalendar.vue' /* webpackChunkName: "components/notifications-add-to-calendar" */).then(c => c.default || c)
 export const LazyNotificationsConfirmGame = import('../../components/notifications/ConfirmGame.vue' /* webpackChunkName: "components/notifications-confirm-game" */).then(c => c.default || c)
 export const LazyNotificationsNavigationRow = import('../../components/notifications/NavigationRow.vue' /* webpackChunkName: "components/notifications-navigation-row" */).then(c => c.default || c)

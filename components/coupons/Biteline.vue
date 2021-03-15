@@ -1,6 +1,6 @@
 <template>
   <div class="single-coupon">
-    <navigation-row></navigation-row>
+    <NavigationRow />
 
     <div class="card coupon">
       <img src="../../assets/coupons/biteline.png" alt class="coupon-logo" />
@@ -16,10 +16,10 @@
 </template>
 
 <script>
-import NavigationRow from "../notifications/NavigationRow.vue";
+import NavigationRow from '../notifications/NavigationRow.vue';
 export default {
   components: {
-    "navigation-row": NavigationRow,
+    NavigationRow,
   },
 };
 </script>

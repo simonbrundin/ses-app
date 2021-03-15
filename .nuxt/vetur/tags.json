@@ -23,9 +23,6 @@
   "MatchRegistration": {
     "description": "Auto imported from components/MatchRegistration.vue"
   },
-  "MatchSchedule": {
-    "description": "Auto imported from components/MatchSchedule.vue"
-  },
   "Menu": {
     "description": "Auto imported from components/Menu.vue"
   },
@@ -67,6 +64,21 @@
   },
   "CouponsInterSport": {
     "description": "Auto imported from components/coupons/InterSport.vue"
+  },
+  "IconsIconCalendar": {
+    "description": "Auto imported from components/icons/IconCalendar.vue"
+  },
+  "IconsIconClock": {
+    "description": "Auto imported from components/icons/IconClock.vue"
+  },
+  "IconsIconCup": {
+    "description": "Auto imported from components/icons/IconCup.vue"
+  },
+  "IconsIconHome": {
+    "description": "Auto imported from components/icons/IconHome.vue"
+  },
+  "IconsIconStore": {
+    "description": "Auto imported from components/icons/IconStore.vue"
   },
   "NotificationsAddToCalendar": {
     "description": "Auto imported from components/notifications/AddToCalendar.vue"

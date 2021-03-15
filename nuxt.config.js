@@ -25,9 +25,6 @@ export default {
   styleResources: {
     scss: ['~/assets/stylesheets/*.scss'],
   },
-  router: {
-  middleware: ['auth']
-},
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -61,11 +58,32 @@ export default {
     },
   },
   auth: {
-    // Options
-  }
+    redirect: {
+      login: '/login', // redirect user when not connected
+      callback: '/',
+    },
+    strategies: {
+      auth0: {
+        domain: 'simonbrundin.eu.auth0.com',
+        clientId: 'SLKrpHAQjSnSN9fTK2kdIndS5hP5bMvZ',
+        audience: 'http://api.superelitserien.se',
+      },
+      facebook: {
+        endpoints: {
+          userInfo:
+            'https://graph.facebook.com/v6.0/me?fields=id,name,picture{url}',
+        },
+        clientId: '180977627131037',
+        scope: ['public_profile', 'email'],
+      },
+    },
+  },
+  router: {
+    middleware: ['auth'],
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
+  /* build: {
     extend: (config) => {
       const svgRule = config.module.rules.find((rule) =>
         rule.test.test('.svg')
@@ -78,5 +96,5 @@ export default {
         use: ['babel-loader', 'vue-svg-loader'],
       });
     },
-  },
+  }, */
 };

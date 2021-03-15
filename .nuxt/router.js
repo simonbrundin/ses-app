@@ -7,6 +7,8 @@ import scrollBehavior from './router.scrollBehavior.js'
 const _421f72b0 = () => interopDefault(import('../pages/admin.vue' /* webpackChunkName: "pages/admin" */))
 const _afef55b4 = () => interopDefault(import('../pages/coupons.vue' /* webpackChunkName: "pages/coupons" */))
 const _5d5678d4 = () => interopDefault(import('../pages/home.vue' /* webpackChunkName: "pages/home" */))
+const _772895c2 = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
+const _4a8703c2 = () => interopDefault(import('../pages/profile.vue' /* webpackChunkName: "pages/profile" */))
 const _054bddce = () => interopDefault(import('../pages/schedule.vue' /* webpackChunkName: "pages/schedule" */))
 const _07a1b68e = () => interopDefault(import('../pages/slots.vue' /* webpackChunkName: "pages/slots" */))
 const _671c27a7 = () => interopDefault(import('../pages/table.vue' /* webpackChunkName: "pages/table" */))
@@ -35,6 +37,14 @@ export const routerOptions = {
     path: "/home",
     component: _5d5678d4,
     name: "home"
+  }, {
+    path: "/login",
+    component: _772895c2,
+    name: "login"
+  }, {
+    path: "/profile",
+    component: _4a8703c2,
+    name: "profile"
   }, {
     path: "/schedule",
     component: _054bddce,

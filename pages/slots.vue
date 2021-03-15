@@ -1,13 +1,13 @@
 <template>
   <div id="calendar">
     <div
-      v-if="this.$store.state.showHide.notifications.showScheduleInstructions"
+      v-if="$store.state.showHide.notifications.showScheduleInstructions"
       class="full-screen"
     >
       <ScheduleInstructions />
     </div>
     <div
-      v-if="this.$store.state.showHide.notifications.NotEnoughSlots"
+      v-if="$store.state.showHide.notifications.NotEnoughSlots"
       class="full-screen"
     >
       <NotEnoughSlots />
@@ -37,9 +37,7 @@
       <!-- <h2 class="week-title">Udda veckor</h2> -->
       <div class="calendar-grid">
         <div class="column-times">
-          <div class="empty-day">
-            <SVGIcon name="shop-1" />
-          </div>
+          <div class="empty-day"></div>
           <div
             v-for="(tid, index) in spelbaraTimmarUtanNollor"
             :key="index"
@@ -49,9 +47,7 @@
           </div>
         </div>
         <div class="column-lines">
-          <div class="empty-day">
-            <br />
-          </div>
+          <div class="empty-day"></div>
           <div
             v-for="(tid, index) in spelbaraTimmarUtanNollor"
             :key="index"
@@ -91,9 +87,7 @@
 
       <div class="calendar-grid">
         <div class="column-times">
-          <div class="empty-day">
-            <SVGIcon name="shop-1" />
-          </div>
+          <div class="empty-day"></div>
           <div
             v-for="(tid, index) in spelbaraTimmarUtanNollor"
             :key="index"
@@ -103,9 +97,7 @@
           </div>
         </div>
         <div class="column-lines">
-          <div class="empty-day">
-            <br />
-          </div>
+          <div class="empty-day"></div>
           <div
             v-for="(tid, index) in spelbaraTimmarUtanNollor"
             :key="index"
@@ -439,7 +431,7 @@ export default {
 .empty-day {
   background: $days-bg-color;
   color: white;
-  padding: 10px 0 10px 8px;
+  padding: 10px 0 32px 8px;
 }
 
 .empty-day div {

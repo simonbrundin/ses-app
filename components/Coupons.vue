@@ -3,9 +3,9 @@
     <!-- <navigation-row></navigation-row> -->
     <div class="card-container">
       <div
-        class="card company-card"
-        v-for="(company, index) in this.$store.state.coupons.companies"
+        v-for="(company, index) in $store.state.coupons.companies"
         :key="index"
+        class="card company-card"
       >
         <router-link to="/coupon">
           <div class="company-row" @click="company.show = !company.show">
@@ -28,14 +28,14 @@
 
 <script>
 // import NavigationRow from "./notifications/NavigationRow.vue";
-import BottomMenu from "../components/BottomMenu.vue";
+import BottomMenu from '../components/BottomMenu.vue';
 export default {
-  data() {
-    return {};
-  },
   components: {
     // "navigation-row": NavigationRow,
-    "app-bottom-menu": BottomMenu,
+    'app-bottom-menu': BottomMenu,
+  },
+  data() {
+    return {};
   },
 };
 </script>

@@ -12,10 +12,10 @@
 
 <script>
 export default {
-  name: "Book",
+  name: 'Book',
   data() {
     return {
-      showBookingSite: false
+      showBookingSite: false,
     };
   },
   computed: {
@@ -24,12 +24,12 @@ export default {
       date.setDate(date.getDate() + 1);
       date = date.toDateString();
       return date;
-    }
-  }
+    },
+  },
 };
 </script>
 
-<style >
+<style>
 iframe {
   width: 100vw;
   height: 100vh;

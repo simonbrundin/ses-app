@@ -163,7 +163,7 @@ const { app, router, store } = await createApp(ssrContext, ssrContext.runtimeCon
   /*
   ** Call global middleware (nuxt.config.js)
   */
-  let midd = []
+  let midd = ["auth"]
   midd = midd.map((name) => {
     if (typeof name === 'function') {
       return name

@@ -9,21 +9,26 @@
 </template>
 
 <script>
-  import Notifications from '@/components/Notifications.vue'
-  import BottomMenu from '@/components/BottomMenu.vue';
-  export default {
-    components: {
-      Notifications,
-      BottomMenu
-    },
-    setup() {
-      return {}
-    },
-  }
+import Notifications from '@/components/Notifications.vue';
+import BottomMenu from '@/components/BottomMenu.vue';
+export default {
+  components: {
+    Notifications,
+    BottomMenu,
+  },
+  setup() {
+    return {};
+  },
+  mounted() {
+    if (!this.$auth.loggedIn) {
+      this.$auth.loginWith('facebook');
+    }
+  },
+};
 </script>
 
 <style lang="scss" scope>
-  .container {
-    padding: 20px;
-  }
+.container {
+  padding: 20px;
+}
 </style>

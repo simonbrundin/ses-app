@@ -21,6 +21,20 @@
     "_name": "_5d5678d4"
   },
   {
+    "name": "login",
+    "path": "/login",
+    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/login.vue",
+    "chunkName": "pages/login",
+    "_name": "_772895c2"
+  },
+  {
+    "name": "profile",
+    "path": "/profile",
+    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/profile.vue",
+    "chunkName": "pages/profile",
+    "_name": "_4a8703c2"
+  },
+  {
     "name": "schedule",
     "path": "/schedule",
     "component": "/Users/simon/Programmering/Projekt/ses-app/pages/schedule.vue",

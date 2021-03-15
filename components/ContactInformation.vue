@@ -4,13 +4,13 @@
     <p>{{ $auth.user }}</p> -->
 
     <p>Förnamn</p>
-    <input type="text" v-model="firstName" name="firstName" />
+    <input v-model="firstName" type="text" name="firstName" />
     <p>Efternamn</p>
-    <input type="text" v-model="lastName" name="lastName" />
+    <input v-model="lastName" type="text" name="lastName" />
     <p>Email</p>
-    <input type="text" v-model="email" name="email" />
+    <input v-model="email" type="text" name="email" />
     <p>Telefonnummer</p>
-    <input type="text" v-model="tel" name="tel" />
+    <input v-model="tel" type="text" name="tel" />
     <div></div>
     <br />
     <button @click="updateInfo">Spara uppgifter</button>
@@ -19,15 +19,16 @@
 </template>
 
 <script>
-import syncUserInfo from "@/services/syncUserInfo.js";
+import syncUserInfo from '@/services/syncUserInfo.js';
 export default {
+  mixins: [syncUserInfo],
   data() {
     return {
-      dataFirstName: "",
+      dataFirstName: '',
     };
   },
   computed: {
-    socialID: function () {
+    socialID() {
       return this.$auth.user.sub;
     },
     firstName: {
@@ -35,7 +36,7 @@ export default {
         return this.$store.state.user.firstName;
       },
       set(value) {
-        this.$store.commit("firstName", value);
+        this.$store.commit('firstName', value);
       },
     },
     lastName: {
@@ -43,7 +44,7 @@ export default {
         return this.$store.state.user.lastName;
       },
       set(value) {
-        this.$store.commit("lastName", value);
+        this.$store.commit('lastName', value);
       },
     },
     email: {
@@ -51,7 +52,7 @@ export default {
         return this.$store.state.user.email;
       },
       set(value) {
-        this.$store.commit("email", value);
+        this.$store.commit('email', value);
       },
     },
     tel: {
@@ -59,25 +60,28 @@ export default {
         return this.$store.state.user.tel;
       },
       set(value) {
-        this.$store.commit("tel", value);
+        this.$store.commit('tel', value);
       },
     },
   },
+  updated() {
+    this.$store.commit('showContactInfo', true);
+  },
   methods: {
-    updateInfo: function () {
+    updateInfo() {
       if (
-        this.socialID === "" ||
-        this.firstName === "" ||
-        this.lastName === "" ||
-        this.email === "" ||
-        this.tel === ""
+        this.socialID === '' ||
+        this.firstName === '' ||
+        this.lastName === '' ||
+        this.email === '' ||
+        this.tel === ''
       ) {
-        alert("Fyll i alla fält");
+        alert('Fyll i alla fält');
       } else {
         // this.$store.state.server
         this.$store.state.showContactInfo = false;
-        let server = "http://localhost:7777";
-        let body = JSON.stringify({
+        const server = 'http://localhost:7777';
+        const body = JSON.stringify({
           socialID: this.socialID,
           firstName: this.firstName,
           lastName: this.lastName,
@@ -85,10 +89,10 @@ export default {
           tel: this.tel,
         });
 
-        fetch(server + "/updateuser", {
-          method: "post",
-          headers: { "Content-Type": "application/json" },
-          body: body,
+        fetch(server + '/updateuser', {
+          method: 'post',
+          headers: { 'Content-Type': 'application/json' },
+          body,
         })
           .then((response) => response.json())
           .then((promise) => {
@@ -96,10 +100,6 @@ export default {
           });
       }
     },
-  },
-  mixins: [syncUserInfo],
-  updated: function () {
-    this.$store.commit("showContactInfo", true);
   },
 };
 </script>

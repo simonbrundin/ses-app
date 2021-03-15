@@ -4,13 +4,13 @@
     <router-link to="/coupon">
       <div>
         <div
-          class="card coupon-link"
-          v-for="(coupon, index) in this.$store.state.coupons.companies
-            .intersport.coupons"
+          v-for="(coupon, index) in $store.state.coupons.companies.intersport
+            .coupons"
           :key="index"
+          class="card coupon-link"
         >
           <div class="coupon-row">
-            <img src="../../assets/coupons/intersport-standing.png" alt />
+            <img src="@/assets/coupons/intersport-standing.png" alt />
 
             <div class="company-text">
               <div>{{ coupon.title }}</div>
@@ -33,5 +33,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
