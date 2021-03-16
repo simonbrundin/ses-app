@@ -1,5 +1,5 @@
 <template>
-  <div v-if="$store.state.notifications.ConfirmGame" id="confirm-game">
+  <div v-if="$store.state.showHide.notifications.ConfirmGame" id="confirm-game">
     <navigation-row></navigation-row>
 
     <div class="message">

@@ -1,13 +1,13 @@
 <template>
-  <div v-if="false" id="notifications">
-    <!-- Bekräfta lediga luckor -->
-    <confirm-game class="notification"></confirm-game>
-
-    <!-- Lägg till i kalender -->
-    <add-to-calendar class="notification"></add-to-calendar>
-
+  <div id="notifications">
     <!-- Betalning saknas -->
     <payment class="notification"></payment>
+    <!-- Bekräfta lediga luckor -->
+    <confirm-game class="notification"></confirm-game>
+    <!-- Lägg till i kalender -->
+    <add-to-calendar class="notification"></add-to-calendar>
+    <NotEnoughSlots class="notification" />
+
     <!-- Acceptera datum -->
     <div v-if="!acceptedNextMatch" class="notification accept-game">
       <p>
@@ -37,11 +37,13 @@
 import Payment from './notifications/Payment';
 import ConfirmGame from './notifications/ConfirmGame';
 import AddToCalendar from './notifications/AddToCalendar';
+import NotEnoughSlots from './notifications//NotEnoughSlots.vue';
 export default {
   components: {
     payment: Payment,
     'confirm-game': ConfirmGame,
     'add-to-calendar': AddToCalendar,
+    NotEnoughSlots,
   },
   data() {
     return {

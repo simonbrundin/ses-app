@@ -1,13 +1,19 @@
 <template>
-  <div v-if="true" id="notification-payment" class="card">
+  <div v-if="$store.state.user.dept > 0" id="notification-payment" class="card">
     <img src="../../assets/swish.png" alt="" class="swish-img" />
-    <div>Betala för förra matchen :)</div>
-    <button>Betala nu</button>
+    <div>Betala för senaste matchen :)</div>
+    <button @click="pay">Betala nu</button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    pay() {
+      this.$store.commit('user/resetDept');
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -15,6 +21,7 @@ export default {};
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 #notification-payment div {
@@ -25,6 +32,6 @@ export default {};
 .swish-img {
   width: 150px;
   height: 198px;
-  margin: auto;
+  justify-self: center;
 }
 </style>
