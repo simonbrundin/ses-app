@@ -292,9 +292,10 @@ export default {
     },
     checkEnoughSlots() {
       if (this.user.oddSlots.length > 7 && this.user.evenSlots.length > 7) {
+        this.$store.commit('showHide/notEnoughSlots', false);
         return false;
       } else {
-        this.$store.commit('NotEnoughSlots', true);
+        this.$store.commit('showHide/notEnoughSlots', true);
         return true;
       }
     },
@@ -303,7 +304,7 @@ export default {
         return 0;
       } else {
         // Dölj calendarn
-        this.$store.commit('showSchedule', false);
+        this.$store.commit('showHide/showSchedule', false);
         // Skicka luckorna till servern
 
         const body = JSON.stringify({

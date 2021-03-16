@@ -65,7 +65,7 @@ export default {
 }
 
 .notification {
-  background: $app-bg-color;
+  background: $light;
   position: fixed;
   top: 0;
   left: 0;

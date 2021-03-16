@@ -7,7 +7,7 @@ export const state = () => ({
 
   notifications: {
     scheduleInstructions: true,
-    notEnoughSlots: false,
+    notEnoughSlots: true,
     confirmGame: false,
     addToCalendar: false,
     showNotificationButtons: false,
@@ -21,8 +21,8 @@ export const mutations = {
   showScheduleInstructions(state, value) {
     state.notifications.showScheduleInstructions = value;
   },
-  NotEnoughSlots(state, value) {
-    state.notifications.NotEnoughSlots = value;
+  notEnoughSlots(state, value) {
+    state.notifications.notEnoughSlots = value;
   },
   showSchedule(state, value) {
     state.showSchedule = value;

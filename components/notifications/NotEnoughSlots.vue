@@ -1,5 +1,8 @@
 <template>
-  <div v-if="true" id="not-enough-slots" class="card">
+  <div
+    v-if="$store.state.showHide.notifications.notEnoughSlots"
+    id="not-enough-slots"
+  >
     <img src="../../assets/alert.png" alt="" class="alert-img" />
     <div><strong>Fyll i fler tider :)</strong></div>
     <ul>
@@ -15,7 +18,7 @@
 export default {
   methods: {
     dismissInstructions() {
-      this.$store.commit('NotEnoughSlots', false);
+      this.$store.commit('showHide/notEnoughSlots', false);
     },
   },
 };
@@ -26,6 +29,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 #not-enough-slots div {
@@ -35,7 +39,5 @@ export default {
 
 .alert-img {
   width: 200px;
-
-  margin: auto;
 }
 </style>
