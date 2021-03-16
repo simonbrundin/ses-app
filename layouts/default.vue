@@ -16,6 +16,7 @@ export default {
     Notifications,
     BottomMenu,
   },
+
   setup() {
     return {};
   },

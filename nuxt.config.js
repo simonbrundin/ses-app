@@ -48,6 +48,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/auth-next',
   ],
+  proxy: [],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: { proxy: true },
