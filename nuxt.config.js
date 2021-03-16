@@ -1,7 +1,26 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-
+  ssr: false,
+  router: {
+    middleware: ['auth'],
+    base: '/ses-app/',
+  },
+  // Allows page refresh to work on github pages
+  generate: {
+    fallback: '404.html',
+  },
+  // Modules: https://go.nuxtjs.dev/config-modules
+  modules: [
+    '@nuxtjs/style-resources',
+    // https://go.nuxtjs.dev/axios
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy',
+    // https://go.nuxtjs.dev/pwa
+    '@nuxtjs/pwa',
+    '@nuxtjs/auth-next',
+    '@nuxtjs/dotenv',
+  ],
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'power-king',
@@ -36,18 +55,10 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    '@nuxtjs/pwa',
+    '@nuxtjs/dotenv',
   ],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    '@nuxtjs/style-resources',
-    // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
-    '@nuxtjs/proxy',
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
-    '@nuxtjs/auth-next',
-  ],
   proxy: [],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -62,7 +73,7 @@ export default {
   auth: {
     redirect: {
       login: '/login', // redirect user when not connected
-      callback: '/',
+      callback: '/login/callback',
     },
     watchLoggedIn: true,
     strategies: {
@@ -81,23 +92,4 @@ export default {
       },
     },
   },
-  router: {
-    middleware: ['auth'],
-  },
-
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  /* build: {
-    extend: (config) => {
-      const svgRule = config.module.rules.find((rule) =>
-        rule.test.test('.svg')
-      );
-
-      svgRule.test = /\.(png|jpe?g|gif|webp)$/;
-
-      config.module.rules.push({
-        test: /\.svg$/,
-        use: ['babel-loader', 'vue-svg-loader'],
-      });
-    },
-  }, */
 };

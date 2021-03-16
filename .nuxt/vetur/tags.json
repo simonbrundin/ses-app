@@ -86,6 +86,9 @@
   "NotificationsConfirmGame": {
     "description": "Auto imported from components/notifications/ConfirmGame.vue"
   },
+  "NotificationsLogin": {
+    "description": "Auto imported from components/notifications/Login.vue"
+  },
   "NotificationsNavigationRow": {
     "description": "Auto imported from components/notifications/NavigationRow.vue"
   },

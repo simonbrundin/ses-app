@@ -20,9 +20,7 @@ export default {
   setup() {
     return {};
   },
-  mounted() {
-    this.login();
-  },
+  mounted() {},
   methods: {
     login() {
       if (!this.$auth.loggedIn) {

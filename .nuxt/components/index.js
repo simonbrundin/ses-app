@@ -27,6 +27,7 @@ export { default as IconsIconHome } from '../..\\components\\icons\\IconHome.vue
 export { default as IconsIconStore } from '../..\\components\\icons\\IconStore.vue'
 export { default as NotificationsAddToCalendar } from '../..\\components\\notifications\\AddToCalendar.vue'
 export { default as NotificationsConfirmGame } from '../..\\components\\notifications\\ConfirmGame.vue'
+export { default as NotificationsLogin } from '../..\\components\\notifications\\Login.vue'
 export { default as NotificationsNavigationRow } from '../..\\components\\notifications\\NavigationRow.vue'
 export { default as NotificationsNotEnoughSlots } from '../..\\components\\notifications\\NotEnoughSlots.vue'
 export { default as NotificationsPayment } from '../..\\components\\notifications\\Payment.vue'
@@ -62,6 +63,7 @@ export const LazyIconsIconHome = import('../..\\components\\icons\\IconHome.vue'
 export const LazyIconsIconStore = import('../..\\components\\icons\\IconStore.vue' /* webpackChunkName: "components/icons-icon-store" */).then(c => c.default || c)
 export const LazyNotificationsAddToCalendar = import('../..\\components\\notifications\\AddToCalendar.vue' /* webpackChunkName: "components/notifications-add-to-calendar" */).then(c => c.default || c)
 export const LazyNotificationsConfirmGame = import('../..\\components\\notifications\\ConfirmGame.vue' /* webpackChunkName: "components/notifications-confirm-game" */).then(c => c.default || c)
+export const LazyNotificationsLogin = import('../..\\components\\notifications\\Login.vue' /* webpackChunkName: "components/notifications-login" */).then(c => c.default || c)
 export const LazyNotificationsNavigationRow = import('../..\\components\\notifications\\NavigationRow.vue' /* webpackChunkName: "components/notifications-navigation-row" */).then(c => c.default || c)
 export const LazyNotificationsNotEnoughSlots = import('../..\\components\\notifications\\NotEnoughSlots.vue' /* webpackChunkName: "components/notifications-not-enough-slots" */).then(c => c.default || c)
 export const LazyNotificationsPayment = import('../..\\components\\notifications\\Payment.vue' /* webpackChunkName: "components/notifications-payment" */).then(c => c.default || c)

@@ -9,7 +9,8 @@
     "start": "nuxt start",
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
-    "deploy": "npm run build && npm run generate && gh-pages -d dist"
+    "deploy": "npm run generate && gh-pages -d dist -t true",
+    "push": "push-dir --dir=dist --branch=master"
   },
   "dependencies": {
     "@babel/core": "^7.13.8",
@@ -25,6 +26,7 @@
     "webpack": "^4.46.0"
   },
   "devDependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/style-resources": "^1.0.0",

@@ -30,6 +30,7 @@ const components = {
   IconsIconStore: () => import('../..\\components\\icons\\IconStore.vue' /* webpackChunkName: "components/icons-icon-store" */).then(c => c.default || c),
   NotificationsAddToCalendar: () => import('../..\\components\\notifications\\AddToCalendar.vue' /* webpackChunkName: "components/notifications-add-to-calendar" */).then(c => c.default || c),
   NotificationsConfirmGame: () => import('../..\\components\\notifications\\ConfirmGame.vue' /* webpackChunkName: "components/notifications-confirm-game" */).then(c => c.default || c),
+  NotificationsLogin: () => import('../..\\components\\notifications\\Login.vue' /* webpackChunkName: "components/notifications-login" */).then(c => c.default || c),
   NotificationsNavigationRow: () => import('../..\\components\\notifications\\NavigationRow.vue' /* webpackChunkName: "components/notifications-navigation-row" */).then(c => c.default || c),
   NotificationsNotEnoughSlots: () => import('../..\\components\\notifications\\NotEnoughSlots.vue' /* webpackChunkName: "components/notifications-not-enough-slots" */).then(c => c.default || c),
   NotificationsPayment: () => import('../..\\components\\notifications\\Payment.vue' /* webpackChunkName: "components/notifications-payment" */).then(c => c.default || c),

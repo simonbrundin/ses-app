@@ -178,7 +178,7 @@ export async function setContext (app, context) {
       payload: context.payload,
       error: context.error,
       base: app.router.options.base,
-      env: {}
+      env: {"GOOGLE_ANALYTICS_ID":"123"}
     }
     // Only set once
 

@@ -3,7 +3,7 @@
     v-if="$store.state.showHide.notifications.notEnoughSlots"
     id="not-enough-slots"
   >
-    <img src="../../assets/alert.png" alt="" class="alert-img" />
+    <img src="@/assets/alert.png" alt="" class="alert-img" />
     <div><strong>Fyll i fler tider :)</strong></div>
     <ul>
       <li>Fyll i både udda och jämna veckor</li>

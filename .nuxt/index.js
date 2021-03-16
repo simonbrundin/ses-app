@@ -14,9 +14,9 @@ import { createStore } from './store.js'
 /* Plugins */
 
 import nuxt_plugin_plugin_3f8fe628 from 'nuxt_plugin_plugin_3f8fe628' // Source: .\\components\\plugin.js (mode: 'all')
+import nuxt_plugin_axios_4ddd536a from 'nuxt_plugin_axios_4ddd536a' // Source: .\\axios.js (mode: 'all')
 import nuxt_plugin_workbox_5be564a7 from 'nuxt_plugin_workbox_5be564a7' // Source: .\\workbox.js (mode: 'client')
 import nuxt_plugin_metaplugin_b05e7bb2 from 'nuxt_plugin_metaplugin_b05e7bb2' // Source: .\\pwa\\meta.plugin.js (mode: 'all')
-import nuxt_plugin_axios_4ddd536a from 'nuxt_plugin_axios_4ddd536a' // Source: .\\axios.js (mode: 'all')
 import nuxt_plugin_auth_0278dd85 from 'nuxt_plugin_auth_0278dd85' // Source: .\\auth.js (mode: 'all')
 
 // Component: <ClientOnly>
@@ -53,7 +53,7 @@ Object.defineProperty(Vue.prototype, '$nuxt', {
 
 Vue.use(Meta, {"keyName":"head","attribute":"data-n-head","ssrAttribute":"data-n-head-ssr","tagIDKeyName":"hid"})
 
-const defaultTransition = {"name":"page","mode":"out-in","appear":false,"appearClass":"appear","appearActiveClass":"appear-active","appearToClass":"appear-to"}
+const defaultTransition = {"name":"page","mode":"out-in","appear":true,"appearClass":"appear","appearActiveClass":"appear-active","appearToClass":"appear-to"}
 
 const originalRegisterModule = Vuex.Store.prototype.registerModule
 
@@ -72,9 +72,6 @@ async function createApp(ssrContext, config = {}) {
   const store = createStore(ssrContext)
   // Add this.$router into store actions/mutations
   store.$router = router
-
-  // Fix SSR caveat https://github.com/nuxt/nuxt.js/issues/3757#issuecomment-414689141
-  store.registerModule = registerModule
 
   // Create Root instance
 
@@ -214,16 +211,16 @@ async function createApp(ssrContext, config = {}) {
     await nuxt_plugin_plugin_3f8fe628(app.context, inject)
   }
 
+  if (typeof nuxt_plugin_axios_4ddd536a === 'function') {
+    await nuxt_plugin_axios_4ddd536a(app.context, inject)
+  }
+
   if (process.client && typeof nuxt_plugin_workbox_5be564a7 === 'function') {
     await nuxt_plugin_workbox_5be564a7(app.context, inject)
   }
 
   if (typeof nuxt_plugin_metaplugin_b05e7bb2 === 'function') {
     await nuxt_plugin_metaplugin_b05e7bb2(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_axios_4ddd536a === 'function') {
-    await nuxt_plugin_axios_4ddd536a(app.context, inject)
   }
 
   if (typeof nuxt_plugin_auth_0278dd85 === 'function') {

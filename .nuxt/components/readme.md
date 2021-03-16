@@ -35,6 +35,7 @@ You can directly use them in pages and other components without the need to impo
 - `<IconsIconStore>` | `<icons-icon-store>` (components/icons/IconStore.vue)
 - `<NotificationsAddToCalendar>` | `<notifications-add-to-calendar>` (components/notifications/AddToCalendar.vue)
 - `<NotificationsConfirmGame>` | `<notifications-confirm-game>` (components/notifications/ConfirmGame.vue)
+- `<NotificationsLogin>` | `<notifications-login>` (components/notifications/Login.vue)
 - `<NotificationsNavigationRow>` | `<notifications-navigation-row>` (components/notifications/NavigationRow.vue)
 - `<NotificationsNotEnoughSlots>` | `<notifications-not-enough-slots>` (components/notifications/NotEnoughSlots.vue)
 - `<NotificationsPayment>` | `<notifications-payment>` (components/notifications/Payment.vue)

@@ -1,5 +1,6 @@
 <template>
   <div id="notifications">
+    <Login v-if="!$auth.loggedIn" class="notification" />
     <!-- Betalning saknas -->
     <payment class="notification"></payment>
     <!-- Bekräfta lediga luckor -->
@@ -37,13 +38,15 @@
 import Payment from './notifications/Payment';
 import ConfirmGame from './notifications/ConfirmGame';
 import AddToCalendar from './notifications/AddToCalendar';
-import NotEnoughSlots from './notifications//NotEnoughSlots.vue';
+import NotEnoughSlots from './notifications/NotEnoughSlots.vue';
+import Login from './notifications/Login.vue';
 export default {
   components: {
     payment: Payment,
     'confirm-game': ConfirmGame,
     'add-to-calendar': AddToCalendar,
     NotEnoughSlots,
+    Login,
   },
   data() {
     return {
