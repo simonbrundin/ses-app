@@ -74,7 +74,7 @@ export default {
       }
     },
     showMatch(league, matchID) {
-      this.$store.commit('selectedLeague', league);
+      this.$store.commit('admin/selectedLeague', league);
       // Hämta matchinfo
       const body = JSON.stringify({
         league,
@@ -87,7 +87,7 @@ export default {
       })
         .then((response) => response.json())
         .then((promise) => {
-          this.$store.commit('selectedMatch', promise[0]);
+          this.$store.commit('admin/selectedMatch', promise[0]);
           this.$store.state.admin.showMatchWindow = true;
         })
         .then(() => {
@@ -104,7 +104,7 @@ export default {
           })
             .then((response) => response.json())
             .then((promise) => {
-              this.$store.commit('selectedMatchPlayers', promise);
+              this.$store.commit('admin/selectedMatchPlayers', promise);
 
               // this.$store.commit("hemma1", promise[0].hemma1);
               // this.$store.commit("hemma2", promise[0].hemma2);

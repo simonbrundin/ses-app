@@ -23,9 +23,9 @@
   {
     "name": "login",
     "path": "/login",
-    "component": "C:\\\\Users\\\\assis\\\\Documents\\\\ses-app\\\\pages\\\\login.vue",
-    "chunkName": "pages/login",
-    "_name": "_3bd171aa"
+    "component": "C:\\\\Users\\\\assis\\\\Documents\\\\ses-app\\\\pages\\\\login\\\\index.vue",
+    "chunkName": "pages/login/index",
+    "_name": "_69b78f98"
   },
   {
     "name": "profile",
@@ -54,6 +54,13 @@
     "component": "C:\\\\Users\\\\assis\\\\Documents\\\\ses-app\\\\pages\\\\table.vue",
     "chunkName": "pages/table",
     "_name": "_2bc5038f"
+  },
+  {
+    "name": "login-callback",
+    "path": "/login/callback",
+    "component": "C:\\\\Users\\\\assis\\\\Documents\\\\ses-app\\\\pages\\\\login\\\\callback.vue",
+    "chunkName": "pages/login/callback",
+    "_name": "_53f2f722"
   },
   {
     "name": "index",

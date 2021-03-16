@@ -64,8 +64,13 @@
 
 <script>
 export default {
+  async asyncData({ $axios }) {
+    const ip = await $axios.$get('http://icanhazip.com');
+    return { ip };
+  },
   data() {
     return {
+      ip: '',
       sort: true,
       table: [],
     };
@@ -98,6 +103,10 @@ export default {
   },
 
   methods: {
+    async fetchSomething() {
+      const ip = await this.$axios.$get('http://icanhazip.com');
+      this.ip = ip;
+    },
     avgPoints(a, b) {
       return Math.round((a / b + Number.EPSILON) * 10) / 10;
     },

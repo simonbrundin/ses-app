@@ -6,9 +6,7 @@
     <button v-if="!$auth.loggedIn" @click="$auth.loginWith('auth0')">
       Logga in
     </button>
-    <nuxt-link v-if="($auth.user.sub = 'facebook|3005022352930664')" to="admin">
-      <button>Admin</button>
-    </nuxt-link>
+
     <div v-if="$store.state.showMenuIcon" class="menu-icon" @click="showMenu">
       Meny
     </div>

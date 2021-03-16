@@ -7,11 +7,12 @@ import scrollBehavior from './router.scrollBehavior.js'
 const _b8cdbae0 = () => interopDefault(import('..\\pages\\admin.vue' /* webpackChunkName: "pages/admin" */))
 const _342c51e4 = () => interopDefault(import('..\\pages\\coupons.vue' /* webpackChunkName: "pages/coupons" */))
 const _50a66aa4 = () => interopDefault(import('..\\pages\\home.vue' /* webpackChunkName: "pages/home" */))
-const _3bd171aa = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages/login" */))
+const _69b78f98 = () => interopDefault(import('..\\pages\\login\\index.vue' /* webpackChunkName: "pages/login/index" */))
 const _ef2ef4ac = () => interopDefault(import('..\\pages\\profile.vue' /* webpackChunkName: "pages/profile" */))
 const _f8cace34 = () => interopDefault(import('..\\pages\\schedule.vue' /* webpackChunkName: "pages/schedule" */))
 const _676adb14 = () => interopDefault(import('..\\pages\\slots.vue' /* webpackChunkName: "pages/slots" */))
 const _2bc5038f = () => interopDefault(import('..\\pages\\table.vue' /* webpackChunkName: "pages/table" */))
+const _53f2f722 = () => interopDefault(import('..\\pages\\login\\callback.vue' /* webpackChunkName: "pages/login/callback" */))
 const _7229ce93 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
@@ -39,7 +40,7 @@ export const routerOptions = {
     name: "home"
   }, {
     path: "/login",
-    component: _3bd171aa,
+    component: _69b78f98,
     name: "login"
   }, {
     path: "/profile",
@@ -57,6 +58,10 @@ export const routerOptions = {
     path: "/table",
     component: _2bc5038f,
     name: "table"
+  }, {
+    path: "/login/callback",
+    component: _53f2f722,
+    name: "login-callback"
   }, {
     path: "/",
     component: _7229ce93,

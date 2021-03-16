@@ -43,13 +43,14 @@ export default {
     '@nuxtjs/style-resources',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/auth-next',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: { proxy: true },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
@@ -62,6 +63,7 @@ export default {
       login: '/login', // redirect user when not connected
       callback: '/',
     },
+    watchLoggedIn: true,
     strategies: {
       auth0: {
         domain: 'simonbrundin.eu.auth0.com',

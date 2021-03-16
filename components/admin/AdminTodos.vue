@@ -41,17 +41,17 @@ export default {
     };
   },
   methods: {
-    getPlayersWithoutLeague: function () {
-      fetch(this.$store.state.server + "/players-without-league")
+    getPlayersWithoutLeague() {
+      fetch(this.$store.state.server + '/players-without-league')
         .then((response) => response.json())
         .then((promise) => (this.playersWithoutLeague = promise));
     },
-    getFullLeagues: function () {
-      fetch(this.$store.state.server + "/full-leagues")
+    getFullLeagues() {
+      fetch(this.$store.state.server + '/full-leagues')
         .then((response) => response.json())
         .then((promise) => (this.fullLeagues = promise));
     },
-    updateTodos: function () {
+    updateTodos() {
       this.getPlayersWithoutLeague();
       this.getFullLeagues();
     },
@@ -59,5 +59,8 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+#admin-todos div {
+  color: $app-font-color;
+}
 </style>

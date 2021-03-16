@@ -20,9 +20,14 @@ export default {
     return {};
   },
   mounted() {
-    if (!this.$auth.loggedIn) {
-      this.$auth.loginWith('auth0');
-    }
+    this.login();
+  },
+  methods: {
+    login() {
+      if (!this.$auth.loggedIn) {
+        this.$auth.loginWith('auth0');
+      }
+    },
   },
 };
 </script>

@@ -1,5 +1,6 @@
 <template>
   <div v-if="($auth.user.sub = 'facebook|3005022352930664')" id="admin">
+    <nuxt-link to="/"><button>Hem</button></nuxt-link>
     <AdminTodos></AdminTodos>
     <!-- Meny -->
     <!-- <button>Sök match</button> -->
