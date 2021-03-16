@@ -3,7 +3,7 @@
   "short_name": "ses-app",
   "description": "## Project setup ``` npm install ```",
   "icons": [],
-  "start_url": "/?standalone=true",
+  "start_url": "/ses-app/?standalone=true",
   "display": "standalone",
   "background_color": "#ffffff",
   "lang": "en"
