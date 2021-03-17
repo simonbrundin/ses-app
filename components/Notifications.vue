@@ -1,13 +1,17 @@
 <template>
   <div id="notifications">
-    <Login v-if="!$auth.loggedIn" class="notification" />
+    <Login v-if="false" class="notification" />
+    <NotEnoughSlots
+      v-if="$store.state.showHide.notifications.notEnoughSlots"
+      class="notification"
+    />
+    <!-- <Login v-if="!$auth.loggedIn" class="notification" /> -->
     <!-- Betalning saknas -->
     <payment class="notification"></payment>
     <!-- Bekräfta lediga luckor -->
     <confirm-game class="notification"></confirm-game>
     <!-- Lägg till i kalender -->
     <add-to-calendar class="notification"></add-to-calendar>
-    <NotEnoughSlots class="notification" />
 
     <!-- Acceptera datum -->
     <div v-if="!acceptedNextMatch" class="notification accept-game">
