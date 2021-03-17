@@ -1,44 +1,24 @@
 export default {
-  // Target: https://go.nuxtjs.dev/config-target
+  // https://nuxtjs.org/docs/2.x/configuration-glossary/
   target: 'static',
   ssr: false,
+  components: true,
+  css: ['~/assets/stylesheets/style.scss'],
   router: {
     middleware: ['auth'],
-    base: '/',
   },
-  // Allows page refresh to work on github pages
-  generate: {
-    fallback: '404.html',
-  },
-  // env: {
-  //   BACKEND_SERVER: '1234',
-  // },
-  // Modules: https://go.nuxtjs.dev/config-modules
+  // plugins: ['~/plugins/axios'],
   modules: [
     '@nuxtjs/style-resources',
-    // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
-    // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/auth-next',
     '@nuxtjs/dotenv',
   ],
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/pwa',
-    '@nuxtjs/dotenv',
-  ],
-  // Global page headers: https://go.nuxtjs.dev/config-head
+  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/dotenv'],
   head: {
-    title: 'Superelitserien',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-    ],
+    title: 'SuperElitSerien',
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
@@ -48,40 +28,37 @@ export default {
       },
     ],
   },
-
-  // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~/assets/stylesheets/style.scss'],
+  // Får lang="scss" att fungera i components
   styleResources: {
     scss: ['~/assets/stylesheets/*.scss'],
   },
-
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
-
-  proxy: [],
-
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: { proxy: true },
-
-  // PWA module configuration: https://go.nuxtjs.dev/pwa
+  // Allows page refresh to work on github pages
+  generate: {
+    fallback: '404.html',
+  },
+  // https://go.nuxtjs.dev/config-axios
+  axios: {
+    proxy: true,
+  },
+  // https://pwa.nuxtjs.org/
   pwa: {
     manifest: {
       lang: 'en',
     },
   },
+  // https://dev.auth.nuxtjs.org/api/options
   auth: {
     redirect: {
-      login: '/login', // redirect user when not connected
+      login: '/login',
+      logout: '/',
       callback: '/login/callback',
+      home: '/',
     },
     watchLoggedIn: true,
     strategies: {
       auth0: {
-        domain: 'simonbrundin.eu.auth0.com',
-        clientId: 'SLKrpHAQjSnSN9fTK2kdIndS5hP5bMvZ',
+        domain: process.env.AUTH0_DOMAIN,
+        clientId: process.env.AUTH0_CLIENT_ID,
         audience: 'http://api.superelitserien.se',
       },
       facebook: {
