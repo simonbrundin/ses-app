@@ -6,6 +6,7 @@
     <button v-if="!$auth.loggedIn" @click="$auth.loginWith('auth0')">
       Logga in
     </button>
+
     <div v-if="$store.state.showMenuIcon" class="menu-icon" @click="showMenu">
       Meny
     </div>

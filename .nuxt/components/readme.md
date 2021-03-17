@@ -12,7 +12,6 @@ You can directly use them in pages and other components without the need to impo
 - `<Coupons>` | `<coupons>` (components/Coupons.vue)
 - `<HelloWorld>` | `<hello-world>` (components/HelloWorld.vue)
 - `<Icon>` | `<icon>` (components/Icon.vue)
-- `<Login>` | `<login>` (components/Login.vue)
 - `<MatchRegistration>` | `<match-registration>` (components/MatchRegistration.vue)
 - `<Menu>` | `<menu>` (components/Menu.vue)
 - `<NextGame>` | `<next-game>` (components/NextGame.vue)

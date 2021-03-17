@@ -7,7 +7,7 @@ export const state = () => ({
 
   notifications: {
     scheduleInstructions: true,
-    notEnoughSlots: true,
+    notEnoughSlots: false,
     confirmGame: false,
     addToCalendar: false,
     showNotificationButtons: false,

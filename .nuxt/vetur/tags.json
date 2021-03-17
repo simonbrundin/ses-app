@@ -17,9 +17,6 @@
   "Icon": {
     "description": "Auto imported from components/Icon.vue"
   },
-  "Login": {
-    "description": "Auto imported from components/Login.vue"
-  },
   "MatchRegistration": {
     "description": "Auto imported from components/MatchRegistration.vue"
   },

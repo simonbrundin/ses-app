@@ -7,7 +7,6 @@ const components = {
   Coupons: () => import('../../components/Coupons.vue' /* webpackChunkName: "components/coupons" */).then(c => c.default || c),
   HelloWorld: () => import('../../components/HelloWorld.vue' /* webpackChunkName: "components/hello-world" */).then(c => c.default || c),
   Icon: () => import('../../components/Icon.vue' /* webpackChunkName: "components/icon" */).then(c => c.default || c),
-  Login: () => import('../../components/Login.vue' /* webpackChunkName: "components/login" */).then(c => c.default || c),
   MatchRegistration: () => import('../../components/MatchRegistration.vue' /* webpackChunkName: "components/match-registration" */).then(c => c.default || c),
   Menu: () => import('../../components/Menu.vue' /* webpackChunkName: "components/menu" */).then(c => c.default || c),
   NextGame: () => import('../../components/NextGame.vue' /* webpackChunkName: "components/next-game" */).then(c => c.default || c),

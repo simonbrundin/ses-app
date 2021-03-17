@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <button @click="$auth.loginWith('auth0')">Logga in</button>
-  </div>
+  <div><button @click="$auth.loginWith('auth0')">Logga in</button></div>
 </template>
 
 <script>

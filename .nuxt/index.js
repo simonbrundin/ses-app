@@ -14,10 +14,10 @@ import { createStore } from './store.js'
 /* Plugins */
 
 import nuxt_plugin_plugin_ef1cde06 from 'nuxt_plugin_plugin_ef1cde06' // Source: ./components/plugin.js (mode: 'all')
-import nuxt_plugin_axios_1e8f8f93 from 'nuxt_plugin_axios_1e8f8f93' // Source: ./axios.js (mode: 'all')
 import nuxt_plugin_workbox_3aba6bef from 'nuxt_plugin_workbox_3aba6bef' // Source: ./workbox.js (mode: 'client')
 import nuxt_plugin_metaplugin_af4757fc from 'nuxt_plugin_metaplugin_af4757fc' // Source: ./pwa/meta.plugin.js (mode: 'all')
 import nuxt_plugin_iconplugin_a5f80d14 from 'nuxt_plugin_iconplugin_a5f80d14' // Source: ./pwa/icon.plugin.js (mode: 'all')
+import nuxt_plugin_axios_1e8f8f93 from 'nuxt_plugin_axios_1e8f8f93' // Source: ./axios.js (mode: 'all')
 import nuxt_plugin_auth_59ab4986 from 'nuxt_plugin_auth_59ab4986' // Source: ./auth.js (mode: 'all')
 
 // Component: <ClientOnly>
@@ -79,7 +79,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"Superelitserien","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss2?family=Montserrat:wght@300;500;700;800&family=Lato:wght@100;300;400;700;900&family=Nunito:wght@200;400;600;700;800;900&display=swap"}],"style":[],"script":[]},
+    head: {"title":"SuperElitSerien","link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss2?family=Montserrat:wght@300;500;700;800&family=Lato:wght@100;300;400;700;900&family=Nunito:wght@200;400;600;700;800;900&display=swap"}],"meta":[],"style":[],"script":[]},
 
     store,
     router,
@@ -212,10 +212,6 @@ async function createApp(ssrContext, config = {}) {
     await nuxt_plugin_plugin_ef1cde06(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_1e8f8f93 === 'function') {
-    await nuxt_plugin_axios_1e8f8f93(app.context, inject)
-  }
-
   if (process.client && typeof nuxt_plugin_workbox_3aba6bef === 'function') {
     await nuxt_plugin_workbox_3aba6bef(app.context, inject)
   }
@@ -226,6 +222,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_iconplugin_a5f80d14 === 'function') {
     await nuxt_plugin_iconplugin_a5f80d14(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_axios_1e8f8f93 === 'function') {
+    await nuxt_plugin_axios_1e8f8f93(app.context, inject)
   }
 
   if (typeof nuxt_plugin_auth_59ab4986 === 'function') {

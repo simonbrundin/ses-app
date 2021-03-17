@@ -4,7 +4,6 @@ export { default as ContactInformation } from '../../components/ContactInformati
 export { default as Coupons } from '../../components/Coupons.vue'
 export { default as HelloWorld } from '../../components/HelloWorld.vue'
 export { default as Icon } from '../../components/Icon.vue'
-export { default as Login } from '../../components/Login.vue'
 export { default as MatchRegistration } from '../../components/MatchRegistration.vue'
 export { default as Menu } from '../../components/Menu.vue'
 export { default as NextGame } from '../../components/NextGame.vue'
@@ -40,7 +39,6 @@ export const LazyContactInformation = import('../../components/ContactInformatio
 export const LazyCoupons = import('../../components/Coupons.vue' /* webpackChunkName: "components/coupons" */).then(c => c.default || c)
 export const LazyHelloWorld = import('../../components/HelloWorld.vue' /* webpackChunkName: "components/hello-world" */).then(c => c.default || c)
 export const LazyIcon = import('../../components/Icon.vue' /* webpackChunkName: "components/icon" */).then(c => c.default || c)
-export const LazyLogin = import('../../components/Login.vue' /* webpackChunkName: "components/login" */).then(c => c.default || c)
 export const LazyMatchRegistration = import('../../components/MatchRegistration.vue' /* webpackChunkName: "components/match-registration" */).then(c => c.default || c)
 export const LazyMenu = import('../../components/Menu.vue' /* webpackChunkName: "components/menu" */).then(c => c.default || c)
 export const LazyNextGame = import('../../components/NextGame.vue' /* webpackChunkName: "components/next-game" */).then(c => c.default || c)
