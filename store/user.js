@@ -12,6 +12,9 @@ export const state = () => ({
 export const getters = {};
 
 export const mutations = {
+  user(state, userObject) {
+    state = userObject;
+  },
   userInfo(state, userInfo) {
     // state.user.socialID = this.$auth.user.sub;
     state.user.firstName = userInfo.firstname;
