@@ -4,7 +4,7 @@ export default {
   ssr: false,
   router: {
     middleware: ['auth'],
-    base: '/ses-app/',
+    base: '/',
   },
   // Allows page refresh to work on github pages
   generate: {
