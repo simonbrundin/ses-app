@@ -20,8 +20,14 @@ export default {
   setup() {
     return {};
   },
-  mounted() {},
+  mounted() {
+    this.getUser();
+  },
   methods: {
+    async getUser() {
+      const userObject = await this.$axios.$get('http://localhost:4000/user');
+      this.$store.commit('user', userObject);
+    },
     login() {
       if (!this.$auth.loggedIn) {
         this.$auth.loginWith('auth0');
