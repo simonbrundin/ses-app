@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-if="$store.state.showHide.notifications.notEnoughSlots"
-    id="not-enough-slots"
-  >
+  <div id="not-enough-slots">
     <img src="@/assets/alert.png" alt="" class="alert-img" />
     <div><strong>Fyll i fler tider :)</strong></div>
     <ul>
