@@ -4,12 +4,15 @@ export default {
   ssr: false,
   router: {
     middleware: ['auth'],
-    base: '/ses-app/',
+    base: '/',
   },
   // Allows page refresh to work on github pages
   generate: {
     fallback: '404.html',
   },
+  // env: {
+  //   BACKEND_SERVER: '1234',
+  // },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/style-resources',
@@ -21,9 +24,16 @@ export default {
     '@nuxtjs/auth-next',
     '@nuxtjs/dotenv',
   ],
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+  buildModules: [
+    // https://go.nuxtjs.dev/eslint
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/pwa',
+    '@nuxtjs/dotenv',
+  ],
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'power-king',
+    title: 'Superelitserien',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -50,14 +60,6 @@ export default {
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
-
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/pwa',
-    '@nuxtjs/dotenv',
-  ],
 
   proxy: [],
 

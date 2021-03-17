@@ -4,16 +4,16 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _b8cdbae0 = () => interopDefault(import('..\\pages\\admin.vue' /* webpackChunkName: "pages/admin" */))
-const _342c51e4 = () => interopDefault(import('..\\pages\\coupons.vue' /* webpackChunkName: "pages/coupons" */))
-const _50a66aa4 = () => interopDefault(import('..\\pages\\home.vue' /* webpackChunkName: "pages/home" */))
-const _69b78f98 = () => interopDefault(import('..\\pages\\login\\index.vue' /* webpackChunkName: "pages/login/index" */))
-const _ef2ef4ac = () => interopDefault(import('..\\pages\\profile.vue' /* webpackChunkName: "pages/profile" */))
-const _f8cace34 = () => interopDefault(import('..\\pages\\schedule.vue' /* webpackChunkName: "pages/schedule" */))
-const _676adb14 = () => interopDefault(import('..\\pages\\slots.vue' /* webpackChunkName: "pages/slots" */))
-const _2bc5038f = () => interopDefault(import('..\\pages\\table.vue' /* webpackChunkName: "pages/table" */))
-const _53f2f722 = () => interopDefault(import('..\\pages\\login\\callback.vue' /* webpackChunkName: "pages/login/callback" */))
-const _7229ce93 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _421f72b0 = () => interopDefault(import('../pages/admin.vue' /* webpackChunkName: "pages/admin" */))
+const _afef55b4 = () => interopDefault(import('../pages/coupons.vue' /* webpackChunkName: "pages/coupons" */))
+const _5d5678d4 = () => interopDefault(import('../pages/home.vue' /* webpackChunkName: "pages/home" */))
+const _b82b7a76 = () => interopDefault(import('../pages/login/index.vue' /* webpackChunkName: "pages/login/index" */))
+const _4a8703c2 = () => interopDefault(import('../pages/profile.vue' /* webpackChunkName: "pages/profile" */))
+const _054bddce = () => interopDefault(import('../pages/schedule.vue' /* webpackChunkName: "pages/schedule" */))
+const _07a1b68e = () => interopDefault(import('../pages/slots.vue' /* webpackChunkName: "pages/slots" */))
+const _671c27a7 = () => interopDefault(import('../pages/table.vue' /* webpackChunkName: "pages/table" */))
+const _68076622 = () => interopDefault(import('../pages/login/callback.vue' /* webpackChunkName: "pages/login/callback" */))
+const _a4fe1aaa = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -21,50 +21,50 @@ Vue.use(Router)
 
 export const routerOptions = {
   mode: 'history',
-  base: '/ses-app/',
+  base: '/',
   linkActiveClass: 'nuxt-link-active',
   linkExactActiveClass: 'nuxt-link-exact-active',
   scrollBehavior,
 
   routes: [{
     path: "/admin",
-    component: _b8cdbae0,
+    component: _421f72b0,
     name: "admin"
   }, {
     path: "/coupons",
-    component: _342c51e4,
+    component: _afef55b4,
     name: "coupons"
   }, {
     path: "/home",
-    component: _50a66aa4,
+    component: _5d5678d4,
     name: "home"
   }, {
     path: "/login",
-    component: _69b78f98,
+    component: _b82b7a76,
     name: "login"
   }, {
     path: "/profile",
-    component: _ef2ef4ac,
+    component: _4a8703c2,
     name: "profile"
   }, {
     path: "/schedule",
-    component: _f8cace34,
+    component: _054bddce,
     name: "schedule"
   }, {
     path: "/slots",
-    component: _676adb14,
+    component: _07a1b68e,
     name: "slots"
   }, {
     path: "/table",
-    component: _2bc5038f,
+    component: _671c27a7,
     name: "table"
   }, {
     path: "/login/callback",
-    component: _53f2f722,
+    component: _68076622,
     name: "login-callback"
   }, {
     path: "/",
-    component: _7229ce93,
+    component: _a4fe1aaa,
     name: "index"
   }],
 

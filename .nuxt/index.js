@@ -13,11 +13,12 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_plugin_3f8fe628 from 'nuxt_plugin_plugin_3f8fe628' // Source: .\\components\\plugin.js (mode: 'all')
-import nuxt_plugin_axios_4ddd536a from 'nuxt_plugin_axios_4ddd536a' // Source: .\\axios.js (mode: 'all')
-import nuxt_plugin_workbox_5be564a7 from 'nuxt_plugin_workbox_5be564a7' // Source: .\\workbox.js (mode: 'client')
-import nuxt_plugin_metaplugin_b05e7bb2 from 'nuxt_plugin_metaplugin_b05e7bb2' // Source: .\\pwa\\meta.plugin.js (mode: 'all')
-import nuxt_plugin_auth_0278dd85 from 'nuxt_plugin_auth_0278dd85' // Source: .\\auth.js (mode: 'all')
+import nuxt_plugin_plugin_ef1cde06 from 'nuxt_plugin_plugin_ef1cde06' // Source: ./components/plugin.js (mode: 'all')
+import nuxt_plugin_axios_1e8f8f93 from 'nuxt_plugin_axios_1e8f8f93' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_workbox_3aba6bef from 'nuxt_plugin_workbox_3aba6bef' // Source: ./workbox.js (mode: 'client')
+import nuxt_plugin_metaplugin_af4757fc from 'nuxt_plugin_metaplugin_af4757fc' // Source: ./pwa/meta.plugin.js (mode: 'all')
+import nuxt_plugin_iconplugin_a5f80d14 from 'nuxt_plugin_iconplugin_a5f80d14' // Source: ./pwa/icon.plugin.js (mode: 'all')
+import nuxt_plugin_auth_59ab4986 from 'nuxt_plugin_auth_59ab4986' // Source: ./auth.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -78,7 +79,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"power-king","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss2?family=Montserrat:wght@300;500;700;800&family=Lato:wght@100;300;400;700;900&family=Nunito:wght@200;400;600;700;800;900&display=swap"}],"style":[],"script":[]},
+    head: {"title":"Superelitserien","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss2?family=Montserrat:wght@300;500;700;800&family=Lato:wght@100;300;400;700;900&family=Nunito:wght@200;400;600;700;800;900&display=swap"}],"style":[],"script":[]},
 
     store,
     router,
@@ -207,24 +208,28 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_plugin_3f8fe628 === 'function') {
-    await nuxt_plugin_plugin_3f8fe628(app.context, inject)
+  if (typeof nuxt_plugin_plugin_ef1cde06 === 'function') {
+    await nuxt_plugin_plugin_ef1cde06(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_4ddd536a === 'function') {
-    await nuxt_plugin_axios_4ddd536a(app.context, inject)
+  if (typeof nuxt_plugin_axios_1e8f8f93 === 'function') {
+    await nuxt_plugin_axios_1e8f8f93(app.context, inject)
   }
 
-  if (process.client && typeof nuxt_plugin_workbox_5be564a7 === 'function') {
-    await nuxt_plugin_workbox_5be564a7(app.context, inject)
+  if (process.client && typeof nuxt_plugin_workbox_3aba6bef === 'function') {
+    await nuxt_plugin_workbox_3aba6bef(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_metaplugin_b05e7bb2 === 'function') {
-    await nuxt_plugin_metaplugin_b05e7bb2(app.context, inject)
+  if (typeof nuxt_plugin_metaplugin_af4757fc === 'function') {
+    await nuxt_plugin_metaplugin_af4757fc(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_auth_0278dd85 === 'function') {
-    await nuxt_plugin_auth_0278dd85(app.context, inject)
+  if (typeof nuxt_plugin_iconplugin_a5f80d14 === 'function') {
+    await nuxt_plugin_iconplugin_a5f80d14(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_auth_59ab4986 === 'function') {
+    await nuxt_plugin_auth_59ab4986(app.context, inject)
   }
 
   // Lock enablePreview in context

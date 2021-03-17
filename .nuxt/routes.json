@@ -2,71 +2,71 @@
   {
     "name": "admin",
     "path": "/admin",
-    "component": "C:\\\\Users\\\\assis\\\\Documents\\\\ses-app\\\\pages\\\\admin.vue",
+    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/admin.vue",
     "chunkName": "pages/admin",
-    "_name": "_b8cdbae0"
+    "_name": "_421f72b0"
   },
   {
     "name": "coupons",
     "path": "/coupons",
-    "component": "C:\\\\Users\\\\assis\\\\Documents\\\\ses-app\\\\pages\\\\coupons.vue",
+    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/coupons.vue",
     "chunkName": "pages/coupons",
-    "_name": "_342c51e4"
+    "_name": "_afef55b4"
   },
   {
     "name": "home",
     "path": "/home",
-    "component": "C:\\\\Users\\\\assis\\\\Documents\\\\ses-app\\\\pages\\\\home.vue",
+    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/home.vue",
     "chunkName": "pages/home",
-    "_name": "_50a66aa4"
+    "_name": "_5d5678d4"
   },
   {
     "name": "login",
     "path": "/login",
-    "component": "C:\\\\Users\\\\assis\\\\Documents\\\\ses-app\\\\pages\\\\login\\\\index.vue",
+    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/login/index.vue",
     "chunkName": "pages/login/index",
-    "_name": "_69b78f98"
+    "_name": "_b82b7a76"
   },
   {
     "name": "profile",
     "path": "/profile",
-    "component": "C:\\\\Users\\\\assis\\\\Documents\\\\ses-app\\\\pages\\\\profile.vue",
+    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/profile.vue",
     "chunkName": "pages/profile",
-    "_name": "_ef2ef4ac"
+    "_name": "_4a8703c2"
   },
   {
     "name": "schedule",
     "path": "/schedule",
-    "component": "C:\\\\Users\\\\assis\\\\Documents\\\\ses-app\\\\pages\\\\schedule.vue",
+    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/schedule.vue",
     "chunkName": "pages/schedule",
-    "_name": "_f8cace34"
+    "_name": "_054bddce"
   },
   {
     "name": "slots",
     "path": "/slots",
-    "component": "C:\\\\Users\\\\assis\\\\Documents\\\\ses-app\\\\pages\\\\slots.vue",
+    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/slots.vue",
     "chunkName": "pages/slots",
-    "_name": "_676adb14"
+    "_name": "_07a1b68e"
   },
   {
     "name": "table",
     "path": "/table",
-    "component": "C:\\\\Users\\\\assis\\\\Documents\\\\ses-app\\\\pages\\\\table.vue",
+    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/table.vue",
     "chunkName": "pages/table",
-    "_name": "_2bc5038f"
+    "_name": "_671c27a7"
   },
   {
     "name": "login-callback",
     "path": "/login/callback",
-    "component": "C:\\\\Users\\\\assis\\\\Documents\\\\ses-app\\\\pages\\\\login\\\\callback.vue",
+    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/login/callback.vue",
     "chunkName": "pages/login/callback",
-    "_name": "_53f2f722"
+    "_name": "_68076622"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\assis\\\\Documents\\\\ses-app\\\\pages\\\\index.vue",
+    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_7229ce93"
+    "_name": "_a4fe1aaa"
   }
 ]

@@ -1,10 +1,10 @@
 export const state = () => ({
-  server: 'https://superelitserien-server.herokuapp.com',
+  server: process.env.BACKEND_SERVER,
   appVersion: '1.0.0',
-})
+});
 
 export const mutations = {
   increment(state) {
-    state.counter++
+    state.counter++;
   },
-}
+};

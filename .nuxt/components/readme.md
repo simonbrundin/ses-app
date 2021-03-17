@@ -6,7 +6,6 @@ You can directly use them in pages and other components without the need to impo
 
 **Tip:** If a component is conditionally rendered with `v-if` and is big, it is better to use `Lazy` or `lazy-` prefix to lazy load.
 
-- `<Auth>` | `<auth>` (components/auth.vue)
 - `<Book>` | `<book>` (components/Book.vue)
 - `<BottomMenu>` | `<bottom-menu>` (components/BottomMenu.vue)
 - `<ContactInformation>` | `<contact-information>` (components/ContactInformation.vue)
@@ -21,6 +20,7 @@ You can directly use them in pages and other components without the need to impo
 - `<PlayerCash>` | `<player-cash>` (components/PlayerCash.vue)
 - `<SVGIcon>` | `<svgicon>` (components/SVGIcon.vue)
 - `<Table>` | `<table>` (components/Table.vue)
+- `<Auth>` | `<auth>` (components/auth.vue)
 - `<AdminTodos>` | `<admin-todos>` (components/admin/AdminTodos.vue)
 - `<AdminMatchGrid>` | `<admin-match-grid>` (components/admin/MatchGrid.vue)
 - `<AdminMatchInfo>` | `<admin-match-info>` (components/admin/MatchInfo.vue)
