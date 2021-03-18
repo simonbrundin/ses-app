@@ -1,18 +1,5 @@
 <template>
   <div id="calendar">
-    <div
-      v-if="$store.state.showHide.notifications.showScheduleInstructions"
-      class="full-screen"
-    >
-      <ScheduleInstructions />
-    </div>
-    <div
-      v-if="$store.state.showHide.notifications.NotEnoughSlots"
-      class="full-screen"
-    >
-      <NotEnoughSlots />
-    </div>
-
     <!-- Knappar som byter spelare -->
     <div class="select-week-container">
       <div class="select-week">
@@ -157,17 +144,13 @@
 
 <script>
 import syncUserInfo from '@/services/syncUserInfo.js';
-import NotEnoughSlots from '@/components/notifications/NotEnoughSlots.vue';
-import ScheduleInstructions from '@/components/notifications/ScheduleInstructions.vue';
+
 export default {
   name: 'AvailabilityCalendar',
-  components: {
-    NotEnoughSlots,
-    ScheduleInstructions,
-  },
+
   mixins: [syncUserInfo],
 
-  data: () => {
+  data() {
     return {
       spelare: 7,
       nextGameNr: 1,
@@ -343,8 +326,7 @@ export default {
             this.user.evenSlots = data.j;
           }
           if (this.user.oddSlots.length > 7 && this.user.evenSlots.length > 7) {
-            this.$store.commit('showHide/showSchedule', false);
-            this.$store.commit('showHide/showScheduleInstructions', false);
+            this.$store.commit('notifications/scheduleInstructions', false);
           }
         });
     },

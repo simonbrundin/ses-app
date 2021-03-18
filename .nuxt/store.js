@@ -21,6 +21,7 @@ let store = {};
 
   resolveStoreModules(require('../store/admin.js'), 'admin.js')
   resolveStoreModules(require('../store/coupons.js'), 'coupons.js')
+  resolveStoreModules(require('../store/notifications.js'), 'notifications.js')
   resolveStoreModules(require('../store/showHide.js'), 'showHide.js')
   resolveStoreModules(require('../store/user.js'), 'user.js')
 
@@ -32,6 +33,7 @@ let store = {};
       '../store/admin.js',
       '../store/coupons.js',
       '../store/index.js',
+      '../store/notifications.js',
       '../store/showHide.js',
       '../store/user.js',
     ], () => {

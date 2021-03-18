@@ -1,17 +1,30 @@
 <template>
   <div id="notifications">
     <Login v-if="false" class="notification" />
-    <NotEnoughSlots
-      v-if="$store.state.showHide.notifications.notEnoughSlots"
+    <Notifications-NotEnoughSlots
+      v-if="!$store.state.notifications.slots"
       class="notification"
     />
     <!-- <Login v-if="!$auth.loggedIn" class="notification" /> -->
     <!-- Betalning saknas -->
-    <payment class="notification"></payment>
+    <Notifications-Payment
+      v-if="!$store.state.notifications.payment"
+      class="notification"
+    />
     <!-- Bekräfta lediga luckor -->
-    <confirm-game class="notification"></confirm-game>
+    <Notifications-ConfirmGame
+      v-if="!$store.state.notifications.confirmGame"
+      class="notification"
+    />
     <!-- Lägg till i kalender -->
-    <add-to-calendar class="notification"></add-to-calendar>
+    <Notifications-AddToCalendar
+      v-if="!$store.state.notifications.addToCalendar"
+      class="notification"
+    />
+    <Notifications-ScheduleInstructions
+      v-if="!$store.state.notifications.scheduleInstructions"
+      class="notification"
+    />
 
     <!-- Acceptera datum -->
     <div v-if="!acceptedNextMatch" class="notification accept-game">
@@ -39,19 +52,7 @@
 </template>
 
 <script>
-import Payment from './notifications/Payment';
-import ConfirmGame from './notifications/ConfirmGame';
-import AddToCalendar from './notifications/AddToCalendar';
-import NotEnoughSlots from './notifications/NotEnoughSlots.vue';
-import Login from './notifications/Login.vue';
 export default {
-  components: {
-    payment: Payment,
-    'confirm-game': ConfirmGame,
-    'add-to-calendar': AddToCalendar,
-    NotEnoughSlots,
-    Login,
-  },
   data() {
     return {
       leftToPay: 0,

@@ -1,9 +1,5 @@
 <template>
-  <div
-    v-if="$store.showHide.scheduleInstructions"
-    id="not-enough-slots"
-    class="card"
-  >
+  <div id="notification-schedule-instructions" class="notification">
     <img src="../../assets/alert.png" alt="" class="alert-img" />
 
     <h1>Viktig information</h1>
@@ -40,22 +36,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#not-enough-slots {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-#not-enough-slots div {
-  text-align: center;
+#notification-schedule-instructions div {
   margin: 20px;
 }
 
-#not-enough-slots h1 {
+#notification-schedule-instructions h1 {
   color: $dark;
 }
 
-#not-enough-slots li {
+#notification-schedule-instructions li {
   color: $dark;
   text-align: left;
 }

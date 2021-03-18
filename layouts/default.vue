@@ -22,11 +22,22 @@ export default {
   },
   mounted() {
     this.getUser();
+    this.checkNotifications();
   },
   methods: {
     async getUser() {
-      const userObject = await this.$axios.$get('http://localhost:4000/user');
+      const userObject = await this.$axios.$get(
+        process.env.BACKEND_SERVER + '/user'
+      );
       this.$store.commit('user', userObject);
+    },
+    checkNotifications() {
+      if (
+        this.$store.state.user.oddslots < 6 ||
+        this.$store.state.user.evenslots < 6
+      ) {
+        this.$store.commit('notifications/slots', true);
+      }
     },
     login() {
       if (!this.$auth.loggedIn) {

@@ -4,27 +4,22 @@ export const state = () => ({
   menu: false,
   menuIcon: false,
   admin: { showMatchWindow: false },
-
-  notifications: {
-    scheduleInstructions: true,
-    notEnoughSlots: false,
-    confirmGame: false,
-    addToCalendar: false,
-    showNotificationButtons: false,
-  },
 });
 
 export const mutations = {
-  showContactInfo(state, value) {
+  contactInfo(state, value) {
     state.showContactInfo = value;
   },
-  showScheduleInstructions(state, value) {
-    state.notifications.showScheduleInstructions = value;
+  schedule(state, value) {
+    state.schedule = value;
   },
-  notEnoughSlots(state, value) {
-    state.notifications.notEnoughSlots = value;
+  menu(state, value) {
+    state.menu = value;
   },
-  showSchedule(state, value) {
-    state.showSchedule = value;
+  menuIcon(state, value) {
+    state.menuIcon = value;
+  },
+  admin(state, value) {
+    state.admin = value;
   },
 };

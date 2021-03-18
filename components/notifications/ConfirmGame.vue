@@ -1,6 +1,6 @@
 <template>
-  <div v-if="$store.state.showHide.notifications.ConfirmGame" id="confirm-game">
-    <navigation-row></navigation-row>
+  <div v-if="$store.state.notifications.ConfirmGame" id="confirm-game">
+    <NavigationRow />
 
     <div class="message">
       <!-- <h2 class="greeting">Hej Simon,</h2> -->
@@ -29,14 +29,11 @@
 </template>
 
 <script>
-import NavigationRow from './NavigationRow';
 export default {
-  components: {
-    'navigation-row': NavigationRow,
-  },
+  components: {},
   methods: {
     confirmGame() {
-      this.$store.state.notifications.ConfirmGame = false;
+      this.$store.commit('notifications/ConfirmGame', false);
     },
   },
 };

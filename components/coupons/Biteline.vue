@@ -16,11 +16,8 @@
 </template>
 
 <script>
-import NavigationRow from '../notifications/NavigationRow.vue';
 export default {
-  components: {
-    NavigationRow,
-  },
+  components: {},
 };
 </script>
 

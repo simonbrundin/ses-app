@@ -37,9 +37,7 @@ export default {
     fallback: '404.html',
   },
   // https://go.nuxtjs.dev/config-axios
-  axios: {
-    proxy: true,
-  },
+  axios: { baseURL: process.env.BACKEND_SERVER, proxy: true },
   // https://pwa.nuxtjs.org/
   pwa: {
     manifest: {

@@ -1,9 +1,6 @@
 <template>
-  <div
-    v-if="$store.state.showHide.notifications.AddToCalendar"
-    id="add-to-calendar"
-  >
-    <navigation-row></navigation-row>
+  <div v-if="$store.state.notifications.AddToCalendar" id="add-to-calendar">
+    <NavigationRow />
     <div class="message">
       <!-- <h2 class="greeting">Hej Simon,</h2> -->
       <img
@@ -27,12 +24,7 @@
 </template>
 
 <script>
-import NavigationRow from './NavigationRow.vue';
-export default {
-  components: {
-    'navigation-row': NavigationRow,
-  },
-};
+export default {};
 </script>
 
 <style lang="scss" scoped>
