@@ -68,33 +68,23 @@ export default {
     this.$store.commit('showContactInfo', true);
   },
   methods: {
-    updateInfo() {
+    isEveryFieldFilled() {
       if (
-        this.socialID === '' ||
         this.firstName === '' ||
         this.lastName === '' ||
         this.email === '' ||
         this.tel === ''
       ) {
         alert('Fyll i alla fält');
-      } else {
-        // this.$store.state.server
-        this.$store.state.showContactInfo = false;
-        const server = 'http://localhost:7777';
-        const body = JSON.stringify({
-          socialID: this.socialID,
-          firstName: this.firstName,
-          lastName: this.lastName,
-          email: this.email,
-          tel: this.tel,
-        });
-
-        fetch(server + '/updateuser', {
-          method: 'post',
-          headers: { 'Content-Type': 'application/json' },
-          body,
-        }).then((response) => response.json());
+        return false;
       }
+    },
+    updateInfo() {
+      if (!this.isEveryFieldFilled) {
+        return false;
+      }
+
+      this.$store.dispatch('updateDatabaseUser');
     },
   },
 };
