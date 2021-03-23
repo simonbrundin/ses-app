@@ -58,7 +58,7 @@
             class="slot odd"
             :class="
               dag + tid && {
-                marked: user.oddSlots.includes(dag + tid),
+                marked: $store.state.user.oddslots.includes(dag + tid),
                 varannan: index % 2 == 0,
               }
             "
@@ -108,7 +108,7 @@
             class="slot even"
             :class="
               dag + tid && {
-                marked: user.evenSlots.includes(dag + tid),
+                marked: $store.state.user.evenslots.includes(dag + tid),
                 varannan: index % 2 == 0,
               }
             "
@@ -242,7 +242,7 @@ export default {
     },
   },
   mounted() {
-    this.getSchedule();
+    // this.getSchedule();
     // Code that will run only after the
     // entire view has been rendered
   },
@@ -259,76 +259,51 @@ export default {
       lucka.target.classList.toggle('marked');
       if (lucka.target.classList.contains('marked')) {
         if (lucka.target.classList.contains('odd')) {
-          this.user.oddSlots.push(lucka.target.id);
+          this.$store.commit('addOddSlot', lucka.target.id);
         } else if (lucka.target.classList.contains('even')) {
-          this.user.evenSlots.push(lucka.target.id);
+          this.$store.commit('addEvenSlot', lucka.target.id);
         }
       } else if (lucka.target.classList.contains('odd')) {
-        this.user.oddSlots = this.user.oddSlots.filter(
-          (item) => item !== lucka.target.id
-        );
+        this.$store.commit('removeOddSlot', lucka.target.id);
       } else if (lucka.target.classList.contains('even')) {
-        this.user.evenSlots = this.user.evenSlots.filter(
-          (item) => item !== lucka.target.id
-        );
+        this.$store.commit('removeEvenSlot', lucka.target.id);
       }
     },
-    checkEnoughSlots() {
-      if (this.user.oddSlots.length > 7 && this.user.evenSlots.length > 7) {
-        this.$store.commit('showHide/notEnoughSlots', false);
+    isEnoughSlotsFilled() {
+      if (
+        this.$store.state.user.oddslots.length > 7 &&
+        this.$store.state.user.evenslots.length > 7
+      ) {
+        this.$store.commit('notifications/scheduleInstructions', false);
         return false;
       } else {
-        this.$store.commit('showHide/notEnoughSlots', true);
+        this.$store.commit('notifications/scheduleInstructions', true);
         return true;
       }
     },
-    saveSchedule() {
-      if (this.checkEnoughSlots()) {
+
+    async saveSchedule() {
+      if (this.isEnoughSlotsFilled()) {
         return 0;
       } else {
-        // Dölj calendarn
-        this.$store.commit('showHide/showSchedule', false);
         // Skicka luckorna till servern
 
-        const body = JSON.stringify({
-          spelare: this.$auth.user.sub,
-          oddSlots: this.user.oddSlots,
-          evenSlots: this.user.evenSlots,
-        });
-
-        fetch(this.$store.state.server + '/sparaluckor', {
-          method: 'post',
-          headers: { 'Content-Type': 'application/json' },
-          body,
-        });
+        const body = {
+          oddSlots: this.$store.state.user.oddslots,
+          evenSlots: this.$store.state.user.evenslots,
+        };
+        await this.$axios.$put(process.env.BACKEND_SERVER + '/slots', body);
       }
     },
+    /*  async getSchedule() {
+      const userObject = await this.$axios.$get(
+        process.env.BACKEND_SERVER + '/luckor'
+      );
+      this.$store.commit('user', userObject);
+    }, */
     getSchedule() {
-      this.getUserInfo();
-      const body = JSON.stringify({
-        spelare: this.$auth.user.sub,
-      });
-
-      // Hämta luckor
-
-      fetch(this.$store.state.server + '/luckor', {
-        method: 'post',
-        headers: { 'Content-Type': 'application/json' },
-        body,
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.u !== null) {
-            this.user.oddSlots = data.u;
-          }
-
-          if (data.j !== null) {
-            this.user.evenSlots = data.j;
-          }
-          if (this.user.oddSlots.length > 7 && this.user.evenSlots.length > 7) {
-            this.$store.commit('notifications/scheduleInstructions', false);
-          }
-        });
+      this.user.oddSlots = this.$store.state.user.oddslots;
+      this.user.evenSlots = this.$store.state.user.evenslots;
     },
   },
 };

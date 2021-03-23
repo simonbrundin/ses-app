@@ -1,5 +1,5 @@
 export const state = () => ({
-  scheduleInstructions: true,
+  scheduleInstructions: false,
   slots: false,
   confirmGame: false,
   addToCalendar: false,

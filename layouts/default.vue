@@ -1,22 +1,15 @@
 <template>
   <div>
     <div class="container">
-      <Notifications />
       <nuxt />
     </div>
+    <Notifications />
     <BottomMenu />
   </div>
 </template>
 
 <script>
-import Notifications from '@/components/Notifications.vue';
-import BottomMenu from '@/components/BottomMenu.vue';
 export default {
-  components: {
-    Notifications,
-    BottomMenu,
-  },
-
   setup() {
     return {};
   },
@@ -29,7 +22,7 @@ export default {
       const userObject = await this.$axios.$get(
         process.env.BACKEND_SERVER + '/user'
       );
-      this.$store.commit('user', userObject);
+      this.$store.commit('user', userObject[0]);
     },
     checkNotifications() {
       if (
@@ -40,8 +33,10 @@ export default {
       }
     },
     login() {
-      if (!this.$auth.loggedIn) {
-        this.$auth.loginWith('auth0');
+      if (!this.$auth.isAuthenticated) {
+        this.$auth.loginWithRedirect();
+      } else {
+        this.$auth.getTokenSilently();
       }
     },
   },

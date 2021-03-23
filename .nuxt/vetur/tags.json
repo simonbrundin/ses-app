@@ -11,9 +11,6 @@
   "Coupons": {
     "description": "Auto imported from components/Coupons.vue"
   },
-  "HelloWorld": {
-    "description": "Auto imported from components/HelloWorld.vue"
-  },
   "Icon": {
     "description": "Auto imported from components/Icon.vue"
   },
@@ -38,8 +35,8 @@
   "Table": {
     "description": "Auto imported from components/Table.vue"
   },
-  "Auth": {
-    "description": "Auto imported from components/auth.vue"
+  "Waiting": {
+    "description": "Auto imported from components/Waiting.vue"
   },
   "AdminTodos": {
     "description": "Auto imported from components/admin/AdminTodos.vue"

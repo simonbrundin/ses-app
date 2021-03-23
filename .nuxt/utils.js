@@ -178,7 +178,7 @@ export async function setContext (app, context) {
       payload: context.payload,
       error: context.error,
       base: app.router.options.base,
-      env: {"GOOGLE_ANALYTICS_ID":"123","AUTH0_DOMAIN":"simonbrundin.eu.auth0.com","AUTH0_CLIENT_ID":"SLKrpHAQjSnSN9fTK2kdIndS5hP5bMvZ","BACKEND_SERVER":"https://superelitserien-server.herokuapp.com"}
+      env: {"GOOGLE_ANALYTICS_ID":"123","AUTH0_DOMAIN":"simonbrundin.eu.auth0.com","AUTH0_CLIENT_ID":"SLKrpHAQjSnSN9fTK2kdIndS5hP5bMvZ","BACKEND_SERVER":"http://localhost:4000"}
     }
     // Only set once
 

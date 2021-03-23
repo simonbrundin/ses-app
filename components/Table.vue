@@ -25,11 +25,7 @@
             <span class="spelare">
               {{ spelare.name }}
 
-              <img
-                :src="require(`@/assets/spelare/${spelare.id}.jpg`)"
-                class="round"
-                alt
-              />
+              <img :src="getPlayerImage(spelare.id)" class="round" alt />
             </span>
             <span class="matcher">{{ spelare.matches }}</span>
             <span class="avgpoints">{{ spelare.ppm }}</span>
@@ -46,11 +42,7 @@
             <span class="spelare">
               {{ spelare.name }}
 
-              <img
-                :src="require(`@/assets/spelare/${spelare.id}.jpg`)"
-                class="round"
-                alt
-              />
+              <img :src="getPlayerImage(spelare.id)" class="round" alt />
             </span>
             <span class="matcher">{{ spelare.matches }}</span>
             <span class="avgpoints">{{ spelare.ppm }}</span>
@@ -64,10 +56,6 @@
 
 <script>
 export default {
-  async asyncData({ $axios }) {
-    const ip = await $axios.$get('http://icanhazip.com');
-    return { ip };
-  },
   data() {
     return {
       ip: '',
@@ -94,19 +82,26 @@ export default {
     },
   },
   mounted() {
-    fetch(this.$store.state.server + '/table/timra/test', {
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
-    })
-      .then((response) => response.json())
-      .then((promise) => (this.table = promise));
+    this.getLeagueTable();
   },
 
   methods: {
-    async fetchSomething() {
-      const ip = await this.$axios.$get('http://icanhazip.com');
-      this.ip = ip;
+    getPlayerImage(id) {
+      try {
+        return require('@/assets/spelare/' + id + '.jpg');
+      } catch (error) {
+        return require('@/assets/user-placeholder.png');
+      }
     },
+    async getLeagueTable() {
+      const city = await this.$store.state.user.city;
+      const league = await this.$store.state.user.league;
+      const table = await this.$axios.$get(
+        process.env.BACKEND_SERVER + '/table/' + city + '/' + league
+      );
+      this.table = table;
+    },
+
     avgPoints(a, b) {
       return Math.round((a / b + Number.EPSILON) * 10) / 10;
     },

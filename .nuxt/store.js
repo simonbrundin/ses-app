@@ -23,7 +23,7 @@ let store = {};
   resolveStoreModules(require('../store/coupons.js'), 'coupons.js')
   resolveStoreModules(require('../store/notifications.js'), 'notifications.js')
   resolveStoreModules(require('../store/showHide.js'), 'showHide.js')
-  resolveStoreModules(require('../store/user.js'), 'user.js')
+  resolveStoreModules(require('../store/user_old.js'), 'user_old.js')
 
   // If the environment supports hot reloading...
 
@@ -35,7 +35,7 @@ let store = {};
       '../store/index.js',
       '../store/notifications.js',
       '../store/showHide.js',
-      '../store/user.js',
+      '../store/user_old.js',
     ], () => {
       // Update `root.modules` with the latest definitions.
       updateModules()

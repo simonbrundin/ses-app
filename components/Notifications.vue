@@ -1,10 +1,7 @@
 <template>
   <div id="notifications">
     <Login v-if="false" class="notification" />
-    <Notifications-NotEnoughSlots
-      v-if="!$store.state.notifications.slots"
-      class="notification"
-    />
+
     <!-- <Login v-if="!$auth.loggedIn" class="notification" /> -->
     <!-- Betalning saknas -->
     <Notifications-Payment
@@ -22,7 +19,7 @@
       class="notification"
     />
     <Notifications-ScheduleInstructions
-      v-if="!$store.state.notifications.scheduleInstructions"
+      v-if="$store.state.notifications.scheduleInstructions"
       class="notification"
     />
 

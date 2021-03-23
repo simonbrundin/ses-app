@@ -2,7 +2,6 @@ export { default as Book } from '../../components/Book.vue'
 export { default as BottomMenu } from '../../components/BottomMenu.vue'
 export { default as ContactInformation } from '../../components/ContactInformation.vue'
 export { default as Coupons } from '../../components/Coupons.vue'
-export { default as HelloWorld } from '../../components/HelloWorld.vue'
 export { default as Icon } from '../../components/Icon.vue'
 export { default as MatchRegistration } from '../../components/MatchRegistration.vue'
 export { default as Menu } from '../../components/Menu.vue'
@@ -11,7 +10,7 @@ export { default as Notifications } from '../../components/Notifications.vue'
 export { default as PlayerCash } from '../../components/PlayerCash.vue'
 export { default as SVGIcon } from '../../components/SVGIcon.vue'
 export { default as Table } from '../../components/Table.vue'
-export { default as Auth } from '../../components/auth.vue'
+export { default as Waiting } from '../../components/Waiting.vue'
 export { default as AdminTodos } from '../../components/admin/AdminTodos.vue'
 export { default as AdminMatchGrid } from '../../components/admin/MatchGrid.vue'
 export { default as AdminMatchInfo } from '../../components/admin/MatchInfo.vue'
@@ -37,7 +36,6 @@ export const LazyBook = import('../../components/Book.vue' /* webpackChunkName: 
 export const LazyBottomMenu = import('../../components/BottomMenu.vue' /* webpackChunkName: "components/bottom-menu" */).then(c => c.default || c)
 export const LazyContactInformation = import('../../components/ContactInformation.vue' /* webpackChunkName: "components/contact-information" */).then(c => c.default || c)
 export const LazyCoupons = import('../../components/Coupons.vue' /* webpackChunkName: "components/coupons" */).then(c => c.default || c)
-export const LazyHelloWorld = import('../../components/HelloWorld.vue' /* webpackChunkName: "components/hello-world" */).then(c => c.default || c)
 export const LazyIcon = import('../../components/Icon.vue' /* webpackChunkName: "components/icon" */).then(c => c.default || c)
 export const LazyMatchRegistration = import('../../components/MatchRegistration.vue' /* webpackChunkName: "components/match-registration" */).then(c => c.default || c)
 export const LazyMenu = import('../../components/Menu.vue' /* webpackChunkName: "components/menu" */).then(c => c.default || c)
@@ -46,7 +44,7 @@ export const LazyNotifications = import('../../components/Notifications.vue' /* 
 export const LazyPlayerCash = import('../../components/PlayerCash.vue' /* webpackChunkName: "components/player-cash" */).then(c => c.default || c)
 export const LazySVGIcon = import('../../components/SVGIcon.vue' /* webpackChunkName: "components/svgicon" */).then(c => c.default || c)
 export const LazyTable = import('../../components/Table.vue' /* webpackChunkName: "components/table" */).then(c => c.default || c)
-export const LazyAuth = import('../../components/auth.vue' /* webpackChunkName: "components/auth" */).then(c => c.default || c)
+export const LazyWaiting = import('../../components/Waiting.vue' /* webpackChunkName: "components/waiting" */).then(c => c.default || c)
 export const LazyAdminTodos = import('../../components/admin/AdminTodos.vue' /* webpackChunkName: "components/admin-todos" */).then(c => c.default || c)
 export const LazyAdminMatchGrid = import('../../components/admin/MatchGrid.vue' /* webpackChunkName: "components/admin-match-grid" */).then(c => c.default || c)
 export const LazyAdminMatchInfo = import('../../components/admin/MatchInfo.vue' /* webpackChunkName: "components/admin-match-info" */).then(c => c.default || c)

@@ -14,14 +14,7 @@
       <li>Minst fyra olika dagar båda veckorna</li>
       <li>Minst 2 timmar per vald dag</li>
     </ul>
-    <button
-      @click="
-        $store.showHide.scheduleInstructions = !$store.showHide
-          .scheduleInstructions
-      "
-    >
-      Okej
-    </button>
+    <button @click="dismissInstructions">Okej</button>
   </div>
 </template>
 
@@ -29,7 +22,7 @@
 export default {
   methods: {
     dismissInstructions() {
-      this.$store.showHide.commit('showScheduleInstructions', false);
+      this.$store.commit('notifications/scheduleInstructions', false);
     },
   },
 };
