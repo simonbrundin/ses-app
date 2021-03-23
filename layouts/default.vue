@@ -15,6 +15,7 @@ export default {
   },
   mounted() {
     this.getUser();
+
     this.checkNotifications();
   },
   methods: {
@@ -24,6 +25,7 @@ export default {
       );
       this.$store.commit('user', userObject[0]);
     },
+
     checkNotifications() {
       if (
         this.$store.state.user.oddslots < 6 ||

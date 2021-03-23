@@ -1,5 +1,5 @@
 <template>
-  <div id="contact-information-screen" class="full-screen">
+  <div id="contact-information-screen">
     <!-- <p>{{ $auth.user.sub }}</p>
     <p>{{ $auth.user }}</p> -->
 
@@ -19,9 +19,7 @@
 </template>
 
 <script>
-import syncUserInfo from '@/services/syncUserInfo.js';
 export default {
-  mixins: [syncUserInfo],
   data() {
     return {
       dataFirstName: '',
@@ -33,18 +31,18 @@ export default {
     },
     firstName: {
       get() {
-        return this.$store.state.user.firstName;
+        return this.$store.state.user.firstname;
       },
       set(value) {
-        this.$store.commit('firstName', value);
+        this.$store.commit('firstname', value);
       },
     },
     lastName: {
       get() {
-        return this.$store.state.user.lastName;
+        return this.$store.state.user.lastname;
       },
       set(value) {
-        this.$store.commit('lastName', value);
+        this.$store.commit('lastname', value);
       },
     },
     email: {
@@ -64,9 +62,9 @@ export default {
       },
     },
   },
-  updated() {
-    this.$store.commit('showContactInfo', true);
-  },
+  // updated() {
+  //   this.$store.commit('showContactInfo', true);
+  // },
   methods: {
     isEveryFieldFilled() {
       if (
@@ -85,6 +83,7 @@ export default {
       }
 
       this.$store.dispatch('updateDatabaseUser');
+      this.$store.commit('notifications/userInfo', false);
     },
   },
 };

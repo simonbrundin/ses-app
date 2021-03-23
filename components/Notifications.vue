@@ -22,7 +22,10 @@
       v-if="$store.state.notifications.scheduleInstructions"
       class="notification"
     />
-
+    <ContactInformation
+      v-if="$store.state.notifications.userInfo"
+      class="notification"
+    />
     <!-- Acceptera datum -->
     <div v-if="!acceptedNextMatch" class="notification accept-game">
       <p>
@@ -58,8 +61,11 @@ export default {
       proposedNextGameDate: 'Torsdag 12/8 16.00',
       noNotifications: true,
       daysConfirmed: 1,
+      showContactInformation: false,
     };
   },
+
+  methods: {},
 };
 </script>
 

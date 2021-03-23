@@ -4,6 +4,7 @@ export const state = () => ({
   confirmGame: false,
   addToCalendar: false,
   showNotificationButtons: false,
+  userInfo: false,
 });
 
 export const mutations = {
@@ -21,5 +22,8 @@ export const mutations = {
   },
   showNotificationButtons: (state, payload) => {
     state.showNotificationButtons = payload;
+  },
+  userInfo: (state, payload) => {
+    state.userInfo = payload;
   },
 };

@@ -1,6 +1,5 @@
 <template>
   <div id="admin-todos">
-    <button @click="updateTodos">Uppdatera</button>
     <h1>Att göra:</h1>
     <div v-if="playersWithoutLeague.length > 0">
       <div>
@@ -40,20 +39,23 @@ export default {
       fullLeagues: [],
     };
   },
+  mounted() {
+    this.getPlayersWithoutLeague();
+    this.getFullLeagues();
+  },
   methods: {
-    getPlayersWithoutLeague() {
-      fetch(this.$store.state.server + '/players-without-league')
-        .then((response) => response.json())
-        .then((promise) => (this.playersWithoutLeague = promise));
+    async getPlayersWithoutLeague() {
+      const players = await this.$axios.$get(
+        process.env.BACKEND_SERVER + '/admin/todos/players-without-league'
+      );
+      this.playersWithoutLeague = players;
     },
-    getFullLeagues() {
-      fetch(this.$store.state.server + '/full-leagues')
-        .then((response) => response.json())
-        .then((promise) => (this.fullLeagues = promise));
-    },
-    updateTodos() {
-      this.getPlayersWithoutLeague();
-      this.getFullLeagues();
+
+    async getFullLeagues() {
+      const fullLeagues = await this.$axios.$get(
+        process.env.BACKEND_SERVER + '/full-leagues'
+      );
+      this.fullLeagues = fullLeagues;
     },
   },
 };

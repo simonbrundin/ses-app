@@ -281,7 +281,10 @@ export default {
         return true;
       }
     },
-
+    getSchedule() {
+      this.user.oddSlots = this.$store.state.user.oddslots;
+      this.user.evenSlots = this.$store.state.user.evenslots;
+    },
     async saveSchedule() {
       if (this.isEnoughSlotsFilled()) {
         return 0;
@@ -294,16 +297,6 @@ export default {
         };
         await this.$axios.$put(process.env.BACKEND_SERVER + '/slots', body);
       }
-    },
-    /*  async getSchedule() {
-      const userObject = await this.$axios.$get(
-        process.env.BACKEND_SERVER + '/luckor'
-      );
-      this.$store.commit('user', userObject);
-    }, */
-    getSchedule() {
-      this.user.oddSlots = this.$store.state.user.oddslots;
-      this.user.evenSlots = this.$store.state.user.evenslots;
     },
   },
 };

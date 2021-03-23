@@ -1,8 +1,10 @@
 <template>
-  <div v-if="$store.state.user.dept > 0" id="notification-payment" class="card">
-    <img src="../../assets/swish.png" alt="" class="swish-img" />
-    <div>Betala för senaste matchen :)</div>
-    <button @click="pay">Betala nu</button>
+  <div id="notification-payment" class="card">
+    <div>
+      Just nu väntar vi på att övriga spelare i din serie ska fylla i sina
+      scheman så vi kan boka tider. Du kommer få ett sms när alla fyllt i och vi
+      bokat alla tider.
+    </div>
   </div>
 </template>
 

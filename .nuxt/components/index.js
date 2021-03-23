@@ -11,10 +11,10 @@ export { default as PlayerCash } from '../../components/PlayerCash.vue'
 export { default as SVGIcon } from '../../components/SVGIcon.vue'
 export { default as Table } from '../../components/Table.vue'
 export { default as Waiting } from '../../components/Waiting.vue'
-export { default as AdminTodos } from '../../components/admin/AdminTodos.vue'
 export { default as AdminMatchGrid } from '../../components/admin/MatchGrid.vue'
 export { default as AdminMatchInfo } from '../../components/admin/MatchInfo.vue'
 export { default as AdminPlayerGrid } from '../../components/admin/PlayerGrid.vue'
+export { default as AdminTodos } from '../../components/admin/Todos.vue'
 export { default as CouponsBiteline } from '../../components/coupons/Biteline.vue'
 export { default as CouponsCoupon } from '../../components/coupons/Coupon.vue'
 export { default as CouponsInterSport } from '../../components/coupons/InterSport.vue'
@@ -45,10 +45,10 @@ export const LazyPlayerCash = import('../../components/PlayerCash.vue' /* webpac
 export const LazySVGIcon = import('../../components/SVGIcon.vue' /* webpackChunkName: "components/svgicon" */).then(c => c.default || c)
 export const LazyTable = import('../../components/Table.vue' /* webpackChunkName: "components/table" */).then(c => c.default || c)
 export const LazyWaiting = import('../../components/Waiting.vue' /* webpackChunkName: "components/waiting" */).then(c => c.default || c)
-export const LazyAdminTodos = import('../../components/admin/AdminTodos.vue' /* webpackChunkName: "components/admin-todos" */).then(c => c.default || c)
 export const LazyAdminMatchGrid = import('../../components/admin/MatchGrid.vue' /* webpackChunkName: "components/admin-match-grid" */).then(c => c.default || c)
 export const LazyAdminMatchInfo = import('../../components/admin/MatchInfo.vue' /* webpackChunkName: "components/admin-match-info" */).then(c => c.default || c)
 export const LazyAdminPlayerGrid = import('../../components/admin/PlayerGrid.vue' /* webpackChunkName: "components/admin-player-grid" */).then(c => c.default || c)
+export const LazyAdminTodos = import('../../components/admin/Todos.vue' /* webpackChunkName: "components/admin-todos" */).then(c => c.default || c)
 export const LazyCouponsBiteline = import('../../components/coupons/Biteline.vue' /* webpackChunkName: "components/coupons-biteline" */).then(c => c.default || c)
 export const LazyCouponsCoupon = import('../../components/coupons/Coupon.vue' /* webpackChunkName: "components/coupons-coupon" */).then(c => c.default || c)
 export const LazyCouponsInterSport = import('../../components/coupons/InterSport.vue' /* webpackChunkName: "components/coupons-inter-sport" */).then(c => c.default || c)

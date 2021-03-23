@@ -38,9 +38,6 @@
   "Waiting": {
     "description": "Auto imported from components/Waiting.vue"
   },
-  "AdminTodos": {
-    "description": "Auto imported from components/admin/AdminTodos.vue"
-  },
   "AdminMatchGrid": {
     "description": "Auto imported from components/admin/MatchGrid.vue"
   },
@@ -49,6 +46,9 @@
   },
   "AdminPlayerGrid": {
     "description": "Auto imported from components/admin/PlayerGrid.vue"
+  },
+  "AdminTodos": {
+    "description": "Auto imported from components/admin/Todos.vue"
   },
   "CouponsBiteline": {
     "description": "Auto imported from components/coupons/Biteline.vue"

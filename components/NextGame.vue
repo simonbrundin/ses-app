@@ -1,7 +1,7 @@
 <template>
   <div id="next-game" class="card">
     <h2>Nästa match</h2>
-    <div class="datum">Torsdag 25/6 kl. 17.30</div>
+    <div class="datum">{{ $store.state.upcomingGames[0].bookedtime }}</div>
 
     <div class="spelar-ruta card">
       <div class="spelare">
@@ -33,9 +33,7 @@
 </template>
 
 <script>
-export default {
-  name: 'NextGame',
-};
+export default {};
 </script>
 
 <style lang="scss" scoped>

@@ -1,9 +1,13 @@
 <template>
   <div id="match-schedule">
     <h1 class="title light">Ditt spelschema</h1>
-    <div v-for="(match, index) in matches" :key="index" class="card match">
+    <div
+      v-for="(match, index) in $store.state.upcomingGames"
+      :key="index"
+      class="card match"
+    >
       <div class="date-text">
-        {{ match.date }}
+        {{ match.bookedtime }}
         <!-- <div>Match: {{ match.id }}</div> -->
       </div>
       <button class="cancel-button">Avboka</button>
@@ -13,68 +17,29 @@
 
 <script>
 export default {
-  data() {
-    return {
-      matches: [
-        // Sample data
-        {
-          id: 123,
-          date: '17/7 kl. 20:30',
-          h1: 'Abhi',
-          h2: 'Mamma',
-          a1: 'Sophie',
-          a2: 'Emma',
-        },
-        {
-          id: 256,
-          date: '12/7 kl. 16:30',
-          h1: 'Abhi',
-          h2: 'Mamma',
-          a1: 'Sophie',
-          a2: 'Emma',
-        },
-        {
-          id: 456,
-          date: '18/10 kl. 11:30',
-        },
-        {
-          id: 246,
-          date: '22/10 kl. 20:00',
-        },
-        {
-          id: 26,
-          date: '29/10 kl. 17:30',
-        },
-        {
-          id: 50,
-          date: '1/11 kl. 18:30',
-        },
-        {
-          id: 236,
-          date: '8/11 kl. 21:30',
-        },
-        {
-          id: 756,
-          date: '15/11 kl. 16:00',
-        },
-        {
-          id: 259,
-          date: '20/11 kl. 19:30',
-        },
-        {
-          id: 56,
-          date: '26/11 kl. 10:30',
-        },
-        {
-          id: 216,
-          date: '30/11 kl. 17:30',
-        },
-        {
-          id: 356,
-          date: '2/12 kl. 11:00',
-        },
-      ],
-    };
+  mounted() {
+    this.getUpcomingGames();
+  },
+  methods: {
+    async getUpcomingGames() {
+      const upcomingGames = await this.$axios.$get(
+        process.env.BACKEND_SERVER +
+          '/upcoming-games/' +
+          this.$store.state.user.city +
+          '/' +
+          this.$store.state.user.league
+      );
+      upcomingGames.forEach((game) => {
+        const bookedtime = new Date(game.bookedtime);
+        const month = bookedtime.getMonth();
+        const date = bookedtime.getDate();
+        const hours = bookedtime.getHours();
+        const minutes = bookedtime.getMinutes();
+        game.bookedtime = date + '/' + month + ' - ' + hours + ':' + minutes;
+      });
+
+      this.$store.commit('upcomingGames', upcomingGames);
+    },
   },
 };
 </script>

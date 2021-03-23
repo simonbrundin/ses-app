@@ -2,34 +2,38 @@ export const state = () => ({
   selectedLeague: '',
   selectedMatchPlayers: {},
   selectedMatch: {},
+  tab: 'matches',
 });
 
 export const mutations = {
   selectedMatch(state, value) {
-    this.selectedMatch = value;
+    state.selectedMatch = value;
   },
   selectedMatchPlayers(state, value) {
-    this.selectedMatchPlayers = value;
+    state.selectedMatchPlayers = value;
   },
   selectedLeague(state, value) {
-    this.selectedLeague = value;
+    state.selectedLeague = value;
+  },
+  tab(state, value) {
+    state.tab = value;
   },
   hemma1(state, value) {
-    this.selectedMatch.hemma1 = value;
+    state.selectedMatch.hemma1 = value;
   },
   hemma2(state, value) {
-    this.selectedMatch.hemma2 = value;
+    state.selectedMatch.hemma2 = value;
   },
   borta1(state, value) {
-    this.selectedMatch.borta1 = value;
+    state.selectedMatch.borta1 = value;
   },
   borta2(state, value) {
-    this.selectedMatch.borta2 = value;
+    state.selectedMatch.borta2 = value;
   },
   addHomePoints(state, value) {
-    this.selectedMatch.pointshemma = value;
+    state.selectedMatch.pointshemma = value;
   },
   addAwayPoints(state, value) {
-    this.selectedMatch.pointsborta = value;
+    state.selectedMatch.pointsborta = value;
   },
 };
