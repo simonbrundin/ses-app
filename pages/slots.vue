@@ -18,6 +18,9 @@
           Jämna veckor
         </div>
       </div>
+      <div id="save-button">
+        <button v-show="calendarVisas" @click="saveSchedule">Spara</button>
+      </div>
     </div>
     <!-- Udda veckor -->
     <div v-if="showedWeek" class="calendar">
@@ -120,11 +123,7 @@
     <!-- ---------------------------------------------------------------- -->
 
     <!-- <router-link to="/"> -->
-    <div id="save-button">
-      <button v-show="calendarVisas" @click="saveSchedule">
-        Spara ändringar
-      </button>
-    </div>
+
     <!-- </router-link> -->
 
     <!-- <div class="menu save-slots-menu" v-if="false">
@@ -381,7 +380,7 @@ export default {
 .empty-day {
   background: $days-bg-color;
   color: white;
-  padding: 10px 0 32px 8px;
+  padding: 10px 0 25px 8px;
 }
 
 .empty-day div {
