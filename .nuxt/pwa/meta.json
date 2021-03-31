@@ -1,5 +1,5 @@
 {
-  "title": "ses-app",
+  "title": "SuperElitSerien",
   "meta": [
     {
       "hid": "charset",
@@ -18,7 +18,7 @@
     {
       "hid": "apple-mobile-web-app-title",
       "name": "apple-mobile-web-app-title",
-      "content": "ses-app"
+      "content": "SuperElitSerien"
     },
     {
       "hid": "og:type",
@@ -30,13 +30,13 @@
       "hid": "og:title",
       "name": "og:title",
       "property": "og:title",
-      "content": "ses-app"
+      "content": "SuperElitSerien"
     },
     {
       "hid": "og:site_name",
       "name": "og:site_name",
       "property": "og:site_name",
-      "content": "ses-app"
+      "content": "SuperElitSerien"
     }
   ],
   "link": [
@@ -53,7 +53,7 @@
     },
     {
       "rel": "manifest",
-      "href": "/_nuxt/manifest.bebdfd24.json",
+      "href": "/_nuxt/manifest.7737b378.json",
       "hid": "manifest"
     }
   ],

@@ -3,15 +3,11 @@
 </template>
 
 <script>
-import Table from '@/components/Table.vue'
 export default {
-  components: {
-    Table,
-  },
   setup() {
-    return {}
+    return {};
   },
-}
+};
 </script>
 
 <style lang="scss" scoped></style>

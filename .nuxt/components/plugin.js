@@ -9,6 +9,7 @@ const components = {
   MatchRegistration: () => import('../../components/MatchRegistration.vue' /* webpackChunkName: "components/match-registration" */).then(c => c.default || c),
   Menu: () => import('../../components/Menu.vue' /* webpackChunkName: "components/menu" */).then(c => c.default || c),
   NextGame: () => import('../../components/NextGame.vue' /* webpackChunkName: "components/next-game" */).then(c => c.default || c),
+  NextGame2: () => import('../../components/NextGame2.vue' /* webpackChunkName: "components/next-game-2" */).then(c => c.default || c),
   Notifications: () => import('../../components/Notifications.vue' /* webpackChunkName: "components/notifications" */).then(c => c.default || c),
   PlayerCash: () => import('../../components/PlayerCash.vue' /* webpackChunkName: "components/player-cash" */).then(c => c.default || c),
   SVGIcon: () => import('../../components/SVGIcon.vue' /* webpackChunkName: "components/svgicon" */).then(c => c.default || c),
@@ -31,6 +32,7 @@ const components = {
   NotificationsLogin: () => import('../../components/notifications/Login.vue' /* webpackChunkName: "components/notifications-login" */).then(c => c.default || c),
   NotificationsNavigationRow: () => import('../../components/notifications/NavigationRow.vue' /* webpackChunkName: "components/notifications-navigation-row" */).then(c => c.default || c),
   NotificationsNotEnoughSlots: () => import('../../components/notifications/NotEnoughSlots.vue' /* webpackChunkName: "components/notifications-not-enough-slots" */).then(c => c.default || c),
+  NotificationsNotification: () => import('../../components/notifications/Notification.vue' /* webpackChunkName: "components/notifications-notification" */).then(c => c.default || c),
   NotificationsPayment: () => import('../../components/notifications/Payment.vue' /* webpackChunkName: "components/notifications-payment" */).then(c => c.default || c),
   NotificationsScheduleInstructions: () => import('../../components/notifications/ScheduleInstructions.vue' /* webpackChunkName: "components/notifications-schedule-instructions" */).then(c => c.default || c),
   NotificationsWaitingForPlayers: () => import('../../components/notifications/WaitingForPlayers.vue' /* webpackChunkName: "components/notifications-waiting-for-players" */).then(c => c.default || c)

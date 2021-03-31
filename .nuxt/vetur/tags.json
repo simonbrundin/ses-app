@@ -23,6 +23,9 @@
   "NextGame": {
     "description": "Auto imported from components/NextGame.vue"
   },
+  "NextGame2": {
+    "description": "Auto imported from components/NextGame2.vue"
+  },
   "Notifications": {
     "description": "Auto imported from components/Notifications.vue"
   },
@@ -88,6 +91,9 @@
   },
   "NotificationsNotEnoughSlots": {
     "description": "Auto imported from components/notifications/NotEnoughSlots.vue"
+  },
+  "NotificationsNotification": {
+    "description": "Auto imported from components/notifications/Notification.vue"
   },
   "NotificationsPayment": {
     "description": "Auto imported from components/notifications/Payment.vue"

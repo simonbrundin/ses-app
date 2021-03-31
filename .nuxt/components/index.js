@@ -6,6 +6,7 @@ export { default as Icon } from '../../components/Icon.vue'
 export { default as MatchRegistration } from '../../components/MatchRegistration.vue'
 export { default as Menu } from '../../components/Menu.vue'
 export { default as NextGame } from '../../components/NextGame.vue'
+export { default as NextGame2 } from '../../components/NextGame2.vue'
 export { default as Notifications } from '../../components/Notifications.vue'
 export { default as PlayerCash } from '../../components/PlayerCash.vue'
 export { default as SVGIcon } from '../../components/SVGIcon.vue'
@@ -28,6 +29,7 @@ export { default as NotificationsConfirmGame } from '../../components/notificati
 export { default as NotificationsLogin } from '../../components/notifications/Login.vue'
 export { default as NotificationsNavigationRow } from '../../components/notifications/NavigationRow.vue'
 export { default as NotificationsNotEnoughSlots } from '../../components/notifications/NotEnoughSlots.vue'
+export { default as NotificationsNotification } from '../../components/notifications/Notification.vue'
 export { default as NotificationsPayment } from '../../components/notifications/Payment.vue'
 export { default as NotificationsScheduleInstructions } from '../../components/notifications/ScheduleInstructions.vue'
 export { default as NotificationsWaitingForPlayers } from '../../components/notifications/WaitingForPlayers.vue'
@@ -40,6 +42,7 @@ export const LazyIcon = import('../../components/Icon.vue' /* webpackChunkName: 
 export const LazyMatchRegistration = import('../../components/MatchRegistration.vue' /* webpackChunkName: "components/match-registration" */).then(c => c.default || c)
 export const LazyMenu = import('../../components/Menu.vue' /* webpackChunkName: "components/menu" */).then(c => c.default || c)
 export const LazyNextGame = import('../../components/NextGame.vue' /* webpackChunkName: "components/next-game" */).then(c => c.default || c)
+export const LazyNextGame2 = import('../../components/NextGame2.vue' /* webpackChunkName: "components/next-game-2" */).then(c => c.default || c)
 export const LazyNotifications = import('../../components/Notifications.vue' /* webpackChunkName: "components/notifications" */).then(c => c.default || c)
 export const LazyPlayerCash = import('../../components/PlayerCash.vue' /* webpackChunkName: "components/player-cash" */).then(c => c.default || c)
 export const LazySVGIcon = import('../../components/SVGIcon.vue' /* webpackChunkName: "components/svgicon" */).then(c => c.default || c)
@@ -62,6 +65,7 @@ export const LazyNotificationsConfirmGame = import('../../components/notificatio
 export const LazyNotificationsLogin = import('../../components/notifications/Login.vue' /* webpackChunkName: "components/notifications-login" */).then(c => c.default || c)
 export const LazyNotificationsNavigationRow = import('../../components/notifications/NavigationRow.vue' /* webpackChunkName: "components/notifications-navigation-row" */).then(c => c.default || c)
 export const LazyNotificationsNotEnoughSlots = import('../../components/notifications/NotEnoughSlots.vue' /* webpackChunkName: "components/notifications-not-enough-slots" */).then(c => c.default || c)
+export const LazyNotificationsNotification = import('../../components/notifications/Notification.vue' /* webpackChunkName: "components/notifications-notification" */).then(c => c.default || c)
 export const LazyNotificationsPayment = import('../../components/notifications/Payment.vue' /* webpackChunkName: "components/notifications-payment" */).then(c => c.default || c)
 export const LazyNotificationsScheduleInstructions = import('../../components/notifications/ScheduleInstructions.vue' /* webpackChunkName: "components/notifications-schedule-instructions" */).then(c => c.default || c)
 export const LazyNotificationsWaitingForPlayers = import('../../components/notifications/WaitingForPlayers.vue' /* webpackChunkName: "components/notifications-waiting-for-players" */).then(c => c.default || c)

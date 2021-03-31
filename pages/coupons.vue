@@ -5,7 +5,7 @@
       <div
         v-for="(company, index) in $store.state.coupons.companies"
         :key="index"
-        class="card company-card"
+        class="light-card company-card"
       >
         <router-link to="/coupon">
           <div class="company-row" @click="company.show = !company.show">
