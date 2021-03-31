@@ -6,25 +6,25 @@
     <!-- Betalning saknas -->
     <Notifications-Payment
       v-if="!$store.state.notifications.payment"
-      class="notification"
+      class="fullscreen"
     />
     <!-- Bekräfta lediga luckor -->
     <Notifications-ConfirmGame
       v-if="!$store.state.notifications.confirmGame"
-      class="notification"
+      class="fullscreen"
     />
     <!-- Lägg till i kalender -->
     <Notifications-AddToCalendar
       v-if="!$store.state.notifications.addToCalendar"
-      class="notification"
+      class="fullscreen"
     />
     <Notifications-ScheduleInstructions
       v-if="$store.state.notifications.scheduleInstructions"
-      class="notification"
+      class="fullscreen"
     />
     <ContactInformation
       v-if="$store.state.notifications.userInfo"
-      class="notification"
+      class="fullscreen"
     />
     <!-- Acceptera datum -->
     <div v-if="!acceptedNextMatch" class="notification accept-game">
@@ -69,7 +69,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #notifications {
   position: relative;
   left: -10px;
@@ -83,6 +83,7 @@ export default {
   height: 100vh;
   width: calc(100vw - 2 *#{$app-padding});
   padding: $app-padding;
+  margin: 0 0 $app-padding 0;
   z-index: 100;
 }
 
