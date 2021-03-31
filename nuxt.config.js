@@ -1,4 +1,8 @@
 export default {
+  server: {
+    port: 3000, // default: 3000
+    host: '0.0.0.0', // default: localhost
+  }, // other configs
   // https://nuxtjs.org/docs/2.x/configuration-glossary/
   target: 'static',
   ssr: false,
@@ -24,7 +28,7 @@ export default {
       {
         rel: 'stylesheet',
         href:
-          'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&family=Lato:wght@100;300;400;700;900&family=Nunito:wght@200;400;600;700;800;900&display=swap',
+          'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Lato:wght@100;300;400;700;900&family=Roboto:wght@100;300;400;700;900&family=Poppins:wght@100;300;400;700;900&family=Nunito:wght@200;400;600;700;800;900&display=swap',
       },
     ],
   },
@@ -41,7 +45,10 @@ export default {
   // https://pwa.nuxtjs.org/
   pwa: {
     manifest: {
+      name: 'SuperElitSerien',
+      short_name: 'SES',
       lang: 'en',
+      display: 'standalone',
     },
   },
   // https://dev.auth.nuxtjs.org/api/options
