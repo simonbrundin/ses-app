@@ -1,11 +1,13 @@
 <template>
-  <div id="table">
+  <div id="table" class="card">
     <!-- Plats, Spelare, Matcher, Poäng, Medelpoäng -->
     <div class="table-top">
-      <h2>Din serie</h2>
+      <div class="league-title">
+        <h2 class="your-league">SES {{ $store.state.user.city }} 7</h2>
+      </div>
       <div class="card-container">
         <div class="rubriker">
-          <span>Ranking</span>
+          <span>Plats</span>
           <span>Spelare</span>
           <span>M</span>
           <span @click="sort = false">P/M</span>
@@ -86,13 +88,6 @@ export default {
   },
 
   methods: {
-    getPlayerImage(id) {
-      try {
-        return require('@/assets/spelare/' + id + '.jpg');
-      } catch (error) {
-        return require('@/assets/user-placeholder.png');
-      }
-    },
     async getLeagueTable() {
       const city = await this.$store.state.user.city;
       const league = await this.$store.state.user.league;
@@ -100,6 +95,13 @@ export default {
         process.env.BACKEND_SERVER + '/table/' + city + '/' + league
       );
       this.table = table;
+    },
+    getPlayerImage(id) {
+      try {
+        return require('@/assets/spelare/' + id + '.jpg');
+      } catch (error) {
+        return require('@/assets/user-placeholder.png');
+      }
     },
 
     avgPoints(a, b) {
@@ -113,19 +115,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.league-title {
+  // background: $light;
+}
 #table {
   margin: 0 0 72px 0;
 }
 
 #table h2 {
   text-align: center;
-  color: $light;
 }
 
 .table-top {
   z-index: 1;
-  width: calc(100vw - 2 *#{$app-padding});
-  background: $dark;
+  // width: calc(100vw - 2 *#{$app-padding});
+
   margin-left: -$app-padding;
   padding-left: $app-padding;
 }
@@ -147,7 +151,7 @@ export default {
   align-items: flex-start;
   text-align: left;
   margin: 0 0 5px 0;
-  color: $light-grey;
+  color: $light;
   font-size: 12px;
 }
 .rad {
@@ -159,13 +163,13 @@ export default {
   padding: 0 20px 0 0;
   background: $dark-grey;
   margin: 0 0 8px 0;
-  color: $light-grey;
+  color: $light;
   font-size: 14px;
   border-radius: calc(2px + #{$border-radius});
 }
 
 .rubriker span {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .rad span {
@@ -173,14 +177,14 @@ export default {
 }
 #table .rubriker span:nth-child(1) {
   background: none;
-  color: $light-grey;
+  color: $light;
 }
 
 #table span:nth-child(1) {
   margin: 0 8px 0 -1px;
   text-align: center;
   color: $dark-grey;
-  font-weight: 700;
+  font-weight: 500;
   padding: -10px 0;
   background: $gold;
   border-radius: $border-radius $border-radius 0 $border-radius;
@@ -210,5 +214,17 @@ export default {
 .spelare img {
   height: 32px;
   margin-right: 0px;
+}
+.spelare {
+  font-size: 12px;
+}
+.your-league {
+  text-transform: capitalize;
+  color: $dark;
+}
+
+.your-league h2 {
+  text-transform: capitalize;
+  color: $dark;
 }
 </style>
