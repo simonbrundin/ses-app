@@ -1,14 +1,15 @@
 <template>
-  <div v-if="true" id="waiting-for-players" class="card">
-    <img src="../../assets/alert.png" alt="" class="alert-img" />
-    <div>
-      Just nu väntar vi på att alla i din serie ska fylla i sina önsketider.
+  <div class="light-card waiting-for-players">
+    <div class="info-row">
+      <div class="text-column">
+        <h3 class="dark">Nu är det nära</h3>
+        <p>
+          Alla spelare ska fylla i tider och sedan ska de bokas. Du får ett sms
+          när spelschemat är satt.
+        </p>
+      </div>
+      <img src="../../assets/alert.png" alt="" class="icon" />
     </div>
-    <div>
-      Under tiden kan du bekanta dig med appen. När alla fyllt i kommer du få
-      ett meddelande och ditt spelschema kommer visas
-    </div>
-
     <!-- <button @click="dismissInstructions">Okej</button> -->
   </div>
 </template>
@@ -24,10 +25,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#waiting-for-players {
+.info-row {
+  display: flex;
+  flex-direction: row;
+}
+.text-column {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+}
+
+.waiting-for-players {
+  margin: 0 0 20px 0;
 }
 
 #waiting-for-players div {
@@ -35,9 +43,11 @@ export default {
   margin: 20px;
 }
 
-.alert-img {
-  width: 200px;
-
-  margin: auto;
+.icon {
+  width: 40px;
+  height: 100%;
+  padding: 20px;
+  @include shadow;
+  border-radius: 20px;
 }
 </style>
