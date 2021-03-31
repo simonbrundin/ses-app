@@ -19,7 +19,7 @@
       <span class="vs-linje"></span>
     </div>
 
-    <div class="spelar-ruta card">
+    <div class="spelar-ruta spelar-ruta-2 card">
       <div class="spelare">
         <div>Paquito</div>
         <img src="@/assets/spelare/185.jpg" class="spelar-bild" alt />
@@ -65,28 +65,60 @@ export default {};
 h3 {
   margin: 0px 5px;
 }
-
+.spelare:nth-child(1) div {
+  color: $light;
+}
+.spelar-ruta-2 .spelare:nth-child(1) div {
+  color: $dark;
+}
+.spelar-ruta-2 .spelare:nth-child(2) div {
+  color: $light;
+}
 .spelare:nth-child(1) {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   width: 50%;
   margin: 0 0 0 -10px;
+  padding: 20px 0;
+  color: $light;
 }
 .spelare:nth-child(2) {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   width: 50%;
+  padding: 20px 0;
+  background: $gold;
+  border-radius: $border-radius $border-radius $border-radius 0;
+}
+
+.spelar-ruta-2 .spelare:nth-child(1) {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 50%;
+  margin: 0 0 0 -10px;
+  padding: 20px 0;
+  background: $gold;
+  border-radius: $border-radius $border-radius 0 $border-radius;
+}
+.spelar-ruta-2 .spelare:nth-child(2) {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  padding: 20px 0;
+  background: $dark-grey;
 }
 
 .spelar-ruta {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: $gold;
+
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 300;
   margin: 10px 0;
 }
 
@@ -98,7 +130,8 @@ h3 {
 }
 
 div.spelar-ruta.card {
-  background: $gold;
+  // background: $gold;
+  padding: 0;
 }
 
 .spelar-bild {
