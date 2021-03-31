@@ -1,40 +1,31 @@
 <template>
   <div class="menu">
-    <nuxt-link to="/table">
-      <IconCup class="icon" />
+    <!-- <nuxt-link to="/table">
+      <Icons-IconCup class="icon" />
       <div v-if="showIconTexts" class="menu-item-text gold">Tabell</div>
+    </nuxt-link> --><nuxt-link to="/">
+      <Icons-IconHome class="icon" />
+      <div v-if="showIconTexts" class="menu-item-text gold">Start</div>
     </nuxt-link>
     <nuxt-link to="/slots">
-      <IconCalendar class="icon" />
+      <Icons-IconCalendar class="icon" />
       <div v-if="showIconTexts" class="menu-item-text gold">Luckor</div>
     </nuxt-link>
 
-    <nuxt-link to="/">
-      <IconHome class="icon" />
-      <div v-if="showIconTexts" class="menu-item-text gold">Start</div>
-    </nuxt-link>
-
     <nuxt-link to="/coupons">
-      <IconStore class="icon" />
+      <Icons-IconStore class="icon" />
 
       <div v-if="showIconTexts" class="menu-item-text gold">Kuponger</div>
     </nuxt-link>
     <nuxt-link to="/schedule">
-      <IconClock class="icon" />
+      <Icons-IconClock class="icon" />
       <div v-if="showIconTexts" class="menu-item-text gold">Boka tid</div>
     </nuxt-link>
   </div>
 </template>
 
 <script>
-import IconHome from './icons/IconHome.vue';
-import IconCup from './icons/IconCup.vue';
-import IconStore from './icons/IconStore.vue';
-import IconClock from './icons/IconClock.vue';
-import IconCalendar from './icons/IconCalendar.vue';
-
 export default {
-  components: { IconHome, IconCup, IconStore, IconClock, IconCalendar },
   data() {
     return {
       showIconTexts: false,
@@ -57,11 +48,11 @@ export default {
   justify-content: space-around;
   align-items: flex-end;
   left: 0px;
+  width: calc(100vw - 20px);
   padding: 18px 0;
-  width: 100vw;
   position: fixed;
-  border-radius: $border-radius $border-radius 0px 0px;
-
+  border-radius: $border-radius;
+  margin: 0 10px 10px;
   bottom: 0;
   box-shadow: 0px 3px 78px 0px #08080856;
   -webkit-box-shadow: 0px 3px 78px 0px #0808085b;
@@ -69,19 +60,19 @@ export default {
 }
 @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
   .menu {
-    padding: 18px 0 28px;
+    padding: 18px 0;
   }
 }
 
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
   .menu {
-    padding: 18px 0 28px;
+    padding: 18px 0;
   }
 }
 
 @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
   .menu {
-    padding: 18px 0 28px;
+    padding: 18px 0;
   }
 }
 
@@ -94,6 +85,9 @@ export default {
 }
 a .icon {
   color: $bottom-menu-icon-color;
+}
+a.nuxt-link-exact-active .icon {
+  color: $bottom-menu-active-icon-color;
 }
 svg.icon {
   height: 26px;
@@ -145,10 +139,17 @@ svg.icon {
   background: $dark;
   border-radius: 100px;
 }
+@mixin active-5 {
+  padding: 10px 20px;
+  margin: -50px -20px -6px;
+
+  border-radius: 0px;
+  border-bottom: 2px solid $gold;
+}
 
 .menu .nuxt-link-exact-active {
-  // @include active-1;
-  @include active-2;
+  @include active-1;
+  // @include active-2;
   // @include active-3;
   // @include active-4;
 }
