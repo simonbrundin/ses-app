@@ -5,7 +5,7 @@ export default {
   }, // other configs
   // https://nuxtjs.org/docs/2.x/configuration-glossary/
   target: 'static',
-  ssr: false,
+  // ssr: false,
   components: true,
   css: ['~/assets/stylesheets/style.scss'],
   router: {
@@ -55,7 +55,7 @@ export default {
   // https://dev.auth.nuxtjs.org/api/options
   auth: {
     redirect: {
-      login: '/login',
+      login: '/login/',
       logout: '/',
       callback: '/login/callback/',
       home: '/',
@@ -65,7 +65,7 @@ export default {
       auth0: {
         domain: process.env.AUTH0_DOMAIN,
         clientId: process.env.AUTH0_CLIENT_ID,
-        audience: 'http://api.superelitserien.se',
+        audience: 'https://simonbrundin.eu.auth0.com/api/v2/',
       },
       facebook: {
         endpoints: {

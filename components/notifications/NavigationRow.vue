@@ -22,7 +22,7 @@
 export default {};
 </script>
 
-<style>
+<style lang="scss" scoped>
 .navigation-row {
   display: flex;
   justify-content: space-between;

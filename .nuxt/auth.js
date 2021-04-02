@@ -17,10 +17,10 @@ export default function (ctx, inject) {
   "fullPathRedirect": false,
   "watchLoggedIn": true,
   "redirect": {
-    "login": "/login",
+    "login": "/login/",
     "logout": "/",
     "home": "/",
-    "callback": "/login/callback"
+    "callback": "/login/callback/"
   },
   "vuex": {
     "namespace": "auth"
@@ -45,7 +45,7 @@ export default function (ctx, inject) {
   $auth.registerStrategy('auth0', new Auth0Scheme($auth, {
   "domain": "simonbrundin.eu.auth0.com",
   "clientId": "SLKrpHAQjSnSN9fTK2kdIndS5hP5bMvZ",
-  "audience": "http://api.superelitserien.se",
+  "audience": "https://simonbrundin.eu.auth0.com/api/v2/",
   "name": "auth0",
   "endpoints": {
     "authorization": "https://simonbrundin.eu.auth0.com/authorize",

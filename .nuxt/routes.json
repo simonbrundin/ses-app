@@ -3,60 +3,70 @@
     "name": "admin",
     "path": "/admin",
     "component": "/Users/simon/Programmering/Projekt/ses-app/pages/admin.vue",
-    "chunkName": "pages/admin"
+    "chunkName": "pages/admin",
+    "_name": "_421f72b0"
   },
   {
     "name": "coupons",
     "path": "/coupons",
     "component": "/Users/simon/Programmering/Projekt/ses-app/pages/coupons.vue",
-    "chunkName": "pages/coupons"
+    "chunkName": "pages/coupons",
+    "_name": "_afef55b4"
   },
   {
     "name": "home",
     "path": "/home",
     "component": "/Users/simon/Programmering/Projekt/ses-app/pages/home.vue",
-    "chunkName": "pages/home"
+    "chunkName": "pages/home",
+    "_name": "_5d5678d4"
   },
   {
     "name": "login",
     "path": "/login",
     "component": "/Users/simon/Programmering/Projekt/ses-app/pages/login/index.vue",
-    "chunkName": "pages/login/index"
+    "chunkName": "pages/login/index",
+    "_name": "_b82b7a76"
   },
   {
     "name": "profile",
     "path": "/profile",
     "component": "/Users/simon/Programmering/Projekt/ses-app/pages/profile.vue",
-    "chunkName": "pages/profile"
+    "chunkName": "pages/profile",
+    "_name": "_4a8703c2"
   },
   {
     "name": "schedule",
     "path": "/schedule",
     "component": "/Users/simon/Programmering/Projekt/ses-app/pages/schedule.vue",
-    "chunkName": "pages/schedule"
+    "chunkName": "pages/schedule",
+    "_name": "_054bddce"
   },
   {
     "name": "slots",
     "path": "/slots",
     "component": "/Users/simon/Programmering/Projekt/ses-app/pages/slots.vue",
-    "chunkName": "pages/slots"
+    "chunkName": "pages/slots",
+    "_name": "_07a1b68e"
   },
   {
     "name": "table",
     "path": "/table",
     "component": "/Users/simon/Programmering/Projekt/ses-app/pages/table.vue",
-    "chunkName": "pages/table"
+    "chunkName": "pages/table",
+    "_name": "_671c27a7"
   },
   {
     "name": "login-callback",
     "path": "/login/callback",
     "component": "/Users/simon/Programmering/Projekt/ses-app/pages/login/callback.vue",
-    "chunkName": "pages/login/callback"
+    "chunkName": "pages/login/callback",
+    "_name": "_68076622"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/Users/simon/Programmering/Projekt/ses-app/pages/index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_a4fe1aaa"
   }
 ]
