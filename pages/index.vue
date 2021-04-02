@@ -47,6 +47,7 @@ export default {
 
   mounted() {
     this.isUserInfoFilled();
+    this.getUpcomingGames();
   },
   methods: {
     sweMonth(monthNr) {
@@ -104,6 +105,17 @@ export default {
       } else {
         this.$store.commit('notifications/userInfo', false);
       }
+    },
+    async getUpcomingGames() {
+      const upcomingGames = await this.$axios.$get(
+        process.env.BACKEND_SERVER +
+          '/upcoming-games/' +
+          this.$store.state.user.city +
+          '/' +
+          this.$store.state.user.league
+      );
+
+      this.$store.commit('upcomingGames', upcomingGames);
     },
   },
 };
