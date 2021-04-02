@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[11],{436:function(e,n,t){"use strict";t.r(n);var l={setup:function(){return{}}},o=t(0),component=Object(o.a)(l,(function(){var e=this.$createElement;return(this._self._c||e)("Table")}),[],!1,null,"47aea80a",null);n.default=component.exports;installComponents(component,{Table:t(125).default})}}]);
