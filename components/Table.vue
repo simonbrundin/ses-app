@@ -3,7 +3,8 @@
     <!-- Plats, Spelare, Matcher, Poäng, Medelpoäng -->
     <div class="table-top">
       <div class="league-title">
-        <h2 class="your-league">SES {{ $store.state.user.city }} 7</h2>
+        <h2 class="your-league">SES {{ $store.state.user.city }}</h2>
+        <div class="division">Division 7</div>
       </div>
       <div class="card-container">
         <div class="rubriker">
@@ -123,7 +124,7 @@ export default {
 }
 
 #table h2 {
-  text-align: center;
+  text-align: left;
 }
 
 .table-top {
@@ -142,6 +143,13 @@ export default {
 
 .tabell .card {
   padding: 0 20px 0 0;
+}
+.division {
+  margin: 0px 0 20px;
+  color: $gold;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  text-align: left;
 }
 .rubriker {
   padding: 10px 20px 10px 0;

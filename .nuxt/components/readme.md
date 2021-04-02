@@ -14,7 +14,6 @@ You can directly use them in pages and other components without the need to impo
 - `<MatchRegistration>` | `<match-registration>` (components/MatchRegistration.vue)
 - `<Menu>` | `<menu>` (components/Menu.vue)
 - `<NextGame>` | `<next-game>` (components/NextGame.vue)
-- `<NextGame2>` | `<next-game-2>` (components/NextGame2.vue)
 - `<Notifications>` | `<notifications>` (components/Notifications.vue)
 - `<PlayerCash>` | `<player-cash>` (components/PlayerCash.vue)
 - `<SVGIcon>` | `<svgicon>` (components/SVGIcon.vue)

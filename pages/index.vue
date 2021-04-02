@@ -2,7 +2,7 @@
   <div id="app">
     <div class="top-row">
       <div class="greeting">
-        <div class="date">{{ date }}</div>
+        <div class="date">{{ today }}</div>
         <h1>Vamos, {{ $auth.user.given_name }}!</h1>
       </div>
 
@@ -35,12 +35,23 @@ export default {
     };
   },
   computed: {
-    date() {
+    today() {
       const today = new Date();
       const date = today.getDate();
       const month = today.getMonth();
+      const sweMonth = this.sweMonth(month);
+      const string = '' + date + ' ' + sweMonth;
+      return string;
+    },
+  },
+
+  mounted() {
+    this.isUserInfoFilled();
+  },
+  methods: {
+    sweMonth(monthNr) {
       let swemonth = '';
-      switch (month) {
+      switch (monthNr) {
         case 1:
           swemonth = 'jan';
           break;
@@ -80,14 +91,8 @@ export default {
         default:
           break;
       }
-      const string = '' + date + ' ' + swemonth;
-      return string;
+      return swemonth;
     },
-  },
-  mounted() {
-    this.isUserInfoFilled();
-  },
-  methods: {
     isUserInfoFilled() {
       if (
         this.$store.state.user.firstname === '' ||
@@ -110,7 +115,7 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 0 0 10px 0;
+  margin: 0 0 20px 0;
 }
 .greeting {
   display: flex;

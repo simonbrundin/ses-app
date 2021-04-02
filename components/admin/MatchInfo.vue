@@ -4,20 +4,20 @@
     <div>Match ID: {{ $store.state.admin.selectedMatch.ID }}</div>
 
     <div>
-      {{ $store.state.admin.selectedMatch.hemma1 }}
+      {{ hemma1 }}
 
       &
-      {{ $store.state.admin.selectedMatch.hemma2 }}
 
+      {{ hemma2 }}
       -
       {{ $store.state.admin.selectedMatch.pointshemma }}
     </div>
 
     <div>
-      {{ $store.state.admin.selectedMatch.borta1 }}
+      {{ borta1 }}
 
       &
-      {{ $store.state.admin.selectedMatch.borta2 }}
+      {{ borta2 }}
 
       -
       {{ $store.state.admin.selectedMatch.pointsborta }}
@@ -36,7 +36,75 @@ export default {
       server: this.$store.state.server,
     };
   },
+  computed: {
+    hemma1() {
+      return (
+        this.$store.state.admin.selectedMatchNames[
+          this.$store.state.admin.selectedMatch.hemma1
+        ].firstname +
+        ' ' +
+        this.$store.state.admin.selectedMatchNames[
+          this.$store.state.admin.selectedMatch.hemma1
+        ].lastname
+      );
+    },
+    hemma2() {
+      return (
+        this.$store.state.admin.selectedMatchNames[
+          this.$store.state.admin.selectedMatch.hemma2
+        ].firstname +
+        ' ' +
+        this.$store.state.admin.selectedMatchNames[
+          this.$store.state.admin.selectedMatch.hemma2
+        ].lastname
+      );
+    },
+    borta1() {
+      return (
+        this.$store.state.admin.selectedMatchNames[
+          this.$store.state.admin.selectedMatch.borta1
+        ].firstname +
+        ' ' +
+        this.$store.state.admin.selectedMatchNames[
+          this.$store.state.admin.selectedMatch.borta1
+        ].lastname
+      );
+    },
+    borta2() {
+      return (
+        this.$store.state.admin.selectedMatchNames[
+          this.$store.state.admin.selectedMatch.borta2
+        ].firstname +
+        ' ' +
+        this.$store.state.admin.selectedMatchNames[
+          this.$store.state.admin.selectedMatch.borta2
+        ].lastname
+      );
+    },
+  },
+  mounted() {
+    this.getNames();
+  },
   methods: {
+    async getNames() {
+      const hemma1 = this.$store.state.admin.selectedMatch.hemma1;
+      const hemma2 = this.$store.state.admin.selectedMatch.hemma2;
+      const borta1 = this.$store.state.admin.selectedMatch.borta1;
+      const borta2 = this.$store.state.admin.selectedMatch.borta2;
+
+      const names = await this.$axios.$get(
+        process.env.BACKEND_SERVER +
+          '/names/' +
+          hemma1 +
+          '/' +
+          hemma2 +
+          '/' +
+          borta1 +
+          '/' +
+          borta2
+      );
+      this.$store.commit('admin/selectedMatchNames', names);
+    },
     async updateGameData() {
       const body = {
         pointshemma: this.$store.state.admin.selectedMatch.pointshemma,

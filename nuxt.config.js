@@ -11,6 +11,7 @@ export default {
   router: {
     middleware: ['auth'],
   },
+
   // plugins: ['~/plugins/axios'],
   modules: [
     '@nuxtjs/style-resources',
@@ -56,7 +57,7 @@ export default {
     redirect: {
       login: '/login',
       logout: '/',
-      callback: '/login/callback',
+      callback: '/login/callback/',
       home: '/',
     },
     watchLoggedIn: true,

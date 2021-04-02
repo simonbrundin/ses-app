@@ -1,6 +1,6 @@
 export const state = () => ({
   selectedLeague: '',
-  selectedMatchPlayers: {},
+  selectedMatchNames: {},
   selectedMatch: {},
   tab: 'matches',
 });
@@ -9,8 +9,8 @@ export const mutations = {
   selectedMatch(state, value) {
     state.selectedMatch = value;
   },
-  selectedMatchPlayers(state, value) {
-    state.selectedMatchPlayers = value;
+  selectedMatchNames(state, value) {
+    state.selectedMatchNames = value;
   },
   selectedLeague(state, value) {
     state.selectedLeague = value;
