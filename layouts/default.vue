@@ -13,12 +13,17 @@ export default {
   setup() {
     return {};
   },
+  created() {
+    this.requestData();
+  },
   mounted() {
-    this.getUser();
-
     this.checkNotifications();
+    this.login();
   },
   methods: {
+    async requestData() {
+      await this.getUser();
+    },
     async getUser() {
       const userObject = await this.$axios.$get(
         process.env.BACKEND_SERVER + '/user'
@@ -35,12 +40,23 @@ export default {
       }
     },
     login() {
-      if (!this.$auth.isAuthenticated) {
-        this.$auth.loginWithRedirect();
-      } else {
-        this.$auth.getTokenSilently();
-      }
+      try {
+        if (!this.$auth.loggedIn) {
+          this.$auth.$auth.loginWith('auth0');
+        }
+      } catch (error) {}
     },
+    // async checkUpdate() {
+    //   const workbox = await window.$workbox;
+    //   if (workbox) {
+    //     workbox.addEventListener('installed', (event) => {
+    //       // If we don't do this we'll be displaying the notification after the initial installation, which isn't perferred.
+    //       if (event.isUpdate) {
+    //         // whatever logic you want to use to notify the user that they need to refresh the page.
+    //       }
+    //     });
+    //   }
+    // },
   },
 };
 </script>

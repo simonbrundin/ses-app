@@ -1,5 +1,5 @@
 <template>
-  <div id="next-game" class="card">
+  <div v-if="$store.state.upcomingGames.length > 0" id="next-game" class="card">
     <div class="top-row">
       <div class="column">
         <h2 class="title">Nästa match</h2>
@@ -24,12 +24,14 @@
         <div class="row">
           <div class="column">
             <img src="@/assets/spelare/183.jpg" class="spelar-bild" alt />
-            <div>Christian</div>
+            <div>
+              {{ hemma1 }}
+            </div>
           </div>
 
           <div class="column">
             <img src="@/assets/spelare/184.jpg" class="spelar-bild" alt />
-            <div>Fredrik</div>
+            <div>{{ hemma2 }}</div>
           </div>
         </div>
       </div>
@@ -41,12 +43,12 @@
           <div class="row">
             <div class="column">
               <img src="@/assets/spelare/186.jpg" class="spelar-bild" alt />
-              <div>Paquito</div>
+              <div>{{ borta1 }}</div>
             </div>
             <div class="column">
               <img src="@/assets/spelare/185.jpg" class="spelar-bild" alt />
 
-              <div>Richard</div>
+              <div>{{ borta2 }}</div>
             </div>
           </div>
         </div>
@@ -57,6 +59,14 @@
 
 <script>
 export default {
+  data() {
+    return {
+      hemma1: '',
+      hemma2: '',
+      borta1: '',
+      borta2: '',
+    };
+  },
   computed: {
     nextGameFormatedDate() {
       const bookedtime = new Date(
@@ -91,7 +101,73 @@ export default {
       return converted;
     },
   },
+
+  mounted() {
+    this.getUpcomingGames();
+  },
   methods: {
+    async getUpcomingGames() {
+      const city = await this.$store.state.user.city;
+      const league = await this.$store.state.user.league;
+      const upcomingGames = await this.$axios.$get(
+        process.env.BACKEND_SERVER + '/upcoming-games/' + city + '/' + league
+      );
+      const gamesLeftToPlay = [];
+      const gamesPlayedWithoutResult = [];
+      const playedGames = [];
+      for (let i = 0; i < upcomingGames.length; i++) {
+        const bookedTime = new Date(upcomingGames[i].bookedtime);
+        const today = new Date();
+        if (bookedTime > today) {
+          gamesLeftToPlay.push(upcomingGames[i]);
+        } else if (
+          upcomingGames[i].pointshemma === 0 &&
+          upcomingGames[i].pointsborta === 0
+        ) {
+          gamesPlayedWithoutResult.push(upcomingGames[i]);
+        } else {
+          playedGames.push(upcomingGames[i]);
+        }
+      }
+      if (gamesPlayedWithoutResult.length) {
+        this.$store.commit(
+          'playedGamesWithoutResult',
+          gamesPlayedWithoutResult
+        );
+      }
+      if (gamesLeftToPlay.length) {
+        this.$store.commit('upcomingGames', gamesLeftToPlay);
+      }
+      if (playedGames.length) {
+        this.$store.commit('playedGames', playedGames);
+      }
+
+      this.getNames();
+    },
+    async getNames() {
+      const hemma1 = await this.$store.state.upcomingGames[0].hemma1;
+      const hemma2 = await this.$store.state.upcomingGames[0].hemma2;
+      const borta1 = await this.$store.state.upcomingGames[0].borta1;
+      const borta2 = await this.$store.state.upcomingGames[0].borta2;
+
+      const names = await this.$axios.$get(
+        process.env.BACKEND_SERVER +
+          '/names/' +
+          hemma1 +
+          '/' +
+          hemma2 +
+          '/' +
+          borta1 +
+          '/' +
+          borta2
+      );
+      this.hemma1 = names[this.$store.state.upcomingGames[0].hemma1].firstname;
+      this.hemma2 = names[this.$store.state.upcomingGames[0].hemma2].firstname;
+      this.borta1 = names[this.$store.state.upcomingGames[0].borta1].firstname;
+      this.borta2 = names[this.$store.state.upcomingGames[0].borta2].firstname;
+
+      this.$store.commit('namesOfNextGame', names);
+    },
     sweMonth(monthNr) {
       let swemonth = '';
       switch (monthNr) {

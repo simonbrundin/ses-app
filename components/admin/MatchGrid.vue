@@ -61,6 +61,25 @@ export default {
     this.getGames();
   },
   methods: {
+    async getNames() {
+      const hemma1 = this.$store.state.admin.selectedMatch.hemma1;
+      const hemma2 = this.$store.state.admin.selectedMatch.hemma2;
+      const borta1 = this.$store.state.admin.selectedMatch.borta1;
+      const borta2 = this.$store.state.admin.selectedMatch.borta2;
+
+      const names = await this.$axios.$get(
+        process.env.BACKEND_SERVER +
+          '/names/' +
+          hemma1 +
+          '/' +
+          hemma2 +
+          '/' +
+          borta1 +
+          '/' +
+          borta2
+      );
+      this.$store.commit('admin/selectedMatchNames', names);
+    },
     isPointsEquals6(hemma, borta) {
       if (hemma + borta === 6) {
         return true;
@@ -94,6 +113,7 @@ export default {
       );
       this.$store.commit('admin/selectedMatch', game[0]);
       this.$store.commit('admin/selectedLeague', league);
+      this.getNames();
     },
   },
 };

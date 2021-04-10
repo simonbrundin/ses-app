@@ -14,14 +14,22 @@
     <div v-if="$store.state.showMenuIcon" class="menu-icon" @click="showMenu">
       Meny
     </div>
+    <MatchRegistration
+      v-if="
+        $store.state.user.league &&
+        $store.state.playedGamesWithoutResult[0].pointshemma >= 0 &&
+        isNextGameDateBeforeToday &&
+        $store.state.showHide.registerResult
+      "
+      class="fullscreen"
+    />
+    <NextGame v-if="$store.state.user.league" />
+
     <Notifications-WaitingForPlayers
-      v-if="$store.state.upcomingGames.length === 0"
+      v-if="!$store.state.upcomingGames"
       class="notification"
     />
 
-    <NextGame v-if="$store.state.upcomingGames.length > 0" />
-    <NextGame2 v-if="$store.state.upcomingGames.length > 0" />
-    <MatchRegistration v-if="false" />
     <Table v-if="$store.state.user.league" />
     <Menu v-if="$store.state.showHide.menu" />
   </div>
@@ -43,11 +51,17 @@ export default {
       const string = '' + date + ' ' + sweMonth;
       return string;
     },
-  },
 
+    isNextGameDateBeforeToday() {
+      const today = new Date();
+      const bookedTime = new Date(
+        this.$store.state.playedGamesWithoutResult[0].bookedtime
+      );
+      return bookedTime < today;
+    },
+  },
   mounted() {
     this.isUserInfoFilled();
-    this.getUpcomingGames();
   },
   methods: {
     sweMonth(monthNr) {
@@ -105,17 +119,6 @@ export default {
       } else {
         this.$store.commit('notifications/userInfo', false);
       }
-    },
-    async getUpcomingGames() {
-      const upcomingGames = await this.$axios.$get(
-        process.env.BACKEND_SERVER +
-          '/upcoming-games/' +
-          this.$store.state.user.city +
-          '/' +
-          this.$store.state.user.league
-      );
-
-      this.$store.commit('upcomingGames', upcomingGames);
     },
   },
 };

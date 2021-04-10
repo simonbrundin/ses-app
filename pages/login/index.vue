@@ -7,7 +7,16 @@ export default {
   setup() {
     return {};
   },
+  mounted() {
+    this.$auth.loginWith('auth0');
+  },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>

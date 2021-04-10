@@ -22,6 +22,11 @@ const components = {
   CouponsBiteline: () => import('../../components/coupons/Biteline.vue' /* webpackChunkName: "components/coupons-biteline" */).then(c => wrapFunctional(c.default || c)),
   CouponsCoupon: () => import('../../components/coupons/Coupon.vue' /* webpackChunkName: "components/coupons-coupon" */).then(c => wrapFunctional(c.default || c)),
   CouponsInterSport: () => import('../../components/coupons/InterSport.vue' /* webpackChunkName: "components/coupons-inter-sport" */).then(c => wrapFunctional(c.default || c)),
+  IconsIconCalendar: () => import('../../components/icons/IconCalendar.vue' /* webpackChunkName: "components/icons-icon-calendar" */).then(c => wrapFunctional(c.default || c)),
+  IconsIconClock: () => import('../../components/icons/IconClock.vue' /* webpackChunkName: "components/icons-icon-clock" */).then(c => wrapFunctional(c.default || c)),
+  IconsIconCup: () => import('../../components/icons/IconCup.vue' /* webpackChunkName: "components/icons-icon-cup" */).then(c => wrapFunctional(c.default || c)),
+  IconsIconHome: () => import('../../components/icons/IconHome.vue' /* webpackChunkName: "components/icons-icon-home" */).then(c => wrapFunctional(c.default || c)),
+  IconsIconStore: () => import('../../components/icons/IconStore.vue' /* webpackChunkName: "components/icons-icon-store" */).then(c => wrapFunctional(c.default || c)),
   NotificationsAddToCalendar: () => import('../../components/notifications/AddToCalendar.vue' /* webpackChunkName: "components/notifications-add-to-calendar" */).then(c => wrapFunctional(c.default || c)),
   NotificationsConfirmGame: () => import('../../components/notifications/ConfirmGame.vue' /* webpackChunkName: "components/notifications-confirm-game" */).then(c => wrapFunctional(c.default || c)),
   NotificationsLogin: () => import('../../components/notifications/Login.vue' /* webpackChunkName: "components/notifications-login" */).then(c => wrapFunctional(c.default || c)),
@@ -30,12 +35,7 @@ const components = {
   NotificationsNotification: () => import('../../components/notifications/Notification.vue' /* webpackChunkName: "components/notifications-notification" */).then(c => wrapFunctional(c.default || c)),
   NotificationsPayment: () => import('../../components/notifications/Payment.vue' /* webpackChunkName: "components/notifications-payment" */).then(c => wrapFunctional(c.default || c)),
   NotificationsScheduleInstructions: () => import('../../components/notifications/ScheduleInstructions.vue' /* webpackChunkName: "components/notifications-schedule-instructions" */).then(c => wrapFunctional(c.default || c)),
-  NotificationsWaitingForPlayers: () => import('../../components/notifications/WaitingForPlayers.vue' /* webpackChunkName: "components/notifications-waiting-for-players" */).then(c => wrapFunctional(c.default || c)),
-  IconsIconCalendar: () => import('../../components/icons/IconCalendar.vue' /* webpackChunkName: "components/icons-icon-calendar" */).then(c => wrapFunctional(c.default || c)),
-  IconsIconClock: () => import('../../components/icons/IconClock.vue' /* webpackChunkName: "components/icons-icon-clock" */).then(c => wrapFunctional(c.default || c)),
-  IconsIconCup: () => import('../../components/icons/IconCup.vue' /* webpackChunkName: "components/icons-icon-cup" */).then(c => wrapFunctional(c.default || c)),
-  IconsIconHome: () => import('../../components/icons/IconHome.vue' /* webpackChunkName: "components/icons-icon-home" */).then(c => wrapFunctional(c.default || c)),
-  IconsIconStore: () => import('../../components/icons/IconStore.vue' /* webpackChunkName: "components/icons-icon-store" */).then(c => wrapFunctional(c.default || c))
+  NotificationsWaitingForPlayers: () => import('../../components/notifications/WaitingForPlayers.vue' /* webpackChunkName: "components/notifications-waiting-for-players" */).then(c => wrapFunctional(c.default || c))
 }
 
 for (const name in components) {

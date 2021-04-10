@@ -20,9 +20,6 @@
 
 <script>
 export default {
-  mounted() {
-    this.getUpcomingGames();
-  },
   methods: {
     formatedDate(time) {
       const bookedtime = new Date(time);
@@ -117,26 +114,6 @@ export default {
           break;
       }
       return swemonth;
-    },
-
-    async getUpcomingGames() {
-      const upcomingGames = await this.$axios.$get(
-        process.env.BACKEND_SERVER +
-          '/upcoming-games/' +
-          this.$store.state.user.city +
-          '/' +
-          this.$store.state.user.league
-      );
-      // upcomingGames.forEach((game) => {
-      //   const bookedtime = new Date(game.bookedtime);
-      //   const month = bookedtime.getMonth();
-      //   const date = bookedtime.getDate();
-      //   const hours = bookedtime.getHours();
-      //   const minutes = bookedtime.getMinutes();
-      //   game.bookedtime = date + '/' + month + ' - ' + hours + ':' + minutes;
-      // });
-
-      this.$store.commit('upcomingGames', upcomingGames);
     },
   },
 };

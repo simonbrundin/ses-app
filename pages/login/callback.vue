@@ -1,5 +1,5 @@
 <template>
-  <div>$auth.user.sub</div>
+  <div></div>
 </template>
 
 <script>

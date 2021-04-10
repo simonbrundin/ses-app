@@ -48,11 +48,11 @@ export default {
   justify-content: space-around;
   align-items: flex-end;
   left: 0px;
-  width: calc(100vw - 20px);
+  width: calc(100vw);
   padding: 18px 0;
   position: fixed;
   border-radius: $border-radius;
-  margin: 0 10px 10px;
+  margin: 0 0px 0px;
   bottom: 0;
   box-shadow: 0px 3px 78px 0px #08080856;
   -webkit-box-shadow: 0px 3px 78px 0px #0808085b;
@@ -148,8 +148,8 @@ svg.icon {
 }
 
 .menu .nuxt-link-exact-active {
-  @include active-1;
-  // @include active-2;
+  // @include active-1;
+  @include active-2;
   // @include active-3;
   // @include active-4;
 }

@@ -18,6 +18,11 @@ export { default as AdminTodos } from '../../components/admin/Todos.vue'
 export { default as CouponsBiteline } from '../../components/coupons/Biteline.vue'
 export { default as CouponsCoupon } from '../../components/coupons/Coupon.vue'
 export { default as CouponsInterSport } from '../../components/coupons/InterSport.vue'
+export { default as IconsIconCalendar } from '../../components/icons/IconCalendar.vue'
+export { default as IconsIconClock } from '../../components/icons/IconClock.vue'
+export { default as IconsIconCup } from '../../components/icons/IconCup.vue'
+export { default as IconsIconHome } from '../../components/icons/IconHome.vue'
+export { default as IconsIconStore } from '../../components/icons/IconStore.vue'
 export { default as NotificationsAddToCalendar } from '../../components/notifications/AddToCalendar.vue'
 export { default as NotificationsConfirmGame } from '../../components/notifications/ConfirmGame.vue'
 export { default as NotificationsLogin } from '../../components/notifications/Login.vue'
@@ -27,11 +32,6 @@ export { default as NotificationsNotification } from '../../components/notificat
 export { default as NotificationsPayment } from '../../components/notifications/Payment.vue'
 export { default as NotificationsScheduleInstructions } from '../../components/notifications/ScheduleInstructions.vue'
 export { default as NotificationsWaitingForPlayers } from '../../components/notifications/WaitingForPlayers.vue'
-export { default as IconsIconCalendar } from '../../components/icons/IconCalendar.vue'
-export { default as IconsIconClock } from '../../components/icons/IconClock.vue'
-export { default as IconsIconCup } from '../../components/icons/IconCup.vue'
-export { default as IconsIconHome } from '../../components/icons/IconHome.vue'
-export { default as IconsIconStore } from '../../components/icons/IconStore.vue'
 
 export const LazyBook = import('../../components/Book.vue' /* webpackChunkName: "components/book" */).then(c => wrapFunctional(c.default || c))
 export const LazyBottomMenu = import('../../components/BottomMenu.vue' /* webpackChunkName: "components/bottom-menu" */).then(c => wrapFunctional(c.default || c))
@@ -53,6 +53,11 @@ export const LazyAdminTodos = import('../../components/admin/Todos.vue' /* webpa
 export const LazyCouponsBiteline = import('../../components/coupons/Biteline.vue' /* webpackChunkName: "components/coupons-biteline" */).then(c => wrapFunctional(c.default || c))
 export const LazyCouponsCoupon = import('../../components/coupons/Coupon.vue' /* webpackChunkName: "components/coupons-coupon" */).then(c => wrapFunctional(c.default || c))
 export const LazyCouponsInterSport = import('../../components/coupons/InterSport.vue' /* webpackChunkName: "components/coupons-inter-sport" */).then(c => wrapFunctional(c.default || c))
+export const LazyIconsIconCalendar = import('../../components/icons/IconCalendar.vue' /* webpackChunkName: "components/icons-icon-calendar" */).then(c => wrapFunctional(c.default || c))
+export const LazyIconsIconClock = import('../../components/icons/IconClock.vue' /* webpackChunkName: "components/icons-icon-clock" */).then(c => wrapFunctional(c.default || c))
+export const LazyIconsIconCup = import('../../components/icons/IconCup.vue' /* webpackChunkName: "components/icons-icon-cup" */).then(c => wrapFunctional(c.default || c))
+export const LazyIconsIconHome = import('../../components/icons/IconHome.vue' /* webpackChunkName: "components/icons-icon-home" */).then(c => wrapFunctional(c.default || c))
+export const LazyIconsIconStore = import('../../components/icons/IconStore.vue' /* webpackChunkName: "components/icons-icon-store" */).then(c => wrapFunctional(c.default || c))
 export const LazyNotificationsAddToCalendar = import('../../components/notifications/AddToCalendar.vue' /* webpackChunkName: "components/notifications-add-to-calendar" */).then(c => wrapFunctional(c.default || c))
 export const LazyNotificationsConfirmGame = import('../../components/notifications/ConfirmGame.vue' /* webpackChunkName: "components/notifications-confirm-game" */).then(c => wrapFunctional(c.default || c))
 export const LazyNotificationsLogin = import('../../components/notifications/Login.vue' /* webpackChunkName: "components/notifications-login" */).then(c => wrapFunctional(c.default || c))
@@ -62,11 +67,6 @@ export const LazyNotificationsNotification = import('../../components/notificati
 export const LazyNotificationsPayment = import('../../components/notifications/Payment.vue' /* webpackChunkName: "components/notifications-payment" */).then(c => wrapFunctional(c.default || c))
 export const LazyNotificationsScheduleInstructions = import('../../components/notifications/ScheduleInstructions.vue' /* webpackChunkName: "components/notifications-schedule-instructions" */).then(c => wrapFunctional(c.default || c))
 export const LazyNotificationsWaitingForPlayers = import('../../components/notifications/WaitingForPlayers.vue' /* webpackChunkName: "components/notifications-waiting-for-players" */).then(c => wrapFunctional(c.default || c))
-export const LazyIconsIconCalendar = import('../../components/icons/IconCalendar.vue' /* webpackChunkName: "components/icons-icon-calendar" */).then(c => wrapFunctional(c.default || c))
-export const LazyIconsIconClock = import('../../components/icons/IconClock.vue' /* webpackChunkName: "components/icons-icon-clock" */).then(c => wrapFunctional(c.default || c))
-export const LazyIconsIconCup = import('../../components/icons/IconCup.vue' /* webpackChunkName: "components/icons-icon-cup" */).then(c => wrapFunctional(c.default || c))
-export const LazyIconsIconHome = import('../../components/icons/IconHome.vue' /* webpackChunkName: "components/icons-icon-home" */).then(c => wrapFunctional(c.default || c))
-export const LazyIconsIconStore = import('../../components/icons/IconStore.vue' /* webpackChunkName: "components/icons-icon-store" */).then(c => wrapFunctional(c.default || c))
 
 // nuxt/nuxt.js#8607
 export function wrapFunctional(options) {

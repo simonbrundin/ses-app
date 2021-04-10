@@ -2,7 +2,27 @@ export const state = () => ({
   server: process.env.BACKEND_SERVER,
   appVersion: '1.0.0',
   user: {},
-  upcomingGames: [],
+  upcomingGames: [
+    {
+      bookedtime: new Date(),
+      names: { hemma1: '', hemma2: '', borta1: '', borta2: '' },
+    },
+  ],
+  playedGames: [
+    {
+      bookedtime: new Date(),
+      names: { hemma1: '', hemma2: '', borta1: '', borta2: '' },
+    },
+  ],
+  playedGamesWithoutResult: [
+    {
+      bookedtime: '',
+      pointshemma: 0,
+      pointsborta: 0,
+      names: { hemma1: '', hemma2: '', borta1: '', borta2: '' },
+    },
+  ],
+  nextGame: {},
 });
 
 export const mutations = {
@@ -24,6 +44,12 @@ export const mutations = {
   upcomingGames(state, matches) {
     state.upcomingGames = matches;
   },
+  playedGames(state, matches) {
+    state.playedGames = matches;
+  },
+  playedGamesWithoutResult(state, matches) {
+    state.playedGamesWithoutResult = matches;
+  },
   addOddSlot(state, slot) {
     state.user.oddslots.push(slot);
   },
@@ -36,9 +62,35 @@ export const mutations = {
   removeEvenSlot(state, slot) {
     state.user.evenslots = state.user.evenslots.filter((item) => item !== slot);
   },
+  namesOfNextGame(state, names) {
+    state.upcomingGames[0].names = names;
+  },
+  addHomePoints(state, value) {
+    state.playedGamesWithoutResult[0].pointshemma = value;
+  },
+  addAwayPoints(state, value) {
+    state.playedGamesWithoutResult[0].pointsborta = value;
+  },
 };
 export const actions = {
   async updateDatabaseUser({ state }) {
     await this.$axios.$put(process.env.BACKEND_SERVER + '/user', state.user);
+  },
+  async nuxtServerInit({ commit }, { req }) {
+    let auth = null;
+    if (req.headers.cookie) {
+      // cookie found
+      try {
+        // check data user login with cookie
+        const { data } = await this.$axios.post('/api/auths/me');
+        // server return the data is cookie valid loggedIn is true
+        auth = data; // set the data auth
+      } catch (err) {
+        // No valid cookie found
+        auth = null;
+      }
+    }
+    return auth;
+    // commit('SET_AUTH', auth); // set state auth
   },
 };

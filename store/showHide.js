@@ -4,6 +4,7 @@ export const state = () => ({
   menu: false,
   menuIcon: false,
   admin: { showMatchWindow: false },
+  registerResult: true,
 });
 
 export const mutations = {
@@ -21,5 +22,8 @@ export const mutations = {
   },
   admin(state, value) {
     state.admin = value;
+  },
+  registerResult(state, value) {
+    state.registerResult = value;
   },
 };
