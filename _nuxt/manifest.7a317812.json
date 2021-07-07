@@ -1,6 +1,7 @@
 {
   "name": "SuperElitSerien",
   "short_name": "SES",
+  "description": "## Project setup ``` npm install ```",
   "icons": [
     {
       "src": "/_nuxt/icons/icon_64x64.21eb6b.png",
