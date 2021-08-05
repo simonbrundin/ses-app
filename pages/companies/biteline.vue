@@ -2,7 +2,7 @@
   <div class="single-coupon">
     <NavigationRow />
 
-    <div class="card coupon">
+    <div class="light-card coupon">
       <img src="../../assets/coupons/biteline.png" alt class="coupon-logo" />
 
       <p class="coupon-number">15%</p>
@@ -26,9 +26,10 @@ export default {
   display: flex;
   flex-direction: column;
   margin: 20px 0 0;
+  text-align: center;
 }
 .single-coupon {
-  padding: 20px;
+  padding: 0px;
 }
 
 .coupon-logo {

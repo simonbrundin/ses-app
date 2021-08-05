@@ -2,15 +2,25 @@
   <div id="contact-information-screen">
     <!-- <p>{{ $auth.user.sub }}</p>
     <p>{{ $auth.user }}</p> -->
-
+    <h1 class="title">Fyll i alla fält</h1>
     <p>Förnamn</p>
-    <input v-model="firstName" type="text" name="firstName" />
+    <input
+      v-model="firstName"
+      type="text"
+      name="firstName"
+      placeholder="FÖRNAMN"
+    />
     <p>Efternamn</p>
-    <input v-model="lastName" type="text" name="lastName" />
+    <input
+      v-model="lastName"
+      type="text"
+      name="lastName"
+      placeholder="EFTERNAMN"
+    />
     <p>Email</p>
-    <input v-model="email" type="text" name="email" />
+    <input v-model="email" type="text" name="email" placeholder="EMAIL" />
     <p>Telefonnummer</p>
-    <input v-model="tel" type="text" name="tel" />
+    <input v-model="tel" type="text" name="tel" placeholder="TELEFONUMMER" />
     <div></div>
     <br />
     <button @click="updateInfo">Spara uppgifter</button>
@@ -84,6 +94,7 @@ export default {
 
       this.$store.dispatch('updateDatabaseUser');
       this.$store.commit('notifications/userInfo', false);
+      this.$router.push('/');
     },
   },
 };
@@ -93,9 +104,34 @@ export default {
 #contact-information-screen {
   padding: 20px;
   background: $dark;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.title {
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0 0 10px;
 }
 p {
+  font-size: 12px;
+  text-transform: uppercase;
   text-align: left;
   color: white;
+  visibility: hidden;
+  height: 0;
+  padding: 0;
+  margin: 0;
+}
+input {
+  padding: 20px 0px 20px 28px;
+  border: 0px;
+  border-radius: 50px;
+  margin: 12px 0 0px 0;
+}
+#contact-information-screen button {
+  margin: 10px 0 0;
+  color: $dark;
+  text-transform: uppercase;
 }
 </style>

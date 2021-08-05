@@ -62,11 +62,14 @@
     </div>
     <div class="row">
       <button @click="changePoints">Ändra poäng</button>
+    </div>
+    <div class="row">
       <button
         v-if="
           $store.state.playedGamesWithoutResult[0].pointshemma > 0 ||
           $store.state.playedGamesWithoutResult[0].pointsborta > 0
         "
+        class="register-button"
         @click="updateGameData"
       >
         Registrera
@@ -341,7 +344,7 @@ export default {
 
 <style lang="scss" scoped>
 .team-score {
-  font-size: 2em;
+  font-size: 5em;
   font-weight: 600;
 }
 .time-left {
@@ -369,10 +372,16 @@ export default {
 }
 button {
   margin: 20px 0 0;
+  color: $dark;
 }
 button:first-child {
   // background: $dark-grey;
   margin-right: 10px;
+}
+.register-button {
+  background: $dark;
+  margin-right: 10px;
+  color: $light;
 }
 .top-row {
   display: flex;
@@ -406,7 +415,7 @@ div {
 }
 
 .datum {
-  margin: 0px 0 20px;
+  margin: 0px 0 0px;
   color: $gold;
   text-transform: uppercase;
   font-size: 1.2em;

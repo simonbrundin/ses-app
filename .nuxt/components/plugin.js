@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { wrapFunctional } from './index'
+import { wrapFunctional } from './utils'
 
 const components = {
   Book: () => import('../../components/Book.vue' /* webpackChunkName: "components/book" */).then(c => wrapFunctional(c.default || c)),
@@ -19,9 +19,6 @@ const components = {
   AdminMatchInfo: () => import('../../components/admin/MatchInfo.vue' /* webpackChunkName: "components/admin-match-info" */).then(c => wrapFunctional(c.default || c)),
   AdminPlayerGrid: () => import('../../components/admin/PlayerGrid.vue' /* webpackChunkName: "components/admin-player-grid" */).then(c => wrapFunctional(c.default || c)),
   AdminTodos: () => import('../../components/admin/Todos.vue' /* webpackChunkName: "components/admin-todos" */).then(c => wrapFunctional(c.default || c)),
-  CouponsBiteline: () => import('../../components/coupons/Biteline.vue' /* webpackChunkName: "components/coupons-biteline" */).then(c => wrapFunctional(c.default || c)),
-  CouponsCoupon: () => import('../../components/coupons/Coupon.vue' /* webpackChunkName: "components/coupons-coupon" */).then(c => wrapFunctional(c.default || c)),
-  CouponsInterSport: () => import('../../components/coupons/InterSport.vue' /* webpackChunkName: "components/coupons-inter-sport" */).then(c => wrapFunctional(c.default || c)),
   IconsIconCalendar: () => import('../../components/icons/IconCalendar.vue' /* webpackChunkName: "components/icons-icon-calendar" */).then(c => wrapFunctional(c.default || c)),
   IconsIconClock: () => import('../../components/icons/IconClock.vue' /* webpackChunkName: "components/icons-icon-clock" */).then(c => wrapFunctional(c.default || c)),
   IconsIconCup: () => import('../../components/icons/IconCup.vue' /* webpackChunkName: "components/icons-icon-cup" */).then(c => wrapFunctional(c.default || c)),

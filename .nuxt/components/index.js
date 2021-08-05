@@ -1,3 +1,5 @@
+import { wrapFunctional } from './utils'
+
 export { default as Book } from '../../components/Book.vue'
 export { default as BottomMenu } from '../../components/BottomMenu.vue'
 export { default as ContactInformation } from '../../components/ContactInformation.vue'
@@ -15,9 +17,6 @@ export { default as AdminMatchGrid } from '../../components/admin/MatchGrid.vue'
 export { default as AdminMatchInfo } from '../../components/admin/MatchInfo.vue'
 export { default as AdminPlayerGrid } from '../../components/admin/PlayerGrid.vue'
 export { default as AdminTodos } from '../../components/admin/Todos.vue'
-export { default as CouponsBiteline } from '../../components/coupons/Biteline.vue'
-export { default as CouponsCoupon } from '../../components/coupons/Coupon.vue'
-export { default as CouponsInterSport } from '../../components/coupons/InterSport.vue'
 export { default as IconsIconCalendar } from '../../components/icons/IconCalendar.vue'
 export { default as IconsIconClock } from '../../components/icons/IconClock.vue'
 export { default as IconsIconCup } from '../../components/icons/IconCup.vue'
@@ -50,9 +49,6 @@ export const LazyAdminMatchGrid = import('../../components/admin/MatchGrid.vue' 
 export const LazyAdminMatchInfo = import('../../components/admin/MatchInfo.vue' /* webpackChunkName: "components/admin-match-info" */).then(c => wrapFunctional(c.default || c))
 export const LazyAdminPlayerGrid = import('../../components/admin/PlayerGrid.vue' /* webpackChunkName: "components/admin-player-grid" */).then(c => wrapFunctional(c.default || c))
 export const LazyAdminTodos = import('../../components/admin/Todos.vue' /* webpackChunkName: "components/admin-todos" */).then(c => wrapFunctional(c.default || c))
-export const LazyCouponsBiteline = import('../../components/coupons/Biteline.vue' /* webpackChunkName: "components/coupons-biteline" */).then(c => wrapFunctional(c.default || c))
-export const LazyCouponsCoupon = import('../../components/coupons/Coupon.vue' /* webpackChunkName: "components/coupons-coupon" */).then(c => wrapFunctional(c.default || c))
-export const LazyCouponsInterSport = import('../../components/coupons/InterSport.vue' /* webpackChunkName: "components/coupons-inter-sport" */).then(c => wrapFunctional(c.default || c))
 export const LazyIconsIconCalendar = import('../../components/icons/IconCalendar.vue' /* webpackChunkName: "components/icons-icon-calendar" */).then(c => wrapFunctional(c.default || c))
 export const LazyIconsIconClock = import('../../components/icons/IconClock.vue' /* webpackChunkName: "components/icons-icon-clock" */).then(c => wrapFunctional(c.default || c))
 export const LazyIconsIconCup = import('../../components/icons/IconCup.vue' /* webpackChunkName: "components/icons-icon-cup" */).then(c => wrapFunctional(c.default || c))
@@ -67,34 +63,3 @@ export const LazyNotificationsNotification = import('../../components/notificati
 export const LazyNotificationsPayment = import('../../components/notifications/Payment.vue' /* webpackChunkName: "components/notifications-payment" */).then(c => wrapFunctional(c.default || c))
 export const LazyNotificationsScheduleInstructions = import('../../components/notifications/ScheduleInstructions.vue' /* webpackChunkName: "components/notifications-schedule-instructions" */).then(c => wrapFunctional(c.default || c))
 export const LazyNotificationsWaitingForPlayers = import('../../components/notifications/WaitingForPlayers.vue' /* webpackChunkName: "components/notifications-waiting-for-players" */).then(c => wrapFunctional(c.default || c))
-
-// nuxt/nuxt.js#8607
-export function wrapFunctional(options) {
-  if (!options || !options.functional) {
-    return options
-  }
-
-  const propKeys = Array.isArray(options.props) ? options.props : Object.keys(options.props || {})
-
-  return {
-    render(h) {
-      const attrs = {}
-      const props = {}
-
-      for (const key in this.$attrs) {
-        if (propKeys.includes(key)) {
-          props[key] = this.$attrs[key]
-        } else {
-          attrs[key] = this.$attrs[key]
-        }
-      }
-
-      return h(options, {
-        on: this.$listeners,
-        attrs,
-        props,
-        scopedSlots: this.$scopedSlots,
-      }, this.$slots.default)
-    }
-  }
-}

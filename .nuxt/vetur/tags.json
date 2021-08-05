@@ -50,15 +50,6 @@
   "AdminTodos": {
     "description": "Auto imported from components/admin/Todos.vue"
   },
-  "CouponsBiteline": {
-    "description": "Auto imported from components/coupons/Biteline.vue"
-  },
-  "CouponsCoupon": {
-    "description": "Auto imported from components/coupons/Coupon.vue"
-  },
-  "CouponsInterSport": {
-    "description": "Auto imported from components/coupons/InterSport.vue"
-  },
   "IconsIconCalendar": {
     "description": "Auto imported from components/icons/IconCalendar.vue"
   },

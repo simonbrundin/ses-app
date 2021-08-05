@@ -7,9 +7,9 @@
         :key="index"
         class="light-card company-card"
       >
-        <router-link to="/coupon">
+        <router-link :to="'/companies/' + company.name">
           <div class="company-row" @click="company.show = !company.show">
-            <img :src="require('../assets/coupons/' + company.logo)" alt />
+            <img :src="require('@/assets/coupons/' + company.logo)" alt />
 
             <div class="company-text">
               <div>{{ company.name }}</div>
@@ -28,7 +28,7 @@
 
 <script>
 // import NavigationRow from "./notifications/NavigationRow.vue";
-import BottomMenu from '../components/BottomMenu.vue';
+import BottomMenu from '@/components/BottomMenu.vue';
 export default {
   components: {
     // "navigation-row": NavigationRow,
@@ -53,6 +53,7 @@ export default {
 
 .company-card {
   margin-top: 20px;
+  background-color: $light;
 }
 
 .company-card a {

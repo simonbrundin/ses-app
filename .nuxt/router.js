@@ -4,16 +4,19 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _421f72b0 = () => interopDefault(import('../pages/admin.vue' /* webpackChunkName: "pages/admin" */))
-const _afef55b4 = () => interopDefault(import('../pages/coupons.vue' /* webpackChunkName: "pages/coupons" */))
-const _5d5678d4 = () => interopDefault(import('../pages/home.vue' /* webpackChunkName: "pages/home" */))
-const _b82b7a76 = () => interopDefault(import('../pages/login/index.vue' /* webpackChunkName: "pages/login/index" */))
-const _4a8703c2 = () => interopDefault(import('../pages/profile.vue' /* webpackChunkName: "pages/profile" */))
-const _054bddce = () => interopDefault(import('../pages/schedule.vue' /* webpackChunkName: "pages/schedule" */))
-const _07a1b68e = () => interopDefault(import('../pages/slots.vue' /* webpackChunkName: "pages/slots" */))
-const _671c27a7 = () => interopDefault(import('../pages/table.vue' /* webpackChunkName: "pages/table" */))
-const _68076622 = () => interopDefault(import('../pages/login/callback.vue' /* webpackChunkName: "pages/login/callback" */))
-const _a4fe1aaa = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _7225d2bb = () => interopDefault(import('../pages/admin.vue' /* webpackChunkName: "pages/admin" */))
+const _440b2879 = () => interopDefault(import('../pages/coupons.vue' /* webpackChunkName: "pages/coupons" */))
+const _d7f82dba = () => interopDefault(import('../pages/home.vue' /* webpackChunkName: "pages/home" */))
+const _10dd3498 = () => interopDefault(import('../pages/login/index.vue' /* webpackChunkName: "pages/login/index" */))
+const _32ec51d6 = () => interopDefault(import('../pages/profile.vue' /* webpackChunkName: "pages/profile" */))
+const _2cb9164a = () => interopDefault(import('../pages/schedule.vue' /* webpackChunkName: "pages/schedule" */))
+const _ca517abe = () => interopDefault(import('../pages/slots.vue' /* webpackChunkName: "pages/slots" */))
+const _0b5c988c = () => interopDefault(import('../pages/table.vue' /* webpackChunkName: "pages/table" */))
+const _5cb4a538 = () => interopDefault(import('../pages/companies/biteline.vue' /* webpackChunkName: "pages/companies/biteline" */))
+const _662b13be = () => interopDefault(import('../pages/companies/Coupon.vue' /* webpackChunkName: "pages/companies/Coupon" */))
+const _2d8902e0 = () => interopDefault(import('../pages/companies/InterSport.vue' /* webpackChunkName: "pages/companies/InterSport" */))
+const _287a8122 = () => interopDefault(import('../pages/login/callback.vue' /* webpackChunkName: "pages/login/callback" */))
+const _40b67ebe = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -28,43 +31,55 @@ export const routerOptions = {
 
   routes: [{
     path: "/admin",
-    component: _421f72b0,
+    component: _7225d2bb,
     name: "admin"
   }, {
     path: "/coupons",
-    component: _afef55b4,
+    component: _440b2879,
     name: "coupons"
   }, {
     path: "/home",
-    component: _5d5678d4,
+    component: _d7f82dba,
     name: "home"
   }, {
     path: "/login",
-    component: _b82b7a76,
+    component: _10dd3498,
     name: "login"
   }, {
     path: "/profile",
-    component: _4a8703c2,
+    component: _32ec51d6,
     name: "profile"
   }, {
     path: "/schedule",
-    component: _054bddce,
+    component: _2cb9164a,
     name: "schedule"
   }, {
     path: "/slots",
-    component: _07a1b68e,
+    component: _ca517abe,
     name: "slots"
   }, {
     path: "/table",
-    component: _671c27a7,
+    component: _0b5c988c,
     name: "table"
   }, {
+    path: "/companies/biteline",
+    component: _5cb4a538,
+    name: "companies-biteline"
+  }, {
+    path: "/companies/Coupon",
+    component: _662b13be,
+    name: "companies-Coupon"
+  }, {
+    path: "/companies/InterSport",
+    component: _2d8902e0,
+    name: "companies-InterSport"
+  }, {
     path: "/login/callback",
-    component: _68076622,
+    component: _287a8122,
     name: "login-callback"
   }, {
     path: "/",
-    component: _a4fe1aaa,
+    component: _40b67ebe,
     name: "index"
   }],
 

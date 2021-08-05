@@ -21,6 +21,11 @@
       "content": "SuperElitSerien"
     },
     {
+      "hid": "description",
+      "name": "description",
+      "content": "## Project setup ``` npm install ```"
+    },
+    {
       "hid": "og:type",
       "name": "og:type",
       "property": "og:type",
@@ -37,6 +42,12 @@
       "name": "og:site_name",
       "property": "og:site_name",
       "content": "SuperElitSerien"
+    },
+    {
+      "hid": "og:description",
+      "name": "og:description",
+      "property": "og:description",
+      "content": "## Project setup ``` npm install ```"
     }
   ],
   "link": [
@@ -53,11 +64,11 @@
     },
     {
       "rel": "manifest",
-      "href": "/_nuxt/manifest.7737b378.json",
+      "href": "/_nuxt/manifest.4a9134c8.json",
       "hid": "manifest"
     }
   ],
   "htmlAttrs": {
-    "lang": "en"
+    "lang": "sv-SE"
   }
 }

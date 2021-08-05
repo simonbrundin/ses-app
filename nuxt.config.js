@@ -21,15 +21,14 @@ export default {
     '@nuxtjs/auth-next',
     '@nuxtjs/dotenv',
   ],
-  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/dotenv'],
+  buildModules: ['@nuxtjs/pwa', '@nuxtjs/eslint-module', '@nuxtjs/dotenv'],
   head: {
     title: 'SuperElitSerien',
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Lato:wght@100;300;400;700;900&family=Roboto:wght@100;300;400;700;900&family=Poppins:wght@100;300;400;700;900&family=Nunito:wght@200;400;600;700;800;900&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Lato:wght@100;300;400;700;900&family=Roboto:wght@100;300;400;700;900&family=Poppins:wght@100;300;400;700;900&family=Nunito:wght@200;400;600;700;800;900&display=swap',
       },
     ],
   },
@@ -48,7 +47,7 @@ export default {
     manifest: {
       name: 'SuperElitSerien',
       short_name: 'SES',
-      lang: 'en',
+      lang: 'sv-SE',
       display: 'standalone',
     },
   },

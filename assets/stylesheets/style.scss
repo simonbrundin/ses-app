@@ -10,7 +10,7 @@ $gold: #fbbf05;
 // #caa335
 // #fbbf05
 $dark: #121719;
-$dark-grey: #1e2124;
+$dark-grey: #272727;
 $grey: #747274;
 $light-grey: #cfcfcf;
 $light: #fbfbfb;
@@ -20,7 +20,7 @@ $confirm: $gold;
 
 // Universal
 $app-bg-color: $dark;
-$app-font-color: $light;
+$app-font-color: $dark-grey;
 $card-bg-color: $dark-grey;
 
 // Bottom menu
@@ -31,10 +31,10 @@ $bottom-menu-active-link: $gold;
 // Slots
 $week-toggle-bg-color: #1a1a1a;
 $selected-toggle-color: $gold;
-$days-bg-color: #1a1a1a;
+$days-bg-color: #272727;
 $slots-bg-color: $light;
 $slot-gap-color: $light-grey;
-$marked-slots-color: $gold;
+$marked-slots-color: #dcddddd9;
 // #2b7fd2
 // #00000015
 

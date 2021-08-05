@@ -4,6 +4,7 @@
 
     <!-- <Login v-if="!$auth.loggedIn" class="notification" /> -->
     <!-- Betalning saknas -->
+
     <Notifications-Payment
       v-if="!$store.state.notifications.payment"
       class="fullscreen"
@@ -23,8 +24,14 @@
       class="fullscreen"
     />
     <ContactInformation
-      v-if="$store.state.notifications.userInfo"
-      class="fullscreen"
+      v-if="
+        $store.state.notifications.userInfo ||
+        $store.state.user.firstname === '' ||
+        $store.state.user.lastname === '' ||
+        $store.state.user.email === '' ||
+        $store.state.user.tel === ''
+      "
+      class="notification"
     />
     <!-- Acceptera datum -->
     <div v-if="!acceptedNextMatch" class="notification accept-game">

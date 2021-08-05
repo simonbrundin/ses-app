@@ -29,7 +29,7 @@
       v-if="!$store.state.upcomingGames"
       class="notification"
     />
-
+    <Notifications />
     <Table v-if="$store.state.user.league" />
     <Menu v-if="$store.state.showHide.menu" />
   </div>
@@ -47,7 +47,7 @@ export default {
       const today = new Date();
       const date = today.getDate();
       const month = today.getMonth();
-      const sweMonth = this.sweMonth(month);
+      const sweMonth = this.sweMonth(month + 1);
       const string = '' + date + ' ' + sweMonth;
       return string;
     },

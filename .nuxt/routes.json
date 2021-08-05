@@ -2,71 +2,92 @@
   {
     "name": "admin",
     "path": "/admin",
-    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/admin.vue",
+    "component": "/Users/simon/Repos/ses-app/pages/admin.vue",
     "chunkName": "pages/admin",
-    "_name": "_421f72b0"
+    "_name": "_7225d2bb"
   },
   {
     "name": "coupons",
     "path": "/coupons",
-    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/coupons.vue",
+    "component": "/Users/simon/Repos/ses-app/pages/coupons.vue",
     "chunkName": "pages/coupons",
-    "_name": "_afef55b4"
+    "_name": "_440b2879"
   },
   {
     "name": "home",
     "path": "/home",
-    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/home.vue",
+    "component": "/Users/simon/Repos/ses-app/pages/home.vue",
     "chunkName": "pages/home",
-    "_name": "_5d5678d4"
+    "_name": "_d7f82dba"
   },
   {
     "name": "login",
     "path": "/login",
-    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/login/index.vue",
+    "component": "/Users/simon/Repos/ses-app/pages/login/index.vue",
     "chunkName": "pages/login/index",
-    "_name": "_b82b7a76"
+    "_name": "_10dd3498"
   },
   {
     "name": "profile",
     "path": "/profile",
-    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/profile.vue",
+    "component": "/Users/simon/Repos/ses-app/pages/profile.vue",
     "chunkName": "pages/profile",
-    "_name": "_4a8703c2"
+    "_name": "_32ec51d6"
   },
   {
     "name": "schedule",
     "path": "/schedule",
-    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/schedule.vue",
+    "component": "/Users/simon/Repos/ses-app/pages/schedule.vue",
     "chunkName": "pages/schedule",
-    "_name": "_054bddce"
+    "_name": "_2cb9164a"
   },
   {
     "name": "slots",
     "path": "/slots",
-    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/slots.vue",
+    "component": "/Users/simon/Repos/ses-app/pages/slots.vue",
     "chunkName": "pages/slots",
-    "_name": "_07a1b68e"
+    "_name": "_ca517abe"
   },
   {
     "name": "table",
     "path": "/table",
-    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/table.vue",
+    "component": "/Users/simon/Repos/ses-app/pages/table.vue",
     "chunkName": "pages/table",
-    "_name": "_671c27a7"
+    "_name": "_0b5c988c"
+  },
+  {
+    "name": "companies-biteline",
+    "path": "/companies/biteline",
+    "component": "/Users/simon/Repos/ses-app/pages/companies/biteline.vue",
+    "chunkName": "pages/companies/biteline",
+    "_name": "_5cb4a538"
+  },
+  {
+    "name": "companies-Coupon",
+    "path": "/companies/Coupon",
+    "component": "/Users/simon/Repos/ses-app/pages/companies/Coupon.vue",
+    "chunkName": "pages/companies/Coupon",
+    "_name": "_662b13be"
+  },
+  {
+    "name": "companies-InterSport",
+    "path": "/companies/InterSport",
+    "component": "/Users/simon/Repos/ses-app/pages/companies/InterSport.vue",
+    "chunkName": "pages/companies/InterSport",
+    "_name": "_2d8902e0"
   },
   {
     "name": "login-callback",
     "path": "/login/callback",
-    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/login/callback.vue",
+    "component": "/Users/simon/Repos/ses-app/pages/login/callback.vue",
     "chunkName": "pages/login/callback",
-    "_name": "_68076622"
+    "_name": "_287a8122"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "/Users/simon/Programmering/Projekt/ses-app/pages/index.vue",
+    "component": "/Users/simon/Repos/ses-app/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_a4fe1aaa"
+    "_name": "_40b67ebe"
   }
 ]

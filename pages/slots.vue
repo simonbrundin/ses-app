@@ -1,6 +1,7 @@
 <template>
   <div id="calendar">
     <!-- Knappar som byter spelare -->
+
     <div class="select-week-container">
       <div class="select-week">
         <div
@@ -19,7 +20,9 @@
         </div>
       </div>
       <div id="save-button">
-        <button v-show="calendarVisas" @click="saveSchedule">Spara</button>
+        <button v-show="calendarVisas" @click="saveSchedule">
+          <img src="~/assets/ikoner/check-icon.png" alt="" />
+        </button>
       </div>
     </div>
     <!-- Udda veckor -->
@@ -295,6 +298,8 @@ export default {
           evenSlots: this.$store.state.user.evenslots,
         };
         await this.$axios.$put(process.env.BACKEND_SERVER + '/slots', body);
+
+        this.$router.push('/');
       }
     },
   },
@@ -326,27 +331,31 @@ export default {
 
 .select-week-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin-bottom: 10px;
 }
 
 .select-week {
   display: flex;
-  justify-content: center;
-  padding: 5px;
+  justify-content: flex-start;
+  padding: 0px;
   background: $week-toggle-bg-color;
   border-radius: $border-radius;
+  font-size: 12px;
+  text-transform: uppercase;
+  height: 100%;
 }
 
 .select-week div {
-  padding: 10px 20px;
+  padding: 12px 20px;
   color: #a8a8a8;
   border-radius: $border-radius;
 }
 
 .select-week .selected {
   background: $selected-toggle-color;
-  color: $light;
+  color: $dark;
+  border-radius: $border-radius $border-radius 0 $border-radius;
 }
 
 // -----------------------------------------------------------------------------
@@ -381,6 +390,7 @@ export default {
   background: $days-bg-color;
   color: white;
   padding: 10px 0 25px 8px;
+  height: 1px;
 }
 
 .empty-day div {
@@ -451,11 +461,17 @@ export default {
 #save-button {
   text-decoration: none;
   display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin: 10px 0 0 0;
-}
+  justify-content: flex-end;
 
+  padding: 0 0 0 0;
+}
+#save-button button {
+  padding: 0;
+}
+#save-button button img {
+  height: 24px;
+  padding: 5px 8px 2px 10px;
+}
 #calendar a {
   text-decoration: none;
 }

@@ -7,7 +7,7 @@
         :key="index"
         class="light-card company-card"
       >
-        <router-link to="/coupon">
+        <router-link to="coupons/Biteline">
           <div class="company-row" @click="company.show = !company.show">
             <img :src="require('../assets/coupons/' + company.logo)" alt />
 

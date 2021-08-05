@@ -1,7 +1,7 @@
 <template>
   <div id="intersport">
     <!-- <navigation-row></navigation-row> -->
-    <router-link to="/coupon">
+    <router-link to="/coupons">
       <div>
         <div
           v-for="(coupon, index) in $store.state.coupons.companies.intersport
@@ -14,7 +14,7 @@
 
             <div class="company-text">
               <div>{{ coupon.title }}</div>
-              <div>{{ coupon.descriptioni }}</div>
+              <div>{{ coupon.description }}</div>
             </div>
             <i class="im im-angle-right"></i>
           </div>

@@ -29,6 +29,14 @@ export default {
         process.env.BACKEND_SERVER + '/user'
       );
       this.$store.commit('user', userObject[0]);
+      if (
+        this.$store.state.user.firstname === '' ||
+        this.$store.state.user.lastname === '' ||
+        this.$store.state.user.email === '' ||
+        this.$store.state.user.tel === ''
+      ) {
+        this.$store.commit('notifications/userInfo', true);
+      }
     },
 
     checkNotifications() {
