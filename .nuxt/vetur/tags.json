@@ -38,18 +38,6 @@
   "Waiting": {
     "description": "Auto imported from components/Waiting.vue"
   },
-  "AdminMatchGrid": {
-    "description": "Auto imported from components/admin/MatchGrid.vue"
-  },
-  "AdminMatchInfo": {
-    "description": "Auto imported from components/admin/MatchInfo.vue"
-  },
-  "AdminPlayerGrid": {
-    "description": "Auto imported from components/admin/PlayerGrid.vue"
-  },
-  "AdminTodos": {
-    "description": "Auto imported from components/admin/Todos.vue"
-  },
   "IconsIconCalendar": {
     "description": "Auto imported from components/icons/IconCalendar.vue"
   },
@@ -91,5 +79,17 @@
   },
   "NotificationsWaitingForPlayers": {
     "description": "Auto imported from components/notifications/WaitingForPlayers.vue"
+  },
+  "AdminMatchGrid": {
+    "description": "Auto imported from components/admin/MatchGrid.vue"
+  },
+  "AdminMatchInfo": {
+    "description": "Auto imported from components/admin/MatchInfo.vue"
+  },
+  "AdminPlayerGrid": {
+    "description": "Auto imported from components/admin/PlayerGrid.vue"
+  },
+  "AdminTodos": {
+    "description": "Auto imported from components/admin/Todos.vue"
   }
 }

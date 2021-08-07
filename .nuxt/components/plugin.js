@@ -15,10 +15,6 @@ const components = {
   SVGIcon: () => import('../../components/SVGIcon.vue' /* webpackChunkName: "components/s-v-g-icon" */).then(c => wrapFunctional(c.default || c)),
   Table: () => import('../../components/Table.vue' /* webpackChunkName: "components/table" */).then(c => wrapFunctional(c.default || c)),
   Waiting: () => import('../../components/Waiting.vue' /* webpackChunkName: "components/waiting" */).then(c => wrapFunctional(c.default || c)),
-  AdminMatchGrid: () => import('../../components/admin/MatchGrid.vue' /* webpackChunkName: "components/admin-match-grid" */).then(c => wrapFunctional(c.default || c)),
-  AdminMatchInfo: () => import('../../components/admin/MatchInfo.vue' /* webpackChunkName: "components/admin-match-info" */).then(c => wrapFunctional(c.default || c)),
-  AdminPlayerGrid: () => import('../../components/admin/PlayerGrid.vue' /* webpackChunkName: "components/admin-player-grid" */).then(c => wrapFunctional(c.default || c)),
-  AdminTodos: () => import('../../components/admin/Todos.vue' /* webpackChunkName: "components/admin-todos" */).then(c => wrapFunctional(c.default || c)),
   IconsIconCalendar: () => import('../../components/icons/IconCalendar.vue' /* webpackChunkName: "components/icons-icon-calendar" */).then(c => wrapFunctional(c.default || c)),
   IconsIconClock: () => import('../../components/icons/IconClock.vue' /* webpackChunkName: "components/icons-icon-clock" */).then(c => wrapFunctional(c.default || c)),
   IconsIconCup: () => import('../../components/icons/IconCup.vue' /* webpackChunkName: "components/icons-icon-cup" */).then(c => wrapFunctional(c.default || c)),
@@ -32,7 +28,11 @@ const components = {
   NotificationsNotification: () => import('../../components/notifications/Notification.vue' /* webpackChunkName: "components/notifications-notification" */).then(c => wrapFunctional(c.default || c)),
   NotificationsPayment: () => import('../../components/notifications/Payment.vue' /* webpackChunkName: "components/notifications-payment" */).then(c => wrapFunctional(c.default || c)),
   NotificationsScheduleInstructions: () => import('../../components/notifications/ScheduleInstructions.vue' /* webpackChunkName: "components/notifications-schedule-instructions" */).then(c => wrapFunctional(c.default || c)),
-  NotificationsWaitingForPlayers: () => import('../../components/notifications/WaitingForPlayers.vue' /* webpackChunkName: "components/notifications-waiting-for-players" */).then(c => wrapFunctional(c.default || c))
+  NotificationsWaitingForPlayers: () => import('../../components/notifications/WaitingForPlayers.vue' /* webpackChunkName: "components/notifications-waiting-for-players" */).then(c => wrapFunctional(c.default || c)),
+  AdminMatchGrid: () => import('../../components/admin/MatchGrid.vue' /* webpackChunkName: "components/admin-match-grid" */).then(c => wrapFunctional(c.default || c)),
+  AdminMatchInfo: () => import('../../components/admin/MatchInfo.vue' /* webpackChunkName: "components/admin-match-info" */).then(c => wrapFunctional(c.default || c)),
+  AdminPlayerGrid: () => import('../../components/admin/PlayerGrid.vue' /* webpackChunkName: "components/admin-player-grid" */).then(c => wrapFunctional(c.default || c)),
+  AdminTodos: () => import('../../components/admin/Todos.vue' /* webpackChunkName: "components/admin-todos" */).then(c => wrapFunctional(c.default || c))
 }
 
 for (const name in components) {

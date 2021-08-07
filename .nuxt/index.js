@@ -18,6 +18,7 @@ import nuxt_plugin_axios_3d8295c0 from 'nuxt_plugin_axios_3d8295c0' // Source: .
 import nuxt_plugin_workbox_0e36623c from 'nuxt_plugin_workbox_0e36623c' // Source: ./workbox.js (mode: 'client')
 import nuxt_plugin_metaplugin_2c17ad4f from 'nuxt_plugin_metaplugin_2c17ad4f' // Source: ./pwa/meta.plugin.js (mode: 'all')
 import nuxt_plugin_iconplugin_30bf52c3 from 'nuxt_plugin_iconplugin_30bf52c3' // Source: ./pwa/icon.plugin.js (mode: 'all')
+import nuxt_plugin_pwaupdate_81602bf6 from 'nuxt_plugin_pwaupdate_81602bf6' // Source: ../plugins/pwa-update.js (mode: 'client')
 import nuxt_plugin_auth_8f2c5fe0 from 'nuxt_plugin_auth_8f2c5fe0' // Source: ./auth.js (mode: 'all')
 
 // Component: <ClientOnly>
@@ -233,6 +234,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_iconplugin_30bf52c3 === 'function') {
     await nuxt_plugin_iconplugin_30bf52c3(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_pwaupdate_81602bf6 === 'function') {
+    await nuxt_plugin_pwaupdate_81602bf6(app.context, inject)
   }
 
   if (typeof nuxt_plugin_auth_8f2c5fe0 === 'function') {

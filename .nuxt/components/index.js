@@ -13,10 +13,6 @@ export { default as PlayerCash } from '../../components/PlayerCash.vue'
 export { default as SVGIcon } from '../../components/SVGIcon.vue'
 export { default as Table } from '../../components/Table.vue'
 export { default as Waiting } from '../../components/Waiting.vue'
-export { default as AdminMatchGrid } from '../../components/admin/MatchGrid.vue'
-export { default as AdminMatchInfo } from '../../components/admin/MatchInfo.vue'
-export { default as AdminPlayerGrid } from '../../components/admin/PlayerGrid.vue'
-export { default as AdminTodos } from '../../components/admin/Todos.vue'
 export { default as IconsIconCalendar } from '../../components/icons/IconCalendar.vue'
 export { default as IconsIconClock } from '../../components/icons/IconClock.vue'
 export { default as IconsIconCup } from '../../components/icons/IconCup.vue'
@@ -31,6 +27,10 @@ export { default as NotificationsNotification } from '../../components/notificat
 export { default as NotificationsPayment } from '../../components/notifications/Payment.vue'
 export { default as NotificationsScheduleInstructions } from '../../components/notifications/ScheduleInstructions.vue'
 export { default as NotificationsWaitingForPlayers } from '../../components/notifications/WaitingForPlayers.vue'
+export { default as AdminMatchGrid } from '../../components/admin/MatchGrid.vue'
+export { default as AdminMatchInfo } from '../../components/admin/MatchInfo.vue'
+export { default as AdminPlayerGrid } from '../../components/admin/PlayerGrid.vue'
+export { default as AdminTodos } from '../../components/admin/Todos.vue'
 
 export const LazyBook = import('../../components/Book.vue' /* webpackChunkName: "components/book" */).then(c => wrapFunctional(c.default || c))
 export const LazyBottomMenu = import('../../components/BottomMenu.vue' /* webpackChunkName: "components/bottom-menu" */).then(c => wrapFunctional(c.default || c))
@@ -45,10 +45,6 @@ export const LazyPlayerCash = import('../../components/PlayerCash.vue' /* webpac
 export const LazySVGIcon = import('../../components/SVGIcon.vue' /* webpackChunkName: "components/s-v-g-icon" */).then(c => wrapFunctional(c.default || c))
 export const LazyTable = import('../../components/Table.vue' /* webpackChunkName: "components/table" */).then(c => wrapFunctional(c.default || c))
 export const LazyWaiting = import('../../components/Waiting.vue' /* webpackChunkName: "components/waiting" */).then(c => wrapFunctional(c.default || c))
-export const LazyAdminMatchGrid = import('../../components/admin/MatchGrid.vue' /* webpackChunkName: "components/admin-match-grid" */).then(c => wrapFunctional(c.default || c))
-export const LazyAdminMatchInfo = import('../../components/admin/MatchInfo.vue' /* webpackChunkName: "components/admin-match-info" */).then(c => wrapFunctional(c.default || c))
-export const LazyAdminPlayerGrid = import('../../components/admin/PlayerGrid.vue' /* webpackChunkName: "components/admin-player-grid" */).then(c => wrapFunctional(c.default || c))
-export const LazyAdminTodos = import('../../components/admin/Todos.vue' /* webpackChunkName: "components/admin-todos" */).then(c => wrapFunctional(c.default || c))
 export const LazyIconsIconCalendar = import('../../components/icons/IconCalendar.vue' /* webpackChunkName: "components/icons-icon-calendar" */).then(c => wrapFunctional(c.default || c))
 export const LazyIconsIconClock = import('../../components/icons/IconClock.vue' /* webpackChunkName: "components/icons-icon-clock" */).then(c => wrapFunctional(c.default || c))
 export const LazyIconsIconCup = import('../../components/icons/IconCup.vue' /* webpackChunkName: "components/icons-icon-cup" */).then(c => wrapFunctional(c.default || c))
@@ -63,3 +59,7 @@ export const LazyNotificationsNotification = import('../../components/notificati
 export const LazyNotificationsPayment = import('../../components/notifications/Payment.vue' /* webpackChunkName: "components/notifications-payment" */).then(c => wrapFunctional(c.default || c))
 export const LazyNotificationsScheduleInstructions = import('../../components/notifications/ScheduleInstructions.vue' /* webpackChunkName: "components/notifications-schedule-instructions" */).then(c => wrapFunctional(c.default || c))
 export const LazyNotificationsWaitingForPlayers = import('../../components/notifications/WaitingForPlayers.vue' /* webpackChunkName: "components/notifications-waiting-for-players" */).then(c => wrapFunctional(c.default || c))
+export const LazyAdminMatchGrid = import('../../components/admin/MatchGrid.vue' /* webpackChunkName: "components/admin-match-grid" */).then(c => wrapFunctional(c.default || c))
+export const LazyAdminMatchInfo = import('../../components/admin/MatchInfo.vue' /* webpackChunkName: "components/admin-match-info" */).then(c => wrapFunctional(c.default || c))
+export const LazyAdminPlayerGrid = import('../../components/admin/PlayerGrid.vue' /* webpackChunkName: "components/admin-player-grid" */).then(c => wrapFunctional(c.default || c))
+export const LazyAdminTodos = import('../../components/admin/Todos.vue' /* webpackChunkName: "components/admin-todos" */).then(c => wrapFunctional(c.default || c))
