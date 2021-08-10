@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/login/callback", {data:[{}],fetch:{},mutations:[]});
