@@ -41,17 +41,20 @@
   "Waiting": {
     "description": "Auto imported from components/Waiting.vue"
   },
-  "AdminMatchGrid": {
-    "description": "Auto imported from components/admin/MatchGrid.vue"
+  "IconsIconCalendar": {
+    "description": "Auto imported from components/icons/IconCalendar.vue"
   },
-  "AdminMatchInfo": {
-    "description": "Auto imported from components/admin/MatchInfo.vue"
+  "IconsIconClock": {
+    "description": "Auto imported from components/icons/IconClock.vue"
   },
-  "AdminPlayerGrid": {
-    "description": "Auto imported from components/admin/PlayerGrid.vue"
+  "IconsIconCup": {
+    "description": "Auto imported from components/icons/IconCup.vue"
   },
-  "AdminTodos": {
-    "description": "Auto imported from components/admin/Todos.vue"
+  "IconsIconHome": {
+    "description": "Auto imported from components/icons/IconHome.vue"
+  },
+  "IconsIconStore": {
+    "description": "Auto imported from components/icons/IconStore.vue"
   },
   "NotificationsAddToCalendar": {
     "description": "Auto imported from components/notifications/AddToCalendar.vue"
@@ -80,19 +83,16 @@
   "NotificationsWaitingForPlayers": {
     "description": "Auto imported from components/notifications/WaitingForPlayers.vue"
   },
-  "IconsIconCalendar": {
-    "description": "Auto imported from components/icons/IconCalendar.vue"
+  "AdminMatchGrid": {
+    "description": "Auto imported from components/admin/MatchGrid.vue"
   },
-  "IconsIconClock": {
-    "description": "Auto imported from components/icons/IconClock.vue"
+  "AdminMatchInfo": {
+    "description": "Auto imported from components/admin/MatchInfo.vue"
   },
-  "IconsIconCup": {
-    "description": "Auto imported from components/icons/IconCup.vue"
+  "AdminPlayerGrid": {
+    "description": "Auto imported from components/admin/PlayerGrid.vue"
   },
-  "IconsIconHome": {
-    "description": "Auto imported from components/icons/IconHome.vue"
-  },
-  "IconsIconStore": {
-    "description": "Auto imported from components/icons/IconStore.vue"
+  "AdminTodos": {
+    "description": "Auto imported from components/admin/Todos.vue"
   }
 }

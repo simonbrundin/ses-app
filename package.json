@@ -8,7 +8,7 @@
     "start": "nuxt start",
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
-    "deploy": "npm run generate && gh-pages -d dist -t true",
+    "deploy": "npm run generate && npm run push",
     "push": "gh-pages -d dist"
   },
   "dependencies": {
