@@ -1,0 +1,220 @@
+// @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&family=Lato:wght@100;300;400;700;900&family=Nunito:wght@200;400;600;700;800;900&display=swap');
+// @import url('https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css');
+
+// Färger
+
+$shining-gold: linear-gradient(to left, #946837 1%, #ebe48a 50%, #946837 100%);
+$gold: #fbbf05;
+// #997855
+// #bd9b3d
+// #caa335
+// #fbbf05
+$dark: #121719;
+$dark-grey: #272727;
+$grey: #747274;
+$light-grey: #cfcfcf;
+$light: #fbfbfb;
+$second-color: #2d9b82;
+$confirm: $gold;
+// #52B788
+
+// Universal
+$app-bg-color: $dark;
+$app-font-color: $dark-grey;
+$card-bg-color: $dark-grey;
+
+// Bottom menu
+$bottom-menu-bg-color: $dark-grey;
+$bottom-menu-icon-color: #989898;
+$bottom-menu-active-icon-color: white;
+$bottom-menu-active-link: $gold;
+// Slots
+$week-toggle-bg-color: #1a1a1a;
+$selected-toggle-color: $gold;
+$days-bg-color: #272727;
+$slots-bg-color: $light;
+$slot-gap-color: $light-grey;
+$marked-slots-color: #dcddddd9;
+// #2b7fd2
+// #00000015
+
+// -----------------------------------------------------------------------
+
+// Typsnitt
+
+// $app-font: 'Poppins';
+// $app-font: 'Lato';
+// $app-font: 'Helvetica Neue';
+// $app-font: 'Nunito';
+$app-font: 'Montserrat';
+// $app-font: '-apple-system, BlinkMacSystemFont, sans-serif';
+// $app-font: 'Roboto';
+$app-font-weight: 300;
+$app-font-size: 12px;
+
+// Rubriker
+
+h1 {
+  color: $light;
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-block: 0rem;
+}
+
+h2 {
+  color: $light;
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+h3 {
+  color: $light;
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: $app-font-size;
+  margin-block: 0.5rem;
+}
+
+// -----------------------------------------------------------------------
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+$border-radius: 20px;
+$app-padding: 20px;
+.round {
+  border-radius: 100%;
+}
+
+.full-screen {
+  position: fixed;
+  padding: $app-padding;
+  top: 0;
+  height: calc(100vh - 40px);
+  width: calc(100vw - 40px);
+  background: $dark;
+  left: 0;
+  margin: 0;
+  z-index: 200;
+}
+
+@mixin shadow {
+  // -webkit-box-shadow: 20px 20px 50px #00d2c6,
+  //   -30px -30px 60px #00ffff;
+  // -moz-box-shadow: 20px 20px 50px #00d2c6,
+  //   -30px -30px 60px #00ffff;
+  // box-shadow: 20px 20px 60px #cfcfcf,
+  //   -20px -20px 60px #cfcfcf;
+  -webkit-box-shadow: 6px 6px 16px 6px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 6px 6px 16px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 6px 6px 16px 6px rgba(0, 0, 0, 0.15);
+}
+// @mixin shadow {
+//   // -webkit-box-shadow: 20px 20px 50px #00d2c6,
+//   //   -30px -30px 60px #00ffff;
+//   // -moz-box-shadow: 20px 20px 50px #00d2c6,
+//   //   -30px -30px 60px #00ffff;
+//   // box-shadow: 20px 20px 60px #cfcfcf,
+//   //   -20px -20px 60px #cfcfcf;
+//   -webkit-box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+//   -moz-box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+//   box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+// }
+
+body {
+  background: $app-bg-color;
+  color: $app-font-color;
+  font-family: $app-font;
+  font-weight: $app-font-weight;
+  margin: 0px;
+  font-size: $app-font-size;
+}
+
+div {
+  color: $dark;
+}
+
+.light {
+  color: $light;
+}
+
+.light div {
+  color: $light;
+}
+
+.card {
+  background: $card-bg-color;
+  color: $second-color;
+  border-radius: $border-radius;
+  padding: 20px;
+  @include shadow;
+  // filter: drop-shadow(0 0 40px #000)
+}
+
+.card h2 {
+  color: $light;
+}
+
+.card-container {
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.288));
+}
+.light-card {
+  background: $light;
+  color: $dark;
+  border-radius: $border-radius;
+  padding: 20px;
+  margin: 20px 0 0 0;
+  @include shadow;
+}
+.dark-card {
+  background: $dark-grey;
+  color: $light;
+  border-radius: $border-radius;
+  padding: 20px;
+  margin: 20px 0 0 0;
+  @include shadow;
+}
+
+.dark-card div {
+  color: $light;
+}
+
+button {
+  color: $dark;
+  padding: 12px 20px;
+  background: #8eb5db;
+  border-radius: $border-radius;
+  // margin: auto;
+  font-size: 15px;
+
+  font-weight: 300;
+  font-family: 'Montserrat';
+  border: 0;
+  background: $confirm;
+  // @include shadow;
+}
+
+.menu-item-text {
+  color: $grey;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont;
+}
+
+.coupon-icon {
+  fill: $gold;
+  width: 36px;
+  height: 36px;
+}
+
+.dark {
+  color: $dark-grey;
+}
