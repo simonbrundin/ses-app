@@ -14,10 +14,22 @@ export default {
     { src: '~/plugins/pwa-update.js', mode: 'client' },
     // { src: '~/plugins/https.js', mode: 'client' },
   ],
+  buildDir: '/',
+  build: {
+    publicPath: '/',
+    babel: {
+      plugins: [
+        ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
+        ['@babel/plugin-proposal-class-properties', { loose: true }],
+        ['@babel/plugin-proposal-private-methods', { loose: true }],
+      ],
+    },
+  },
   components: true,
   css: ['~/assets/stylesheets/style.scss'],
   router: {
     middleware: ['auth'],
+    // base: '/',
   },
 
   // plugins: ['~/plugins/axios'],
@@ -73,9 +85,9 @@ export default {
       short_name: 'SES',
       lang: 'sv-SE',
       display: 'standalone',
-      start_url: '',
+      // start_url: '',
     },
-    workbox: {},
+    // workbox: {},
   },
   // https://dev.auth.nuxtjs.org/api/options
   auth: {
