@@ -9,7 +9,7 @@
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
     "deploy": "npm run generate && gh-pages -d dist -t true",
-    "push": "push-dir --dir=dist --branch=master"
+    "push": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
     "@babel/core": "^7.15.0",
@@ -19,6 +19,7 @@
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.16.1",
     "nuxt": "^2.15.7",
+    "push-dir": "^0.4.1",
     "vue": "^2.6.14",
     "vue-router": "^3.5.2",
     "vuex": "^3.6.2",
