@@ -46,15 +46,13 @@ export default {
   methods: {
     async getPlayersWithoutLeague() {
       const players = await this.$axios.$get(
-        process.env.BACKEND_SERVER + '/admin/todos/players-without-league'
+        '/admin/todos/players-without-league'
       );
       this.playersWithoutLeague = players;
     },
 
     async getFullLeagues() {
-      const fullLeagues = await this.$axios.$get(
-        process.env.BACKEND_SERVER + '/full-leagues'
-      );
+      const fullLeagues = await this.$axios.$get('/full-leagues');
       this.fullLeagues = fullLeagues;
     },
   },
@@ -63,6 +61,6 @@ export default {
 
 <style lang="scss" scoped>
 #admin-todos div {
-  color: $app-font-color;
+  color: $light;
 }
 </style>

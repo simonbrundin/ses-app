@@ -1,12 +1,19 @@
 export default {
   server: {
     port: 3000, // default: 3000
+    // https: {
+    //   key: fs.readFileSync(path.resolve(__dirname, 'server.key')),
+    //   cert: fs.readFileSync(path.resolve(__dirname, 'server.crt')),
+    // },
     // host: '0.0.0.0', // default: localhost
   }, // other configs
   // https://nuxtjs.org/docs/2.x/configuration-glossary/
   target: 'static',
   // ssr: false,
-  plugins: [{ src: '~/plugins/pwa-update.js', mode: 'client' }],
+  plugins: [
+    { src: '~/plugins/pwa-update.js', mode: 'client' },
+    // { src: '~/plugins/https.js', mode: 'client' },
+  ],
   components: true,
   css: ['~/assets/stylesheets/style.scss'],
   router: {
@@ -42,7 +49,23 @@ export default {
     fallback: '404.html',
   },
   // https://go.nuxtjs.dev/config-axios
-  axios: { baseURL: process.env.BACKEND_SERVER, proxy: true },
+  // axios: {
+  //   baseURL: process.env.BACKEND_SERVER_DEV,
+  // },
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: process.env.BACKEND_SERVER_DEV,
+    },
+  },
+
+  privateRuntimeConfig: {
+    axios: {
+      baseURL:
+        process.env.NODE_ENV !== 'production'
+          ? process.env.BACKEND_SERVER_DEV
+          : process.env.BACKEND_SERVER_PROD,
+    },
+  },
   // https://pwa.nuxtjs.org/
   pwa: {
     manifest: {
@@ -50,7 +73,9 @@ export default {
       short_name: 'SES',
       lang: 'sv-SE',
       display: 'standalone',
+      start_url: '',
     },
+    workbox: {},
   },
   // https://dev.auth.nuxtjs.org/api/options
   auth: {

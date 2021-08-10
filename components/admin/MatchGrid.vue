@@ -58,9 +58,13 @@ export default {
     };
   },
   mounted() {
+    this.updateCommonSlots();
     this.getGames();
   },
   methods: {
+    async updateCommonSlots() {
+      await this.$axios.$put('/admin/common-slots/');
+    },
     async getNames() {
       const hemma1 = this.$store.state.admin.selectedMatch.hemma1;
       const hemma2 = this.$store.state.admin.selectedMatch.hemma2;
@@ -68,15 +72,7 @@ export default {
       const borta2 = this.$store.state.admin.selectedMatch.borta2;
 
       const names = await this.$axios.$get(
-        process.env.BACKEND_SERVER +
-          '/names/' +
-          hemma1 +
-          '/' +
-          hemma2 +
-          '/' +
-          borta1 +
-          '/' +
-          borta2
+        '/names/' + hemma1 + '/' + hemma2 + '/' + borta1 + '/' + borta2
       );
       this.$store.commit('admin/selectedMatchNames', names);
     },
@@ -102,14 +98,12 @@ export default {
       }
     },
     async getGames() {
-      const games = await this.$axios.$get(
-        process.env.BACKEND_SERVER + '/admin/games'
-      );
+      const games = await this.$axios.$get('/admin/games');
       this.leagues = games;
     },
     async getGame(league, matchID) {
       const game = await this.$axios.$get(
-        process.env.BACKEND_SERVER + '/admin/game/' + league + '/' + matchID
+        '/admin/game/' + league + '/' + matchID
       );
       this.$store.commit('admin/selectedMatch', game[0]);
       this.$store.commit('admin/selectedLeague', league);

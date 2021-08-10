@@ -153,8 +153,7 @@ export default {
         '-' +
         this.$store.state.user.league;
       await this.$axios.$put(
-        process.env.BACKEND_SERVER +
-          '/admin/game/' +
+        '/admin/game/' +
           league +
           '/' +
           this.$store.state.playedGamesWithoutResult[0].ID,
@@ -165,7 +164,7 @@ export default {
     },
     async getGame(league, matchID) {
       const game = await this.$axios.$get(
-        process.env.BACKEND_SERVER + '/admin/game/' + league + '/' + matchID
+        '/admin/game/' + league + '/' + matchID
       );
       this.$store.commit('admin/selectedMatch', game[0]);
       this.$store.commit('admin/selectedLeague', league);
@@ -174,7 +173,7 @@ export default {
       const city = await this.$store.state.user.city;
       const league = await this.$store.state.user.league;
       const upcomingGames = await this.$axios.$get(
-        process.env.BACKEND_SERVER + '/upcoming-games/' + city + '/' + league
+        '/upcoming-games/' + city + '/' + league
       );
       const gamesLeftToPlay = [];
       const gamesPlayedWithoutResult = [];
@@ -215,15 +214,7 @@ export default {
       const borta2 = await this.$store.state.playedGamesWithoutResult[0].borta2;
 
       const names = await this.$axios.$get(
-        process.env.BACKEND_SERVER +
-          '/names/' +
-          hemma1 +
-          '/' +
-          hemma2 +
-          '/' +
-          borta1 +
-          '/' +
-          borta2
+        '/names/' + hemma1 + '/' + hemma2 + '/' + borta1 + '/' + borta2
       );
       this.hemma1 =
         names[this.$store.state.playedGamesWithoutResult[0].hemma1].firstname;

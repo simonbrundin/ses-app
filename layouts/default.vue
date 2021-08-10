@@ -3,6 +3,8 @@
     <div class="container">
       <nuxt />
     </div>
+
+    <AddToHomeBtn />
     <Notifications />
     <BottomMenu />
   </div>
@@ -25,9 +27,7 @@ export default {
       await this.getUser();
     },
     async getUser() {
-      const userObject = await this.$axios.$get(
-        process.env.BACKEND_SERVER + '/user'
-      );
+      const userObject = await this.$axios.$get('/user');
       this.$store.commit('user', userObject[0]);
       if (
         this.$store.state.user.firstname === '' ||

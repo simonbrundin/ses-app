@@ -297,7 +297,7 @@ export default {
           oddSlots: this.$store.state.user.oddslots,
           evenSlots: this.$store.state.user.evenslots,
         };
-        await this.$axios.$put(process.env.BACKEND_SERVER + '/slots', body);
+        await this.$axios.$put('/slots', body);
 
         this.$router.push('/');
       }

@@ -15,6 +15,7 @@
     >
       Alla spelare
     </button>
+    <button @click="$router.push('/')">Stäng admin</button>
     <Admin-MatchGrid
       v-if="
         $store.state.admin.tab === 'matches' &&
@@ -50,6 +51,8 @@ export default {
       showPlayerGrid: false,
     };
   },
+  mounted() {},
+  methods: {},
 };
 </script>
 

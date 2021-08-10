@@ -110,7 +110,7 @@ export default {
       const city = await this.$store.state.user.city;
       const league = await this.$store.state.user.league;
       const upcomingGames = await this.$axios.$get(
-        process.env.BACKEND_SERVER + '/upcoming-games/' + city + '/' + league
+        '/upcoming-games/' + city + '/' + league
       );
       const gamesLeftToPlay = [];
       const gamesPlayedWithoutResult = [];
@@ -151,15 +151,7 @@ export default {
       const borta2 = await this.$store.state.upcomingGames[0].borta2;
 
       const names = await this.$axios.$get(
-        process.env.BACKEND_SERVER +
-          '/names/' +
-          hemma1 +
-          '/' +
-          hemma2 +
-          '/' +
-          borta1 +
-          '/' +
-          borta2
+        '/names/' + hemma1 + '/' + hemma2 + '/' + borta1 + '/' + borta2
       );
       this.hemma1 = names[this.$store.state.upcomingGames[0].hemma1].firstname;
       this.hemma2 = names[this.$store.state.upcomingGames[0].hemma2].firstname;

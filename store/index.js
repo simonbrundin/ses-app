@@ -1,5 +1,5 @@
 export const state = () => ({
-  server: process.env.BACKEND_SERVER,
+  server: process.env.BACKEND_SERVER_DEV,
   appVersion: '1.0.0',
   user: {},
   upcomingGames: [
@@ -74,7 +74,7 @@ export const mutations = {
 };
 export const actions = {
   async updateDatabaseUser({ state }) {
-    await this.$axios.$put(process.env.BACKEND_SERVER + '/user', state.user);
+    await this.$axios.$put('/user', state.user);
   },
   async nuxtServerInit({ commit }, { req }) {
     let auth = null;

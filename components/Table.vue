@@ -92,9 +92,7 @@ export default {
     async getLeagueTable() {
       const city = await this.$store.state.user.city;
       const league = await this.$store.state.user.league;
-      const table = await this.$axios.$get(
-        process.env.BACKEND_SERVER + '/table/' + city + '/' + league
-      );
+      const table = await this.$axios.$get('/table/' + city + '/' + league);
       this.table = table;
     },
     getPlayerImage(id) {

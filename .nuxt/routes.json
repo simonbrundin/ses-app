@@ -3,91 +3,78 @@
     "name": "admin",
     "path": "/admin",
     "component": "/Users/simon/Repos/ses-app/pages/admin.vue",
-    "chunkName": "pages/admin",
-    "_name": "_7225d2bb"
+    "chunkName": "pages/admin"
   },
   {
     "name": "coupons",
     "path": "/coupons",
     "component": "/Users/simon/Repos/ses-app/pages/coupons.vue",
-    "chunkName": "pages/coupons",
-    "_name": "_440b2879"
+    "chunkName": "pages/coupons"
   },
   {
     "name": "home",
     "path": "/home",
     "component": "/Users/simon/Repos/ses-app/pages/home.vue",
-    "chunkName": "pages/home",
-    "_name": "_d7f82dba"
+    "chunkName": "pages/home"
   },
   {
     "name": "login",
     "path": "/login",
     "component": "/Users/simon/Repos/ses-app/pages/login/index.vue",
-    "chunkName": "pages/login/index",
-    "_name": "_10dd3498"
+    "chunkName": "pages/login/index"
   },
   {
     "name": "profile",
     "path": "/profile",
     "component": "/Users/simon/Repos/ses-app/pages/profile.vue",
-    "chunkName": "pages/profile",
-    "_name": "_32ec51d6"
+    "chunkName": "pages/profile"
   },
   {
     "name": "schedule",
     "path": "/schedule",
     "component": "/Users/simon/Repos/ses-app/pages/schedule.vue",
-    "chunkName": "pages/schedule",
-    "_name": "_2cb9164a"
+    "chunkName": "pages/schedule"
   },
   {
     "name": "slots",
     "path": "/slots",
     "component": "/Users/simon/Repos/ses-app/pages/slots.vue",
-    "chunkName": "pages/slots",
-    "_name": "_ca517abe"
+    "chunkName": "pages/slots"
   },
   {
     "name": "table",
     "path": "/table",
     "component": "/Users/simon/Repos/ses-app/pages/table.vue",
-    "chunkName": "pages/table",
-    "_name": "_0b5c988c"
+    "chunkName": "pages/table"
   },
   {
     "name": "companies-biteline",
     "path": "/companies/biteline",
     "component": "/Users/simon/Repos/ses-app/pages/companies/biteline.vue",
-    "chunkName": "pages/companies/biteline",
-    "_name": "_5cb4a538"
+    "chunkName": "pages/companies/biteline"
   },
   {
     "name": "companies-Coupon",
     "path": "/companies/Coupon",
     "component": "/Users/simon/Repos/ses-app/pages/companies/Coupon.vue",
-    "chunkName": "pages/companies/Coupon",
-    "_name": "_662b13be"
+    "chunkName": "pages/companies/Coupon"
   },
   {
     "name": "companies-InterSport",
     "path": "/companies/InterSport",
     "component": "/Users/simon/Repos/ses-app/pages/companies/InterSport.vue",
-    "chunkName": "pages/companies/InterSport",
-    "_name": "_2d8902e0"
+    "chunkName": "pages/companies/InterSport"
   },
   {
     "name": "login-callback",
     "path": "/login/callback",
     "component": "/Users/simon/Repos/ses-app/pages/login/callback.vue",
-    "chunkName": "pages/login/callback",
-    "_name": "_287a8122"
+    "chunkName": "pages/login/callback"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/Users/simon/Repos/ses-app/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_40b67ebe"
+    "chunkName": "pages/index"
   }
 ]
