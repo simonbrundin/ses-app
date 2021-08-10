@@ -1,1 +1,0 @@
-window.__NUXT__=(function(a,b){return {staticAssetsBase:"\u002Fstatic\u002F1628623116",layout:"default",error:a,state:a,serverRendered:false,routePath:"\u002Fprofile",config:{axios:{browserBaseURL:"http:\u002F\u002Flocalhost:4000"},_app:{basePath:b,assetsPath:b,cdnURL:a}}}}(null,"\u002F"));
