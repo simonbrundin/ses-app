@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/companies/Biteline", {data:[{}],fetch:{},mutations:[]});
