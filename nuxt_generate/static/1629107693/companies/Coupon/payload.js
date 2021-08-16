@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/companies/Coupon", {data:[{}],fetch:{},mutations:[]});
