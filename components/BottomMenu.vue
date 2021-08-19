@@ -4,21 +4,21 @@
       <Icons-IconCup class="icon" />
       <div v-if="showIconTexts" class="menu-item-text gold">Tabell</div>
     </nuxt-link> --><nuxt-link to="/">
-      <Icons-IconHome class="icon" />
+      <IconsIconHome class="icon" />
       <div v-if="showIconTexts" class="menu-item-text gold">Start</div>
     </nuxt-link>
     <nuxt-link to="/slots">
-      <Icons-IconCalendar class="icon" />
+      <IconsIconCalendar class="icon" />
       <div v-if="showIconTexts" class="menu-item-text gold">Luckor</div>
     </nuxt-link>
 
     <nuxt-link to="/coupons">
-      <Icons-IconStore class="icon" />
+      <IconsIconStore class="icon" />
 
       <div v-if="showIconTexts" class="menu-item-text gold">Kuponger</div>
     </nuxt-link>
     <nuxt-link to="/schedule">
-      <Icons-IconClock class="icon" />
+      <IconsIconClock class="icon" />
       <div v-if="showIconTexts" class="menu-item-text gold">Boka tid</div>
     </nuxt-link>
   </div>

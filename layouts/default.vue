@@ -4,7 +4,6 @@
       <nuxt />
     </div>
 
-    <AddToHomeBtn />
     <Notifications />
     <BottomMenu />
   </div>
@@ -15,12 +14,13 @@ export default {
   setup() {
     return {};
   },
-  created() {
-    this.requestData();
-  },
+  created() {},
   mounted() {
     this.checkNotifications();
-    this.login();
+    // this.login();
+    if (this.$auth.loggedIn) {
+      this.requestData();
+    }
   },
   methods: {
     async requestData() {
@@ -50,9 +50,14 @@ export default {
     login() {
       try {
         if (!this.$auth.loggedIn) {
-          this.$auth.$auth.loginWith('auth0');
+          this.$auth.loginWith('auth0');
+          console.log('Loggar in...');
+        } else {
+          this.requestData();
         }
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     },
     // async checkUpdate() {
     //   const workbox = await window.$workbox;

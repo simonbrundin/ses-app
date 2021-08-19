@@ -9,7 +9,7 @@
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
     "deploy": "npm run generate && npm run push",
-    "push": "gh-pages -d dist"
+    "push": "gh-pages -d nuxt_generate"
   },
   "dependencies": {
     "@babel/core": "^7.15.0",

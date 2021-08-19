@@ -5,21 +5,21 @@
     <!-- <Login v-if="!$auth.loggedIn" class="notification" /> -->
     <!-- Betalning saknas -->
 
-    <Notifications-Payment
+    <NotificationsPayment
       v-if="!$store.state.notifications.payment"
       class="fullscreen"
     />
     <!-- Bekräfta lediga luckor -->
-    <Notifications-ConfirmGame
+    <NotificationsConfirmGame
       v-if="!$store.state.notifications.confirmGame"
       class="fullscreen"
     />
     <!-- Lägg till i kalender -->
-    <Notifications-AddToCalendar
+    <NotificationsAddToCalendar
       v-if="!$store.state.notifications.addToCalendar"
       class="fullscreen"
     />
-    <Notifications-ScheduleInstructions
+    <NotificationsScheduleInstructions
       v-if="$store.state.notifications.scheduleInstructions"
       class="fullscreen"
     />

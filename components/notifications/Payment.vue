@@ -1,7 +1,7 @@
 <template>
   <div v-if="$store.state.user.dept > 0" id="notification-payment" class="card">
     <img src="../../assets/swish.png" alt="" class="swish-img" />
-    <div>Betala för senaste matchen :)</div>
+    <div>Betala för senaste matchen</div>
     <button @click="pay">Betala nu</button>
   </div>
 </template>

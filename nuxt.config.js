@@ -1,22 +1,24 @@
 export default {
+  modules: [
+    '@nuxtjs/style-resources',
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy',
+    // '@nuxtjs/pwa',
+    '@nuxtjs/auth-next',
+    '@nuxtjs/dotenv',
+  ],
+  target: 'static',
+  ssr: false,
   server: {
     port: 3000, // default: 3000
-    // https: {
-    //   key: fs.readFileSync(path.resolve(__dirname, 'server.key')),
-    //   cert: fs.readFileSync(path.resolve(__dirname, 'server.crt')),
-    // },
-    // host: '0.0.0.0', // default: localhost
-  }, // other configs
-  // https://nuxtjs.org/docs/2.x/configuration-glossary/
-  target: 'static',
-  // ssr: false,
+  },
   plugins: [
     { src: '~/plugins/pwa-update.js', mode: 'client' },
-    // { src: '~/plugins/https.js', mode: 'client' },
+    // { src: '~/plugins/axios.js', mode: 'client' },
   ],
-  buildDir: '/',
+  buildDir: 'nuxt_dev',
   build: {
-    publicPath: '/',
+    publicPath: 'nuxt_generate',
     babel: {
       plugins: [
         ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
@@ -30,17 +32,9 @@ export default {
   router: {
     middleware: ['auth'],
     // base: '/',
+    // trailingSlash: true,
   },
 
-  // plugins: ['~/plugins/axios'],
-  modules: [
-    '@nuxtjs/style-resources',
-    '@nuxtjs/axios',
-    '@nuxtjs/proxy',
-    '@nuxtjs/pwa',
-    '@nuxtjs/auth-next',
-    '@nuxtjs/dotenv',
-  ],
   buildModules: ['@nuxtjs/pwa', '@nuxtjs/eslint-module', '@nuxtjs/dotenv'],
   head: {
     title: 'SuperElitSerien',
@@ -58,51 +52,46 @@ export default {
   },
   // Allows page refresh to work on github pages
   generate: {
+    dir: 'nuxt_generate',
     fallback: '404.html',
   },
   // https://go.nuxtjs.dev/config-axios
-  // axios: {
-  //   baseURL: process.env.BACKEND_SERVER_DEV,
-  // },
+  axios: {
+    // proxy: true,
+    baseURL: process.env.BACKEND_SERVER_PROD,
+  },
   publicRuntimeConfig: {
     axios: {
-      browserBaseURL: process.env.BACKEND_SERVER_DEV,
+      browserBaseURL: process.env.BACKEND_SERVER_PROD,
     },
   },
 
   privateRuntimeConfig: {
     axios: {
-      baseURL:
-        process.env.NODE_ENV !== 'production'
-          ? process.env.BACKEND_SERVER_DEV
-          : process.env.BACKEND_SERVER_PROD,
+      baseURL: process.env.BACKEND_SERVER_DEV,
     },
   },
-  // https://pwa.nuxtjs.org/
   pwa: {
     manifest: {
       name: 'SuperElitSerien',
       short_name: 'SES',
       lang: 'sv-SE',
       display: 'standalone',
-      // start_url: '',
+      // start_url: '/',
     },
     // workbox: {},
   },
-  // https://dev.auth.nuxtjs.org/api/options
   auth: {
     redirect: {
-      login: '/login/',
+      login: '/auth',
       logout: '/',
-      callback: '/login/callback/',
+      callback: '/auth/logged-in',
       home: '/',
     },
-    watchLoggedIn: true,
     strategies: {
       auth0: {
         domain: process.env.AUTH0_DOMAIN,
         clientId: process.env.AUTH0_CLIENT_ID,
-        audience: 'https://simonbrundin.eu.auth0.com/api/v2/',
       },
       facebook: {
         endpoints: {
